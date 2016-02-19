@@ -78,7 +78,7 @@ function onSpeak(player, type, message)
 		end
 	end
 	
-	--player:addCondition( createMutedCondition( 10000 ) )
+	player:addCondition( createMutedCondition( 10000 ) )
 	
 	return type
 end
