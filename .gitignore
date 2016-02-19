@@ -8,7 +8,7 @@ data/world/*
 ## pliki cmake generujemy, nie wrzucamy do repo
 ## (ref. -> readme)
 
-build/CMake*
+build/*
 
 
 ## default config
