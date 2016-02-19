@@ -66,7 +66,7 @@ mysqlSock = ""
 -- Misc.
 allowChangeOutfit = true
 freePremium = true
-kickIdlePlayerAfterMinutes = 1440
+kickIdlePlayerAfterMinutes = 60
 maxMessageBuffer = 15
 emoteSpells = true
 classicEquipmentSlots = true
