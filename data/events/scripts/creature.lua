@@ -19,9 +19,12 @@ function Creature:onTargetCombat(target)
 				return true
 			else
 				if master:isPlayer() then
-					local party, targetParty = self:getParty(), master:getParty()		
+					local party, targetParty = self:getParty(), master:getParty()
+					local guild, targetGuild = self:getGuild(), master:getGuild()
 					
 					if (( party and targetParty ) and party == targetParty) then
+						return true
+					elseif guild and targetGuild and guild:getId() == targetGuild:getId() then
 						return true
 					elseif master:getLevel() < protection_level or self:getLevel() < protection_level then
 						return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER
