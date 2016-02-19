@@ -1,17 +1,56 @@
-forgottenserver [![Build Status](https://travis-ci.org/otland/forgottenserver.svg?branch=master)](https://travis-ci.org/otland/forgottenserver)
-===============
+# mirkots-engine
+_Silnik serwera MirkOTS na bazie The Forgotten Server._
 
-The Forgotten Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [OpenTibia Server](https://github.com/opentibia/server) project. To connect to the server, you can use [OTClient](https://github.com/edubart/otclient).
+Przed instalacją prosimy o podejrzenie "licencji" (niżej).
 
-### Getting Started
+# instalacja
 
-* [Compiling](https://github.com/otland/forgottenserver/wiki/Compiling), alternatively download [nightly builds for Windows](http://nightlies.otland.net/)
-* [Scripting Reference](https://github.com/otland/forgottenserver/wiki/Script-Interface)
+## linux
+obecnie wspieramy tylko i wyłącznie linuksa, najlepiej debiano-pochodnego.
 
-### Support
+*UWAGA!* Na uwadze trzeba mieć, aby kernel *nie* miał magicznych zabezpieczeń związanych z zarządzaniem pamięcią, np. _grsec_.
+TFS ma wtedy tendencje do rzucania segfaultami.
+### środowisko
+#### ubuntu 14.04 LTS
 
-If you need help, please visit the [support forum on OTLand](https://otland.net/forums/support.16/). Our issue tracker is not a support forum, and using it as one will result in your issue being closed. If you were unable to get assistance in the support forum, you should consider [becoming a premium user on OTLand](https://otland.net/account/upgrades) which grants you access to the premium support forum and supports OTLand financially.
+[sugerowane pakiety **(zredaguj, zanim użyjesz)**](http://d.gimb.us/b/047b0de7df56844e9b62587240e4c52a.txt)
 
-### Issues
+[**oficjalna lista pakietów**]()
+### kompilowanie
+ 
+ - `cd mirkots-engine/build`
+ - `cmake ..`
+ - `make -jLICZBA_RDZENI (np. make -j8)`
+ - `cd .. && cp build/tfs .`
 
-We use the [issue tracker on GitHub](https://github.com/otland/forgottenserver/issues). Keep in mind that everyone who is watching the repository gets notified by e-mail when there is activity, so be thoughtful and avoid writing comments that aren't meaningful for an issue (e.g. "+1"). If you'd like for an issue to be fixed faster, you should either fix it yourself and submit a pull request, or place a bounty on the issue.
+Serwer jest gotowy do uruchomienia.
+
+### konfiguracja
+
+mirkots-engine/config.lua
+
+## gałęzie
+
+### master
+jak sama nazwa wskazuje - serwer produkcyjny, gotowe wydania nie zawierające nowych błędów, a raczej naprawiające stare, lub implementujące nowe, sprawdzone i działające ficzery
+
+### development
+gałąź w której dodajemy świeże ficzery, nowe elementy rozgrywki. Server staging.
+
+### inne
+w zależności od (pomysłu|zmian), mogą pojawić się inne gałęzie, specjalnie pod dany proces związany z rzeźbieniem mirkots-engine
+
+## autorzy
+- Jan ~marahin Matusz, www.marahin.pl
+- _mirkots-engine_ *jest forkiem [_The Forgotten Server_]()*, [lista autorów](https://github.com/otland/forgottenserver/graphs/contributors)
+
+## "licencja"
+Silnik serwera (_mirkots-engine_) *jest forkiem* [The Forgotten Server](). [MirkOTS](www.mirkots.pl) ani twórcy mirkots-engine nie ponoszą żadnych korzyści z rozszerzania tego silnika.
+
+Silnik nie może być udostępniany osobom trzecim, nie mającym dostępu do tego repozytorium - ze względów bezpieczeństwa. Zamiast tego, prosimy o linkowanie to The Forgotten Server.
+
+Wykorzystywanie błędów, upublicznianie kodu bez dobrego wyjaśnienia (tj. w celu trolowania, publikowania błędu, aby mogła z niego korzystać szersza liczba osób lub po prostu - więcej osób) jest zabronione.
+
+### Wykorzystanie jakichkolwiek części kodu we własnym projekcie
+Mile widziane jest najpierw zadanie pytania, czy możesz skorzystać z autorskiego kodu z tego repozytorium.
+Obowiązkowo musisz określić autora, podlinkować do stron autorów i określić z jakiego projektu brany był kod.
