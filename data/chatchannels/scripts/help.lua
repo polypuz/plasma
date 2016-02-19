@@ -1,15 +1,11 @@
 local CHANNEL_HELP = 7
 
 function createMutedCondition( time )
-	if not (type(time) == "number" and type =~ nil and type > 0) then
-		time = 60000
-	end	
-	
-	--[[local muted = Condition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT)
+	local muted = Condition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT)
 	muted:setParameter(CONDITION_PARAM_SUBID, CHANNEL_HELP)
 	muted:setParameter(CONDITION_PARAM_TICKS, time)
 	
-	return muted]]
+	return muted
 end
 
 function onSpeak(player, type, message)
