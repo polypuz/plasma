@@ -78,7 +78,9 @@ function onSpeak(player, type, message)
 		end
 	end
 	
-	player:addCondition( createMutedCondition( 10000 ) )
+	if playerAccountType < ACCOUNT_TYPE_TUTOR then
+		player:addCondition( createMutedCondition( 10000 ) )
+	end
 	
 	return type
 end
