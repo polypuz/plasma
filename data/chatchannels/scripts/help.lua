@@ -1,5 +1,5 @@
 local CHANNEL_HELP = 7
-
+--[[
 function createMutedCondition( time )
 	if not (type(time) == "number" and type =~ nil and type > 0) then
 		time = 60000
@@ -10,7 +10,7 @@ function createMutedCondition( time )
 	
 	return muted
 end
-
+]]
 function onSpeak(player, type, message)
 	local playerAccountType = player:getAccountType()
 	if player:getLevel() == 1 and playerAccountType == ACCOUNT_TYPE_NORMAL then
@@ -81,7 +81,7 @@ function onSpeak(player, type, message)
 		end
 	end
 	
-	player:addCondition( createMutedCondition( 10000 ) )
+	--player:addCondition( createMutedCondition( 10000 ) )
 	
 	return type
 end
