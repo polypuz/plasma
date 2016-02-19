@@ -1,0 +1,17 @@
+## mapa nie nalezy do mirkots-engine, nie jest uwzgledniana w tym repozytorium
+## skorzystajcie z dowolnej mapy znalezionej na OTland.net
+## w celu uruchomienia serwera
+## (google -> site:otland.net map)
+
+data/world/*
+
+## pliki cmake generujemy, nie wrzucamy do repo
+## (ref. -> readme)
+
+build/CMake*
+
+
+## default config
+## konfig generyczny dostepny w root folderze o nazwie
+## config-EXAMPLE.lua
+config.lua

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels>
+	<channel id="2" name="Tutor" logged="yes" script="tutor.lua" />
+	<channel id="3" name="Mirkoczat" public="1" logged="yes" script="worldchat.lua" />
+	<channel id="5" name="Handel" public="1" logged="yes" script="advertising.lua" />
+	<channel id="7" name="Pomoc" public="1" logged="yes" script="help.lua" />
+	<channel id="8" name="Gamemaster" script="gamemaster.lua" />
+</channels>

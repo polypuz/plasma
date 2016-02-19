@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalevents>
+	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
+	<globalevent type="record" name="PlayerRecord" script="record.lua" />
+	<globalevent name="Server Save 00:30" time="00:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 01:30" time="01:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 02:30" time="02:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 03:30" time="03:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 04:30" time="04:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 05:30" time="05:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 06:30" time="06:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 07:30" time="07:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 08:30" time="08:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 09:30" time="09:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 10:30" time="10:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 11:30" time="11:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 12:30" time="12:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 13:30" time="13:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 14:30" time="14:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 15:30" time="15:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 16:30" time="16:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 17:30" time="17:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 18:30" time="18:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 19:30" time="19:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 20:30" time="20:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 21:30" time="21:30:00" script="serversave.lua" />
+	<globalevent name="Server Save 22:30" time="22:30:00" script="serversave.lua" />
+	<!--
+	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
+	-->
+</globalevents>

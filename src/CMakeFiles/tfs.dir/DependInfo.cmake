@@ -1,0 +1,97 @@
+# The set of languages for which implicit dependencies are needed:
+SET(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
+  )
+# The set of files for implicit dependencies of each language:
+SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/marahin/forgottenserver/src/actions.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/actions.cpp.o"
+  "/home/marahin/forgottenserver/src/ban.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/ban.cpp.o"
+  "/home/marahin/forgottenserver/src/baseevents.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/baseevents.cpp.o"
+  "/home/marahin/forgottenserver/src/bed.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/bed.cpp.o"
+  "/home/marahin/forgottenserver/src/chat.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/chat.cpp.o"
+  "/home/marahin/forgottenserver/src/combat.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/combat.cpp.o"
+  "/home/marahin/forgottenserver/src/commands.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/commands.cpp.o"
+  "/home/marahin/forgottenserver/src/condition.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/condition.cpp.o"
+  "/home/marahin/forgottenserver/src/configmanager.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/configmanager.cpp.o"
+  "/home/marahin/forgottenserver/src/connection.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/connection.cpp.o"
+  "/home/marahin/forgottenserver/src/container.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/container.cpp.o"
+  "/home/marahin/forgottenserver/src/creature.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/creature.cpp.o"
+  "/home/marahin/forgottenserver/src/creatureevent.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/creatureevent.cpp.o"
+  "/home/marahin/forgottenserver/src/cylinder.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/cylinder.cpp.o"
+  "/home/marahin/forgottenserver/src/database.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/database.cpp.o"
+  "/home/marahin/forgottenserver/src/databasemanager.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/databasemanager.cpp.o"
+  "/home/marahin/forgottenserver/src/databasetasks.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/databasetasks.cpp.o"
+  "/home/marahin/forgottenserver/src/depotchest.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/depotchest.cpp.o"
+  "/home/marahin/forgottenserver/src/depotlocker.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/depotlocker.cpp.o"
+  "/home/marahin/forgottenserver/src/events.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/events.cpp.o"
+  "/home/marahin/forgottenserver/src/fileloader.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/fileloader.cpp.o"
+  "/home/marahin/forgottenserver/src/game.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/game.cpp.o"
+  "/home/marahin/forgottenserver/src/globalevent.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/globalevent.cpp.o"
+  "/home/marahin/forgottenserver/src/groups.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/groups.cpp.o"
+  "/home/marahin/forgottenserver/src/guild.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/guild.cpp.o"
+  "/home/marahin/forgottenserver/src/house.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/house.cpp.o"
+  "/home/marahin/forgottenserver/src/housetile.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/housetile.cpp.o"
+  "/home/marahin/forgottenserver/src/inbox.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/inbox.cpp.o"
+  "/home/marahin/forgottenserver/src/ioguild.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/ioguild.cpp.o"
+  "/home/marahin/forgottenserver/src/iologindata.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/iologindata.cpp.o"
+  "/home/marahin/forgottenserver/src/iomap.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/iomap.cpp.o"
+  "/home/marahin/forgottenserver/src/iomapserialize.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/iomapserialize.cpp.o"
+  "/home/marahin/forgottenserver/src/iomarket.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/iomarket.cpp.o"
+  "/home/marahin/forgottenserver/src/item.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/item.cpp.o"
+  "/home/marahin/forgottenserver/src/items.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/items.cpp.o"
+  "/home/marahin/forgottenserver/src/luascript.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/luascript.cpp.o"
+  "/home/marahin/forgottenserver/src/mailbox.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/mailbox.cpp.o"
+  "/home/marahin/forgottenserver/src/map.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/map.cpp.o"
+  "/home/marahin/forgottenserver/src/monster.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/monster.cpp.o"
+  "/home/marahin/forgottenserver/src/monsters.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/monsters.cpp.o"
+  "/home/marahin/forgottenserver/src/mounts.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/mounts.cpp.o"
+  "/home/marahin/forgottenserver/src/movement.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/movement.cpp.o"
+  "/home/marahin/forgottenserver/src/networkmessage.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/networkmessage.cpp.o"
+  "/home/marahin/forgottenserver/src/npc.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/npc.cpp.o"
+  "/home/marahin/forgottenserver/src/otpch.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/otpch.cpp.o"
+  "/home/marahin/forgottenserver/src/otserv.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/otserv.cpp.o"
+  "/home/marahin/forgottenserver/src/outfit.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/outfit.cpp.o"
+  "/home/marahin/forgottenserver/src/outputmessage.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/outputmessage.cpp.o"
+  "/home/marahin/forgottenserver/src/party.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/party.cpp.o"
+  "/home/marahin/forgottenserver/src/player.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/player.cpp.o"
+  "/home/marahin/forgottenserver/src/position.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/position.cpp.o"
+  "/home/marahin/forgottenserver/src/protocol.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/protocol.cpp.o"
+  "/home/marahin/forgottenserver/src/protocolgame.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/protocolgame.cpp.o"
+  "/home/marahin/forgottenserver/src/protocollogin.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/protocollogin.cpp.o"
+  "/home/marahin/forgottenserver/src/protocolold.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/protocolold.cpp.o"
+  "/home/marahin/forgottenserver/src/protocolstatus.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/protocolstatus.cpp.o"
+  "/home/marahin/forgottenserver/src/quests.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/quests.cpp.o"
+  "/home/marahin/forgottenserver/src/raids.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/raids.cpp.o"
+  "/home/marahin/forgottenserver/src/rsa.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/rsa.cpp.o"
+  "/home/marahin/forgottenserver/src/scheduler.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/scheduler.cpp.o"
+  "/home/marahin/forgottenserver/src/scriptmanager.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/scriptmanager.cpp.o"
+  "/home/marahin/forgottenserver/src/server.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/server.cpp.o"
+  "/home/marahin/forgottenserver/src/spawn.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/spawn.cpp.o"
+  "/home/marahin/forgottenserver/src/spells.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/spells.cpp.o"
+  "/home/marahin/forgottenserver/src/talkaction.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/talkaction.cpp.o"
+  "/home/marahin/forgottenserver/src/tasks.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/tasks.cpp.o"
+  "/home/marahin/forgottenserver/src/teleport.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/teleport.cpp.o"
+  "/home/marahin/forgottenserver/src/thing.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/thing.cpp.o"
+  "/home/marahin/forgottenserver/src/tile.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/tile.cpp.o"
+  "/home/marahin/forgottenserver/src/tools.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/tools.cpp.o"
+  "/home/marahin/forgottenserver/src/trashholder.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/trashholder.cpp.o"
+  "/home/marahin/forgottenserver/src/vocation.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/vocation.cpp.o"
+  "/home/marahin/forgottenserver/src/waitlist.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/waitlist.cpp.o"
+  "/home/marahin/forgottenserver/src/weapons.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/weapons.cpp.o"
+  "/home/marahin/forgottenserver/src/wildcardtree.cpp" "/home/marahin/forgottenserver/src/CMakeFiles/tfs.dir/wildcardtree.cpp.o"
+  )
+SET(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Targets to which this target links.
+SET(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/usr/include/mysql"
+  "/usr/include/lua5.2"
+  "/usr/include/x86_64-linux-gnu"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

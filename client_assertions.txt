@@ -1,0 +1,914 @@
+----- 14/01/2016 08:43:08 - Fanatyk Wedkarstwa (31.179.110.6) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Thu Jan 14 08:40:11 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in POL
+Processor: Intel Core i5 -3230M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 131 109 131 147 107 131 109 104 109 170
+Last Packet: 109 228 003 006 004 010 001 227 003 006 004 010 131 227 003 006
+Player Position: [1001,1029,8]
+Player Name: Fanatyk Wedkarstwa (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 41D64E0 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 925: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 7FFFFFFF)
+Comment: 
+----- 15/01/2016 13:14:37 - Fanatyk Wedkarstwa (188.146.135.189) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Fri Jan 15 13:11:45 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in POL
+Processor: Intel Core i5 -3230M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 170 133 180 131 140 131 180 131 140 109
+Last Packet: 131 211 003 249 003 010 040 140 249 135 000 064 027 131 211 003
+Player Position: [987,1019,10]
+Player Name: Fanatyk Wedkarstwa (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 4236BE8 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 925: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 7FFFFFFF)
+Comment: 
+----- 16/01/2016 00:52:11 - Caroru (84.205.16.220) -----
+Debug Assertion 10.77 Objects.cpp 607
+Sat Jan 16 00:49:21 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel CORE I3 M
+Video Card: ATI Mobility Radeon HD 4500 SERI
+Last Packet Types: 142 143 109 109 109 107 131 143 170 109
+Last Packet: 143 151 006 000 016 238 002 238 002 142 151 006 000 016 075 000
+Player Position: [919,1106,7]
+Player Name: Caroru (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 37FB450 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 409), reason:
+MapWindow.cpp 1313: exception occurred (posx = 96) (posy = 128), reason:
+MapWindow.cpp 1215: exception occurred (i = 0) (Creatures[i]->OutfitType = 75), reason:
+MapWindow.cpp 1180: exception occurred, reason:
+MapWindow.cpp 1495: exception occurred (posx = 88) (posy = 120), reason:
+Objects.cpp 1095: exception occurred (Number = 75), reason:
+Objects.cpp 607: assertion failed (PatternZ = 2) (FrameGroup.PatternDepth = 1), reason:
+In(PatternZ, 1, FrameGroup.PatternDepth)
+Comment: 
+----- 16/01/2016 00:52:22 - Dzikasuslica (153.19.227.29) -----
+Debug Assertion 10.77 Objects.cpp 607
+Sat Jan 16 00:49:20 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: AMD Athlon II X2 250
+Video Card: NVIDIA GeForce GT 440
+Last Packet Types: 142 143 109 107 131 143 030 170 109 140
+Last Packet: 143 151 006 000 016 238 002 238 002 142 151 006 000 016 075 000
+Player Position: [914,1099,7]
+Player Name: Dzikasuslica (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 3A666E0 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 7761), reason:
+MapWindow.cpp 1313: exception occurred (posx = 288) (posy = 352), reason:
+MapWindow.cpp 1215: exception occurred (i = 0) (Creatures[i]->OutfitType = 75), reason:
+MapWindow.cpp 1180: exception occurred, reason:
+MapWindow.cpp 1495: exception occurred (posx = 280) (posy = 344), reason:
+Objects.cpp 1095: exception occurred (Number = 75), reason:
+Objects.cpp 607: assertion failed (PatternZ = 2) (FrameGroup.PatternDepth = 1), reason:
+In(PatternZ, 1, FrameGroup.PatternDepth)
+Comment: 
+----- 16/01/2016 00:53:18 - Vomar (153.19.227.29) -----
+Debug Assertion 10.77 Objects.cpp 607
+Sat Jan 16 00:49:59 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -6600K @ 
+Video Card: NVIDIA GeForce GTX 970
+Last Packet Types: 133 180 131 106 108 140 133 180 131 106
+Last Packet: 140 017 118 002 064 034 108 146 003 080 004 007 001 106 146 003
+Player Position: [914,1100,7]
+Player Name: Vomar (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 1747: exception occurred (MaW: 3B71F30 MoW: 0 ), reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 7761), reason:
+MapWindow.cpp 1313: exception occurred (posx = 288) (posy = 320), reason:
+MapWindow.cpp 1215: exception occurred (i = 0) (Creatures[i]->OutfitType = 75), reason:
+MapWindow.cpp 1180: exception occurred, reason:
+MapWindow.cpp 1495: exception occurred (posx = 280) (posy = 312), reason:
+Objects.cpp 1095: exception occurred (Number = 75), reason:
+Objects.cpp 607: assertion failed (PatternZ = 2) (FrameGroup.PatternDepth = 1), reason:
+In(PatternZ, 1, FrameGroup.PatternDepth)
+Comment: 
+----- 16/01/2016 00:54:28 - Caroru (84.205.16.220) -----
+Debug Assertion 10.77 Objects.cpp 607
+Sat Jan 16 00:49:40 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel CORE I3 M
+Video Card: ATI Mobility Radeon HD 4500 SERI
+Last Packet Types: 162 159 141 130 161 160 121 120 120 120
+Last Packet: 023 016 010 000 016 050 000 003 015 021 013 128 003 169 252 003
+Player Position: [920,1109,7]
+Player Name: Caroru (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 1747: exception occurred (MaW: 3928B70 MoW: 0 ), reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 409), reason:
+MapWindow.cpp 1313: exception occurred (posx = 96) (posy = 32), reason:
+MapWindow.cpp 1215: exception occurred (i = 0) (Creatures[i]->OutfitType = 75), reason:
+MapWindow.cpp 1180: exception occurred, reason:
+MapWindow.cpp 1495: exception occurred (posx = 88) (posy = 24), reason:
+Objects.cpp 1095: exception occurred (Number = 75), reason:
+Objects.cpp 607: assertion failed (PatternZ = 2) (FrameGroup.PatternDepth = 1), reason:
+In(PatternZ, 1, FrameGroup.PatternDepth)
+Comment: 
+----- 16/01/2016 03:16:53 - Vomar (153.19.227.29) -----
+Debug Assertion 10.77 Communication.cpp 2247
+Sat Jan 16 03:14:09 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -6600K @ 
+Video Card: NVIDIA GeForce GTX 970
+Last Packet Types: 100 109 109 109 109 109 109 109 104 109
+Last Packet: 100 049 002 199 003 001 000 000 251 003 255 048 001 255 073 024
+Player Position: [568,967,7]
+Player Name: Vomar (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 100) (MainWindow = 63407488), reason:
+Communication.cpp 2312: exception occurred (PlayerX = 561) (PlayerY = 967), reason:
+Communication.cpp 2290: exception occurred (xmin = 0) (ymin = 0), reason:
+Communication.cpp 2269: exception occurred (Type = 0) (OldType = 98), reason:
+Communication.cpp 2247: client recieved field with type 0 (2,3,0)
+Comment: 
+----- 16/01/2016 03:24:06 - Elfikwzbozu (88.156.133.205) -----
+Debug Assertion 10.77 Communication.cpp 2247
+Sat Jan 16 03:21:21 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i7 -2820QM @
+Video Card: NVIDIA GeForce GTX 580M
+Last Packet Types: 100 109 131 109 140 140 140 140 140 109
+Last Packet: 100 049 002 199 003 001 000 000 251 003 255 048 001 255 073 024
+Player Position: [568,967,7]
+Player Name: Elfikwzbozu (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 100) (MainWindow = 67928520), reason:
+Communication.cpp 2312: exception occurred (PlayerX = 561) (PlayerY = 967), reason:
+Communication.cpp 2290: exception occurred (xmin = 0) (ymin = 0), reason:
+Communication.cpp 2269: exception occurred (Type = 0) (OldType = 98), reason:
+Communication.cpp 2247: client recieved field with type 0 (7,6,0)
+Comment: 
+----- 16/01/2016 03:50:10 - Chuffi (87.206.98.216) -----
+Debug Assertion 10.77 Communication.cpp 2247
+Sat Jan 16 03:47:23 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: Intel Core i5 -4460 @ 3
+Video Card: NVIDIA GeForce GTX 760
+Last Packet Types: 100 131 131 109 109 109 109 162 109 131
+Last Packet: 100 049 002 200 003 001 000 000 251 003 255 000 255 000 000 251
+Player Position: [563,969,3]
+Player Name: Chuffi (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 100) (MainWindow = 65072672), reason:
+Communication.cpp 2312: exception occurred (PlayerX = 561) (PlayerY = 968), reason:
+Communication.cpp 2290: exception occurred (xmin = 0) (ymin = 0), reason:
+Communication.cpp 2269: exception occurred (Type = 0) (OldType = 98), reason:
+Communication.cpp 2247: client recieved field with type 0 (3,3,0)
+Comment: 
+----- 16/01/2016 14:19:05 - Dreth (89.67.146.27) -----
+Debug Assertion 10.77 Communication.cpp 2247
+Sat Jan 16 14:16:09 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -4690K @ 
+Video Card: ATI Radeon AMD R9 20
+Last Packet Types: 100 109 104 109 104 109 104 109 104 109
+Last Packet: 100 049 002 199 003 001 000 000 251 003 255 048 001 255 073 024
+Player Position: [568,967,7]
+Player Name: Dreth (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 100) (MainWindow = 62468320), reason:
+Communication.cpp 2312: exception occurred (PlayerX = 561) (PlayerY = 967), reason:
+Communication.cpp 2290: exception occurred (xmin = 0) (ymin = 0), reason:
+Communication.cpp 2269: exception occurred (Type = 0) (OldType = 98), reason:
+Communication.cpp 2247: client recieved field with type 0 (4,13,0)
+Comment: wejscie na lizardy lol schody te wielokrotne
+----- 16/01/2016 14:38:19 - Dreth (89.67.146.27) -----
+Debug Assertion 10.77 Communication.cpp 2247
+Sat Jan 16 14:35:36 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -4690K @ 
+Video Card: ATI Radeon AMD R9 20
+Last Packet Types: 100 108 106 109 109 109 109 109 162 029
+Last Packet: 108 042 002 206 003 003 001 100 042 002 207 003 004 000 000 251
+Player Position: [554,974,3]
+Player Name: Dreth (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 100) (MainWindow = 63197824), reason:
+Communication.cpp 2312: exception occurred (PlayerX = 554) (PlayerY = 975), reason:
+Communication.cpp 2290: exception occurred (xmin = 0) (ymin = 0), reason:
+Communication.cpp 2269: exception occurred (Type = 0) (OldType = 98), reason:
+Communication.cpp 2247: client recieved field with type 0 (4,13,0)
+Comment: lizardy zas
+----- 16/01/2016 23:48:00 - Aceroxik (89.229.168.202) -----
+Debug Assertion 10.90 Graphics.cpp 1106
+Sat Jan 16 22:59:21 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -3337U @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 107 162 100 108 103 109 108 103 109 108
+Last Packet: 109 097 126 222 125 007 002 097 126 223 125 007 103 000 000 173
+Player Position: [32252,32204,8]
+Player Name: Acerox (Eldera-Global)
+Player Action: 048 046 048 046 048 046 048 058 055 050 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2157: exception occurred (MessageType: 0 MaW: 3433D28 MoW: 0), reason:
+Control.cpp 2152: exception occurred, reason:
+Control.cpp 539: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 137: exception occurred (Surface = 1), reason:
+GUI.cpp 1807: exception occurred (Surface = 1), reason:
+MapWindow.cpp 985: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 1128), reason:
+MapWindow.cpp 1323: exception occurred (posx = 0) (posy = 64), reason:
+MapWindow.cpp 1321: exception occurred, reason:
+MapWindow.cpp 1422: exception occurred (Debug: 11 Type: 22503 Coord: 32245/32201/8 PX: 1 PY: 1 PZ: 1 Ph: 1 DX: 0 DY: 0 W: 2 H: 2 L: 2 X: 1 Y: 1 L: 1 S: 302838), reason:
+MapWindow.cpp 1560: exception occurred (SpriteNumber = 302838), reason:
+MapWindow.cpp 1611: exception occurred (SpriteNumber = 302838), reason:
+Graphics.cpp 1106: assertion failed (SpriteNumber = 302838) (NumberOfSprites = 276480), reason:
+In(SpriteNumber,1,NumberOfSprites)
+
+----- 18/01/2016 22:44:15 - Pan Adolf (84.234.36.107) -----
+Debug Assertion 8.60 Network.cpp 921
+Mon Jan 18 13:52:43 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 32 Bit in POL
+Processor: Intel Celeron N2830 @ 2
+Video Card: Intel (R) HD GR
+Last Packet Types: 132 180 131 106 105 108 140 140 107 105
+Last Packet: 109 082 001 242 000 009 002 082 001 241 000 009 105 082 001 242
+Player Position: [336,241,9]
+Player Name: Pan Adolf (Tic-Tac Server)
+Player Action: 049 057 056 046 049 048 048 046 049 053 057 046 049 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Network.cpp 946: exception occurred (ErrorCode = 0), reason:
+Network.cpp 921: assertion failed (BufferSize = 0) (NextToWrite = 16394), reason:
+BufferSize>0
+Comment: 
+----- 24/01/2016 00:56:54 - Sneaky Lemoy (31.178.8.54) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 00:56:23 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Business Edition 64 Bit in POL
+Processor: Intel Core i5 760 @ 2.8
+Video Card: NVIDIA GeForce GTX 660
+Last Packet Types: 131 108 109 170 109 144 106 108 170 109
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [932,1106,7]
+Player Name: Sneaky Lemoy (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 58740680), reason:
+Communication.cpp 3133: exception occurred (rx = 1) (ry = 3), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 00:57:27 - Niechetny Bardzo (89.74.38.54) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 00:56:09 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Home Edition in POL
+Processor: Intel Core i7 -4790K @ 
+Video Card: ATI Radeon AMD R9 20
+Last Packet Types: 131 108 170 109 144 131 170 109 109 109
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [924,1106,7]
+Player Name: Niechetny Bardzo (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 71064320), reason:
+Communication.cpp 3133: exception occurred (rx = 9) (ry = 3), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: bug
+----- 24/01/2016 01:03:30 - Revi (185.55.65.84) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 01:03:31 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -3210M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 131 108 029 170 109 109 131 109 131 131
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [930,1107,9]
+Player Name: Revi (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 55117296), reason:
+Communication.cpp 3133: exception occurred (rx = 1) (ry = 0), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 01:03:41 - Pavulon (81.190.120.174) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 01:03:22 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Business Edition 32 Bit in POL
+Processor: Intel Core 2 DUO P7350
+Video Card: NVIDIA GeForce 9300M GS
+Last Packet Types: 131 108 109 180 170 109 029 180 106 108
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [926,1107,7]
+Player Name: Pavulon (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 44726680), reason:
+Communication.cpp 3133: exception occurred (rx = 7) (ry = 2), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 01:03:51 - Niechetny Bardzo (89.74.38.54) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 01:02:52 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Home Edition in POL
+Processor: Intel Core i7 -4790K @ 
+Video Card: ATI Radeon AMD R9 20
+Last Packet Types: 131 108 109 170 109 109 109 106 108 109
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [924,1106,7]
+Player Name: Niechetny Bardzo (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 71080416), reason:
+Communication.cpp 3133: exception occurred (rx = 9) (ry = 3), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: kurwa
+----- 24/01/2016 16:43:17 - Maxx (185.7.168.118) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 00:56:16 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Business Edition 64 Bit in POL
+Processor: Intel Pentium G850 @ 2.
+Video Card: ATI Radeon HD AMD 6700 
+Last Packet Types: 131 108 109 170 109 144 106 108 029 170
+Last Packet: 108 157 003 079 004 007 002 131 157 003 079 004 007 000 000 000
+Player Position: [928,1108,7]
+Player Name: Maxx (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 57269720), reason:
+Communication.cpp 3133: exception occurred (rx = 5) (ry = 1), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 17:48:23 - Rahan (5.172.252.56) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 18:47:23 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -4210U @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 131 107 109 109 109 109 109 109 109 109
+Last Packet: 107 157 003 091 004 007 002 018 029 255 131 157 003 091 004 007
+Player Position: [933,1111,7]
+Player Name: Rahan (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 54253392), reason:
+Communication.cpp 3133: exception occurred (rx = 0) (ry = 10), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 19:55:10 - Garet (89.229.193.214) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 19:54:00 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -4590 @ 3
+Video Card: NVIDIA GeForce GTX 960
+Last Packet Types: 131 107 109 107 106 140 109 180 131 140
+Last Packet: 107 237 001 105 006 006 001 018 029 255 131 237 001 105 006 006
+Player Position: [493,1639,6]
+Player Name: Garet (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 62044056), reason:
+Communication.cpp 3133: exception occurred (rx = 8) (ry = 8), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 19:56:54 - Aberagor (91.123.221.66) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 19:56:32 2016
+Graphic Engine: DirectX5 (0)
+Operating System: Windows 7 Business Edition 64 Bit in POL
+Processor: Dual Core AMD Athlon 64 X2 440
+Video Card: NVIDIA GeForce 9500 GT
+Last Packet Types: 131 108 180 109 106 108 109 107 108 109
+Last Packet: 180 021 022 000 089 111 117 032 098 114 111 107 101 032 116 104
+Player Position: [927,1104,7]
+Player Name: Aberagor (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 54813976), reason:
+Communication.cpp 3133: exception occurred (rx = 8) (ry = 5), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 19:57:00 - Piranos (185.21.37.139) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 19:52:41 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -4440 @ 3
+Video Card: NVIDIA GeForce GTX 650
+Last Packet Types: 131 108 109 109 170 131 106 109 108 109
+Last Packet: 108 159 003 079 004 007 002 131 159 003 079 004 007 000 000 000
+Player Position: [931,1104,7]
+Player Name: Piranos (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 55222400), reason:
+Communication.cpp 3133: exception occurred (rx = 4) (ry = 5), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 19:57:20 - Oreis (31.174.145.254) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 19:56:32 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Business Edition 64 Bit in POL
+Processor: Intel Core i5 -2430M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 131 108 109 109 170 131 106 109 108 109
+Last Packet: 108 159 003 079 004 007 002 131 159 003 079 004 007 000 000 000
+Player Position: [935,1104,7]
+Player Name: Oreis (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 57217744), reason:
+Communication.cpp 3133: exception occurred (rx = 0) (ry = 5), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 19:59:07 - Igexd (185.50.49.133) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 19:56:41 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel GENUINE U
+Video Card: Mobile Intel (R) 4 SER
+Last Packet Types: 131 108 109 170 131 106 108 109 107 108
+Last Packet: 108 159 003 079 004 007 002 131 159 003 079 004 007 000 000 000
+Player Position: [933,1106,7]
+Player Name: Igexd (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 56498624), reason:
+Communication.cpp 3133: exception occurred (rx = 2) (ry = 3), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: i was in depo and before that i was in bank. 
+----- 24/01/2016 20:15:03 - Garet (89.229.193.214) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 20:13:54 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -4590 @ 3
+Video Card: NVIDIA GeForce GTX 960
+Last Packet Types: 131 107 109 170 109 109 170 131 170 106
+Last Packet: 107 166 003 086 004 008 002 018 029 255 131 166 003 086 004 008
+Player Position: [934,1109,8]
+Player Name: Garet (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 63429064), reason:
+Communication.cpp 3133: exception occurred (rx = 8) (ry = 7), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 20:15:17 - Bialkov (83.11.148.8) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 20:14:35 2016
+Graphic Engine: OpenGL (1)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core i5 -3210M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 131 107 109 170 160 109 109 170 131 170
+Last Packet: 107 166 003 086 004 008 002 018 029 255 131 166 003 086 004 008
+Player Position: [932,1104,8]
+Player Name: Bialkov (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 49614048), reason:
+Communication.cpp 3133: exception occurred (rx = 10) (ry = 12), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 20:17:32 - Bambo (84.10.234.156) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 20:15:46 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -4590 @ 3
+Video Card: ATI Radeon AMD R9 20
+Last Packet Types: 131 108 109 109 109 108 109 109 108 109
+Last Packet: 108 164 003 084 004 007 001 131 164 003 084 004 007 000 000 000
+Player Position: [923,1114,7]
+Player Name: Bambo (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 62837288), reason:
+Communication.cpp 3133: exception occurred (rx = 17) (ry = 0), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 20:18:01 - Kossano (46.113.0.229) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 20:15:49 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: AMD Athlon X4 620
+Video Card: NVIDIA GeForce 9500 GT
+Last Packet Types: 131 108 109 109 107 109 109 109 109 160
+Last Packet: 108 164 003 084 004 007 001 131 164 003 084 004 007 000 000 000
+Player Position: [939,1107,7]
+Player Name: Kossano (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 56896904), reason:
+Communication.cpp 3133: exception occurred (rx = 1) (ry = 7), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 24/01/2016 21:33:39 - Madga (109.241.68.137) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Sun Jan 24 21:29:14 2016
+Graphic Engine: OpenGL (1)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: Intel Core i5 -2500K @ 
+Video Card: ATI Radeon HD AMD 7800 
+Last Packet Types: 131 029 109 143 109 161 131 131 133 109
+Last Packet: 131 154 003 084 004 007 004 000 000 000 000 000 000 000 000 000
+Player Position: [914,1107,7]
+Player Name: Madga (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 3510848 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+SurfaceGL.cpp 1539: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 00000000)
+Comment: 
+----- 24/01/2016 22:49:20 - Woodev (77.65.84.247) -----
+Debug Assertion 10.77 Container.h 230
+Sun Jan 24 22:48:15 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows Vista Family in POL
+Processor: Intel Core i5 -4440 @ 3
+Video Card: NVIDIA GeForce GTX 750 TI
+Last Packet Types: 131 108 131 133 029 146 109 108 131 133
+Last Packet: 108 155 003 079 004 007 002 131 155 003 079 004 007 000 000 000
+Player Position: [923,1107,7]
+Player Name: Woodev (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 131) (MainWindow = 62801792), reason:
+Communication.cpp 3133: exception occurred (rx = 8) (ry = 2), reason:
+Map.cpp 938: exception occurred (Type = 0), reason:
+Container.h 230: index out of range (original i: 0, i: -1, min: 1, d: 170)
+Comment: 
+----- 27/01/2016 21:55:49 - Kafel (94.254.225.101) -----
+Debug Assertion 8.60 NWin32Exception.cpp 50
+Wed Jan 27 21:37:22 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Home Edition in POL
+Processor: Mobile AMD Sempron 3000+
+Video Card: NVIDIA GeForce FX GO5200
+Last Packet Types: 107 107 107 132 131 132 131 132 131 132
+Last Packet: 107 252 003 224 003 007 002 099 000 195 087 012 016 000 000 000
+Player Position: [1019,987,7]
+Player Name: Haraban (425 lvl MS)
+Player Action: 049 055 056 046 050 049 055 046 049 057 049 046 049 053 058 055 049 055 050
+Player.cpp 361: exception occurred, reason:
+Player.cpp 465: exception occurred, reason:
+Control.cpp 1728: exception occurred (MessageType: 0 MaW: 4EF3E40 MoW: 0), reason:
+Control.cpp 1723: exception occurred, reason:
+Control.cpp 386: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 138: exception occurred (Surface = 1), reason:
+NWin32Exception.cpp 50: win32 exception occurred, reason:
+access violation (read attempt at 00000044)
+Comment: 
+----- 28/01/2016 15:53:12 - Ap Shen (46.174.24.6) -----
+Debug Assertion 10.80 Container.h 230
+Sun Nov 15 03:23:41 2015
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: AMD FX -8320 
+Video Card: NVIDIA GeForce GTX 650 TI
+Last Packet Types: 200 131 131 161 180 131 106 108 140 131
+Last Packet: 131 168 125 040 126 008 003 131 168 125 040 126 008 004 200 128
+Player Position: [32160,32302,8]
+Player Name: Shen (Global Village)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2149: exception occurred (MessageType: 18 MaW: 3BED078 MoW: 0), reason:
+Control.cpp 2114: exception occurred (Type = 18), reason:
+Dialogs.cpp 398: exception occurred, reason:
+DialogsSelectOutfit.cpp 168: exception occurred, reason:
+Objects.cpp 1071: exception occurred (Number = 746), reason:
+Container.h 230: index out of range (original i: 746, i: 745, min: 1, d: 740)
+Comment: 
+----- 01/02/2016 02:47:38 - Kocham Mefedron (109.196.48.38) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Mon Feb 01 02:47:06 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows XP Professional in POL
+Processor: Dual Core AMD Athlon 64 X2 640
+Video Card: NVIDIA GeForce 7025 / NV
+Last Packet Types: 109 109 103 109 103 109 103 109 170 109
+Last Packet: 109 225 003 056 004 007 001 225 003 057 004 007 000 000 000 000
+Player Position: [994,1086,7]
+Player Name: Kocham Mefedron (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+MainFrm.cpp 965: exception occurred (nChar = 13) (nFlags = 28), reason:
+Control.cpp 1060: exception occurred (Key = 13), reason:
+DialogsGeneric.cpp 237: exception occurred (Key = 13), reason:
+GUI.cpp 2283: exception occurred, reason:
+DialogsOptions.cpp 583: exception occurred (Event = 1), reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 00000000)
+Comment: 
+----- 09/02/2016 18:44:42 - Monikczka (93.105.244.170) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Thu Feb 25 18:36:33 2016
+Graphic Engine: OpenGL (1)
+Operating System: Unaquired in 
+Processor: 
+Video Card: 
+Player.cpp 299: exception occurred, reason:
+Player.cpp 266: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+SurfaceGL.cpp 1539: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 00000498)
+Comment: 
+----- 10/02/2016 08:39:09 - Jon Bovi (193.193.65.165) -----
+Debug Assertion 10.77 Graphics.cpp 998
+Wed Feb 10 08:35:50 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Enterprise Edition 64 Bit in POL
+Processor: Intel Core 2 QUAD Q840
+Video Card: Intel MIKROUK³A
+Last Packet Types: 162 159 210 210 210 141 130 161 160 120
+Last Packet: 023 002 006 000 016 050 000 003 015 021 013 128 003 169 252 003
+Player Position: [873,1053,7]
+Player Name: Jon Bovi (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 1747: exception occurred (MaW: 379B898 MoW: 0 ), reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+DialogWindow.cpp 103: exception occurred (Surface = 1), reason:
+DialogWindow.cpp 565: exception occurred (Surface = 1) ((int) Child = 7088216), reason:
+ContentWindowsInventory.cpp 659: exception occurred (Surface = 1) (Obj.Type = 3354), reason:
+Graphics.cpp 1168: exception occurred (Debug: 7 Type: 3354 PX: 1 PY: 1 Ph: 1 W: 1 H: 1 L: 1 X: 1 Y: 1 L: 1 S: 10909), reason:
+Graphics.cpp 998: assertion failed (SpriteNumber = 10909) (NumberOfSprites = 0), reason:
+In(SpriteNumber,1,NumberOfSprites)
+Comment: 
+----- 12/02/2016 07:30:22 - Kwachu (83.31.182.56) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Fri Feb 12 07:29:52 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: Intel Core i5 -2430M @ 
+Video Card: Intel (R) HD GR
+Last Packet Types: 015 010 023 031 100 040 020 011 000 000
+Last Packet: 023 083 001 000 016 050 000 003 015 021 013 128 003 169 252 003
+Player Name: Kwachu (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+Control.cpp 1527: exception occurred (Type = 15) (MainWindow = 60682400), reason:
+Control.cpp 612: exception occurred, reason:
+Map.cpp 1191: exception occurred (i = 1602), reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (write attempt at 000090BC)
+Comment: 
+----- 12/02/2016 11:26:39 - Songo (46.238.247.143) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Fri Feb 12 11:24:26 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: AMD E-450 APU
+Video Card: ATI Radeon HD AMD 6320 
+Last Packet Types: 029 030 029 130 030 029 170 029 170 130
+Last Packet: 029 000 000 000 000 000 000 000 000 000 000 000 000 000 000 000
+Player Position: [923,1144,7]
+Player Name: Bogusiek (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Network.cpp 841: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 02E97C7C)
+Comment: 
+----- 12/02/2016 12:07:35 - Dziecko Wojny (46.238.247.143) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Fri Feb 12 12:06:24 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Home Premium Edition 64 Bit in POL
+Processor: AMD E-450 APU
+Video Card: ATI Radeon HD AMD 6320 
+Last Packet Types: 109 146 109 109 146 109 109 109 109 109
+Last Packet: 109 155 003 083 004 007 001 154 003 083 004 007 146 047 004 000
+Player Position: [925,1109,7]
+Player Name: Songo (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 384F9F8 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 499), reason:
+MapWindow.cpp 1313: exception occurred (posx = 96) (posy = 32), reason:
+MapWindow.cpp 1215: exception occurred (i = 0) (Creatures[i]->OutfitType = 129), reason:
+MapWindow.cpp 1180: exception occurred, reason:
+MapWindow.cpp 1495: exception occurred (posx = 96) (posy = 32), reason:
+MapWindow.cpp 1550: exception occurred (SpriteNumber = 92959), reason:
+Graphics.cpp 1022: exception occurred (Surface = 2) (SpriteNumber = 92959), reason:
+surfaceDX9.cpp 1292: exception occurred, reason:
+surfaceDX9.cpp 1226: exception occurred, reason:
+surfaceDX9.cpp 1276: exception occurred, reason:
+surfaceDX9.cpp 431: exception occurred, reason:
+surfaceDX9.cpp 409: exception occurred (DebugProgress = 3) ((int) pBuffer = 0), reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 728C3889)
+Comment: 
+----- 12/02/2016 20:43:02 - Szkodaszczempicryja (89.78.245.130) -----
+Debug Assertion 10.77 Creatures.cpp 1347
+Fri Feb 12 20:42:36 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 in POL
+Processor: Intel CORE I3-2
+Video Card: NVIDIA GeForce GT 730
+Last Packet Types: 160 180 180 172 172 172 160 162 162 159
+Last Packet: 023 091 000 000 016 050 000 003 015 021 013 128 003 169 252 003
+Player Name: Szkodaszczempicryja (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 1747: exception occurred (MaW: 3789CC8 MoW: 0 ), reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+DialogWindow.cpp 103: exception occurred (Surface = 1), reason:
+DialogWindow.cpp 565: exception occurred (Surface = 1) ((int) Child = 15445472), reason:
+ContentWindowsInventory.cpp 659: exception occurred (Surface = 1) (Obj.Type = 0), reason:
+GUI.cpp 1742: exception occurred (Surface = 1), reason:
+ContentWindowsInventory.cpp 236: exception occurred (Surface = 1), reason:
+ContentWindowsInventory.cpp 267: exception occurred, reason:
+Creatures.cpp 1347: assertion failed (GetPlayerID() = 268435547), reason:
+Player != NULL
+Comment: 
+----- 14/02/2016 20:37:34 - Info Od Boga (37.248.254.181) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Sun Feb 14 20:33:34 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Intel Core 2 QUAD Q830
+Video Card: NVIDIA GeForce GT 220
+Last Packet Types: 109 109 170 143 109 131 109 109 109 108
+Last Packet: 109 155 003 096 004 007 002 156 003 096 004 007 000 000 000 000
+Player Position: [917,1115,7]
+Player Name: Info Od Boga (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 10003030)
+Comment: 
+----- 17/02/2016 00:39:46 - Unstoppable Yaquov (79.135.163.165) -----
+Debug Assertion 10.77 NWin32Exception.cpp 55
+Wed Feb 17 00:38:03 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Dual Core AMD Turion II P540
+Video Card: ATI Mobility Radeon HD 4200
+Last Packet Types: 100 040 020 000 000 000 000 000 000 000
+Last Packet: 020 034 000 049 010 077 105 114 107 079 084 083 032 119 105 116
+Player Name: (exception)
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 11 MaW: 336CD90 MoW: 0), reason:
+Control.cpp 2120: exception occurred (Type = 11), reason:
+Dialogs.cpp 302: exception occurred (Timeout = 300), reason:
+DialogsEnterExitGame.cpp 217: exception occurred, reason:
+NWin32Exception.cpp 55: win32 exception occurred, reason:
+access violation (read attempt at 976701F8)
+
+----- 19/02/2016 06:18:11 - Waz Kasa Glowe (79.135.163.165) -----
+Debug Assertion 10.76 Objects.cpp 608
+Fri Feb 19 06:15:44 2016
+Graphic Engine: DirectX9 (2)
+Operating System: Windows 7 Ultimate Edition 64 Bit in POL
+Processor: Dual Core AMD Turion II P540
+Video Card: ATI Mobility Radeon HD 4200
+Last Packet Types: 162 162 170 160 160 162 165 162 164 160
+Last Packet: 162 000 000 162 000 000 000 000 000 000 000 000 000 000 000 000
+Player Position: [686,1168,7]
+Player Name: Waz Kasa Glowe (MirkOTS)
+Player Action: 048 046 048 046 048 046 048 058 055 049 055 050
+Player.cpp 344: exception occurred, reason:
+Player.cpp 448: exception occurred, reason:
+Control.cpp 2155: exception occurred (MessageType: 0 MaW: 33BBDB8 MoW: 0), reason:
+Control.cpp 2150: exception occurred, reason:
+Control.cpp 548: exception occurred (Force?1:0 = 0), reason:
+MainWindow.cpp 136: exception occurred (Surface = 1), reason:
+GUI.cpp 1743: exception occurred (Surface = 1), reason:
+MapWindow.cpp 975: exception occurred (Surface = 1), reason:
+MapWindow.cpp 558: exception occurred (Obj = 4515), reason:
+MapWindow.cpp 1313: exception occurred (posx = 0) (posy = 0), reason:
+MapWindow.cpp 1019: exception occurred (Obj = 727), reason:
+MapWindow.cpp 1412: exception occurred (Debug: 10 Type: 727 Coord: 679/1163/7 PX: 4 PY: 2 PZ: 1 Ph: 7 DX: 0 DY: 0 W: 1 H: 1 L: 1 X: 1 Y: 1 L: 1 S: 0), reason:
+Objects.cpp 921: exception occurred (Type = 727), reason:
+Objects.cpp 608: assertion failed (Phase = 7) (FrameGroup.Phases = 3), reason:
+In(Phase, 1, FrameGroup.Phases)
+Comment: 
