@@ -1,0 +1,9 @@
+job_build:
+  script:
+    - patch -p1 < .fedora-build.patch
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j2
+  allow_failure: false
+  stage: build
