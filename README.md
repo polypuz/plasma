@@ -2,6 +2,8 @@
 _Silnik serwera MirkOTS na bazie The Forgotten Server._
 
 Przed instalacją prosimy o podejrzenie "licencji" (niżej).
+# wiki, dokumentacja
+The Forgotten Server ma bardzo słąbą dokumentację, więc staramy się tworzyć w miarę możliwości własną. Więcej informacji na [wiki projektu](https://github.com/Marahin/mirkots-engine/wiki)
 
 # instalacja
 
@@ -15,7 +17,7 @@ TFS ma wtedy tendencje do rzucania segfaultami.
 
 [sugerowane pakiety **(zredaguj, zanim użyjesz)**](http://d.gimb.us/b/047b0de7df56844e9b62587240e4c52a.txt)
 
-[**oficjalna lista pakietów**]()
+[**oficjalna lista pakietów**](https://github.com/otland/forgottenserver/wiki/Compiling)
 ### kompilowanie
  
  - `cd mirkots-engine/build`
@@ -42,10 +44,10 @@ w zależności od (pomysłu|zmian), mogą pojawić się inne gałęzie, specjaln
 
 ## autorzy
 - Jan ~marahin Matusz, www.marahin.pl
-- _mirkots-engine_ *jest forkiem [_The Forgotten Server_]()*, [lista autorów](https://github.com/otland/forgottenserver/graphs/contributors)
+- _mirkots-engine_ *jest forkiem [_The Forgotten Server_](https://github.com/otland/forgottenserver)*, [lista autorów](https://github.com/otland/forgottenserver/graphs/contributors)
 
 ## "licencja"
-Silnik serwera (_mirkots-engine_) *jest forkiem* [The Forgotten Server](). [MirkOTS](www.mirkots.pl) ani twórcy mirkots-engine nie ponoszą żadnych korzyści z rozszerzania tego silnika.
+Silnik serwera (_mirkots-engine_) *jest forkiem* [The Forgotten Server](https://github.com/otland/forgottenserver). [MirkOTS](www.mirkots.pl) ani twórcy mirkots-engine nie ponoszą żadnych korzyści z rozszerzania tego silnika.
 
 Silnik nie może być udostępniany osobom trzecim, nie mającym dostępu do tego repozytorium - ze względów bezpieczeństwa. Zamiast tego, prosimy o linkowanie to The Forgotten Server.
 
