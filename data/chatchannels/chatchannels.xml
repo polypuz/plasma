@@ -3,6 +3,6 @@
 	<channel id="2" name="Tutor" logged="yes" script="tutor.lua" />
 	<channel id="3" name="Mirkoczat" public="1" logged="yes" script="worldchat.lua" />
 	<channel id="5" name="Handel" public="1" logged="yes" script="advertising.lua" />
-	<channel id="7" name="Pomoc" muted="10" conditionId="2" conditionMessage="Musisz chwile odczekac, zanim bedziesz mogl napisac kolejna wiadomosc." public="1" logged="yes" script="help.lua" />
+	<channel id="7" name="Pomoc" muted="15530" conditionId="2" conditionMessage="Musisz chwile odczekac, zanim bedziesz mogl napisac kolejna wiadomosc." public="1" logged="yes" script="help.lua" />
 	<channel id="8" name="Gamemaster" script="gamemaster.lua" />
 </channels>
