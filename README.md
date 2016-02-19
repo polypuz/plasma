@@ -19,13 +19,15 @@ TFS ma wtedy tendencje do rzucania segfaultami.
 
 [**oficjalna lista pakietów**](https://github.com/otland/forgottenserver/wiki/Compiling)
 ### kompilowanie
- 
+ TLDR:
  - `cd mirkots-engine/build`
  - `cmake ..`
  - `make -jLICZBA_RDZENI (np. make -j8)`
  - `cd .. && cp build/tfs .`
 
 Serwer jest gotowy do uruchomienia.
+
+Bardziej szczególowo opisany proces (i inne systemy): https://github.com/otland/forgottenserver/wiki/Compiling
 
 ### konfiguracja
 
