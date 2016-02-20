@@ -136,9 +136,6 @@ CombatType_t Combat::ConditionToDamageType(ConditionType_t type)
 		case CONDITION_CURSED:
 			return COMBAT_DEATHDAMAGE;
 
-		case CONDITION_PARALYZE:
-			return COMBAT_DROWNDAMAGE;
-
 		default:
 			break;
 	}
