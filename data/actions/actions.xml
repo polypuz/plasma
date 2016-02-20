@@ -207,6 +207,7 @@
 	<action itemid="6120" script="other/spellbook.lua" />
 	<action fromid="8900" toid="8904" script="other/spellbook.lua" />
 	<action itemid="8918" script="other/spellbook.lua" />
+	<action itemid="12647" script="other/spellbook.lua" />
 
 	<!-- Other -->
 	<!-- lottery ticket -->
