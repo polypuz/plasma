@@ -41,8 +41,8 @@ function onLogin(player)
 		end
 		
 		if parcel_created then
-			print('Deleting record of the order that\'s done...')
 			db.query( "DELETE FROM `unprocessed_orders` WHERE `order_id`=" .. order_id .. " AND `player_id`=" .. player:getGuid() )
+			db.query("INSERT INTO `completed_orders`(`order_id, `player_id`, `item_id`, `count`) VALUES (" .. order_id .. ", " .. player:getGuid() .. ", " .. item_id .. ", " .. count or 1 .. ")")
 		end
 		
 		values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
