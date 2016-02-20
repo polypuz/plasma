@@ -4,6 +4,11 @@ job_build:
     - mkdir build
     - cd build
     - cmake ..
-    - make -j2
-  allow_failure: false
+    - make -j8
+    - cd ..
+    - cp config-EXAMPLE.lua config.lua
+    - sed -i.bak -e 's|ADRES_DO_ZBINDOWANIA|127.0.0.1|' config.lua
+    - ./build/tfs 2>&1 | grep 'Access denied for user' || ./build/tfs
+    - rm -rf build config.lua
   stage: build
+  allow_failure: false
