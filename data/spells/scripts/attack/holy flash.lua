@@ -1,20 +1,17 @@
-local combat = Combat()
-combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
-combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
-combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
-
-local ticks = 0
-function onGetFormulaValues(player, level, maglevel)
-	ticks = 7+(maglevel / 2)
-	return 0,0
-end
-combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
-
-local condition = Condition(CONDITION_DAZZLED)
-condition:setParameter(CONDITION_PARAM_DELAYED, true)
-condition:addDamage(ticks, 5000, -20)
-combat:setCondition(condition)
-
 function onCastSpell(creature, variant)
+	local combat = nil
+
+	combat = Combat()
+	combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_HOLYDAMAGE)
+	combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_HOLYDAMAGE)
+	combat:setParameter(COMBAT_PARAM_DISTANCEEFFECT, CONST_ANI_SMALLHOLY)
+
+	local condition = nil
+	condition = Condition(CONDITION_DAZZLED)
+	condition:setParameter(CONDITION_PARAM_DELAYED, true)
+
+    local repeats = (creature:getMagicLevel() / 2) + 7
+    condition:addDamage(repeats, 5000, -20)
+	combat:setCondition(condition)
 	return combat:execute(creature, variant)
 end
