@@ -30,18 +30,18 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Wiesz juz co masz robic. Jezeli juz zapomniales, zapytaj o {trening}.", cid)
 		elseif getPlayerStorageValue(cid, 36900) == 2 then
 			npcHandler:say("Ukonczyles juz trening. Wroc do mnie kiedy pokonasz krysztalowe drzewo.", cid)
-			npcHandler:releaseFocus(cid)
 		elseif getPlayerStorageValue(cid, 36900) > 2 then
 			npcHandler:say("Nie mamy juz o czym rozmawiac.", cid)
 			npcHandler:releaseFocus(cid)
 		elseif npcHandler.topic[cid] == 1 then
-			npcHandler:say("Sluchaj zatem. Na tej wyspie jest kilka tajemniczych drzew. Z pozoru wygladaja jak martwe pnie, ale nie daj sie zwiesc! Zeby ukonczyc szkolenie i pokonac krysztalowy pien musisz potrenowac. Pni jest dokladnie piec. Jezeli w przyszlosci bedziesz chcial sprawdzic swoje umiejetnosci, wroc do mnie i zapytaj o {trening}.", cid)
+			npcHandler:say("Sluchaj zatem. Ta wyspa posiada wiele niezbadanych, przekletych lochow. W ich scianach toczy sie zlo i zniszczenie. Przez lata nie zjawil sie smialek, ktory dalby rade pokonac legiony potworow. Jesli czujesz sie na silach i chcesz podjac sie tej misji, uznam, ze zeslali Cie bogowie.", cid)
+			npcHandler:say("Aby jednak podjac sie walki, musisz przejsc przez {trening}. Przez wyspe rozsiano nasienie zla, znane jako Zielonkus Pospolitus. Szesc nasion, dokladnie. Z nich wykielkowaly obumarle drzewa, w tym jedno - krysztalowe. Zniszcz pierwsze piec, wtedy wroc do mnie, i napisz, ze jestes {gotowy}. W kazdej chwili tez mozesz zapytac o postep swojego {treningu}.", cid)
 			setPlayerStorageValue(cid, 36900, 1)
 		else
 			npcHandler:say("Nie wiem o co ci chodzi.", cid)
 			npcHandler:releaseFocus(cid)
 		end
-	elseif msgcontains(msg, "trening") then
+	elseif msgcontains(msg, "trening") or msgcontains(msg, "training") then
 		if getPlayerStorageValue(cid, 36900) == 1 then
 			local counter = 0
 
@@ -76,12 +76,12 @@ local function creatureSayCallback(cid, type, msg)
 					string = 'pozostalo ci jeszcze kilka drzew'
 				end
 
-				npcHandler:say("Nie ukonczyles jeszcze treningu. Do konca " ..  string .. ". Wroc do mnie kiedy bedziesz gotowy.", cid)
+				npcHandler:say("Nie ukonczyles jeszcze treningu. Do konca " ..  string .. ". Wroc do mnie kiedy bedziesz gotowy, a oficjalnie zakoncze Twoj {trening}.", cid)
 				npcHandler:releaseFocus(cid)
 			else
-				npcHandler:say("Gratulacje, Twoj trening dobiegl konca! Teraz pora zebys zmierzyl sie z krysztalowym drzewem. Jezeli to zrobisz, bedziesz {gotowy}. Powodzenia!", cid)
-				npcHandler:releaseFocus(cid)
+				npcHandler:say("Gratulacje, twoj trening dobiegl konca! Teraz pora zebys zmierzyl sie z krysztalowym drzewem. Jezeli to zrobisz, bedziesz {gotowy}. Powodzenia!", cid)
 				setPlayerStorageValue(cid, 36900, 2)
+				npcHandler:releaseFocus(cid)
 			end
 		elseif getPlayerStorageValue(cid, 36900) > 1 then
 			npcHandler:say("Nie mamy juz o czym rozmawiac.", cid)
@@ -90,7 +90,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Nie wiem o czym mowisz. Odejdz.", cid)
 			npcHandler:releaseFocus(cid)
 		end
-	elseif msgcontains(msg, "gotowy") or msgcontains(msg, "gotow") then
+	elseif msgcontains(msg, "gotowy") or msgcontains(msg, "gotowa") then
 		if getPlayerStorageValue(cid, 36006) == 1 then
 			npcHandler:say("Czy naprawde pokonales krysztalowe drzewo?", cid)
 			npcHandler.topic[cid] = 6
