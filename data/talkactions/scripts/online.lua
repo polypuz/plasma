@@ -12,7 +12,18 @@ function onSay(player, words, param)
 			if i > 0 then
 				msg = msg .. ", "
 			end
-			msg = msg .. targetPlayer:getName() .. " [" .. targetPlayer:getLevel() .. "]"
+			local voc = ""
+			if targetPlayer:getVocation():getId() == 1 then voc = " S"
+			elseif targetPlayer:getVocation():getId() == 2 then voc = " D"
+			elseif targetPlayer:getVocation():getId() == 3 then voc = " P"
+			elseif targetPlayer:getVocation():getId() == 4 then voc = " K"
+			elseif targetPlayer:getVocation():getId() == 5 then voc = " MS"
+			elseif targetPlayer:getVocation():getId() == 6 then voc = " ED"
+			elseif targetPlayer:getVocation():getId() == 7 then voc = " RP"
+			elseif targetPlayer:getVocation():getId() == 8 then voc = " EK"
+
+
+			msg = msg .. targetPlayer:getName() .. " [" .. targetPlayer:getLevel() .. voc .. "]"
 			i = i + 1
 		end
 
