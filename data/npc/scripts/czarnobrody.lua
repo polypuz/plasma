@@ -27,7 +27,7 @@ local function creatureSayCallback(cid, type, msg)
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		doTeleportThing(cid, destination)
 		doSendMagicEffect(destination, CONST_ME_TELEPORT)
-	elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1
+	elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
 		npcHandler:say("To sie psia mac zdecyduj.", cid)
 	elseif msgcontains(msg, "suwalki") or msgcontains(msg, "suwalkami") then
 		npcHandler:say("Na pewno chcesz plynac do Suwalek? *usmiecha sie* Ta nazwa nie jest przypadkowa.", cid)
