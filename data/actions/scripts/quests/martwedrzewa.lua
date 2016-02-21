@@ -101,9 +101,8 @@ function onUse(cid, item, position, target, pos)
 			end
 		end
 	else
-		if item.uid > 30020 and item.uid < 30025
+		if item.uid > 30020 and item.uid < 30025 then
 			rewardPlayer( cid, item.uid )
-		else
 		end
 	end
 	
