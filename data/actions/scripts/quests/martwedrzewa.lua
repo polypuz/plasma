@@ -42,7 +42,7 @@ function onUse(cid, item, position, target, pos)
 		print("Gracz " .. Player(cid):getName() .. " klika na czyms, co nie jest tym obiektem.")
 	end
 	
-	item.uid = uid
+	doItemSetAttribute(item, "uid", uid)
 	
 	print("Gracz " .. Player(cid):getName() .. " - po prostu zwracam wartosc.")
 	print("item.uid" .. item.uid)
