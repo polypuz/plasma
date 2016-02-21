@@ -1,5 +1,5 @@
 local function checkIfFoughtTrees( cid )
-	local dead_trees_tbl = [36901, 36902, 36903, 36904, 36905]
+	local dead_trees_tbl = {36901, 36902, 36903, 36904, 36905}
 
 	for key,value in pairs(dead_trees_tbl) do --actualcode
 		if cid:getStorageValue( value ) ~= 1 then
