@@ -4,7 +4,7 @@ function onSay(player, words, param)
 	local playerCount = Game.getPlayerCount()
 
 	local i = 0
-	local msg = "Tutors online: "
+	local msg = "Tutorzy zalogowani: "
 	for k, targetPlayer in ipairs(players) do
 		if hasAccess or not targetPlayer:isInGhostMode() then
 			if targetPlayer:getAccountType() == ACCOUNT_TYPE_TUTOR then
