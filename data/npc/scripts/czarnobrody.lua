@@ -18,15 +18,11 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	elseif msgcontains(msg, "transport") then
 		npcHandler:say("Kursuje miedzy {Mirko Town} a {Suwalkami}. Jak chcesz, to moge Cie zabrac ze soba.", cid)
-	elseif npcHandler.topic[cid] == 0 then
-		if msgcontains(msg, "mirko town") then
+	elseif msgcontains(msg, "mirko town") then
 			town[cid] = 1
 			destination[cid] = {x = 1011, y = 1022, z = 6}
 			npcHandler:say("Jestes pewny, ze chcesz plynac do Mirko Town?", cid)
 			npcHandler.topic[cid] = 1
-		else
-			npcHandler:say("Moge zaoferowac Ci {transport}.", cid)
-		end
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
 			local destination = destination[cid]
@@ -51,6 +47,8 @@ local function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say("To sie psia mac zdecyduj.", cid)
 		end
+	else
+		npcHandler:say("Moge zaoferowac Ci {transport}.", cid)
 	end
 
 	return true
