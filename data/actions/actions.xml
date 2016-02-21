@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+
+	<!-- blisher quest -->
+	<action actionid="36000" script="quests/martwedrzewa.lua" />
+	
 	<!-- clay lump -->
 	<action itemid="11339" script="other/clay_lump.lua" />
 	
