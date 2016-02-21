@@ -12,7 +12,8 @@ local miasta = {
 	[11] = Position(1861, 1405, 6), --Opuszczona Kolonia
 	[12] = Position(530, 647, 6), 	--Wyspa Horrorow
 	[13] = Position(1322, 2012, 7),	--Bagna
-	[14] = Position(885, 605, 6)	--Cotopaxi
+	[14] = Position(885, 605, 6),	--Cotopaxi
+	[15] = Position(2411, 416, 6)	--Bananowo
 	
 }
 
@@ -29,8 +30,8 @@ local miasta_szmugler = {
 	[10] = Position(1506, 738, 7),	--Kolobrzeg
 	[11] = Position(1860, 1405, 7),	--Opuszczona Kolonia
 	[12] = Position(530, 645, 7), 	--Wyspa Horrorow
-	[13] = Position(1294, 1950, 7), 	--Bagna
-	[14] = Position(885, 606, 7)	--Cotopaxi
+	[13] = Position(1294, 1950, 7),	--Cotopaxi
+	[15] = Position(2410, 418, 7)	--Bananowo
 }
 
 
