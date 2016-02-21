@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	
 	if getPlayerStorageValue(player, storageKey) == -1 then
 		doPlayerSendTextMessage(player, MESSAGE_INFO_DESCR, "Znalazles skarb pochowanego tu faraona, zwanego Klejnotem Nilu.")
-		doPlayerAddItem(player, 2160, 20)
+		doPlayerAddItem(player, 2160, 10)
 		setPlayerStorageValue( player, 20331, 1)
 	else
 		doPlayerSendTextMessage(player, MESSAGE_INFO_DESCR, "Ta skrzynia jest pusta - juz dostales nagrode.")
