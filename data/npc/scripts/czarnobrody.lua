@@ -14,6 +14,7 @@ end
 local function teleportPlayer( cid, dest )
 	print("teleporting player to: " .. tostring( dest["x"] ) .. ", " .. tostring(dest["y"]) .. "," .. tostring(dest["y"]) )
 	Player(cid):teleportTo( Position( dest["x"], dest["y"], dest["z"] ) )
+	doTeleportThing(cid, dest)
 	return true
 end
 
@@ -28,7 +29,6 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 1
 	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
 		destination = {x = 1011, y = 1022, z = 6}
-		npcHandler:releaseFocus(cid)
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		--doTeleportThing(cid, destination)
 		teleportPlayer(cid, destination)
@@ -40,7 +40,6 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 2 then
 		destination = { x = 901, y = 2122, z = 6 }
-		npcHandler:releaseFocus(cid)
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		--doTeleportThing(cid, destination)
 		teleportPlayer(cid, destination)
@@ -53,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	return true
 end
-
+--[[
 local function onAddFocus(cid)
 	-- town[cid] = 0
 	-- vocation[cid] = 0
@@ -68,7 +67,7 @@ end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
-
+]]
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
