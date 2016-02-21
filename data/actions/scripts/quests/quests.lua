@@ -1,5 +1,5 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.uid <= 1000 --[[or item.uid > 22700]] then
+	if item.uid <= 1000 or item.uid > 22700 then
 		return false
 	end
 
