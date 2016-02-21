@@ -12,6 +12,7 @@ local function greetCallback(cid)
 end
 
 local function teleportPlayer( cid, dest )
+	print("teleporting player to: " .. tostring( dest ) )
 	Player(cid):teleportTo( Position( dest ) )
 	return true
 end
@@ -38,7 +39,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Na pewno chcesz plynac do Suwalek? *usmiecha sie* Ta nazwa nie jest przypadkowa.", cid)
 		npcHandler.topic[cid] = 2
 	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 2 then
-		destination = { x= 901, y = 2122, z = 6 }
+		destination = { x = 901, y = 2122, z = 6 }
 		npcHandler:releaseFocus(cid)
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		--doTeleportThing(cid, destination)
