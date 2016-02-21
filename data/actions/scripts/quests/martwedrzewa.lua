@@ -19,7 +19,7 @@ local function rewardPlayer( cid, uniqueid)
 	
 	local p = Player( cid )
 	
-	if uniqueid == 30024
+	if uniqueid == 30024 then
 		if p:getStorageValue( generic_reward_storage_key ) ~= 1 then
 			-- reward
 			if p:addItem(5882, 10) then
