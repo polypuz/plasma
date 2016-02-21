@@ -14,7 +14,7 @@ end
 local function teleportPlayer( cid, dest )
 	print("teleporting player to: " .. tostring( dest["x"] ) .. ", " .. tostring(dest["y"]) .. "," .. tostring(dest["y"]) )
 	Player(cid):teleportTo( Position( dest["x"], dest["y"], dest["z"] ) )
-	doTeleportThing(cid, dest)
+	doTeleportThing(cid, dest, false)
 	return true
 end
 
