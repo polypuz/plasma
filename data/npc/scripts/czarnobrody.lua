@@ -12,7 +12,7 @@ local function greetCallback(cid)
 end
 
 local function teleportPlayer( cid, dest )
-	print("teleporting player to: " .. tostring( dest ) )
+	print("teleporting player to: " .. tostring( dest["x"] ) .. ", " .. tostring(dest["y"]) .. "," .. tostring(dest["y"]) )
 	Player(cid):teleportTo( Position( dest["x"], dest["y"], dest["z"] ) )
 	return true
 end
