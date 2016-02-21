@@ -74,8 +74,8 @@ function Player:onLookInBattleList(creature, distance)
 				description = description .. self:getMarriageDescription(creature)
 			end
 		end
-		if thing:isPlayer() then
-			local title = getPlayerTitle( thing:getGuid() )
+		if creature:isPlayer() then
+			local title = getPlayerTitle( creature:getGuid() )
 			if title then
 				description = description .. " Nosi przydomek " .. title .. "."
 			end
