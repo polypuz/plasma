@@ -10,7 +10,58 @@ local function checkIfFoughtTrees( cid )
 	return true
 end
 
+local function rewardPlayer( cid, uniqueid)
+	local unique_reward_ids = { 30021, 30022, 30023 }
+	local unique_storage_key = 30025
+	
+	local generic_reward_id = 30024
+	local generic_reward_storage_key = 30024
+	
+	local p = Player( cid )
+	
+	if uniqueid == 30024
+		if p:getStorageValue( generic_reward_storage_key ) ~= 1 then
+			-- reward
+			if p:addItem(5882, 10) then
+				doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Znalazles 10 lusek czerwonego smoka.")
+				p:setStorageValue( generic_reward_storage_key, 1)
+			end
+		else
+			-- failure         
+			doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Ta skrzynia jest pusta - juz dostales nagrode.")
+		end
+	elseif isInArray( unique_reward_ids, uniqueid )
+		if p:getStorageValue( unique_storage_key ) ~= 1 then
+			-- reward
+			local item = nil
+			local info = ""
+			
+			if uniqueid == 30021 then
+				item = 12642
+				info = "Royal Draken Mail"
+			elseif uniqueid == 30022 then
+				item = 12643
+				info = "Royal Scale Robe"
+			elseif uniqueid == 30023 then
+				item = 12645
+				info = "Elite Draken Helmet"
+			else
+				item = nil
+				info = "# COS POSZLO NIE TAK. ZGLOS SIE DO ADMINISTRACJI."
+			end
+			if p:addItem(item, 1) then
+				doPlayerSendTextMessage( cid, MESSAGE_INFO_DESCR, "Znalazles " .. info .. ".")
+				p:setStorageValue( unique_storage_key, 1)
+			end
+		else
+			-- failure
+			doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Ta skrzynia jest pusta - juz dostales nagrode.")
+		end
+	end
+end
+
 function onUse(cid, item, position, target, pos)
+
 	if cid:getStorageValue(36900) ~= 1 and cid:getStorageValue(36900) ~= 2 then
 		return false
 	end
@@ -49,6 +100,10 @@ function onUse(cid, item, position, target, pos)
 			end
 		end
 	else
+		if item.uid > 30020 and item.uid < 30025
+			rewardPlayer( cid, item.uid )
+		else
+		end
 	end
 	
 	return true
