@@ -1,0 +1,26 @@
+diff --git a/src/configmanager.cpp b/src/configmanager.cpp
+index 56d166e..c022338 100755
+--- a/src/configmanager.cpp
++++ b/src/configmanager.cpp
+@@ -22,9 +22,6 @@
+ #include "configmanager.h"
+ #include "game.h"
+ 
+-#if LUA_VERSION_NUM >= 502
+-#define lua_strlen lua_rawlen
+-#endif
+ 
+ extern Game g_game;
+ 
+diff --git a/src/luascript.h b/src/luascript.h
+index 7ab5850..ebe0a70 100755
+--- a/src/luascript.h
++++ b/src/luascript.h
+@@ -16,6 +16,7 @@
+  * with this program; if not, write to the Free Software Foundation, Inc.,
+  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+  */
++#define LUA_COMPAT_ALL
+ 
+ #ifndef FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
+ #define FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8

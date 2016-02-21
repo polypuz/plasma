@@ -15,7 +15,7 @@ expFromPlayersLevelRange = 75
 
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
-ip = "adres_do_zbindowania" (nie-lokalny)
+ip = "ADRES_DO_ZBINDOWANIA"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
@@ -66,7 +66,7 @@ mysqlSock = ""
 -- Misc.
 allowChangeOutfit = true
 freePremium = true
-kickIdlePlayerAfterMinutes = 1440
+kickIdlePlayerAfterMinutes = 60
 maxMessageBuffer = 15
 emoteSpells = true
 classicEquipmentSlots = true

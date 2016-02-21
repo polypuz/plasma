@@ -1,8 +1,12 @@
 local CHANNEL_HELP = 7
 
-local muted = Condition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT)
-muted:setParameter(CONDITION_PARAM_SUBID, CHANNEL_HELP)
-muted:setParameter(CONDITION_PARAM_TICKS, 3600000)
+function createMutedCondition( time )
+	local muted = Condition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT)
+	muted:setParameter(CONDITION_PARAM_SUBID, CHANNEL_HELP)
+	muted:setParameter(CONDITION_PARAM_TICKS, time)
+	
+	return muted
+end
 
 function onSpeak(player, type, message)
 	local playerAccountType = player:getAccountType()
@@ -12,10 +16,10 @@ function onSpeak(player, type, message)
 	end
 
 	if player:getCondition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT, CHANNEL_HELP) then
-		player:sendCancelMessage("You are muted from the Help channel for using it inappropriately.")
+		player:sendCancelMessage("Nie mozesz wyslac kolejnej wiadomosci tak szybko.")
 		return false
 	end
-
+	--[[
 	if playerAccountType >= ACCOUNT_TYPE_TUTOR then
 		if string.sub(message, 1, 6) == "!mute " then
 			local targetName = string.sub(message, 7)
@@ -55,7 +59,7 @@ function onSpeak(player, type, message)
 			return false
 		end
 	end
-
+	]]
 	if type == TALKTYPE_CHANNEL_Y then
 		if playerAccountType >= ACCOUNT_TYPE_TUTOR or getPlayerFlagValue(player, PlayerFlag_TalkOrangeHelpChannel) then
 			type = TALKTYPE_CHANNEL_O
@@ -73,5 +77,10 @@ function onSpeak(player, type, message)
 			end
 		end
 	end
+	
+	if playerAccountType < ACCOUNT_TYPE_TUTOR then
+		player:addCondition( createMutedCondition( 10000 ) )
+	end
+	
 	return type
 end

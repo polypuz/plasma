@@ -69,7 +69,7 @@
 		<item id="2479" chance="360" /><!-- strange helmet -->
 		<item id="7588" chance="970" /><!-- strong health potion -->
 		<item id="2528" chance="250" /><!-- tower shield -->
-		<item id="7402" chance="500" /><!-- dragon slayer -->
-		<item id="2492" chance="500" /><!-- dragon scale mail -->
+		<item id="7402" chance="360" /><!-- dragon slayer -->
+		<item id="2492" chance="400" /><!-- dragon scale mail -->
 	</loot>
 </monster>

@@ -1,0 +1,36 @@
+cache:
+  key: "$CI_BUILD_REF"
+  untracked: true
+  paths:
+    - build/
+
+job_build:
+  only:
+    - master
+    - development
+  script:
+    - patch -p1 < .fedora-build.patch
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j8
+    - cd ..
+  stage: build
+  allow_failure: false
+  tags:
+    - mirkots
+
+job_run:
+  only:
+    - master
+    - development
+  script:
+    - 'IFS=$''\n''; for i in `find data -name ''*.lua''`; do echo -n "Checking syntax of lua script $i: "; luac -p $i; if [ "$?" == "0" ]; then echo "PASSED"; else echo "FAILED"; exit 1; fi done'
+    - cp config-EXAMPLE.lua config.lua
+    - sed -i.bak -e 's|ADRES_DO_ZBINDOWANIA|127.0.0.1|' config.lua
+    - ./build/tfs 2>&1 | grep 'Access denied for user' || ./build/tfs
+    - rm -rf build config.lua config.lua.bak
+  stage: test
+  allow_failure: false
+  tags:
+    - mirkots

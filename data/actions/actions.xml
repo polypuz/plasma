@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+
+	<!-- blisher quest -->
+	<action actionid="36000" script="quests/martwedrzewa.lua" />
+	
 	<!-- clay lump -->
 	<action itemid="11339" script="other/clay_lump.lua" />
 	
@@ -207,6 +211,7 @@
 	<action itemid="6120" script="other/spellbook.lua" />
 	<action fromid="8900" toid="8904" script="other/spellbook.lua" />
 	<action itemid="8918" script="other/spellbook.lua" />
+	<action itemid="12647" script="other/spellbook.lua" />
 
 	<!-- Other -->
 	<!-- lottery ticket -->
