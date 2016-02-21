@@ -25,6 +25,7 @@ job_run:
     - master
     - development
   script:
+    - 'IFS=$''\n''; for i in `find data -name ''*.lua''`; do echo -n "Checking syntax of lua script $i: "; luac -p $i; if [ "$?" == "0" ]; then echo "PASSED"; else echo "FAILED"; exit 1; fi done'
     - cp config-EXAMPLE.lua config.lua
     - sed -i.bak -e 's|ADRES_DO_ZBINDOWANIA|127.0.0.1|' config.lua
     - ./build/tfs 2>&1 | grep 'Access denied for user' || ./build/tfs
