@@ -30,7 +30,7 @@ local function rewardPlayer( cid, uniqueid)
 			-- failure         
 			doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Ta skrzynia jest pusta - juz dostales nagrode.")
 		end
-	elseif isInArray( unique_reward_ids, uniqueid )
+	elseif isInArray( unique_reward_ids, uniqueid ) then
 		if p:getStorageValue( unique_storage_key ) ~= 1 then
 			-- reward
 			local item = nil
@@ -49,6 +49,7 @@ local function rewardPlayer( cid, uniqueid)
 				item = nil
 				info = "# COS POSZLO NIE TAK. ZGLOS SIE DO ADMINISTRACJI."
 			end
+			
 			if p:addItem(item, 1) then
 				doPlayerSendTextMessage( cid, MESSAGE_INFO_DESCR, "Znalazles " .. info .. ".")
 				p:setStorageValue( unique_storage_key, 1)
