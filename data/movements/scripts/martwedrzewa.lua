@@ -26,7 +26,7 @@ function onStepIn(cid, item, position, to)
 			dest = success
 		else
 			dest = failure
-			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Nie jestes jeszcze gotowy!')
+			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Nie jestes jeszcze gotowy, lub ukonczyles juz to zadanie!')
 		end
 
 		doTeleportThing(cid, dest)
