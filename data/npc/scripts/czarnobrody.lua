@@ -21,29 +21,25 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "mirko town") then
 			npcHandler:say("Jestes pewny, ze chcesz plynac do Mirko Town?", cid)
 			npcHandler.topic[cid] = 1
-	elseif npcHandler.topic[cid] == 1 then
-		if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
-			local destination = {x = 1011, y = 1022, z = 6}
-			npcHandler:releaseFocus(cid)
-			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
-			doTeleportThing(cid, destination)
-			doSendMagicEffect(destination, CONST_ME_TELEPORT)
-		else
-			npcHandler:say("To sie psia mac zdecyduj.", cid)
-		end
+	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
+		local destination = {x = 1011, y = 1022, z = 6}
+		npcHandler:releaseFocus(cid)
+		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
+		doTeleportThing(cid, destination)
+		doSendMagicEffect(destination, CONST_ME_TELEPORT)
+	elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1
+		npcHandler:say("To sie psia mac zdecyduj.", cid)
 	elseif msgcontains(msg, "suwalki") or msgcontains(msg, "suwalkami") then
 		npcHandler:say("Na pewno chcesz plynac do Suwalek? *usmiecha sie* Ta nazwa nie jest przypadkowa.", cid)
 		npcHandler.topic[cid] = 2
-	elseif npcHandler.topic[cid] == 2 then
-		if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
-			local destination = { x= 901, y = 2122, z = 6 }
-			npcHandler:releaseFocus(cid)
-			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
-			doTeleportThing(cid, destination)
-			doSendMagicEffect(destination, CONST_ME_TELEPORT)
-		else
-			npcHandler:say("To sie psia mac zdecyduj.", cid)
-		end
+	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 2 then
+		local destination = { x= 901, y = 2122, z = 6 }
+		npcHandler:releaseFocus(cid)
+		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
+		doTeleportThing(cid, destination)
+		doSendMagicEffect(destination, CONST_ME_TELEPORT)
+	elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 2 then
+		npcHandler:say("To sie psia mac zdecyduj.", cid)
 	else
 		npcHandler:say("Moge zaoferowac Ci {transport}.", cid)
 	end
