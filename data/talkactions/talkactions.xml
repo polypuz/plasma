@@ -51,6 +51,7 @@
 	<talkaction words="!deathlist" script="deathlist.lua" />
 	<talkaction words="!kills" script="kills.lua" />
 	<talkaction words="!online" script="online.lua" />
+	<talkaction words="!tutors" script="tutor.lua" />
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 
 </talkactions>
