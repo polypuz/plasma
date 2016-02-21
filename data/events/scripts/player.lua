@@ -3,6 +3,7 @@ function Player:onBrowseField(position)
 end
 
 function Player:onLook(thing, position, distance)
+		-- remember to set new things up in onLookInBattle (below) as well
         local description = "Widzisz " .. thing:getDescription(distance)
 		if thing:isPlayer() then
 			local title = getPlayerTitle( thing:getGuid() )
@@ -71,6 +72,12 @@ function Player:onLookInBattleList(creature, distance)
 		if LOOK_MARRIAGE_DESCR and creature:isCreature() then
 			if creature:isPlayer() then
 				description = description .. self:getMarriageDescription(creature)
+			end
+		end
+		if thing:isPlayer() then
+			local title = getPlayerTitle( thing:getGuid() )
+			if title then
+				description = description .. " Nosi przydomek " .. title .. "."
 			end
 		end
         if self:getGroup():getAccess() then
