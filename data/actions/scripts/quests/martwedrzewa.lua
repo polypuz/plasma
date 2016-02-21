@@ -3,7 +3,9 @@ function onUse(cid, item, position, target, pos)
 		print("Gracz " .. Player(cid):getName() .. " nie wzial questa.")
 		return false
 	end
-
+	
+	local uid = item.uid
+	
 	if item.uid > 36000 and item.uid < 36006 then
 		print("Gracz " .. Player(cid):getName() .. " atakuje drzewo")
 		if cid:getStorageValue(item.uid) ~= 1 then
@@ -36,7 +38,11 @@ function onUse(cid, item, position, target, pos)
 				doSendMagicEffect(position, CONST_ME_POFF)
 			end
 		end
+	else
+		print("Gracz " .. Player(cid):getName() .. " klika na czyms, co nie jest tym obiektem.")
 	end
+	
+	item.uid = uid
 	
 	print("Gracz " .. Player(cid):getName() .. " - po prostu zwracam wartosc.")
 	print("item.uid" .. item.uid)
