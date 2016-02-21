@@ -36,6 +36,7 @@ function onUse(cid, item, position, target, pos)
 			end
 		end
 	end
-
+	
+	print("Gracz " .. Player(cid):getName() .. " - po prostu zwracam wartosc.")
 	return true
 end
