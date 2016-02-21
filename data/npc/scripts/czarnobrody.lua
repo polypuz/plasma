@@ -26,7 +26,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Jestes pewny, ze chcesz plynac do Mirko Town?", cid)
 			npcHandler.topic[cid] = 1
 	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
-		destination = {x = 1011, y = 1022, z = 6}
+		destination = {x = 1009, y = 1047, z = 7}
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		--doTeleportThing(cid, destination)
 		teleportPlayer(cid, destination)
