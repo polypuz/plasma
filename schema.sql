@@ -346,3 +346,37 @@ CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds`
 END
 //
 DELIMITER ;
+
+
+
+--- UPDATES BY MIRKOTS
+
+CREATE TABLE `player_titles` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(50) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+CREATE TABLE `unprocessed_orders` (
+ `order_id` int(11) NOT NULL AUTO_INCREMENT,
+ `player_id` int(11) NOT NULL,
+ `item_id` int(11) NOT NULL,
+ `count` int(11) NOT NULL,
+ `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `completed_orders` (
+ `order_id` int(11) NOT NULL,
+ `player_id` int(10) unsigned NOT NULL,
+ `item_id` int(10) unsigned NOT NULL,
+ `count` int(10) unsigned NOT NULL,
+ `completed_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+ALTER TABLE `players` ADD `marriage_status` tinyint(1) NOT NULL DEFAULT '0';
+ALTER TABLE `players` ADD `marriage_spouse` int(11) NOT NULL DEFAULT '-1';
+ALTER TABLE `players` ADD `title` int(11) NOT NULL DEFAULT '0';
+ALTER TABLE `players` ADD `beta_test` int(11) NOT NULL DEFAULT '0';
