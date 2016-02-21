@@ -21,6 +21,7 @@ function onUse(cid, item, position, target, pos)
 			doSendMagicEffect(position, CONST_ME_POFF)
 		end
 	elseif item.uid == 36006 then -- boss
+		print("Gracz " .. Player(cid):getName() .. " atakuje bossa.")
 		if cid:getStorageValue(36900) == 2 then
 			if cid:getStorageValue(36006) ~= 1 then
 				if math.random() > 0.1 then
@@ -38,5 +39,8 @@ function onUse(cid, item, position, target, pos)
 	end
 	
 	print("Gracz " .. Player(cid):getName() .. " - po prostu zwracam wartosc.")
+	print("item.uid" .. item.uid)
+	print("36900 storage:" .. cid:getStorageValue( 36900))
+	print("36906 storage:" .. cid:getStorageValue( 36906))
 	return true
 end
