@@ -13,7 +13,7 @@ end
 
 local function teleportPlayer( cid, dest )
 	print("teleporting player to: " .. tostring( dest ) )
-	Player(cid):teleportTo( Position( dest ) )
+	Player(cid):teleportTo( Position( dest["x"], dest["y"], dest["z"] ) )
 	return true
 end
 
