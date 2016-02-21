@@ -19,13 +19,11 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "transport") then
 		npcHandler:say("Kursuje miedzy {Mirko Town} a {Suwalkami}. Jak chcesz, to moge Cie zabrac ze soba.", cid)
 	elseif msgcontains(msg, "mirko town") then
-			town[cid] = 1
-			destination[cid] = {x = 1011, y = 1022, z = 6}
 			npcHandler:say("Jestes pewny, ze chcesz plynac do Mirko Town?", cid)
 			npcHandler.topic[cid] = 1
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
-			local destination = destination[cid]
+			local destination = {x = 1011, y = 1022, z = 6}
 			npcHandler:releaseFocus(cid)
 			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 			doTeleportThing(cid, destination)
@@ -34,12 +32,11 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("To sie psia mac zdecyduj.", cid)
 		end
 	elseif msgcontains(msg, "suwalki") or msgcontains(msg, "suwalkami") then
-		destination[cid] = { x= 901, y = 2122, z = 6 }
 		npcHandler:say("Na pewno chcesz plynac do Suwalek? *usmiecha sie* Ta nazwa nie jest przypadkowa.", cid)
 		npcHandler.topic[cid] = 2
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
-			local destination = destination[cid]
+			local destination = { x= 901, y = 2122, z = 6 }
 			npcHandler:releaseFocus(cid)
 			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 			doTeleportThing(cid, destination)
