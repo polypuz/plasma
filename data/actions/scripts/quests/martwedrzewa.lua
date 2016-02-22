@@ -88,7 +88,7 @@ function onUse(cid, item, position, target, pos)
 			if cid:getStorageValue(36006) ~= 1 then
 				if math.random() > 0.1 then
 					--doTargetCombatHealth(0, cid, 1, -800, -1400, 1)
-					doTargetCombatHealth(0, cid, 1, p_maxhealth * 0.35 * -1, math.random(0.11, 0.95) * p_maxhealth * -1, 1)
+					doTargetCombatHealth(0, cid, 1, p_maxhealth * 0.35 * -1, math.random(0.11, 0.80) * p_maxhealth * -1, 1)
 
 					doSendMagicEffect(position, CONST_ME_BLOCKHIT)
 				else
