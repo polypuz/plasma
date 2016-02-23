@@ -23,7 +23,7 @@ function onLogin(player)
 	while values do
 		print('[$$$] GRACZ ' .. player:getName() .. ' WLASNIE COS KUPIL --')
 		
-		if order_type == 5
+		if order_type == 5 then
 			-- bought some addons & outfits
 			local outfit = { female = item_id, male = item_id+1 }
 			if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
