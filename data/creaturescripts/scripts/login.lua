@@ -19,32 +19,35 @@ function onLogin(player)
 	local item_id = result.getDataInt(values, "item_id")
 	local count = result.getDataInt(values, "count") -- used as number of addons for the outfits
 	local parcel_created = false
+	local outfit_done = false
 	local donationTrophyValue = 97944
-	while values do
-		print('[$$$] GRACZ ' .. player:getName() .. ' WLASNIE COS KUPIL --')
-		
+	while values do		
 		if order_type == 5 then
-			print('That is an order of five.')
 			-- bought some addons & outfits
-			local outfit = { female = item_id, male = item_id+1 }
+			local outfit = { female = item_id, male = item_id+1 } -- generic setup
 			if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
-				print('Stroj juz byl kupiony, fallback')
 				-- he shouldnt have them, so we abort and drop good info on it
-				player:sendTextMessage(MESSAGE_STATUS_DESCR, "Kupiles stroj, ktory juz posiadasz. Prosimy o kontakt z administracja.")
+				player:sendTextMessage(MESSAGE_INFO_DESCR, "Kupiles stroj, ktory juz posiadasz. Prosimy o kontakt z administracja.")
+				break
 			else
-				print('Nie mial stroju...')
-				print("Dodaje outfity: " .. outfit.female .. ", " .. outfit.male .. ".")
-				player:setOutfit( outfit.female, count )
-				player:setOutfit( outfit.male, count )
+				local addons = count
+				if addons >= 1 then
+					for i=0,addons,1 do
+						player:addOutfitAddon(outfit.male, tonumber(i))
+						player:addOutfitAddon(outfit.female, tonumber(i))
+					end
+				else
+					player:addOutfit(outfit.male, 0)
+					player:addOutfit(outfit.female, 0)
+				end
+				
 				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
 					-- good job
-					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
-					print('Dostal stroj.')
-					local outfit_done = true
+					player:sendTextMessage(MESSAGE_INFO_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
+					outfit_done = true
 				else
 					-- something went wrong
-					print('Cos poszlo nie tak przy dodawaniu stroju')
-					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
+					player:sendTextMessage(MESSAGE_INFO_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
 					break
 				end
 			end			
@@ -69,12 +72,12 @@ function onLogin(player)
 			end
 		
 
-		end			
+		end
+		
 		if parcel_created or outfit_done then
 			db.query("DELETE FROM `unprocessed_orders` WHERE `order_id`=" .. order_id .. " AND `player_id`=" .. player:getGuid() )
 			db.query("INSERT INTO `completed_orders` (`order_type`, `order_id`, `player_id`, `item_id`, `count`) VALUES (" .. order_type .. ", " .. order_id .. ", " .. player:getGuid() .. ", " .. item_id .. ", " .. (count or 1) .. ")")
-			player:sendTextMessage(MESSAGE_STATUS_DESCR, "Przedmioty ze sklepu zostaly dodane do Twojej postaci lub wyslane poczta. Dziekujemy za wsparcie!")
-
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "Przedmioty ze sklepu zostaly dodane do Twojej postaci lub wyslane poczta. Dziekujemy za wsparcie!")
 		end
 		
 		values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
