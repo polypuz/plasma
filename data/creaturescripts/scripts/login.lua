@@ -44,7 +44,23 @@ function onLogin(player)
 				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
 					-- good job
 					player:sendTextMessage(MESSAGE_INFO_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
-					outfit_done = true
+					outfit_done = true					
+					local parcel = player:getInbox():addItem(2596, 1, false, 1)
+					if not parcel then --If not being able to create parcel we stop the script and retry again.
+						print('[ERROR Shop] = Error on creating a parcel.')
+						parcel_created = false
+					else
+						local letter = parcel:addItem(2598, 1, false, 1)
+						if player:getStorageValue( donationTrophyValue ) == -1 then
+							letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj stroj!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nW dodatku, za to, ze jest to Twoj pierwszy zakup - dostajesz symboliczny prezent!\n\nPowodzenia w grze.\nEkipa MirkOTS')
+							--ITEM_ATTRIBUTE_DESCRIPTION
+							parcel:addItem(7369, 1, false, 1):setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "To trofeum nalezy do "..player:getName()..", nadane przez ekipe MirkOTS. Zdobyl je pomagajac w utrzymaniu serwera.")
+							player:setStorageValue( donationTrophyValue, 1 )
+						else
+							letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj stroj!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nPowodzenia w grze!\nEkipa MirkOTS')
+						end
+						parcel:addItem(item_id, count or 1, false, 1)
+					end
 				else
 					-- something went wrong
 					player:sendTextMessage(MESSAGE_INFO_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
