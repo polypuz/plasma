@@ -34,8 +34,8 @@ function onLogin(player)
 			else
 				print('Nie mial stroju...')
 				print("Dodaje outfity: " .. outfit.female .. ", " .. outfit.male .. ".")
-				player:addOutfit( outfit.female )
-				player:addOutfit( outfit.male )
+				player:setOutfit( outfit.female, count )
+				player:setOutfit( outfit.male, count )
 				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
 					-- good job
 					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
