@@ -24,20 +24,25 @@ function onLogin(player)
 		print('[$$$] GRACZ ' .. player:getName() .. ' WLASNIE COS KUPIL --')
 		
 		if order_type == 5 then
+			print('That is an order of five.')
 			-- bought some addons & outfits
 			local outfit = { female = item_id, male = item_id+1 }
 			if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
+				print('Stroj juz byl kupiony, fallback')
 				-- he shouldnt have them, so we abort and drop good info on it
 				player:sendTextMessage(MESSAGE_STATUS_DESCR, "Kupiles stroj, ktory juz posiadasz. Prosimy o kontakt z administracja.")
 			else
+				print('Nie mial stroju...')
 				player:addOutfit( outfit.female, count )
 				player:addOutfit( outfit.male, count)
 				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
 					-- good job
 					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
+					print('Dostal stroj.')
 					local outfit_done = true
 				else
 					-- something went wrong
+					print('Cos poszlo nie tak przy dodawaniu stroju')
 					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
 					break
 				end
