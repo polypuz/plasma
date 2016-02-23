@@ -14,42 +14,70 @@ function onLogin(player)
 	
 	--Shop items
 	local values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
+	local order_type = result.getDataInt(values, "order_type")
 	local order_id = result.getDataInt(values, "order_id")
 	local item_id = result.getDataInt(values, "item_id")
-	local count = result.getDataInt(values, "count")
+	local count = result.getDataInt(values, "count") -- used as number of addons for the outfits
 	local parcel_created = false
 	local donationTrophyValue = 97944
 	while values do
 		print('[$$$] GRACZ ' .. player:getName() .. ' WLASNIE COS KUPIL --')
-		--Lets check if player have slot or cape left. Else send to player inbox
-		local parcel = player:getInbox():addItem(2596, 1, false, 1)
-        if not parcel then --If not being able to create parcel we stop the script and retry again.
-			print('[ERROR Shop] = Error on creating a parcel.')
-            parcel_created = false
-		else
-			local letter = parcel:addItem(2598, 1, false, 1)
-			if player:getStorageValue( donationTrophyValue ) == -1 then
-				letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj przedmiot!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nW dodatku, za to, ze jest to Twoj pierwszy zakup - dostajesz symboliczny prezent!\n\nPowodzenia w grze.\nEkipa MirkOTS')
-				--ITEM_ATTRIBUTE_DESCRIPTION
-				parcel:addItem(7369, 1, false, 1):setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "To trofeum nalezy do "..player:getName()..", nadane przez ekipe MirkOTS. Zdobyl je pomagajac w utrzymaniu serwera.")
-				player:setStorageValue( donationTrophyValue, 1 )
-			else
-				letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj przedmiot!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nPowodzenia w grze!\nEkipa MirkOTS')
-			end
-			parcel:addItem(item_id, count or 1, false, 1)
-			parcel_created = true
-		end
 		
-		if parcel_created then
-			db.query( "DELETE FROM `unprocessed_orders` WHERE `order_id`=" .. order_id .. " AND `player_id`=" .. player:getGuid() )
-			db.query("INSERT INTO `completed_orders` (`order_id`, `player_id`, `item_id`, `count`) VALUES (" .. order_id .. ", " .. player:getGuid() .. ", " .. item_id .. ", " .. (count or 1) .. ")")
+		if order_type == 5
+			-- bought some addons & outfits
+			local outfit = { female = item_id, male = item_id+1 }
+			if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
+				-- he shouldnt have them, so we abort and drop good info on it
+				player:sendTextMessage(MESSAGE_STATUS_DESCR, "Kupiles stroj, ktory juz posiadasz. Prosimy o kontakt z administracja.")
+			else
+				player:addOutfit( outfit.female, count )
+				player:addOutfit( outfit.male, count)
+				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
+					-- good job
+					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
+					local outfit_done = true
+				else
+					-- something went wrong
+					player:sendTextMessage(MESSAGE_STATUS_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
+					break
+				end
+			end			
+		else -- bought some items
+			--Lets check if player have slot or cape left. Else send to player inbox
+			local parcel = player:getInbox():addItem(2596, 1, false, 1)
+			if not parcel then --If not being able to create parcel we stop the script and retry again.
+				print('[ERROR Shop] = Error on creating a parcel.')
+				parcel_created = false
+			else
+				local letter = parcel:addItem(2598, 1, false, 1)
+				if player:getStorageValue( donationTrophyValue ) == -1 then
+					letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj przedmiot!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nW dodatku, za to, ze jest to Twoj pierwszy zakup - dostajesz symboliczny prezent!\n\nPowodzenia w grze.\nEkipa MirkOTS')
+					--ITEM_ATTRIBUTE_DESCRIPTION
+					parcel:addItem(7369, 1, false, 1):setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "To trofeum nalezy do "..player:getName()..", nadane przez ekipe MirkOTS. Zdobyl je pomagajac w utrzymaniu serwera.")
+					player:setStorageValue( donationTrophyValue, 1 )
+				else
+					letter:setAttribute(ITEM_ATTRIBUTE_TEXT, 'Dziekujemy za wsparcie serwera - otrzymales swoj przedmiot!\nDzieki takim jak Ty ten serwer sie utrzymuje.\nPowodzenia w grze!\nEkipa MirkOTS')
+				end
+				parcel:addItem(item_id, count or 1, false, 1)
+				parcel_created = true
+			end
+		
+
+		end			
+		if parcel_created or outfit_done then
+			db.query("DELETE FROM `unprocessed_orders` WHERE `order_id`=" .. order_id .. " AND `player_id`=" .. player:getGuid() )
+			db.query("INSERT INTO `completed_orders` (`order_type`, `order_id`, `player_id`, `item_id`, `count`) VALUES (" .. order_type .. ", " .. order_id .. ", " .. player:getGuid() .. ", " .. item_id .. ", " .. (count or 1) .. ")")
+			player:sendTextMessage(MESSAGE_STATUS_DESCR, "Przedmioty ze sklepu zostaly dodane do Twojej postaci lub wyslane poczta. Dziekujemy za wsparcie!")
+
 		end
 		
 		values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
 		item_id = result.getDataInt(values, "item_id")
 		order_id = result.getDataInt(values, "order_id")
+		order_type = result.getDataInt( values, "order_type")
 		count = result.getDataInt(values, "count")
 		parcel_created = false
+		outfit_done = false
 	end
 	
 	if player:getLastLoginSaved() <= 0 then
