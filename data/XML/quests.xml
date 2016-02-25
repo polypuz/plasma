@@ -12,7 +12,7 @@
 		</mission>
 	</quest> -->
 	<quest name="Martwe Drzewa" startstorageid="36900" startstoragevalue="1">
-		<mission name="Trening" storageid="36900" startvalue="1" endvalue="2" description="Jonasz zlecil Ci trening, abys przygotowal sie przed ostateczna walka z pleniacym sie w Suwalkach zlem. Musisz odnalezc 5 martwych drzew i je zniszczyc. Uwazaj jednak - nie bedzie to bezpieczna wyprawa.">
+		<mission name="Trening" storageid="36900" startvalue="1" endvalue="2" description="Jonasz zlecil Ci trening, abys przygotowal sie przed ostateczna walka z pleniacym sie w Suwalkach zlem. Musisz odnalezc i zniszczyc martwe drzewa. Uwazaj jednak - nie bedzie to bezpieczna wyprawa.">
 		</mission>
 	</quest>
 	<quest name="TW. Bolek" startstorageid="36960" startstoragevalue="1">
