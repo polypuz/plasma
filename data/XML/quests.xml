@@ -15,4 +15,8 @@
 		<mission name="Trening" storageid="36900" startvalue="1" endvalue="2" description="Jonasz zlecil Ci trening, abys przygotowal sie przed ostateczna walka z pleniacym sie w Suwalkach zlem. Musisz odnalezc 5 martwych drzew i je zniszczyc. Uwazaj jednak - nie bedzie to bezpieczna wyprawa.">
 		</mission>
 	</quest>
+	<quest name="TW. Bolek" startstorageid="36960" startstoragevalue="1">
+		<mission name="Kiszczakowa" storageid="36960" startvalue="1" endvalue="2" description="Byly prezydent Mirko Town poprosil Cie o pomoc. Musisz odnalezc Kiszczakowa i odzyskac dokumenty, ktore - podobno - z jakiegos powodu planuje ujawnic. Lechu nadmienil, ze K. mieszka w Bananowie.">
+		</mission>
+	</quest>
 </quests>
