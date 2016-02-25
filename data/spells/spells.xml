@@ -117,7 +117,7 @@
 		<vocation name="Master Sorcerer" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="13" name="Energy Wave" words="exevo vis hur" lvl="38" mana="170" direction="1" exhaustion="8000" groupcooldown="2000" needlearn="0" script="attack/energy wave.lua">
+	<instant group="attack" spellid="13" name="Energy Wave" words="exevo vis hur" lvl="38" mana="170" direction="1" exhaustion="5250" groupcooldown="2000" needlearn="0" script="attack/energy wave.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>

@@ -1,30 +1,15 @@
-local annihilatorReward = {1990, 2400, 2431, 2494}
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.uid <= 1000 or item.uid > 22700 then
+		print("Chest has no uid matching, giving nothing.")
 		return false
 	end
 
 	local itemType = ItemType(item.itemid)
 	local itemWeight = itemType:getWeight()
 	local playerCap = player:getFreeCapacity()
-	if isInArray(annihilatorReward, item.uid) then
-		if player:getStorageValue(30015) == -1 then
-			if playerCap >= itemWeight then
-				if item.uid == 1990 then
-					player:addItem(1990, 1):addItem(2326, 1)
-				else
-					player:addItem(item.uid, 1)
-				end
-				player:sendTextMessage(MESSAGE_INFO_DESCR, 'You have found a ' .. itemType:getName() .. '.')
-				player:setStorageValue(30015, 1)
-			else
-				player:sendTextMessage(MESSAGE_INFO_DESCR, 'You have found a ' .. itemType:getName() .. ' weighing ' .. itemWeight .. ' oz it\'s too heavy.')
-			end
-		else
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "It is empty.")
-		end
-	elseif player:getStorageValue(item.uid) == -1 then
+	if player:getStorageValue(item.uid) == -1 then
 		if playerCap >= itemWeight then
+			print("Chest has uid " .. tostring( item.uid ) .. ". Giving an item.")
 			player:sendTextMessage(MESSAGE_INFO_DESCR, 'You have found a ' .. itemType:getName() .. '.')
 			player:addItem(item.uid, 1)
 			player:setStorageValue(item.uid, 1)

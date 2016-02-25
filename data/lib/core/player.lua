@@ -55,6 +55,12 @@ function Player.isPremium(self)
 	return self:getPremiumDays() > 0 or configManager.getBoolean(configKeys.FREE_PREMIUM)
 end
 
+function Player.getCountSummons(self)
+	local countSummons = 0
+	for _ in pairs(self:getSummons()) do countSummons = countSummons + 1 end
+	return countSummons
+end
+
 function Player.sendCancelMessage(self, message)
 	if type(message) == "number" then
 		message = Game.getReturnMessage(message)
