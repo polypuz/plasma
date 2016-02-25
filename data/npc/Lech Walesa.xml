@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Lech Walesa" script="leszke.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="153" head="38" body="115" legs="0" feet="116" addons="1"/>
+	<parameters>
+		<parameter key="message_greet" value="Witam .. tak, to ja, prezydent Mirko." />
+		<parameter key="message_walkaway" value="Tymi rencyma komune obalilem! Z kogo debil, chyba z Ciebie!" />
+		<parameter key="message_farewell" value="Do zobaczenia w Magdalence!" />
+	</parameters>
+</npc>
