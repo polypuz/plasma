@@ -69,6 +69,6 @@
 		<item id="7452" chance="1490" /><!-- spiked squelcher -->
 		<item id="2454" chance="920" /><!-- war axe -->
 		<item id="2445" chance="850" /><!-- crystal mace -->
-		<item id="2393" chance="570" /><!-- giant sword -->
+		<item id="2393" chance="540" /><!-- giant sword -->
 	</loot>
 </monster>

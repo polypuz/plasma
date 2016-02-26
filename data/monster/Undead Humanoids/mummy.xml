@@ -60,6 +60,6 @@
 		<item id="2411" chance="450" />					<!-- poison dagger -->
 		<item id="2529" chance="170" />					<!-- black shield -->
 		<item id="2170" chance="100" />					<!-- silver amulet -->
-		<item id="11207" chance="10" />					<!-- mini mummy -->
+		<item id="11207" chance="0" />					<!-- mini mummy -->
 	</loot>
 </monster>

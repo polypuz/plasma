@@ -30,6 +30,6 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="10" chance="73230" /><!-- gold coin -->
-		<item id="3976" chance="8000" /><!-- worm -->
+		<item id="3976" chance="7400" /><!-- worm -->
 	</loot>
 </monster>

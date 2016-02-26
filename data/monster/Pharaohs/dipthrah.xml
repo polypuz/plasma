@@ -57,12 +57,12 @@
 		<item id="2148" countmax="80" chance="50000" /><!-- gold coin -->
 		<item id="2146" countmax="3" chance="7000" /><!-- small sapphire -->
 		<item id="7590" chance="7000" /><!-- great mana potion -->
-		<item id="2167" chance="7000" /><!-- energy ring -->
-		<item id="2178" chance="1500" /><!-- mind stone-->
-		<item id="2158" chance="1500" /><!-- blue gem -->
+		<item id="2167" chance="4860" /><!-- energy ring -->
+		<item id="2178" chance="910" /><!-- mind stone-->
+		<item id="2158" chance="870" /><!-- blue gem -->
 		<item id="2193" chance="500" /><!-- ankh -->
 		<item id="2436" chance="500" /><!-- skull staff -->
-		<item id="2446" chance="300" /><!-- pharaoh sword -->
+		<item id="2446" chance="100" /><!-- pharaoh sword -->
 		<item id="2354" chance="100000" /><!-- ornamented ankh -->
 	</loot>
 </monster>

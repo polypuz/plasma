@@ -47,7 +47,7 @@
 		<item id="2134" chance="4000" />					<!-- silver brooch -->
 		<item id="13472" chance="2400" />				<!-- pharaoh banner -->
 		<item id="2124" chance="1650" />					<!-- crystal ring -->
-		<item id="2144" chance="1340" />					<!-- black pearl -->
+		<item id="2144" chance="1260" />					<!-- black pearl -->
 		<item id="2411" chance="380" />					<!-- poison dagger -->
 	</loot>
 </monster>

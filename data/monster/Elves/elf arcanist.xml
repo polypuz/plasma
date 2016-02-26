@@ -69,8 +69,8 @@
 		<item id="5922" chance="2100" /><!-- holy orchid -->
 		<item id="7589" chance="3000" /><!-- strong mana potion -->
 		<item id="7618" chance="4000" /><!-- health potion -->
-		<item id="2189" chance="1160" /><!-- wand of cosmic energy -->
-		<item id="2747" chance="880" /><!-- grave flower -->
+		<item id="2189" chance="1100" /><!-- wand of cosmic energy -->
+		<item id="2747" chance="830" /><!-- grave flower -->
 		<item id="2177" chance="970" /><!-- life crystal -->
 		<item id="2154" chance="50" /><!-- yellow gem -->
 		<item id="10552" chance="10000" /><!-- elvish talisman -->

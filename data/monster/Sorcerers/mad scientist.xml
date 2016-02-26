@@ -66,6 +66,6 @@
 		<item id="7762" chance="470" /><!-- small enchanted amethyst -->
 		<item id="6324" chance="820" /><!-- cream cake -->
 		<item id="2687" countmax="5" chance="1200" /><!-- cookie -->
-		<item id="7440" chance="130" /><!-- mastermind potion -->
+		<item id="7440" chance="120" /><!-- mastermind potion -->
 	</loot>
 </monster>

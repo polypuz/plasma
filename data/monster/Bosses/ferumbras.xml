@@ -82,8 +82,8 @@
 		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
 		<item id="2151" countmax="4" chance="12000" /><!-- talon -->
 		<item id="5903" chance="100000" /><!-- ferumbras' hat -->
-		<item id="2149" countmax="3" chance="15000" /><!-- small emerald -->
+		<item id="2149" countmax="100" chance="15000" /><!-- small emerald -->
 		<item id="2171" chance="30000" /><!-- platinum amulet -->
-		<item id="2415" chance="6000" /><!-- great axe -->
+		<item id="2415" chance="4080" /><!-- great axe -->
 	</loot>
 </monster>

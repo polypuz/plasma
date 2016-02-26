@@ -89,7 +89,7 @@
 		<item id="2178" chance="20000" /><!-- mind stone -->
 		<item id="7493" chance="20000" /><!-- orb -->
 		<item id="2150" countmax="17" chance="25000" /><!-- small amethyst -->
-		<item id="2146" countmax="10" chance="25000" /><!-- small sapphire -->
+		<item id="2146" countmax="10" chance="21740" /><!-- small sapphire -->
 		<item id="8901" chance="20000" /><!-- spellbook of warding -->
 		<item id="2179" chance="20000" /><!-- gold ring -->
 		<item id="8918" chance="20000" /><!-- spellbook of dark mysteries -->

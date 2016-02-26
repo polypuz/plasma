@@ -42,7 +42,7 @@
 	</elements>
 	<loot>
 		<item id="2148" countmax="50" chance="100000" /><!-- gold coin -->
-		<item id="2168" chance="50000" /><!-- life ring -->
+		<item id="2168" chance="27270" /><!-- life ring -->
 		<item id="3965" countmax="4" chance="25000" /><!-- hunting spear -->
 		<item id="9808" chance="14285" /><!-- rusty armor -->
 	</loot>

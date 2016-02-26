@@ -59,17 +59,17 @@
 		<item id="2392" chance="290" /><!-- fire sword -->
 		<item id="2033" chance="3190" /><!-- golden mug -->
 		<item id="2796" chance="12000" /><!-- green mushroom -->
-		<item id="2177" chance="680" /><!-- life crystal -->
+		<item id="2177" chance="640" /><!-- life crystal -->
 		<item id="2547" countmax="7" chance="6700" /><!-- power bolt -->
 		<item id="5948" chance="1040" /><!-- red dragon leather -->
 		<item id="5882" chance="1920" /><!-- red dragon scale -->
-		<item id="2498" chance="280" /><!-- royal helmet -->
+		<item id="2498" chance="260" /><!-- royal helmet -->
 		<item id="7378" countmax="3" chance="8800" /><!-- royal spear -->
 		<item id="2146" chance="5300" /><!-- small sapphire -->
 		<item id="2479" chance="360" /><!-- strange helmet -->
 		<item id="7588" chance="970" /><!-- strong health potion -->
 		<item id="2528" chance="250" /><!-- tower shield -->
-		<item id="7402" chance="360" /><!-- dragon slayer -->
-		<item id="2492" chance="400" /><!-- dragon scale mail -->
+		<item id="7402" chance="100" /><!-- dragon slayer -->
+		<item id="2492" chance="150" /><!-- dragon scale mail -->
 	</loot>
 </monster>

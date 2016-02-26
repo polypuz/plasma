@@ -50,7 +50,7 @@
 	<loot>
 		<item id="5895" chance="100000" /><!-- fish fin -->
 		<item id="2148" countmax="77" chance="50000" /><!-- gold coin -->
-		<item id="7383" chance="50000" /><!-- relic sword -->
+		<item id="7383" chance="33770" /><!-- relic sword -->
 		<item id="2670" chance="25000" /><!-- shrimp -->
 	</loot>
 </monster>

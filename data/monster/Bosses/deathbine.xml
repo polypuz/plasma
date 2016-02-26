@@ -50,7 +50,7 @@
 		<item id="7887" chance="50000" /><!--terra amulet-->
 		<item id="7886" chance="50000" /><!-- terra boots -->
 		<item id="8912" chance="50000" /><!--springsprout rod-->
-		<item id="5015" chance="5555" /><!--mandrake-->
+		<item id="5015" chance="5260" /><!--mandrake-->
 		<item id="13307" chance="2854" /><!--mandrake-->
 	</loot>
 </monster>

@@ -49,10 +49,10 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="67" chance="48000" /><!-- gold coin -->
-		<item id="10601" chance="4300" /><!-- Tattered Piece of Robe -->
-		<item id="2165" chance="650" /><!-- stealth ring -->
+		<item id="10601" chance="3990" /><!-- Tattered Piece of Robe -->
+		<item id="2165" chance="600" /><!-- stealth ring -->
 		<item id="1951" chance="910" /><!-- parchment -->
-		<item id="2383" chance="130" /><!-- spike sword -->
-		<item id="2655" chance="130" /><!-- red robe -->
+		<item id="2383" chance="100" /><!-- spike sword -->
+		<item id="2655" chance="100" /><!-- red robe -->
 	</loot>
 </monster>

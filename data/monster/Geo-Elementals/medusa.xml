@@ -63,7 +63,7 @@
 		<item id="2536" chance="3040" /><!-- medusa shield -->
 		<item id="7590" countmax="2" chance="10000" /><!-- great mana potion -->
 		<item id="11226" chance="9900" /><!-- strand of medusa hair -->
-		<item id="7885" chance="420" /><!-- terra legs -->
+		<item id="7885" chance="380" /><!-- terra legs -->
 		<item id="7413" chance="1160" /><!-- titan axe -->
 		<item id="7884" chance="870" /><!-- terra mantle -->
 		<item id="10219" chance="850" /><!-- sacred tree amulet -->

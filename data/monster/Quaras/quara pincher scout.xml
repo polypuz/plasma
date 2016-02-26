@@ -46,8 +46,8 @@
 		<item id="2463" chance="4170" /><!-- plate armor -->
 		<item id="2381" chance="1840" /><!-- halberd -->
 		<item id="2147" chance="3440" /><!-- small ruby -->
-		<item id="5895" chance="1000" /><!-- fish fin -->
-		<item id="2177" chance="1000" /><!-- life crystal -->
+		<item id="5895" chance="790" /><!-- fish fin -->
+		<item id="2177" chance="850" /><!-- life crystal -->
 		<item id="13305" chance="10" /><!-- giant shrimp -->
 	</loot>
 </monster>
