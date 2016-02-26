@@ -72,14 +72,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if isInArray({7441, 7442, 7444, 7445}, target.itemid) then -- ice cube
         local rand = math.random(100000)
         target:getPosition():sendMagicEffect(tonumber(10))   
-        if target.itemid == 7445 and rand <= 40 then
+        if target.itemid == 7445 and rand <= 7000 then
             player:addAchievement('Ice Sculptor')
             target:transform(7446)
-        elseif target.itemid == 7444 and rand <= 4800 then
+        elseif target.itemid == 7444 and rand <= 10000 then
             target:transform(7445)
-        elseif target.itemid == 7442 and rand <= 22050 then
+        elseif target.itemid == 7442 and rand <= 20000 then
             target:transform(7444)
-        elseif target.itemid == 7441 and rand <= 72220 then
+        elseif target.itemid == 7441 and rand <= 31000 then
             target:transform(7442)
         else
             target:remove()
