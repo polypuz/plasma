@@ -27,5 +27,13 @@
 	<globalevent name="Server Save 22:30" time="22:30:00" script="serversave.lua" />
 	<!--
 	<globalevent name="timer_example" time="12:00:00" script="my_script.lua" />
-	-->
+-->
+
+	<globalevent name="Server Clean 00:25" time="00:25:00" script="serverClean.lua" />
+	<globalevent name="Server Clean 04:25" time="04:25:00" script="serverClean.lua" />
+	<globalevent name="Server Clean 08:25" time="08:25:00" script="serverClean.lua" />
+	<globalevent name="Server Clean 12:25" time="12:25:00" script="serverClean.lua" />
+	<globalevent name="Server Clean 16:25" time="16:25:00" script="serverClean.lua" />
+	<globalevent name="Server Clean 20:25" time="20:25:00" script="serverClean.lua" />
+
 </globalevents>

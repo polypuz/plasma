@@ -9,9 +9,9 @@ end
 function onLogin(player)
 	local loginStr = "Witaj na " .. configManager.getString(configKeys.SERVER_NAME) .. "!"
 	player:openChannel(3) --czat mirko
-	player:openChannel(5) --czat wymiana
+	player:openChannel(5) --czat ogloszenia
 	player:openChannel(7) --czat pomoc
-	
+
 	--Shop items
 	local values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
 	local order_type = result.getDataInt(values, "order_type")
@@ -21,7 +21,7 @@ function onLogin(player)
 	local parcel_created = false
 	local outfit_done = false
 	local donationTrophyValue = 97944
-	while values do		
+	while values do
 		if order_type == 5 then
 			-- bought some addons & outfits
 			local outfit = { female = item_id, male = item_id+1 } -- generic setup
@@ -40,11 +40,11 @@ function onLogin(player)
 					player:addOutfit(outfit.male, 0)
 					player:addOutfit(outfit.female, 0)
 				end
-				
+
 				if player:hasOutfit(outfit.female, count) or player:hasOutfit(outfit.male, count) then
 					-- good job
 					player:sendTextMessage(MESSAGE_INFO_DESCR, "Zakupiony przez Ciebie stroj zostal dodany. Milej gry!")
-					outfit_done = true					
+					outfit_done = true
 					local parcel = player:getInbox():addItem(2596, 1, false, 1)
 					if not parcel then --If not being able to create parcel we stop the script and retry again.
 						print('[ERROR Shop] = Error on creating a parcel.')
@@ -66,7 +66,7 @@ function onLogin(player)
 					player:sendTextMessage(MESSAGE_INFO_DESCR, "Cos poszlo nie tak przy dodawaniu stroju. Prosimy o kontakt z administracja.")
 					break
 				end
-			end			
+			end
 		else -- bought some items
 			--Lets check if player have slot or cape left. Else send to player inbox
 			local parcel = player:getInbox():addItem(2596, 1, false, 1)
@@ -86,16 +86,16 @@ function onLogin(player)
 				parcel:addItem(item_id, count or 1, false, 1)
 				parcel_created = true
 			end
-		
+
 
 		end
-		
+
 		if parcel_created or outfit_done then
 			db.query("DELETE FROM `unprocessed_orders` WHERE `order_id`=" .. order_id .. " AND `player_id`=" .. player:getGuid() )
 			db.query("INSERT INTO `completed_orders` (`order_type`, `order_id`, `player_id`, `item_id`, `count`) VALUES (" .. order_type .. ", " .. order_id .. ", " .. player:getGuid() .. ", " .. item_id .. ", " .. (count or 1) .. ")")
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "Przedmioty ze sklepu zostaly dodane do Twojej postaci lub wyslane poczta. Dziekujemy za wsparcie!")
 		end
-		
+
 		values = db.storeQuery("SELECT * FROM `unprocessed_orders` WHERE `player_id`=".. player:getGuid() .." LIMIT 1")
 		item_id = result.getDataInt(values, "item_id")
 		order_id = result.getDataInt(values, "order_id")
@@ -104,7 +104,7 @@ function onLogin(player)
 		parcel_created = false
 		outfit_done = false
 	end
-	
+
 	if player:getLastLoginSaved() <= 0 then
 		loginStr = loginStr .. " Ubierz sie jak Ci sie podoba."
 		player:sendOutfitWindow()
@@ -119,7 +119,7 @@ function onLogin(player)
 
 	-- event
 	local event = false
-	
+
 	local eventStorageKey = 15000
 	local eventItemCap = 15
 	local eventItemId = 16007
@@ -137,10 +137,10 @@ function onLogin(player)
 				end
 			else
 				player:sendTextMessage(MESSAGE_INFO_DESCR, eventDescrFailed)
-			end	
+			end
 		end
 	end
-	
+
 	-- Stamina
 	nextUseStaminaTime[player.uid] = 0
 
@@ -157,7 +157,7 @@ function onLogin(player)
 	elseif not promotion then
 		player:setVocation(vocation:getDemotion())
 	end
-	
+
 	-- player:showTextDialog(2523, "Witaj na MirkOTS!\nMirkOTS to serwer zrobiony dla spolecznosci Wykop.pl.\nPrzestrzegaj regulaminu znajdujacego sie na stronie:\nhttp://mirkots.gimb.us/\nJesli masz sugestie lub buga, wrzuc je na Forum, zamiast pisac na Pomocy / na PRIV do GMa.\nKorzystaj z kanalu Pomoc!\nMilego dnia i udanych lowow!")
 
 	-- Events
@@ -165,36 +165,40 @@ function onLogin(player)
 	player:registerEvent("statek")
 	player:registerEvent("PlayerDeath")
 	player:registerEvent("DropLoot")
+	player:registerEvent("Tasks")
+	--[[
+		level reward onLogin
+		]]
 	local poziom=player:getLevel()
 	local bank= player:getBankBalance()
-	
-	
+
+
 			if poziom >= 15 and player:getStorageValue(3015) < 1 then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, 'Otrzymales nagrode za osiagniecie 15 poziomu. Sprawdz bank. ')
 				player:setBankBalance(bank+2000)
 				player:setStorageValue(3015, 1)
-				
+
 			elseif poziom >= 30 and player:getStorageValue(3030) < 1 then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, 'Otrzymales nagrode za osiagniecie 30 poziomu. Sprawdz bank. ')
 				player:setBankBalance(bank+4000)
 				player:setStorageValue(3030, 1)
-			
+
 			elseif poziom >= 50 and player:getStorageValue(3050) < 1 then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, 'Otrzymales nagrode za osiagniecie 50 poziomu. Sprawdz bank. ')
 				player:setBankBalance(bank+10000)
 				player:setStorageValue(3050, 1)
-			
-			elseif poziom >= 75 and player:getStorageValue(3075) < 1 then			
+
+			elseif poziom >= 75 and player:getStorageValue(3075) < 1 then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, 'Otrzymales nagrode za osiagniecie 75 poziomu. Sprawdz bank. ')
 				player:setBankBalance(bank+15000)
 				player:setStorageValue(3075, 1)
-			
+
 			elseif poziom >= 100 and player:getStorageValue(3100) < 1 then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, 'Otrzymales nagrode za osiagniecie 100 poziomu. Sprawdz bank. ')
 				player:setBankBalance(bank+30000)
 				player:setStorageValue(3100, 1)
-				
+
 			end
-	
+
 	return true
 end

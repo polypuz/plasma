@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<quests>
+<quests><!--
 	<quest name="Example Quest I" startstorageid="1001" startstoragevalue="1">
 		<mission name="Example Mission 1" storageid="1001" startvalue="1" endvalue="3">
 			<missionstate id="1" description="Example description 1" />
@@ -9,6 +9,21 @@
 		<mission name="Example Mission 2" storageid="1001" startvalue="4" endvalue="5">
 			<missionstate id="4" description="Example description 1" />
 			<missionstate id="5" description="Example description 2" />
+		</mission>
+	</quest> -->
+	<quest name="Martwe Drzewa" startstorageid="36900" startstoragevalue="1">
+		<mission name="Trening" storageid="36900" startvalue="1" endvalue="2" description="Jonasz zlecil Ci trening, abys przygotowal sie przed ostateczna walka z pleniacym sie w Suwalkach zlem. Musisz odnalezc i zniszczyc martwe drzewa. Uwazaj jednak - nie bedzie to bezpieczna wyprawa.">
+		</mission>
+		<mission name="Krysztalowe Drzewo" storageid="36900" startvalue="2" endvalue="3" description="Po zakonczeniu treningu przyszedl czas na zadanie weryfikacyjne: musisz pokonac ostatnie, krysztalowe drzewo. Dokonaj tego, a Jonasz da Ci dostep do lochow ze skarbami.">
+		</mission>
+		<mission name="Lochy" storageid="36900" startvalue="3" endvalue="4" description="Masz dostep do lochow. W ich komnatach czai sie zlo i rozne monstra, strzegace skarbu Suwalek. Zbierz druzyne i pokonaj potwory, aby zyskac bogactwa."></mission>
+	</quest>
+	<quest name="Bolec na boku" startstorageid="5000" startstoragevalue="1">
+		<mission name="Przysluga" storageid="19000" startvalue="-1" endvalue="100" description="Ks. Natanek poprosil Cie o przysluge - musisz wybic 100 wampirow. Gdy to zrobisz - poblogoslawi on Twojego bolca."></mission>
+		<mission name="Blogoslawiony bolec" storageid="5000" startvalue="2" endvalue="3" description="Wykonales zadanie - zabiles 100 wampirow. Czas odebrac nagrode od duchownego."> </mission>
+	</quest>
+	<quest name="TW. Bolek" startstorageid="36960" startstoragevalue="1">
+		<mission name="Kiszczakowa" storageid="36960" startvalue="1" endvalue="2" description="Byly prezydent Mirko Town poprosil Cie o pomoc. Musisz odnalezc Kiszczakowa i odzyskac dokumenty, ktore - podobno - z jakiegos powodu planuje ujawnic. Lechu nadmienil, ze K. mieszka w Bananowie.">
 		</mission>
 	</quest>
 </quests>
