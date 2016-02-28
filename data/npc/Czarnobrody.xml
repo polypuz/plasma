@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Czarnobrody" script="czarnobrody.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100"/>
-	<look type="328" head="116" body="67" legs="116" feet="114" addons="0"/>
+	<look type="153" head="114" body="68" legs="68" feet="68" addons="1"/>
 	<parameters>
 		<parameter key="message_greet" value="Witaj, |PLAYERNAME|!" />
 		<parameter key="message_walkaway" value="Niewychowany!" />
