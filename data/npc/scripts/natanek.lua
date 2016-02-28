@@ -121,7 +121,7 @@ local function creatureSayCallback(cid, type, msg)
 				elseif val > 2 then
 					npcHandler:say("Poblogoslawilem juz raz Twojego bolca, nie bede robil tego co chwile.", cid)
 				else -- == 2 ( state completed and havent picked up the reward )
-					if player:removeItem( 5941 ) then
+					if player:removeItem(5941, 1) then
 						npcHandler:say("Wiec udalo Ci sie, amen. Oto Twoj bolec na boku.", cid)
 						player:addItem(5942, 1)
 						player:setStorageValue(5000, 3) -- 3 = state finished
