@@ -2443,10 +2443,10 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="transformDeEquipTo" value="2168" />
-		<attribute key="duration" value="1200" />
-		<attribute key="healthGain" value="2" />
+		<attribute key="duration" value="600" />
+		<attribute key="healthGain" value="4" />
 		<attribute key="healthTicks" value="6000" />
-		<attribute key="manaGain" value="8" />
+		<attribute key="manaGain" value="16" />
 		<attribute key="manaTicks" value="6000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -2538,10 +2538,10 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="transformDeEquipTo" value="2214" />
-		<attribute key="duration" value="450" />
-		<attribute key="healthGain" value="6" />
+		<attribute key="duration" value="300" />
+		<attribute key="healthGain" value="9" />
 		<attribute key="healthTicks" value="6000" />
-		<attribute key="manaGain" value="24" />
+		<attribute key="manaGain" value="36" />
 		<attribute key="manaTicks" value="6000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
