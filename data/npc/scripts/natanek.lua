@@ -118,17 +118,21 @@ local function creatureSayCallback(cid, type, msg)
 			if val > 0 then
 				if val == 1 then
 					npcHandler:say("Galganie, nie skonczyles zadania. Zabij 100 wampirow i dopiero wtedy tutaj przyjdz.", cid)
-				else
+				elseif val > 2 then
+					npcHandler:say("Poblogoslawilem juz raz Twojego bolca, nie bede robil tego co chwile.", cid)
+				else -- == 2 ( state completed and havent picked up the reward )
 					if player:removeItem( 5941 ) then
 						npcHandler:say("Wiec udalo Ci sie, amen. Oto Twoj bolec na boku.", cid)
 						player:addItem(5942, 1)
+						player:setStorageValue(5000, 3) -- 3 = state finished
 					else
 						npcHandler:say("Udalo Ci sie, to swietnie. Przynies mi bolec, a go poblogoslawie.", cid)
 					end
 				end
 			else
 				npcHandler:say("Moge poblogoslawic Twojego bolca, ale nie bez przyslugi. Aby bolec nabral mocy, musisz wybic 100 wampirow, ktore ostatnio panosza sie po naszym swiecie. Gdy juz to zrobisz, odezwij sie do mnie.", cid)
-					player:setStorageValue( 5000, 1 ) --5001 is the storageKey for natanek's task
+					player:setStorageValue(19000, 0)
+					player:setStorageValue( 5000, 1 ) --5001 is the storageKey for natanek's task (state started == 1)
 				end
 		else
 			npcHandler:say("Abym mogl poblogoslawic Twojego bolca, najpierw musisz go miec. Moge Ci sprzedac swojego, za 5000 zlota - wspomnij tylko o {wooden stake} albo po prostu - {bolec}.", cid)
