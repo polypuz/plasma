@@ -101,7 +101,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "tak") or msgcontains(msg, "yes") then
 		if getPlayerStorageValue(cid, 36006) == 1 then
 			npcHandler:say("Nie wiem jak tego dokonales, ale jestes wielkim wojownikiem. Teraz jestes gotowy by odkrywac tajemnice wyspy! Zegnaj, przyjacielu.", cid)
-			setPlayerStorageValue(cid, 36900, 2)
+			setPlayerStorageValue(cid, 36900, 3)
 			npcHandler:releaseFocus(cid)
 		end
 	else
