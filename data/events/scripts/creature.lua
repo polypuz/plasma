@@ -21,7 +21,7 @@ function Creature:onTargetCombat(target)
 				if master:isPlayer() then
 					local party, targetParty = self:getParty(), master:getParty()
 					local guild, targetGuild = self:getGuild(), master:getGuild()
-					
+
 					if (( party and targetParty ) and party == targetParty) then
 						return true
 					elseif guild and targetGuild and guild:getId() == targetGuild:getId() then
@@ -31,12 +31,12 @@ function Creature:onTargetCombat(target)
 					else
 						if self:getSkull() <= SKULL_WHITE and master:getSkull() == SKULL_NONE then
 							self:setSkull( SKULL_WHITE )
-							self:setSkullTime( getConfigInfo('pzLocked') )
+							self:setSkullTime( self:getSkullTime() + getConfigInfo('pzLocked') )
 						end
 					end
 				end
 			end
 		end
-	end		
-    return true	
+	end
+    return true
 end
