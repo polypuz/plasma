@@ -64,6 +64,7 @@
 	<action itemid="2120" script="tools/rope.lua" />
 	<action itemid="2553" script="tools/pick.lua" />
 	<action itemid="5908" script="tools/obsidianknife.lua" />
+    <action itemid="5942" script="tools/obsidianknife.lua" />
 	<!-- taming -->
 	<action itemid="13295" script="other/taming.lua"/> <!-- reins -->
 	<action itemid="13294" script="other/taming.lua"/> <!-- harness -->
