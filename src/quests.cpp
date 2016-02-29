@@ -61,7 +61,7 @@ std::string Mission::getDescription(Player* player) const
 		}
 	}
 
-	return "An error has occurred, please contact a gamemaster.";
+	return "Wystapil blad - prosimy o kontakt z administracja.";
 }
 
 bool Mission::isStarted(Player* player) const
@@ -107,7 +107,7 @@ bool Mission::isCompleted(Player* player) const
 std::string Mission::getName(Player* player) const
 {
 	if (isCompleted(player)) {
-		return name + " (completed)";
+		return name + " (zakonczone)";
 	}
 	return name;
 }
