@@ -37,13 +37,13 @@ local config = {
     },
     [5942] = {
         -- Demon
-        [2916] = {value = 400, newItem = 5906},
+        [2916] = {value = 25000, newItem = 5906},
 
         -- Vampires
-        [2956] = {value = 550, newItem = 5905}, -- vampire
-        [9654] = {value = 550, newItem = 5905, after = 9658}, -- bride
-        [8938] = {value = 250, newItem = 5905}, --lord
-        [21275] = {value = 200, newItem= 5905} -- viscount
+        [2956] = {value = 4480, newItem = 5905}, -- vampire
+        [9654] = {value = 5430, newItem = 5905, after = 9658}, -- bride
+        [8938] = {value = 25000, newItem = 5905}, --lord
+        [21275] = {value = 2040, newItem= 5905} -- viscount
     }
 }
 
