@@ -2,6 +2,8 @@
 _Silnik serwera MirkOTS na bazie The Forgotten Server._
 
 Przed instalacją prosimy o podejrzenie "licencji" (niżej).
+
+Kontakt: #mirkots na Freenode.
 # wiki, dokumentacja
 The Forgotten Server ma bardzo słąbą dokumentację, więc staramy się tworzyć w miarę możliwości własną. Więcej informacji na [wiki projektu](https://github.com/Marahin/mirkots-engine/wiki)
 
