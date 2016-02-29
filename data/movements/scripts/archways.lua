@@ -23,9 +23,9 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 1 or player_voc == 5 then
 				local count_items = getPlayerItemCount(cid, 2150)
 				if count_items ~= 0 then
-                    			doTeleportThing(cid, _teleport_neutral)
-                    			doPlayerTakeItem(cid,2150, count_items)
-                    			doPlayerAddItem(cid,7762, count_items, false)
+        			doTeleportThing(cid, _teleport_neutral)
+        			doPlayerTakeItem(cid,2150, count_items)
+        			doPlayerAddItem(cid,7762, count_items, false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2150) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -40,9 +40,9 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 1 or player_voc == 5 then
 				local count_items = getPlayerItemCount(cid, 2147)
 				if count_items ~= 0 then
-                    			doTeleportThing(cid, _teleport_fire)
-                    			doPlayerTakeItem(cid, 2147, count_items)
-                    			doPlayerAddItem(cid, 7760, count_items, false)
+        			doTeleportThing(cid, _teleport_fire)
+        			doPlayerTakeItem(cid, 2147, count_items)
+        			doPlayerAddItem(cid, 7760, count_items, false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2147) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -57,9 +57,9 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 2 or player_voc == 6 then
 				local count_items = getPlayerItemCount(cid, 2149)
 				if count_items ~= 0 then
-                    			doTeleportThing(cid, _teleport_earth)
-                    			doPlayerTakeItem(cid,2149, count_items)
-                    			doPlayerAddItem(cid,7761, count_items, false )
+        			doTeleportThing(cid, _teleport_earth)
+        			doPlayerTakeItem(cid,2149, count_items)
+        			doPlayerAddItem(cid,7761, count_items, false )
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2149) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -74,9 +74,9 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 2 or player_voc == 6 then
 				local count_items = getPlayerItemCount(cid, 2146)
 				if count_items ~= 0 then
-                    			doTeleportThing(cid, _teleport_ice)
-                    			doPlayerTakeItem(cid,2146, count_items)
-                    			doPlayerAddItem(cid,7759, count_items, false)
+        			doTeleportThing(cid, _teleport_ice)
+        			doPlayerTakeItem(cid,2146, count_items)
+        			doPlayerAddItem(cid,7759, count_items, false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2146) == 0 then
                     --doMoveCreature(cid, newdir)
