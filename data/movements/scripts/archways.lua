@@ -23,8 +23,8 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 1 or player_voc == 5 then
 				if getPlayerItemCount(cid,2150) ~= 0 then
                     doTeleportThing(cid, _teleport_neutral)
-                    doPlayerAddItem(cid,7762, getPlayerItemCount(cid, 2150), false)
                     doPlayerTakeItem(cid,2150, getPlayerItemCount(cid, 2150))
+                    doPlayerAddItem(cid,7762, getPlayerItemCount(cid, 2150), false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2150) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -39,8 +39,8 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 1 or player_voc == 5 then
 				if getPlayerItemCount(cid,2147) ~= 0 then
                     doTeleportThing(cid, _teleport_fire)
-                    doPlayerAddItem(cid, 7760, getPlayerItemCount(cid, 2147), false)
                     doPlayerTakeItem(cid, 2147, getPlayerItemCount(cid, 2147))
+                    doPlayerAddItem(cid, 7760, getPlayerItemCount(cid, 2147), false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2147) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -55,8 +55,8 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 2 or player_voc == 6 then
 				if getPlayerItemCount(cid,2149) ~= 0 then
                     doTeleportThing(cid, _teleport_earth)
-                    doPlayerAddItem(cid,7761, getPlayerItemCount(cid, 2149), false )
                     doPlayerTakeItem(cid,2149, getPlayerItemCount(cid, 2149))
+                    doPlayerAddItem(cid,7761, getPlayerItemCount(cid, 2149), false )
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2149) == 0 then
                     --doMoveCreature(cid, newdir)
@@ -71,8 +71,8 @@ function onStepIn(cid, item, position, fromPosition)
 			if player_voc == 2 or player_voc == 6 then
 				if getPlayerItemCount(cid,2146) ~= 0 then
                     doTeleportThing(cid, _teleport_ice)
-                    doPlayerAddItem(cid,7759, getPlayerItemCount(cid, 2146), false)
                     doPlayerTakeItem(cid,2146, getPlayerItemCount(cid, 2146))
+                    doPlayerAddItem(cid,7759, getPlayerItemCount(cid, 2146), false)
 					doSendMagicEffect(tele,effect)
                 elseif getPlayerItemCount(cid,2146) == 0 then
                     --doMoveCreature(cid, newdir)
