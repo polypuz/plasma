@@ -26,4 +26,20 @@
 		<mission name="Kiszczakowa" storageid="36960" startvalue="1" endvalue="2" description="Byly prezydent Mirko Town poprosil Cie o pomoc. Musisz odnalezc Kiszczakowa i odzyskac dokumenty, ktore - podobno - z jakiegos powodu planuje ujawnic. Lechu nadmienil, ze K. mieszka w Bananowie.">
 		</mission>
 	</quest>
+	<quest name="Zakon 4konserw" startstorageid="39650" startstoragevalue="0">
+		<mission name="Inicjacja" storageid="39650" startvalue="0" endvalue="1" description="Zakon 4konserw zlecil Ci pierwsze zadanie, w ramach inicjacji. Musisz przyniesc 500 Demonic Essence mistrzowi zakonu, RPG7.">
+		</mission>
+		<mission name="Oficer pierwszego stopnia" storageid="39650" startvalue="2" endvalue="3" description="Zakon 4konserw zlecil Ci zadanie. Musisz przyniesc 1000 Demonic Essence mistrzowi zakonu, RPG7.">
+		</mission>
+		<mission name="Starszy oficer" storageid="39650" startvalue="4" endvalue="5" description="Mistrz zakonu przydzielil Ci ostatnie zadanie: zdobycie 1500 Demonic Essence. Po jego wykonaniu otrzymasz relikwie i range starszego oficera.">
+		</mission>
+	</quest>
+	<quest name="Zakon Neuropy" startstorageid="39651" startstoragevalue="0">
+		<mission name="Inicjacja" storageid="39651" startvalue="0" endvalue="1" description="Aby dolaczyc do Zakonu Neuropy i kitrac w squacie, musisz wykonac zadanie: przyniesc 500 Demonic Essence Iniekcji.">
+		</mission>
+		<mission name="Antyfashysta" storageid="39651" startvalue="2" endvalue="3" description="Iniekcja ponownie potrzebuje Demonic Essence, teraz w ilosci hurtowej: 1000 sztuk.">
+		</mission>
+		<mission name="Starszy szeklomajster" storageid="39651" startvalue="4" endvalue="5" description="Twoim ostatnim zadaniem jest ponownie uzbieranie Demonic Essence, tym razem w ilosci 1500. Zdaje sie, ze Zakon Neuropy korzysta z tego jako latwego odlotu na squacie.">
+		</mission>
+	</quest>
 </quests>

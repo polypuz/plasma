@@ -830,17 +830,17 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 			if (RuneSpell* rune = g_spells->getRuneSpell(it.id)) {
 				const VocSpellMap& vocMap = rune->getVocMap();
 				std::vector<Vocation*> showVocMap;
-				
+
 				// vocations are usually listed with the unpromoted and promoted version, the latter being
 				// hidden from the description, so total / 2 is most likely the amount of vocations to be shown
-				
+
 				showVocMap.reserve(vocMap.size() / 2 );
 				for (const auto& voc : vocMap ){
 					if( voc.second){
 						showVocMap.push_back(g_vocations.getVocation(voc.first));
 					}
 				}
-				if( !showVocMap.empty()){				
+				if( !showVocMap.empty()){
 					auto vocIt = showVocMap.begin(), vocLast = (showVocMap.end() - 1);
 					while (vocIt != vocLast) {
 						s << asLowerCaseString((*vocIt)->getVocName()) << "s";
@@ -852,7 +852,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 						}
 					}
 					s << asLowerCaseString((*vocLast)->getVocName()) << "s";
-				} else{ 
+				} else{
 					s << "graczy";
 				}
 
@@ -1466,7 +1466,7 @@ std::string Item::getWeightDescription(const ItemType& it, uint32_t weight, uint
 	if (it.stackable && _count > 1 && it.showCount != 0) {
 		ss << "Lacznie waza ";
 	} else {
-		ss << "To wazy ";
+		ss << "Wazy ";
 	}
 
 	if (weight < 10) {
@@ -1478,8 +1478,16 @@ std::string Item::getWeightDescription(const ItemType& it, uint32_t weight, uint
 		weightString.insert(weightString.end() - 2, '.');
 		ss << weightString;
 	}
-
-	ss << " kilo.";
+	if (weight < 1){
+		ss << " uncji.";
+	}
+	else if( weight < 5){
+		ss << " uncje.";
+	}
+	else if( weight >= 5){
+		ss << " uncji.";
+	}
+	
 	return ss.str();
 }
 

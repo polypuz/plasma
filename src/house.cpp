@@ -120,9 +120,9 @@ void House::updateDoorDescription() const
 {
 	std::ostringstream ss;
 	if (owner != 0) {
-		ss << "It belongs to house '" << houseName << "'. " << ownerName << " owns this house.";
+		ss << houseName << ", mieszka tu " << ownerName << ".";
 	} else {
-		ss << "It belongs to house '" << houseName << "'. Nobody owns this house.";
+		ss << houseName << ", nie ma wlasciciela.";
 
 		const int32_t housePrice = g_config.getNumber(ConfigManager::HOUSE_PRICE);
 		if (housePrice != -1) {
@@ -374,7 +374,7 @@ HouseTransferItem* HouseTransferItem::createHouseTransferItem(House* house)
 	transferItem->setID(ITEM_DOCUMENT_RO);
 	transferItem->setSubType(1);
 	std::ostringstream ss;
-	ss << "It is a house transfer document for '" << house->getName() << "'.";
+	ss << "Sa to akta wlasnosci dla nieruchomosci '" << house->getName() << "'.";
 	transferItem->setSpecialDescription(ss.str());
 	return transferItem;
 }
@@ -740,7 +740,25 @@ void Houses::payHouses(RentPeriod_t rentPeriod) const
 				}
 
 				std::ostringstream ss;
-				ss << "Warning! \nThe " << period << " rent of " << house->getRent() << " gold for your house \"" << house->getName() << "\" is payable. Have it within " << daysLeft << " days or you will lose this house.";
+				//ss << "Warning! \nThe " << period << " rent of " << house->getRent() << " gold for your house \"" << house->getName() << "\" is payable. Have it within " << daysLeft << " days or you will lose this house.";
+				std::string period_translated_ = "";
+
+				if( period == "weekly" ){
+					period_translated_ = "Tygodniowa";
+				}
+				else if( period == "daily"){
+					period_translated_ = "Codzienna";
+				}
+				else if( period == "monthly"){
+					period_translated_ = "Comiesieczna";
+				}
+				else if( period == "annual"){
+					period_translated_ = "Coroczna";
+				}
+				else{
+					period_translated_ = period; /* if nothing works out */
+				}
+				ss << "Uwaga!\n" << period_translated_ << " oplata za nieruchomosc \"" << house->getName() << "\" (" << house->getRent() << " zlota) musi zostac uiszczona w ciagu " << daysLeft << " dni, w przeciwnym wypadku zostanie przejeta.";
 				letter->setText(ss.str());
 				g_game.internalAddItem(player.getInbox(), letter, INDEX_WHEREEVER, FLAG_NOLIMIT);
 				house->setPayRentWarnings(house->getPayRentWarnings() + 1);

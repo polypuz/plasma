@@ -248,7 +248,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 				/* EK */
 				/* RYCERZEM, RYCERKA */
 				s << " Jestes rycerzem.";
-			}			
+			}
 		} else {
 			s << " Nie masz profesji.";
 		}
@@ -274,7 +274,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 		*/
 		if( group->access){
 			s << ", to " << group->name << '.';
-			
+
 		}
 		else if( vocation->getId() != VOCATION_NONE){
 			/* original */
@@ -315,7 +315,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 				/* EK */
 				/* RYCERZEM, RYCERKA */
 				s << ", to rycerz.";
-			}			
+			}
 		}
 	}
 
@@ -329,7 +329,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 			s << " Jest w grupi ";
 		}*/
 		else{
-			s << " Jest w grupie z "; 
+			s << " Jest w grupie z ";
 		}
 
 		size_t memberCount = party->getMemberCount() + 1;
@@ -346,7 +346,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 				s << memberCount << " osobami";
 			}
 		}
-		
+
 		size_t invitationCount = party->getInvitationCount();
 		if( invitationCount == 0 ){
 			s << '.';
@@ -388,14 +388,14 @@ std::string Player::getDescription(int32_t lookDistance) const
 			else{
 				s << " Nalezy do gildii ";
 			}
-			
+
 			s << guild->getName() << ", jako " << rank->name;
-			
-			
+
+
 			if( !guildNick.empty()){
 				s << " (" << guildNick << ')';
 			}
-			
+
 			size_t memberCount = guild->getMemberCount();
 			if (memberCount == 1) {
 				s << ", ktora ma jednego czlonka, z czego " << guild->getMembersOnline().size() << " jest zalogowany.";
@@ -1068,7 +1068,7 @@ bool Player::canWalkthrough(const Creature* creature) const
 	}
 
 	thisPlayer->setLastWalkthroughPosition(creature->getPosition());
-	
+
 	return (playerTile->hasFlag( TILESTATE_PROTECTIONZONE ) || (player->getLevel() < 50));
 }
 
@@ -1085,7 +1085,7 @@ bool Player::canWalkthroughEx(const Creature* creature) const
 	}
 
 	const Tile* playerTile = player->getTile();
-	return playerTile && (playerTile->hasFlag(TILESTATE_PROTECTIONZONE)) ; 
+	return playerTile && (playerTile->hasFlag(TILESTATE_PROTECTIONZONE)) ;
 }
 void Player::onReceiveMail()
 {
@@ -3725,7 +3725,7 @@ void Player::onAttackedCreature(Creature* target)
 	if (target && target->getZone() == ZONE_PVP) {
 		return;
 	}
-	
+
 	if (target == this) {
 		addInFightTicks();
 		return;
@@ -3772,7 +3772,7 @@ void Player::onAttackedCreature(Creature* target)
 			targetMaster = target->getMaster();
 			if( targetMaster->getPlayer() ){
 				Player* masterPlayer = targetMaster->getPlayer();
-			
+
 				if( masterPlayer && ! isPartner( masterPlayer ) && !isGuildMate( masterPlayer) && getPlayer() != masterPlayer ){
 					if( !pzLocked && g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED ){
 						pzLocked = true;
@@ -3788,11 +3788,11 @@ void Player::onAttackedCreature(Creature* target)
 						}
 						if (!Combat::isInPvpZone(this, masterPlayer) && !isInWar(masterPlayer)) {
 							addAttacked(masterPlayer);
-							
+
 							if (masterPlayer->getSkull() == SKULL_NONE && getSkull() == SKULL_NONE) {
 								setSkull(SKULL_WHITE);
-							}	
-							
+							}
+
 							if (getSkull() == SKULL_NONE) {
 								masterPlayer->sendCreatureSkull(this);
 							}
