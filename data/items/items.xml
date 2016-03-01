@@ -11202,7 +11202,7 @@
 	<item fromid="6423" toid="6430" article="" name="large branch" />
 	<item fromid="6431" toid="6432" article="" name="branch" />
 	<item id="6433" article="" name="necromancer shield">
-		<attribute key="description" value="It is enchanted with unholy, necromantic powers." />
+		<attribute key="description" value="Ma na niej przyklejona brudna kartke A4, z napisem 'ubostwo zniesc ustawa' - Piotr Sz." />
 		<attribute key="weight" value="3200" />
 		<attribute key="defense" value="37" />
 		<attribute key="weaponType" value="shield" />
