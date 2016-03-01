@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="RPG7" script="rpg7.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="268" head="0" body="114" legs="76" feet="76" addons="3"/>
+	<parameters>
+		<parameter key="message_greet" value="Siema, |PLAYERNAME|!" />
+		<parameter key="message_walkaway" value="Wal sie, lewaku!" />
+		<parameter key="message_farewell" value="Nara, |PLAYERNAME|!" />
+	</parameters>
+</npc>
