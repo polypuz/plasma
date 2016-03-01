@@ -31,10 +31,10 @@ local function creatureSayCallback(cid, type, msg)
   elseif player:getStorageValue( storageValBad ) ~= -1 then
     npcHandler:say("ODEJDZ, " .. player:getName() .. ", CHYBA, ZE CHCESZ POSLUCHAC O MARKSIE.", cid)
   elseif (msgcontains(msg, "zakon") or msgcontains(msg, "neuropa") or msgcontains(msg, "neuropy")) and player:getStorageValue( storageValGood ) < 0 then
-    npcHandler:say({"Zakon Neuropy jest silnym stowarzyszeniem, ktore ma na celu promowanie wspoldzielenia dachow w Mirko Town, wspoldzielenia zlota i pobierania podatku od najmozniejszych u Rysia, szerzenia serwera MirkOTS na OTServlist.", "Kazdy z czlonkow jednak - musi byc krewnym Klejnotu Nilu, miec pochodzenie wlascicieli kamienicy, albo chociaz byc gejem, stylista, afroamerykaninem albo feminista. No i nie mozesz byc fashysta.", "Aby dolaczyc do {Zakonu} musisz udowodnic, ze jestes tego warty. Bynajmniej nie chodzi o szekle. Czy jestes zainteresowany, " .. Player(cid):getName() .. "?"}, cid)
+    npcHandler:say({"Zakon Neuropy jest silnym stowarzyszeniem, ktore ma na celu promowanie wspoldzielenia dachow w Mirko Town, wspoldzielenia zlota i pobierania podatku od najmozniejszych u Rysia, szerzenia serwera MirkOTS na OTServlist.", "Kazdy z czlonkow jednak - musi byc krewnym Klejnotu Nilu, miec pochodzenie wlascicieli kamienicy, albo chociaz byc gejem, stylista, afroamerykaninem albo feminista. No i nie mozesz byc fashysta.", "Aby dolaczyc do zakonu musisz udowodnic, ze jestes tego warty. Bynajmniej nie chodzi o szekle. Czy jestes zainteresowany, " .. Player(cid):getName() .. "?"}, cid)
     npcHandler.topic[cid] = 1
   elseif (msgcontains(msg, "yes") or msgcontains(msg, "tak")) and npcHandler.topic[cid] == 1 then
-    npcHandler:say({"Musze Cie jednak ostrzec: nasi odwieczni przeciwnicy, {Zakon 4konserw}, nie beda chcieli z Toba rozmawiac, gdy do nas dolaczysz. Jakikolwiek kontakt, jestem prawie pewny, skonczy sie smiertelna konfrontacja.", "Czy nadal jestes pewny swojej decyzji?"}, cid)
+    npcHandler:say({"Musze Cie jednak ostrzec: nasi odwieczni przeciwnicy, Zakon 4konserw, nie beda chcieli z Toba rozmawiac, gdy do nas dolaczysz. Jakikolwiek kontakt, jestem prawie pewny, skonczy sie smiertelna konfrontacja.", "Czy nadal jestes pewny swojej decyzji?"}, cid)
     npcHandler.topic[cid] = 2
   elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
     -- no @ 1
