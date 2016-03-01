@@ -21,7 +21,7 @@ function onKill(player, target)
 
     player:setStorageValue(monster.storage, stor)
     player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, 'Zadanie: pozostalo '..(monster.amount - (stor)) .. ' ' .. target:getName() .. ' do zabicia.')
-  elseif stor >= monster.amount and monster.startstorage < 2 then
+  elseif stor >= monster.amount and player:getStorageValue(monster.startstorage) < 2 then
     --player:sendTextMessage(MESSAGE_INFO_DESCR, 'Congratulations, you have killed '..(stor +1)..' '..target:getName()..'s and completed the '..target:getName()..'s mission.')
     player:sendTextMessage(MESSAGE_INFO_DESCR, 'Gratulacje, udalo Ci sie zabic ' .. (stor) .. ' ' .. target:getName() .. ' i ukonczyc zadanie.')
     player:setStorageValue(monster.storage, stor +1)
