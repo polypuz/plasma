@@ -136,7 +136,7 @@ uint32_t Tile::getDownItemCount() const
 
 std::string Tile::getDescription(int32_t) const
 {
-	return "You dont know why, but you cant see anything!";
+	return "Nie wiesz czemu, ale niczego nie dostrzegasz!";
 }
 
 Teleport* Tile::getTeleportItem() const

@@ -145,7 +145,7 @@ void mainLoader(int, char*[], ServiceManager* services)
 #endif
 	std::cout << std::endl;
 
-	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << ", compiled & edited by marahin and Romantyczny_Roman" << std::endl;
+	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << ", compiled & edited by MirkOTS devteam (http://mirkots.pl/)" << std::endl;
 	std::cout << "Visit our forum for updates, support, and resources: http://otland.net/." << std::endl;
 	std::cout << std::endl;
 
