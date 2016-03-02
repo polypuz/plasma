@@ -67,10 +67,10 @@
 		<item id="8472" countmax="2" chance="29460" /><!-- great spirit potion -->
 		<item id="7590" countmax="2" chance="30560" /><!-- great mana potion -->
 		<item id="11301" chance="870" /><!-- zaoan armor -->
-		<item id="3357" chance="48950"/><!—- plate legs —->
-		<item id="3383" chance="34590"/><!—- dark armor -—>
-		<item id="3032" countmax="5" chance="31725"/> <!—- small emeralds —->
-		<item id="6499" chance="9130"/> <!—- demonic essence —->
+		<item id="3357" chance="48950"/><!--- plate legs --->
+		<item id="3383" chance="34590"/><!-- dark armor --->
+		<item id="3032" countmax="5" chance="31725"/> <!-- small emeralds --->
+		<item id="6499" chance="9130"/> <!--- demonic essence --->
 		<item id="11367" chance="19830" /><!-- undead heart -->
 		<item id="8896" chance="180" /><!-- rusty armor -->
 		<item id="11304" chance="1400" /><!-- zaoan legs -->
