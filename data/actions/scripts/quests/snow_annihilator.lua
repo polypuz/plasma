@@ -25,7 +25,7 @@ local newPosition = {
 	{ x = 1297, y = 2182, z = 11 }
 }
 local anniAvailableAt = 0
-local minimalLevel = 150
+local minimalLevel = 200
 local leverCd = 60 * 60 * 3 -- 3 hours
 local storageKey = 30016
 --local leverCd = 40
