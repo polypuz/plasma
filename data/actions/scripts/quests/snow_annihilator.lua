@@ -86,19 +86,16 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			-- doSummonCreature("Demon", {x= 1114, y= 375, z= 11}, false, false)
 			doSummonCreature("Demon", {x= 1115, y= 375, z= 11}, false, false )
       --]]
-      local pos = {
-        [1] = {x=1295, y=2180, y=11},
-        [2] = {x=1296, y=2184, y=11},
-        [3] = {x=1298, y=2182, y=11}
-      }
-
-      for i=1,3 do
-        doSummonCreature("Ice Demon", pos[i], false, false )
-				print('spawning ice demon on pos:')
-				print(tostring(pos[i]))
-      end
 		end
 
+		doSummonCreature("Demon", {x= 1294, y= 2180, z= 11}, false, false )
+		doSummonCreature("Demon", {x= 1296, y= 2180, z= 11}, false, false )
+
+		doSummonCreature("Demon", {x= 1298, y= 2182, z= 11}, false, false )
+		doSummonCreature("Demon", {x= 1299, y= 2182, z= 11}, false, false )
+
+		doSummonCreature("Demon", {x= 1295, y= 2184, z= 11}, false, false )
+		doSummonCreature("Demon", {x= 1297, y= 2184, z= 11}, false, false )
 		item:transform(1946)
 
 		addEvent(transformLever, leverCd * 1000, item.uid)
