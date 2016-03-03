@@ -25,7 +25,7 @@ local newPosition = {
 	{ x = 1297, y = 2182, z = 11 }
 }
 local anniAvailableAt = 0
-local minimalLevel = 100
+local minimalLevel = 150
 local leverCd = 60 * 60 * 3 -- 3 hours
 local storageKey = 30016
 --local leverCd = 40
@@ -93,7 +93,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
       }
 
       for i=1,3 do
-        doSummonCreature("Demon", pos[i] )
+        doSummonCreature("Ice Demon", pos[i] )
       end
 		end
 
