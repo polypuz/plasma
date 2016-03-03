@@ -47,7 +47,7 @@
     <defense name="speed" interval="2000" chance="15" speedchange="520" duration="5000">
       <attribute key="areaEffect" value="redshimmer" />
     </defense>
-    <defense name="healing" interval="2000" chance="15" min="400" max="900">
+    <defense name="healing" interval="2000" chance="15" min="100" max="300">
       <attribute key="areaEffect" value="blueshimmer" />
     </defense>
   </defenses>
@@ -59,7 +59,6 @@
     <element holyPercent="-20" />
   </elements>
 	<immunities>
-		<immunity death="1" />
 		<immunity ice="1" />
 		<immunity drown="1" />
 		<immunity lifedrain="1" />
