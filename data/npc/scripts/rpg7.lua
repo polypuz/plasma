@@ -39,10 +39,10 @@ local function creatureSayCallback(cid, type, msg)
 			print("Already tensed? " .. tostring(alreadyTensed))
 		end
   elseif (msgcontains(msg, "zakon") or msgcontains(msg, "4konserwy") or msgcontains(msg, "4konserw")) and player:getStorageValue( storageValGood ) < 0 then
-    npcHandler:say({"Zakon 4konserw jest ostatnimi czasy oslabiony, a z tego co wiem - jestem jedynym ocalalym nauczycielem.", "Kazdy z czlonkow jednak - musi byc pelen cnot, znac i przestrzegac 3 aksjomat, wierzyc w Krula do samego konca.", "Aby dolaczyc do {Zakonu} musisz jednak udowodnic, ze jestes tego warty. Czy jestes zainteresowany, " .. Player(cid):getName() .. "?"}, cid)
+    npcHandler:say({"Zakon 4konserw jest ostatnimi czasy oslabiony, a z tego co wiem - jestem jedynym ocalalym nauczycielem.", "Kazdy z czlonkow jednak - musi byc pelen cnot, znac i przestrzegac 3 aksjomat, wierzyc w Krula do samego konca.", "Aby dolaczyc do Zakonu musisz jednak udowodnic, ze jestes tego warty. Czy jestes zainteresowany, " .. Player(cid):getName() .. "?"}, cid)
     npcHandler.topic[cid] = 1
   elseif (msgcontains(msg, "yes") or msgcontains(msg, "tak")) and npcHandler.topic[cid] == 1 then
-    npcHandler:say({"Musze Cie jednak ostrzec: nasi odwieczni przeciwnicy, {Zakon Neuropy} nie beda chcieli z Toba rozmawiac, gdy do nas dolaczysz. Jakikolwiek kontakt, jestem prawie pewny, skonczy sie smiertelna konfrontacja.", "Czy nadal jestes pewny swojej decyzji?"}, cid)
+    npcHandler:say({"Musze Cie jednak ostrzec: nasi odwieczni przeciwnicy, Zakon Neuropy, nie beda chcieli z Toba rozmawiac, gdy do nas dolaczysz. Jakikolwiek kontakt, jestem prawie pewny, skonczy sie smiertelna konfrontacja.", "Czy nadal jestes pewny swojej decyzji?"}, cid)
     npcHandler.topic[cid] = 2
   elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
     -- no @ 1
