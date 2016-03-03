@@ -89,11 +89,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
       local pos = {
         [1] = {x=1295, y=2180, y=11},
         [2] = {x=1296, y=2184, y=11},
-        [3] = {x=1299, y=2181, y=11}
+        [3] = {x=1298, y=2182, y=11}
       }
 
       for i=1,3 do
         doSummonCreature("Ice Demon", pos[i] )
+				print('spawning ice demon on pos:')
+				print(tostring(pos[i]))
       end
 		end
 
