@@ -34,11 +34,11 @@
     <attack name="manadrain" interval="2000" chance="16" radius="6" target="0" min="-225" max="-550">
       <attribute key="areaEffect" value="redshimmer" />
     </attack>
-		<attack name="ice" interval="1000" chance="15" range="7" min="-550" max="-1050">
+		<attack name="ice" interval="1000" chance="15" range="7" min="-550" max="-700">
 			<attribute key="shootEffect" value="smallice" />
       <attribute key="areaEffect" value="iceattack" />
     </attack>
-		<attack name="ice" interval="1000" chance="9" range="7" target="1" min="-550" max="-1175">
+		<attack name="ice" interval="1000" chance="9" range="7" target="1" min="-550" max="-700">
 			<attribute key="shootEffect" value="smallice" />
 			<attribute key="areaEffect" value="iceattack" />
 		</attack>
