@@ -26,7 +26,7 @@ local newPosition = {
 }
 local anniAvailableAt = 0;
 
-local leverCd = 60 * 60 * 3 -- 3 hours 
+local leverCd = 60 * 60 * 3 -- 3 hours
 --local leverCd = 40
 
 
@@ -35,7 +35,7 @@ function transformLever( uid )
 	local to = {x=1115, y=377, z=11}
 
 	local monsters = {}
-	
+
 	for x = from.x, to.x do
 		for y = from.y, to.y do
 			for z = from.z, to.z do
@@ -47,18 +47,18 @@ function transformLever( uid )
 				end
 			end
 		end
-	end	
+	end
 
 	for i = 1, #monsters do
 		doRemoveCreature(monsters[i])
 	end
-	
+
 	local item = Item( uid )
-		
+
 	item:transform(1945)
 	anniAvailableAt = 0;
-	
-	
+
+
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -77,16 +77,17 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			Position(playerPosition[i]):sendMagicEffect(CONST_ME_POFF)
 			targetPlayer:teleportTo(newPosition[i], false)
 			targetPlayer:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
-			doSummonCreature("Demon", {x= 1110, y= 373, z= 11}, false, false )
-			doSummonCreature("Demon", {x= 1112, y= 373, z= 11}, false, false)
-			
-			doSummonCreature("Demon", {x= 1111, y= 377, z= 11}, false, false )
-			doSummonCreature("Demon", {x= 1113, y= 377, z= 11}, false, false)
-			
-			-- doSummonCreature("Demon", {x= 1114, y= 375, z= 11}, false, false)
-			doSummonCreature("Demon", {x= 1115, y= 375, z= 11}, false, false )
 		end
 		item:transform(1946)
+
+		doSummonCreature("Demon", {x= 1110, y= 373, z= 11}, false, false )
+		doSummonCreature("Demon", {x= 1112, y= 373, z= 11}, false, false)
+
+		doSummonCreature("Demon", {x= 1111, y= 377, z= 11}, false, false )
+		doSummonCreature("Demon", {x= 1113, y= 377, z= 11}, false, false)
+
+		-- doSummonCreature("Demon", {x= 1114, y= 375, z= 11}, false, false)
+		doSummonCreature("Demon", {x= 1115, y= 375, z= 11}, false, false )
 		
 		addEvent(transformLever, leverCd * 1000, item.uid)
 		anniAvailableAt = os.date("%c", os.time() + ( leverCd ) )
