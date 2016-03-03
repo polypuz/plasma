@@ -22,23 +22,23 @@
 		<attack name="speed" interval="1000" chance="13" length="8" spread="0" speedchange="-800" duration="20000">
 			<attribute key="areaEffect" value="energy" />
 		</attack>
-    <attack name="physical" interval="2000" chance="15" range="7" min="0" max="-780">
+    <attack name="physical" interval="2500" chance="10" range="7" min="0" max="-780">
       <attribute key="shootEffect" value="largerock" />
     </attack>
 		<attack name="ice golem skill reducer" interval="2000" chance="10" />
 
     <!-- new, added or edited ones -->
-    <attack name="lifedrain" interval="2000" chance="21" radius="6" target="0" min="-200" max="-500">
+    <attack name="lifedrain" interval="2000" chance="15" radius="6" target="0" min="-200" max="-500">
       <attribute key="areaEffect" value="poff" />
     </attack>
-    <attack name="manadrain" interval="2000" chance="16" radius="6" target="0" min="-225" max="-550">
+    <attack name="manadrain" interval="2000" chance="15" radius="6" target="0" min="-225" max="-550">
       <attribute key="areaEffect" value="redshimmer" />
     </attack>
-		<attack name="ice" interval="1000" chance="15" range="7" min="-550" max="-700">
+		<attack name="ice" interval="3000" chance="6" range="7" min="-550" max="-700">
 			<attribute key="shootEffect" value="smallice" />
       <attribute key="areaEffect" value="iceattack" />
     </attack>
-		<attack name="ice" interval="1000" chance="9" range="7" target="1" min="-550" max="-700">
+		<attack name="ice" interval="3000" chance="6" range="7" target="1" min="-550" max="-700">
 			<attribute key="shootEffect" value="smallice" />
 			<attribute key="areaEffect" value="iceattack" />
 		</attack>
@@ -52,11 +52,11 @@
     </defense>
   </defenses>
   <elements>
-    <element physicalPercent="30" />
-    <element energyPercent="50" />
-    <element earthPercent="50" />
-    <element firePercent="-10" />
-    <element holyPercent="-20" />
+    <element physicalPercent="15" />
+    <element energyPercent="30" />
+    <element earthPercent="30" />
+    <element firePercent="-20" />
+    <element holyPercent="-30" />
   </elements>
 	<immunities>
 		<immunity ice="1" />
