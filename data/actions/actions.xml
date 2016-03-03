@@ -47,11 +47,19 @@
 	<action uniqueid="21373" script="quests/undead_castle.lua" />
 
 	<!-- annihilator -->
+	<!-- to mozna zrobic lepiej -->
 	<action uniqueid="30015" script="quests/annihilator.lua" />
 	<action uniqueid="30101" script="quests/annihilator_chests.lua" />
 	<action uniqueid="30102" script="quests/annihilator_chests.lua" />
 	<action uniqueid="30103" script="quests/annihilator_chests.lua" />
 	<action uniqueid="30104" script="quests/annihilator_chests.lua" />
+	<!-- snow annihilator -->
+	<action uniqueid="30016" script="quests/snow_annihilator.lua" />
+	<action uniqueid="30201" script="quests/snow_annihilator_chests.lua" />
+	<action uniqueid="30202" script="quests/snow_annihilator_chests.lua" />
+	<action uniqueid="30203" script="quests/snow_annihilator_chests.lua" />
+	<action uniqueid="30204" script="quests/snow_annihilator_chests.lua" />
+	<!-- end of anni -->
 	<!-- Tools -->
 	<action itemid="9930" script="tools/rustremover.lua"/>
 	<action itemid="2420" script="tools/machete.lua" />
