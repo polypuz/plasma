@@ -45,6 +45,7 @@
 	<action uniqueid="21371" script="quests/undead_castle.lua" />
 	<action uniqueid="21372" script="quests/undead_castle.lua" />
 	<action uniqueid="21373" script="quests/undead_castle.lua" />
+
 	<!-- annihilator -->
 	<action uniqueid="30015" script="quests/annihilator.lua" />
 	<action uniqueid="30101" script="quests/annihilator_chests.lua" />
