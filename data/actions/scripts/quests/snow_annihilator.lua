@@ -93,7 +93,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
       }
 
       for i=1,3 do
-        doSummonCreature("Ice Demon", pos[i] )
+        doSummonCreature("Ice Demon", pos[i], false, false )
 				print('spawning ice demon on pos:')
 				print(tostring(pos[i]))
       end
