@@ -77,25 +77,25 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			targetPlayer:teleportTo(newPosition[i], false)
 			targetPlayer:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
       --[[
-			doSummonCreature("Demon", {x= 1110, y= 373, z= 11}, false, false )
-			doSummonCreature("Demon", {x= 1112, y= 373, z= 11}, false, false)
+			doSummonCreature("Ice Demon", {x= 1110, y= 373, z= 11}, false, false )
+			doSummonCreature("Ice Demon", {x= 1112, y= 373, z= 11}, false, false)
 
-			doSummonCreature("Demon", {x= 1111, y= 377, z= 11}, false, false )
-			doSummonCreature("Demon", {x= 1113, y= 377, z= 11}, false, false)
+			doSummonCreature("Ice Demon", {x= 1111, y= 377, z= 11}, false, false )
+			doSummonCreature("Ice Demon", {x= 1113, y= 377, z= 11}, false, false)
 
-			-- doSummonCreature("Demon", {x= 1114, y= 375, z= 11}, false, false)
-			doSummonCreature("Demon", {x= 1115, y= 375, z= 11}, false, false )
+			-- doSummonCreature("Ice Demon", {x= 1114, y= 375, z= 11}, false, false)
+			doSummonCreature("Ice Demon", {x= 1115, y= 375, z= 11}, false, false )
       --]]
 		end
 
-		doSummonCreature("Demon", {x= 1294, y= 2180, z= 11}, false, false )
-		doSummonCreature("Demon", {x= 1296, y= 2180, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1294, y= 2180, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1296, y= 2180, z= 11}, false, false )
 
-		doSummonCreature("Demon", {x= 1298, y= 2182, z= 11}, false, false )
-		doSummonCreature("Demon", {x= 1299, y= 2182, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1298, y= 2182, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1299, y= 2182, z= 11}, false, false )
 
-		doSummonCreature("Demon", {x= 1295, y= 2184, z= 11}, false, false )
-		doSummonCreature("Demon", {x= 1297, y= 2184, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1295, y= 2184, z= 11}, false, false )
+		doSummonCreature("Ice Demon", {x= 1297, y= 2184, z= 11}, false, false )
 		item:transform(1946)
 
 		addEvent(transformLever, leverCd * 1000, item.uid)
