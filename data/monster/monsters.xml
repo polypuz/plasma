@@ -308,6 +308,7 @@
 	<monster name="Orshabaal" file="Demonlord/orshabaal.xml" />
 
 	<!-- Demons -->
+	<monster name="Ice Demon" file="Demons/ice demon.xml" />
 	<monster name="Askarak Demon" file="Demons/askarak demon.xml" />
 	<monster name="Askarak Lord" file="Demons/askarak lord.xml" />
 	<monster name="Askarak Prince" file="Demons/askarak prince.xml" />
