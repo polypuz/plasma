@@ -18,8 +18,8 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
        end
      elseif item.uid == 30203 then
        if queststatus == -1 then
-         doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Znalazles Frozen Plate.")
-         doPlayerAddItem(cid,8887,1) -- frozen plate
+         doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Znalazles Crystal Crossbow.")
+         doPlayerAddItem(cid, 18453, 1) -- Crystal Crossbow
          setPlayerStorageValue(cid,30016,1)
        else
          doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Ta skrzynia jest pusta - juz dostales nagrode.")
