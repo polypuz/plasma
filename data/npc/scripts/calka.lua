@@ -29,7 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 		local soulOrb = player:getItemCount(5944)
 		local infernalBolts = 0
 
-		if soulOrb ~= nil then
+		if soulOrb > 0 and soulOrb ~= nil then
 			for i = soulOrb, 1, -1 do
 				local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
 				if rand < 100 then
