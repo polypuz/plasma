@@ -29,25 +29,25 @@ local function creatureSayCallback(cid, type, msg)
 		local soulOrb = player:getItemCount(5944)
 		local infernalBolts = 0
 
-		if soulOrb == nil then
-			soulOrb = 0
-		end
-
-		for i = soulOrb, 1, -1 do
-			local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
-			if rand < 100 then
-				infernalBolts = infernalBolts + 4
-			else
-				infernalBolts = infernalBolts + 2
+		if soulOrb ~= nil then
+			for i = soulOrb, 1, -1 do
+				local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
+				if rand < 100 then
+					infernalBolts = infernalBolts + 4
+				else
+					infernalBolts = infernalBolts + 2
+				end
 			end
-		end
 
-		if player:removeItem( 5944, soulOrb) then
-			player:addItem( 6529, infernalBolts )
-			npcHandler:say("Trzymaj! Uzywaj ich rozsadnie!", cid)
+			if player:removeItem( 5944, soulOrb) then
+				player:addItem( 6529, infernalBolts )
+				npcHandler:say("Trzymaj! Uzywaj ich rozsadnie!", cid)
+			end
 		else
 			npcHandler:say("Przeciez widze, ze ich nie masz! Moge wytworzyc diabelskie belty tylko z {soul orb}.", cid)
 		end
+
+
 		npcHandler.topic[cid] = 0
 	elseif isInArray({"no", "nie"}, msg ) and npcHandler.topic[cid] == 1 then
 		npcHandler:say("Nie zawracaj mi glowy!", cid)
