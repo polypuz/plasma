@@ -4,7 +4,7 @@
 <look type="131" head="115" body="76" legs="37" feet="116" addons="3"/>
 <parameters>
 <parameter key="module_shop" value="1"/>
-<parameter key="message_greet" value="salam. Aby zobaczyc, co mam w swojej ofercie, napisz {trade}."/>
+<parameter key="message_greet" value="Witaj. Aby zobaczyc, co mam w swojej ofercie, napisz {trade}."/>
 <parameter key="message_farewall" value="Do nastepnego razu!"/>
 <parameter key="message_walkaway" value="..."/>
 <parameter key="shop_sellable" value="
