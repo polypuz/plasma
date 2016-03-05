@@ -33,14 +33,15 @@ local function creatureSayCallback(cid, type, msg)
 			soulOrb = 0
 		end
 
-		for soulOrb, 0, -1 do
+		for i = soulOrb, 0, -1 do
 			local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
 			if rand < 100 then
-				infernalBolts += 4
+				infernalBolts = infernalBolts + 4
 			else
-				infernalBolts += 2
+				infernalBolts = infernalBolts+ 2
+			end
 		end
-		
+
 		if player:removeItem( 5944, soulOrb) then
 			player:addItem( 6529, infernalBolts )
 			npcHandler:say("Trzymaj! Uzywaj ich rozsadnie!", cid)
