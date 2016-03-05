@@ -28,6 +28,10 @@ local function creatureSayCallback(cid, type, msg)
 	elseif isInArray({"yes", "tak"}, msg) and npcHandler.topic[cid] == 1 then
 		local soulOrb = player:getItemCount(5944)
 		local infernalBolts = 0
+		
+		if soulOrb == nil do
+			soulOrb = 0
+		end
 
 		for soulOrb, 0, -1 do
 			local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
