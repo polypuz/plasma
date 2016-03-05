@@ -28,8 +28,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif isInArray({"yes", "tak"}, msg) and npcHandler.topic[cid] == 1 then
 		local soulOrb = player:getItemCount(5944)
 		local infernalBolts = 0
-		
-		if soulOrb == nil do
+
+		if soulOrb == nil then
 			soulOrb = 0
 		end
 
