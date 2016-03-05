@@ -39,7 +39,8 @@ local function creatureSayCallback(cid, type, msg)
 				infernalBolts += 4
 			else
 				infernalBolts += 2
-
+		end
+		
 		if player:removeItem( 5944, soulOrb) then
 			player:addItem( 6529, infernalBolts )
 			npcHandler:say("Trzymaj! Uzywaj ich rozsadnie!", cid)
