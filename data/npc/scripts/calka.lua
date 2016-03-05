@@ -33,12 +33,12 @@ local function creatureSayCallback(cid, type, msg)
 			soulOrb = 0
 		end
 
-		for i = soulOrb, 0, -1 do
+		for i = soulOrb, 1, -1 do
 			local rand = math.random(10000) -- 1% chance to get 4 infernal bolts
 			if rand < 100 then
 				infernalBolts = infernalBolts + 4
 			else
-				infernalBolts = infernalBolts+ 2
+				infernalBolts = infernalBolts + 2
 			end
 		end
 
