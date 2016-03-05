@@ -355,7 +355,7 @@ CREATE TABLE `player_titles` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `title` varchar(50) NOT NULL,
  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `unprocessed_orders` (
@@ -365,7 +365,7 @@ CREATE TABLE `unprocessed_orders` (
  `count` int(11) NOT NULL,
  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `completed_orders` (
  `order_id` int(11) NOT NULL,
@@ -374,7 +374,7 @@ CREATE TABLE `completed_orders` (
  `count` int(10) unsigned NOT NULL,
  `completed_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `players` ADD `marriage_status` tinyint(1) NOT NULL DEFAULT '0';
 ALTER TABLE `players` ADD `marriage_spouse` int(11) NOT NULL DEFAULT '-1';
