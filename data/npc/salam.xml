@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name="Salam" script="default.lua" walkinterval="2000" floorchange="0">
 <health now="185" max="185"/>
-<look type="131" head="115" body="76" legs="37" feet="116" addons="3"/>
+<look type="80" head="115" body="76" legs="37" feet="116" addons="3"/>
 <parameters>
 <parameter key="module_shop" value="1"/>
 <parameter key="message_greet" value="alejkum. Aby zobaczyc, co mam w swojej ofercie, napisz {trade}."/>
