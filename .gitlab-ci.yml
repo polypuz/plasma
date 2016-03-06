@@ -5,6 +5,7 @@ cache:
     - build/
 
 job_build:
+  image: mirkots/fedora23
   only:
     - master
     - development
@@ -21,6 +22,7 @@ job_build:
     - mirkots
 
 job_run:
+  image: mirkots/fedora23
   only:
     - master
     - development

@@ -15,3 +15,5 @@ build/*
 ## konfig generyczny dostepny w root folderze o nazwie
 ## config-EXAMPLE.lua
 config.lua
+# binarka w glownym katalogu
+tfs
