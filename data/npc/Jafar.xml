@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Jafar" script="default.lua" walkinterval="2000" floorchange="0">
+<health now="185" max="185"/>
+<look type="51" head="115" body="76" legs="37" feet="116" addons="3"/>
+<parameters>
+<parameter key="module_shop" value="1"/>
+<parameter key="message_greet" value="Witaj. Aby zobaczyc, co mam w swojej ofercie, napisz {trade}."/>
+<parameter key="message_farewall" value="Do nastepnego razu!"/>
+<parameter key="message_walkaway" value="..."/>
+<parameter key="shop_sellable" value="
+
+power ring,2166,50;
+axe ring,2208,100;
+club ring,2209,100;
+sword ring,2207,100;
+stealth ring,2165,200;
+bronze amulet,2172,50;
+garlic necklace,2199,50;
+elven amulet,2198,100;
+stone skin amulet,2197,500;
+magic light wand,2162,35;
+life crystal,2177,50;
+mind stone,2178,100;
+orb,2176,750;
+wand of vortex,2190;
+wand of dragonbreath,2191;
+wand of decay,9188;
+wand of draconia,8921;
+wand of cosmic energy,2189;
+wand of inferno,2187;
+wand of starstorm,8920;
+wand of voodoo,8922;
+wand of everblazing,18409;
+wand of defiance,18390;
+  "/>
+<parameter key="shop_buyable" value="
+power ring,2166,100;
+axe ring,2208,500;
+club ring,2209,500;
+sword ring,2207,500;
+stealth ring,2165,5000;
+bronze amulet,2172,100;
+garlic necklace,2199,100;
+elven amulet,2198,500;
+stone skin amulet,2197,5000;
+magic light wand,2162,120;
+"/>
+</parameters>
+</npc>

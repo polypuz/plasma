@@ -8,7 +8,28 @@
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, dobranoc!"/>
 <parameter key="shop_sellable" value="
-demonbone amulet,2136,32000;
+
+Ring of the Sky,2123,30000;
+gold ring,2179,8000;
+death ring,6300,1000;
+crystal ring,2124,250;
+ancient amulet,2142,200;
+beetle necklace,11374,1500;
+crystal necklace,2125,400;
+glacier amulet,7888,1500;
+golden amulet,2130,2000;
+leviathan's amulet,10220,3000;
+lightning pendant,7889,1500;
+magma amulet,7890,1500;
+platinum amulet,2171,2500;
+ruby necklace,2133,2000;
+sacred tree amulet,10219,3000;
+scarab amulet,2135,200;
+shockwave amulet,10221,3000;
+star amulet,2131,500;
+terra amulet,7887,1500;
+emerald bangle,2127,800;
+demonbone amulet,14333,32000;
 noble axe,7456,10000;
 magma legs,7894,11000;
 composite hornbow,8855,25000;
