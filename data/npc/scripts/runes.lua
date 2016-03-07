@@ -11,7 +11,7 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 
 shopModule:addBuyableItem({'spellbook'}, 2175, 150, 'spellbook')
-shopModule:addBuyableItem({'magic lightwand'}, 2163, 400, 'magic lightwand')
+--shopModule:addBuyableItem({'magic lightwand'}, 2163, 400, 'magic lightwand')
 shopModule:addBuyableItem({'blank rune'}, 2260, 10, 'blank rune')
 
 shopModule:addBuyableItem({'small health'}, 8704, 20, 1, 'small health potion')
@@ -67,7 +67,7 @@ shopModule:addBuyableItem({'terra rod', 'terra'}, 2181, 10000, 'terra rod')
 shopModule:addBuyableItem({'hailstorm rod', 'hailstorm'}, 2183, 15000, 'hailstorm rod')
 shopModule:addBuyableItem({'springsprout rod', 'springsprout'}, 8912, 18000, 'springsprout rod')
 shopModule:addBuyableItem({'underworld rod', 'underworld'}, 8910, 22000, 'underworld rod')
-
+--[[
 shopModule:addSellableItem({'wand of vortex', 'vortex'}, 2190, 250, 'wand of vortex')
 shopModule:addSellableItem({'wand of dragonbreath', 'dragonbreath'}, 2191, 500, 'wand of dragonbreath')
 shopModule:addSellableItem({'wand of decay', 'decay'}, 2188, 2500, 'wand of decay')
@@ -85,7 +85,7 @@ shopModule:addSellableItem({'terra rod', 'terra'}, 2181, 5000, 'terra rod')
 shopModule:addSellableItem({'hailstorm rod', 'hailstorm'}, 2183, 7500, 'hailstorm rod')
 shopModule:addSellableItem({'springsprout rod', 'springsprout'}, 8912, 9000, 'springsprout rod')
 shopModule:addSellableItem({'underworld rod', 'underworld'}, 8910, 11000, 'underworld rod')
-
+]]
 
 function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
