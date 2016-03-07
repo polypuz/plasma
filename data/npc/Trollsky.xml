@@ -11,7 +11,6 @@
 war hammer, 2391, 1000;
 " />
 <parameter key="shop_sellable" value="
-
 axe,2386,7;
 battle axe,2378,80;
 battle hammer,2417,120;
@@ -50,7 +49,7 @@ plate shield,2510,45;
 steel shield,2509,80;
 studded shield,2526,16;
 viking shield,2531,85;
-wooden shield,2512,5
+wooden shield,2512,5;
 brass armor,2465,150;
 chain armor,2464,70;
 coat,2651,1;
@@ -71,7 +70,7 @@ steel helmet,2457,293;
 studded helmet,2482,20;
 viking helmet,2473,66;
 chain legs,2648,25;
-leather legs,2649,3
+leather legs,2649,3;
 plate legs,2647,115;
 brass legs,2478,49;
 studded legs,2468,15;
