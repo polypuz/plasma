@@ -140,7 +140,11 @@ function onLogin(player)
 			end
 		end
 	end
-
+	-- vote
+	local vote = true
+	if vote then
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "Na serwerze trwa glosowanie! Po wiecej informacji wpisz /glosuj na czacie.")
+	end
 	-- Stamina
 	nextUseStaminaTime[player.uid] = 0
 
