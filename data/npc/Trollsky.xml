@@ -8,8 +8,7 @@
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, #usunkonto!"/>
 <parameter key="message_buyable" value="
-war hammer, 2391, 1000;
-" />
+war hammer, 2391, 1000;" />
 <parameter key="shop_sellable" value="
 axe,2386,7;
 battle axe,2378,80;
@@ -20,7 +19,7 @@ carlin sword,2395,118;
 club,2382,1;
 crowbar,2416,50;
 dagger,2379,2;
-double axe,2387,260
+double axe,2387,260;
 fire sword,2392,1000;
 halberd,2381,400;
 hand axe,2380,4;
