@@ -8,7 +8,6 @@
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, nareczka!"/>
 <parameter key="shop_sellable" value="
-
 crowbar,2416,1;
 club,2382,1;
 staff,2401,1;
@@ -20,7 +19,7 @@ clerical mace,2423,30;
 silver mace,2424,270;
 war hammer,2391,90;
 thunder hammer, 2421,450;
-knife,2403,1
+knife,2403,1;
 combat knife,2404,1;
 dagger,2379,1;
 silver dagger,2402,1;
@@ -133,11 +132,7 @@ knight legs,2477,130;
 crown legs,2488,60;
 golden legs,2470,120;
 demon legs,2495,84;
-dragon scale legs,2469,180;
-
-"/>
-<parameter key="shop_buyable" value="
-"/>
+dragon scale legs,2469,180;" />
 
 </parameters>
 </npc>
