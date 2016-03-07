@@ -8,7 +8,6 @@
 <parameter key="message_farewall" value="Do nastepnego razu!"/>
 <parameter key="message_walkaway" value="..."/>
 <parameter key="shop_sellable" value="
-
 power ring,2166,50;
 axe ring,2208,100;
 club ring,2209,100;
@@ -22,17 +21,16 @@ magic light wand,2162,35;
 life crystal,2177,50;
 mind stone,2178,100;
 orb,2176,750;
-wand of vortex,2190;
-wand of dragonbreath,2191;
-wand of decay,9188;
-wand of draconia,8921;
-wand of cosmic energy,2189;
-wand of inferno,2187;
-wand of starstorm,8920;
-wand of voodoo,8922;
-wand of everblazing,18409;
-wand of defiance,18390;
-  "/>
+wand of vortex,2190,100;
+wand of dragonbreath,2191,200;
+wand of decay,9188,1000;
+wand of draconia,8921,1500;
+wand of cosmic energy,2189,2000;
+wand of inferno,2187,3000;
+wand of starstorm,8920,3600;
+wand of voodoo,8922,4400;
+wand of everblazing,18409,6000;
+wand of defiance,18390,6500;" />
 <parameter key="shop_buyable" value="
 power ring,2166,100;
 axe ring,2208,500;
@@ -43,7 +41,6 @@ bronze amulet,2172,100;
 garlic necklace,2199,100;
 elven amulet,2198,500;
 stone skin amulet,2197,5000;
-magic light wand,2162,120;
-"/>
+magic light wand,2162,120;" />
 </parameters>
 </npc>
