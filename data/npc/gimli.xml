@@ -8,7 +8,6 @@
 <parameter key="message_farewall" value="Do nastepnego."/>
 <parameter key="message_walkaway" value="Nastepny!"/>
 <parameter key="shop_sellable" value="
-
 Elite Draken Mail,12607,50000;
 zaoan helmet,11302,45000;
 draken boots,12646,40000;
@@ -43,7 +42,7 @@ bone sword,2450,20;
 carlin sword,2395,118;
 club,2382,1;
 dagger,2379,2;
-double axe,2387,260
+double axe,2387,260;
 fire sword,2392,1000;
 halberd,2381,400;
 hand axe,2380,4;
@@ -66,7 +65,7 @@ two handed sword,2377,450;
 war hammer,2391,470;
 battle shield,2513,95;
 copper shield,2530,50;
-wooden shield,2512,5
+wooden shield,2512,5;
 brass armor,2465,150;
 chain armor,2464,70;
 coat,2651,1;
