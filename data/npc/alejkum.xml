@@ -8,8 +8,6 @@
 <parameter key="message_farewall" value="Do nastepnego razu!"/>
 <parameter key="message_walkaway" value="..."/>
 <parameter key="shop_sellable" value="
-
-
 obsidian lance,2425,500;
 glorious axe,7454,3000;
 angelic axe,7436,5000;
@@ -36,16 +34,12 @@ noble armor,2486,900;
 blue robe,2656,10000;
 crown armor,2487,12000;
 crown legs,2488,12000;
-boots of haste,2195,30000;
-  "/>
+boots of haste,2195,30000;" />
 <parameter key="shop_buyable" value="
-
 beholder shield,2518,7000;
 noble armor,2486,8000;
 spike sword,2383,8000;
 obsidian lance,2425,3000;
-war hammer,2391,10000;
-
-"/>
+war hammer,2391,10000;" />
 </parameters>
 </npc>

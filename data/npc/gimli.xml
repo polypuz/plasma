@@ -97,11 +97,8 @@ studded shield,2526,16;
 viking shield,2531,85;
 leather boots,2643,2;
 throwing knife,2410,2;
-crowbar,2416,50;
-
-  "/>
+crowbar,2416,50;" />
 <parameter key="shop_buyable" value="
-
 mace,2398,90;
 throwing knife,2410,25;
 battle hammer,2417,350;
@@ -118,7 +115,6 @@ wooden shield,2512,15;
 steel shield,2509,240;
 leather helmet,2461,12;
 chain helmet,2458,52;
-chain legs,2648,80;
-"/>
+chain legs,2648,80;" />
 </parameters>
 </npc>

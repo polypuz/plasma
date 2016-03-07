@@ -8,7 +8,6 @@
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, dobranoc!"/>
 <parameter key="shop_sellable" value="
-
 Ring of the Sky,2123,30000;
 gold ring,2179,8000;
 death ring,6300,1000;
@@ -133,8 +132,7 @@ scarab shield,2540,2000;
 bone shield,2541,80;
 tempest shield,2542,35000;
 tortoise shield,6131,150;
-norse shield,7460,1500;
-  "/>
+norse shield,7460,1500;" />
 
 </parameters>
 </npc>

@@ -7,8 +7,7 @@
 <parameter key="message_greet" value="Witam, skupuje wszelkiego rodzaju miecze, tarcze, zbroje i inne tego typu przedmioty. Wpisz 'trade' aby zobaczyc moja oferte."/>
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, #usunkonto!"/>
-<parameter key="message_buyable" value="
-war hammer, 2391, 1000;" />
+
 <parameter key="shop_sellable" value="
 axe,2386,7;
 battle axe,2378,80;
@@ -61,7 +60,7 @@ scale armor,2483,75;
 studded armor,2484,25;
 brass helmet,2460,30;
 chain helmet,2458,17;
-iron helmet,2459,150;
+<!--iron helmet,2459,150;
 leather helmet,2461,4;
 legion helmet,2480,22;
 soldier helmet,2481,16;
@@ -72,11 +71,9 @@ chain legs,2648,25;
 leather legs,2649,3;
 plate legs,2647,115;
 brass legs,2478,49;
-studded legs,2468,15;
-"/>
-
+studded legs,2468,15;"
+/>
 <parameter key="shop_buyable" value="
-
 Axe,2386,20;
 battle axe,2378,235;
 battle hammer,2417,350;
