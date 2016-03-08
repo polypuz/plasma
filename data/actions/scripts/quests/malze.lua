@@ -24,16 +24,16 @@ function onUse(cid, item, position, target, pos)
                         doCreatureSay(cid, '*trzask*', TALKTYPE_ORANGE_1)
                         cid:removeItem(ItemType(2403):getId(), 1) -- i wtedy zabieramy ziomkowi jeden knife
 			     else
-                    doCreatureSay(cid, 'Wyjales perle', TALKTYPE_ORANGE_1) 
+                    doCreatureSay(cid, 'Wyjales perle!', TALKTYPE_ORANGE_1) 
                     doSendMagicEffect(position, 49)
                     cid:setStorageValue(item.uid, 1) -- uaktualnienie id malzy
                 end
             else -- jak ktos nie ma noza
-                doCreatureSay(cid, 'W trakcie otwierania malza wyslizgnela ci sie z rak', TALKTYPE_ORANGE_1)
+                doCreatureSay(cid, 'W trakcie otwierania malza wyslizgnela Ci sie z rak.', TALKTYPE_ORANGE_1)
                 doSendMagicEffect(position, CONST_ME_POFF)
             end
        else -- jak juz wyjete z tej malzy
-            doCreatureSay(cid, 'W srodku nie bylo perly', TALKTYPE_ORANGE_1)
+            doCreatureSay(cid, 'W srodku nie bylo perly.', TALKTYPE_ORANGE_1)
             doSendMagicEffect(position, CONST_ME_POFF)     
 		end
     CheckIfAllCalms(cid)
