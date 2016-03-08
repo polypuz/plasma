@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <movements>
+    <!-- quest z podwodnym miastem -->
+    <!-- Teleporter do Jaula -->
+    <movevent event="StepIn" itemid="1387" script="jaulteleporter.lua"/>
+
 	<!-- blisher quest (martwe drzewa) -->
 	<movevent event="StepIn" itemid="9195" script="martwedrzewa.lua" />
 	
