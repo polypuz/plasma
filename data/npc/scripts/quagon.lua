@@ -15,32 +15,32 @@ end
   local talkUser = NPCHANDLER_CONVBEHAVIOR == CONVERSATION_DEFAULT and 0 or cid
 
 local player = Player(cid)  
-  if msg == "miasto"  then
+  if msgcontains(msg, "miasto")  then
     selfSay('Niegdys bylo to wspaniale miasto, lecz przyszly fale i zalaly miasto niszczac wszystko.', cid)
     end
   
-  if msg == "brama"  then
+  if msgcontains(msg, "brama")  then
     selfSay('Za brama znajduje się dalsza czesc miasta ,ktora jako jedyna obronila się przed najazdem potworow, tylko {zasluzeni} moga tam wejsc.', cid)
-    talkState[talkUser] = 1
+    npcHandler.topic[cid] = 1
     end
    
-  if msg == "przysluga" and talkState[talkUser] == 1 then   
+  if msgcontains(msg, "przysluga") and npcHandler.topic[cid] == 1 then   
     selfSay('Wyszedlem z miasta na to niebezpieczenstwo aby pozbierac troche {perel} z malz, jesli pomozesz mi je zebrac to przeprowadze cie przez brame.', cid)
     talkState[talkUser] = 2
   end     
-  if msg == "perly" and player:getStorageValue(23017) ~= 1 and player:getStorageValue(23017) ~= 2 then
+  if msgcontains(msg, "perly") and player:getStorageValue(23017) ~= 1 and player:getStorageValue(23017) ~= 2 then
      selfSay('Pomoz mi pozbierac perly, szukaj tylko tych zamknietych malz.', cid)
      player:setStorageValue(23017, 1)     
-     talkState[talkUser] = 0
+     npcHandler.topic[cid] = 0
   end 
-  if msg == "perly" and player:getStorageValue(23017) == 1 and player:getStorageValue(23017) ~= 2 then
+  if msgcontains(msg, "perly") and player:getStorageValue(23017) == 1 and player:getStorageValue(23017) ~= 2 then
      selfSay('Musisz znalezc cos ostrego zeby otworzyc malze', cid)
-     talkState[talkUser] = 0
+     npcHandler.topic[cid] = 0
   end
      
-    if msg == "perly" and player:getStorageValue(23017) ~= 1 and player:getStorageValue(23017) == 2 then
+    if msgcontains(msg, "perly") and player:getStorageValue(23017) ~= 1 and player:getStorageValue(23017) == 2 then
     selfSay('Dziekuje za pomoc w zbieraniu perel, mozesz powiedziec na bramie ze ja cie przyjalem.', cid)
-    talkState[talkUser] = 0
+    npcHandler.topic[cid] = 0
     end
   return true
 end

@@ -32,18 +32,18 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
       ------ czesc do questa z podwodnym miastem
         ------ jak uzyty na grobie i id grobu miedzy 23030 i 23058 i aktywowany klest
 	elseif target.itemid == 1406 and target:getUniqueId() > 23030 and target:getUniqueId() < 23058 and cid:getStorageValue(23030) > 0 then
-            if isInArray(correct_graves,target:getUniqueId()) and cid:getStorageValue(target:getUniqueId()) < 1 then -- jesli zawiera sie w tych prawidlowych grobach
-                cid:setStorageValue(target:getUniqueId(), 1)
-                doCreatureSay(cid, '*aaaaaaaaaoooooouoouo* - to chyba dzwiek uciekajacych duszy', TALKTYPE_ORANGE_1)
-                CheckIfAllGhostsGone(cid)
-            else -- jesli nie jeden z dobrych grobow 
-                if math.random() < 0.2 then
-                Game.createMonster("Feversleep",toPosition) -- spawn feversleepa
-                end
-                if math.random() < 0.2 then
-                Game.createMonster("Terrorsleep",toPosition) -- spawn terrorSleepa
-                end
-            end
+    if isInArray(correct_graves,target:getUniqueId()) and cid:getStorageValue(target:getUniqueId()) < 1 then -- jesli zawiera sie w tych prawidlowych grobach
+      cid:setStorageValue(target:getUniqueId(), 1)
+      doCreatureSay(cid, '*aaaaaaaaaoooooouoouo* - to chyba dzwiek uciekajacych duszy', TALKTYPE_ORANGE_1)
+      CheckIfAllGhostsGone(cid)
+    else -- jesli nie jeden z dobrych grobow 
+      if math.random() < 0.2 then
+        Game.createMonster("Feversleep",toPosition) -- spawn feversleepa
+      end
+      if math.random() < 0.2 then
+        Game.createMonster("Terrorsleep",toPosition) -- spawn terrorSleepa
+      end
+    end
 	end   
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 	else

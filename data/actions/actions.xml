@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-    <!-- Malze -->
-    <action actionid="23000" script="quests/malze.lua" />
-    <action actionid="23062" script="quests/skarb.lua" />
-    <action actionid="23081" script="quests/podwodnemiastonagroda.lua" />
-    <!-- dodany knajf do klesta z podziemnym miastem -->
+    <!-- Podwodne miasto Quest -->
+    <action actionid="23000" script="quests/podwodnemiasto_malze.lua" />
+    <action actionid="23062" script="quests/podwodnemiasto_skarb.lua" />
+    <action actionid="23081" script="quests/podwodnemiasto_nagroda.lua" />
+    <!-- dodany knajf do klesta z podwodnym miastem -->
     <action itemid="2403" script="tools/knife.lua"/>
 
 	<!-- blisher quest -->
