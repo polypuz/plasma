@@ -13,7 +13,8 @@ local miasta = {
 	[8] = Position(530, 647, 6), 	--Wyspa Horrorow
 	[9] = Position(1322, 2012, 7),	--Bagna
 	[10] = Position(885, 605, 6),	--Cotopaxi
-	[11] = Position(2411, 416, 6)	--Bananowo
+	[11] = Position(2411, 416, 6),	--Bananowo
+	[12] = Position(1882, 2552, 7) -- Praga polnoc
 
 }
 
@@ -32,7 +33,8 @@ local miasta_szmugler = {
 	[8] = Position(530, 645, 7), 	--Wyspa Horrorow
 	[9] = Position(1322, 2012, 7),	--Bagna
 	[10] = Position(1294, 1950, 7),	--Cotopaxi
-	[11] = Position(2410, 418, 7)	--Bananowo
+	[11] = Position(2410, 418, 7),	--Bananowo
+	[12] = Position(1885, 2489, 7) -- Praga polnoc
 }
 
 
