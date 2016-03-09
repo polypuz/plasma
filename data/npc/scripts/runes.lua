@@ -30,6 +30,7 @@ shopModule:addSellableItem({'strong potion flask', 'strong flask'}, 7634, 10, 'e
 shopModule:addSellableItem({'great potion flask', 'great flask'}, 7635, 15, 'empty great potion flask')
 
 shopModule:addBuyableItem({'intense healing'}, 2265, 95, 1, 'intense healing rune')
+shopModule:addBuyableItem({'holy missile'}, 2295, 16, 1, 'holy missile rune')
 shopModule:addBuyableItem({'ultimate healing'}, 2273, 175, 1, 'ultimate healing rune')
 shopModule:addBuyableItem({'magic wall'}, 2293, 116, 3, 'magic wall rune')
 shopModule:addBuyableItem({'destroy field'}, 2261, 45, 3, 'destroy field rune')
