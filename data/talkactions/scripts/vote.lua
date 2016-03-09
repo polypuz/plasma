@@ -3,7 +3,7 @@
 local reqLevel = 50
 local reqCreationDate = 1457222460
 local afterDate = "6 marca" -- np. po <6 marca>, po <7 stycznia>
-
+local isVotePresent = false
 ----------------- CONFIG ---------------------
 
 local function playerMsg(player, msg)
