@@ -17,32 +17,32 @@
 		<flag runonhealth="3500" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-500" max="-2191" />
-		<attack name="melee" interval="2000" chance="40" range="7" radius="6" target="0" min="-250" max="-500">
+		<attack name="melee" interval="2000" min="-1000" max="-3191" />
+		<attack name="melee" interval="2000" chance="40" range="7" radius="6" target="0" min="-500" max="-1000">
 			<attribute key="areaEffect" value="blackspark" />
 		</attack>
-		<attack name="melee" interval="3000" chance="34" range="7" radius="1" target="1" min="-120" max="-500">
+		<attack name="melee" interval="3000" chance="34" range="7" radius="1" target="1" min="-240" max="-1000">
 			<attribute key="shootEffect" value="whirlwindsword" />
 			<attribute key="areaEffect" value="redspark" />
 		</attack>
-		<attack name="energy" interval="4000" chance="30" length="8" spread="0" min="-100" max="-800">
+		<attack name="energy" interval="4000" chance="30" length="8" spread="0" min="-200" max="-1600">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="physical" interval="3000" chance="20" range="14" radius="5" target="0" min="-200" max="-480">
+		<attack name="physical" interval="3000" chance="20" range="14" radius="5" target="0" min="-400" max="-960">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="physical" interval="4000" chance="15" range="7" radius="13" target="0" min="-100" max="-650">
+		<attack name="physical" interval="4000" chance="15" range="7" radius="13" target="0" min="-200" max="-1300">
 			<attribute key="areaEffect" value="yellowspark" />
 		</attack>
-		<attack name="physical" interval="4000" chance="18" radius="14" target="0" min="-200" max="-600">
+		<attack name="physical" interval="4000" chance="18" radius="14" target="0" min="-400" max="-1200">
 			<attribute key="areaEffect" value="bluebubble" />
 		</attack>
-		<attack name="melee" interval="3000" chance="15" range="7" radius="4" target="0" min="-200" max="-750">
+		<attack name="melee" interval="3000" chance="15" range="7" radius="4" target="0" min="-400" max="-1500">
 			<attribute key="areaEffect" value="energyarea" />
 		</attack>
 	</attacks>
 	<defenses armor="55" defense="65">
-		<defense name="healing" interval="3000" chance="35" min="300" max="800">
+		<defense name="healing" interval="3000" chance="35" min="1500" max="4000">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="speed" interval="4000" chance="80" speedchange="440" duration="6000">
@@ -74,47 +74,47 @@
 		<item id="6500" chance="100000" /><!-- demonic essence -->
 		<item id="2152" countmax="69" chance="100000" /><!-- platinum coin -->
 		<item id="5954" countmax="2" chance="33333" /><!-- demon horn -->
-		<item id="2145" countmax="5" chance="25000" /><!-- small diamond -->
-		<item id="6300" chance="25000" /><!-- death ring -->
-		<item id="8472" chance="25000" /><!-- great spirit potion -->
-		<item id="8904" chance="25000" /><!-- spellscroll of prophecies -->
-		<item id="8473" chance="25000" /><!-- ultimate health potion -->
-		<item id="2143" countmax="15" chance="25000" /><!-- white pearl -->
-		<item id="7591" chance="20000" /><!-- great health potion -->
-		<item id="2214" chance="20000" /><!-- ring of healing -->
-		<item id="2149" countmax="10" chance="25000" /><!-- small emerald -->
-		<item id="1984" chance="20000" /><!-- blue tome -->
-		<item id="7590" chance="20000" /><!-- great mana potion -->
-		<item id="2155" chance="20000" /><!-- green gem -->
-		<item id="2178" chance="20000" /><!-- mind stone -->
-		<item id="7493" chance="20000" /><!-- orb -->
-		<item id="2150" countmax="17" chance="25000" /><!-- small amethyst -->
-		<item id="2146" countmax="10" chance="25000" /><!-- small sapphire -->
-		<item id="8901" chance="20000" /><!-- spellbook of warding -->
-		<item id="2179" chance="20000" /><!-- gold ring -->
-		<item id="8918" chance="20000" /><!-- spellbook of dark mysteries -->
-		<item id="7405" chance="16666" /><!-- havoc blade -->
-		<item id="8884" chance="16666" /><!-- oceanborn leviathan armor -->
-		<item id="8903" chance="16666" /><!-- spellbook of lost souls -->
-		<item id="2158" chance="14285" /><!-- blue gem -->
-		<item id="7433" chance="14285" /><!-- ravenwing -->
-		<item id="6553" chance="14285" /><!-- ruthless axe -->
-		<item id="7368" countmax="44" chance="12500" /><!-- assassin star -->
-		<item id="2520" chance="12500" /><!-- demon shield -->
-		<item id="2177" chance="12500" /><!-- life crystal -->
-		<item id="2164" chance="12500" /><!-- might ring -->
-		<item id="2165" chance="12500" /><!-- stealth ring -->
-		<item id="2151" countmax="7" chance="12500" /><!-- talon -->
-		<item id="2112" chance="12500" /><!-- teddy bear -->
-		<item id="2144" countmax="14" chance="11111" /><!-- black pearl -->
-		<item id="8902" chance="11111" /><!-- spellbook of mind control -->
-		<item id="2174" chance="11111" /><!-- strange symbol -->
-		<item id="2447" chance="11111" /><!-- twin axe -->
-		<item id="2124" chance="8333" /><!-- crystal ring -->
-		<item id="8887" chance="8333" /><!-- frozen plate -->
-		<item id="7896" chance="8333" /><!-- glacier kilt -->
-		<item id="2466" chance="8333" /><!-- golden armor -->
-		<item id="2646" chance="8333" /><!-- golden boots -->
-		<item id="2472" chance="8333" /><!-- magic plate armor -->
+		<item id="2145" countmax="5" chance="6250" /><!-- small diamond -->
+		<item id="6300" chance="6250" /><!-- death ring -->
+		<item id="8472" chance="6250" /><!-- great spirit potion -->
+		<item id="8904" chance="6250" /><!-- spellscroll of prophecies -->
+		<item id="8473" chance="6250" /><!-- ultimate health potion -->
+		<item id="2143" countmax="15" chance="6250" /><!-- white pearl -->
+		<item id="7591" chance="10000" /><!-- great health potion -->
+		<item id="2214" chance="10000" /><!-- ring of healing -->
+		<item id="2149" countmax="10" chance="6250" /><!-- small emerald -->
+		<item id="1984" chance="10000" /><!-- blue tome -->
+		<item id="7590" chance="10000" /><!-- great mana potion -->
+		<item id="2155" chance="10000" /><!-- green gem -->
+		<item id="2178" chance="10000" /><!-- mind stone -->
+		<item id="7493" chance="10000" /><!-- orb -->
+		<item id="2150" countmax="17" chance="6250" /><!-- small amethyst -->
+		<item id="2146" countmax="10" chance="6250" /><!-- small sapphire -->
+		<item id="8901" chance="10000" /><!-- spellbook of warding -->
+		<item id="2179" chance="10000" /><!-- gold ring -->
+		<item id="8918" chance="10000" /><!-- spellbook of dark mysteries -->
+		<item id="7405" chance="4156" /><!-- havoc blade -->
+		<item id="8884" chance="4156" /><!-- oceanborn leviathan armor -->
+		<item id="8903" chance="4156" /><!-- spellbook of lost souls -->
+		<item id="2158" chance="7142" /><!-- blue gem -->
+		<item id="7433" chance="7142" /><!-- ravenwing -->
+		<item id="6553" chance="7142" /><!-- ruthless axe -->
+		<item id="7368" countmax="44" chance="6250" /><!-- assassin star -->
+		<item id="2520" chance="6250" /><!-- demon shield -->
+		<item id="2177" chance="6250" /><!-- life crystal -->
+		<item id="2164" chance="6250" /><!-- might ring -->
+		<item id="2165" chance="6250" /><!-- stealth ring -->
+		<item id="2151" countmax="7" chance="6250" /><!-- talon -->
+		<item id="2112" chance="6250" /><!-- teddy bear -->
+		<item id="2144" countmax="14" chance="5556" /><!-- black pearl -->
+		<item id="8902" chance="5556" /><!-- spellbook of mind control -->
+		<item id="2174" chance="5556" /><!-- strange symbol -->
+		<item id="2447" chance="5556" /><!-- twin axe -->
+		<item id="2124" chance="4156" /><!-- crystal ring -->
+		<item id="8887" chance="4156" /><!-- frozen plate -->
+		<item id="7896" chance="4156" /><!-- glacier kilt -->
+		<item id="2466" chance="4156" /><!-- golden armor -->
+		<item id="2646" chance="4156" /><!-- golden boots -->
+		<item id="2472" chance="4156" /><!-- magic plate armor -->
 	</loot>
 </monster>
