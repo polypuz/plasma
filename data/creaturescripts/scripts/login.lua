@@ -172,6 +172,7 @@ function onLogin(player)
 	player:registerEvent("PlayerDeath")
 	player:registerEvent("DropLoot")
 	player:registerEvent("Tasks")
+	player:registerEvent("Tasks2")
 	--[[
 		level reward onLogin
 		]]

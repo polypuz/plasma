@@ -21,5 +21,6 @@
 
 	<!-- tasks -->
 	<event type="kill" name="Tasks" script="tasks.lua"/>
+	<event type="kill" name="Tasks2" script="_tasks.lua"/>
 
 </creaturescripts>
