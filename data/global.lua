@@ -137,3 +137,103 @@ end
 if nextUseStaminaTime == nil then
 	nextUseStaminaTime = {}
 end
+
+
+local PLAYER_TASKS = {
+	{
+	 	questStarted = 65001, -- czy zadanie rozpoczete
+	 	questKills = 65002, -- liczba ubitych potworow
+	 	questFinished = 65003, -- ile gracz ukoczyl zadan
+	 	killsRequired = 300, -- liczba potworow do zabicia
+	 	raceName = "Elfs", -- nazwa taska
+	 	creatures = {
+	 		"Elf", "Elf Scout", "Elf Arcanist" -- potwory do zabicia
+	 	}, 
+	 	minLevel = 1, -- minimalny poziom
+	 	maxLevel = 999, -- maksymalny poziom
+	 	vocation = { 1, 2, 3, 4, 5, 6, 7, 8 }, -- ktore profesje moga zadanie
+	 	repeatable = false, -- czy moze ukonczyc wiele razy
+		rewards = { -- nagrody
+			{
+				enable = true,
+				type = "exp",
+				values = 200000
+			},{
+				enable = true,
+				type = "money",
+				values = 300 -- platinum coins
+			},
+			{
+				enable = true,
+				type = "points",
+				values = 1
+			},{
+				enable = true,
+				type = "item",
+				values = {
+					{ 2789, 200 }
+				}
+			},{
+				enable = true,
+				bossKilled = 65003, -- 0 - tak, 1 - nie
+				type = "boss",
+	 			maxPlayers = 1, -- ile graczy moze wejsc
+				teleport = {
+					x = 1000, y = 1000, z = 7
+				},
+				creature = {
+					'orshabaal'
+				},
+				text = 'Potwor miesci sie pod depo' -- opis lokalizacji bossa
+			}
+		}
+	},
+	{
+	 	questStarted = 65011, -- czy zadanie rozpoczete
+	 	questKills = 65012, -- liczba ubitych potworow
+	 	questFinished = 65013, -- ile gracz ukoczyl zadan
+	 	killsRequired = 2, -- liczba potworow do zabicia
+	 	raceName = "Rotworms", -- nazwa taska
+	 	creatures = {
+	 		"Rotworm" -- potwory do zabicia
+	 	}, 
+	 	minLevel = 1, -- minimalny poziom
+	 	maxLevel = 999, -- maksymalny poziom
+	 	vocation = { 1, 2, 3, 4, 5, 6, 7, 8 }, -- ktore profesje moga zadanie
+	 	repeatable = false, -- czy moze ukonczyc wiele razy
+		rewards = { -- nagrody
+			{
+				enable = true,
+				type = "exp",
+				values = 20000000000000
+			},{
+				enable = true,
+				type = "money",
+				values = 10000 -- platinum coins
+			},
+			{
+				enable = true,
+				type = "points",
+				values = 1
+			},{
+				enable = true,
+				type = "item",
+				values = {
+					{ 2390, 1 }
+				}
+			},{
+				enable = true,
+				bossKilled = 65003, -- 0 - tak, 1 - nie
+				type = "boss",
+	 			maxPlayers = 1, -- ile graczy moze wejsc
+				teleport = {
+					x = 1000, y = 1000, z = 7
+				},
+				creature = {
+					'orshabaal'
+				},
+				text = 'Potwor miesci sie pod depo' -- opis lokalizacji bossa
+			}
+		}
+	}
+}
