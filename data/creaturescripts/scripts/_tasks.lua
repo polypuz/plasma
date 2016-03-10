@@ -1,7 +1,7 @@
 local tasks = PLAYER_TASKS
 
 function onKill(cid, target)
-	local currentTask = cid:getStorageValue(currentTask)
+	local currentTask = cid:getStorageValue(CURRENT_TASK)
 	local task = tasks[currentTask]
 	local monster = false
 	for k, x in pairs(task.creatures) do

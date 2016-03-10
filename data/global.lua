@@ -139,6 +139,8 @@ if nextUseStaminaTime == nil then
 end
 
 
+local CURRENT_TASK = 65000
+
 local PLAYER_TASKS = {
 	{
 	 	questStarted = 65001, -- czy zadanie rozpoczete
