@@ -2,7 +2,7 @@ local unique_reward_storage_key = {37011, 37012, 37013}
 local generic_reward_storage_key = {37014, 37015, 37016, 37017, 37018}
 
 local function addItem(cid, id, amount, message)
-  if doPlayerAddItem(cid,id,amount)
+  if doPlayerAddItem(cid,id,amount) then
     doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, message)
     return true
   else
