@@ -45,7 +45,7 @@ local function rewardPlayer(cid, uniqueid)
       if uniqueid == 37014 then
         itemid = 6132
         amount = 1
-        message = "Znalazles Soft Boots."
+        message = "Znalazles Pair of Soft Boots."
       elseif uniqueid == 37015 then
         itemid = 5791
         amount = 1
