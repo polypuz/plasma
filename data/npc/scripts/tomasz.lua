@@ -22,7 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	elseif msgcontains(msg, "transport") or msgcontains(msg, "przebujac") or msgcontains(msg, "przebujac sie") then
 		npcHandler:say("Moge Cie przeniesc na {Bezludna Wyspa}, lub do {Mirko Town}, za oplata 200 sztuk zlota.", cid)
-	elseif msgcontains(msg, "suwalki") or msgcontains(msg, "suwalkami") then
+	elseif msgcontains(msg, "bezludna wyspa") or msgcontains(msg, "wyspa") then
 			npcHandler:say("Jestes pewny, ze chcesz plynac na Bezludna Wyspe?", cid)
 			npcHandler.topic[cid] = 1
 	elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
