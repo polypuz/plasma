@@ -22,6 +22,11 @@ local function getThronesLeft(player, thrones)
   return thrones_left
 end
 
+local function teleportBack(cid, position)
+  doTeleportThing(cid, position)
+  return true
+end
+
 function onStepIn(cid, item, position, fromPosition)
   local player = Player(cid) -- action id used is 37000
   local thrones = { 37001, 37002, 37003, 37004, 37005, 37006, 37007 }
@@ -38,7 +43,20 @@ function onStepIn(cid, item, position, fromPosition)
     if getConqueredThrones(player, thrones) == 7 then
       -- ok, go on.
     else
-      doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Masz przejete  ' .. getConqueredThrones(player, thrones) .. ' tronow. Musisz przejac pozostale ' .. getThronesLeft(player, thrones) .. ', aby przejsc dalej.')
+      local string = ""
+      local conqueredThrones = getConqueredThrones( player, thrones )
+
+      if conqueredThrones == 0 then
+        string = "Nie przejales zadnego z " .. #thrones .. " tronow. Nie jestes godzien, aby przejsc dalej."
+      elseif conqueredThrones == 1 then
+        string = "Masz przejety 1 z " .. #thrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc dalej."
+      else
+        string = "Masz przejete " .. conqueredThrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc."
+      end
+
+      doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, string)
+
+      teleportBack(cid, fromPosition)
       return false
     end
   end

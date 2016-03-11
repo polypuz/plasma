@@ -3,7 +3,8 @@
 	<!-- blisher quest (martwe drzewa) -->
 	<movevent event="StepIn" itemid="9195" script="martwedrzewa.lua" />
 	<!-- poi -->
-	<movevent event="StepIn" actionid="37000" script="poi_thrones.lua" />
+	<movevent event="StepIn" actionid="37000" script="poi.lua" />
+	
 	<!-- enchanting archways -->
 	<movevent event="StepIn" itemid="6116" script="archways.lua" />
 	<movevent event="StepIn" itemid="6117" script="archways.lua" />
