@@ -66,14 +66,13 @@ local function rewardPlayer(cid, uniqueid)
     end
     addItem(cid, itemid, amount, message)
   end
+  return true
 end
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-  --         doPlayerSendTextMessage(cid,MESSAGE_INFO_DESCR, "Znalazles Demon Armor.")
---         doPlayerAddItem(cid,2494,1)
-  if isInArray(unique_reward_storage_key, item.uid) then -- unique id, only one can be achieved
-  elseif isInArray( generic_reward_storage_key, item.uid ) then -- all of the following can be achieved
+  if rewardPlayer( cid, item.uid ) then
+    return true
+  else
+    return false
   end
-
-  return true
 end
