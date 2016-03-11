@@ -28,7 +28,7 @@ function onStepIn(cid, item, position, fromPosition)
 
   if player:getStorageValue( item.uid ) >= 1 then
     -- you already have conquered this throne
-    doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Juz przejales ten tron, pozostaly jeszcze ' .. getThronesLeft(player, thrones) .. '.')
+    doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Juz przejales ten tron, pozostalo jeszcze ' .. getThronesLeft(player, thrones) .. '.')
   else
     player:setStorageValue(item.uid, 1)
     -- conquered the throne
