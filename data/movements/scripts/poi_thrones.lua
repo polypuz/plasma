@@ -25,7 +25,7 @@ end
 function onStepIn(cid, item, position, fromPosition)
   local player = Player(cid) -- action id used is 37000
   local thrones = { 37001, 37002, 37003, 37004, 37005, 37006, 37007 }
-  if isInArray(thrones, item.uid) -- is it a throne?
+  if isInArray(thrones, item.uid) then -- is it a throne?
     if player:getStorageValue( item.uid ) >= 1 then
       -- you already have conquered this throne
       doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Juz przejales ten tron, pozostalo jeszcze ' .. getThronesLeft(player, thrones) .. '.')
@@ -42,5 +42,6 @@ function onStepIn(cid, item, position, fromPosition)
       return false
     end
   end
+
 	return true
 end
