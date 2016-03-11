@@ -49,7 +49,7 @@ function onStepIn(cid, item, position, fromPosition)
       if conqueredThrones == 0 then
         string = "Nie przejales zadnego z " .. #thrones .. " tronow. Nie jestes godzien, aby przejsc dalej."
       elseif conqueredThrones == 1 then
-        string = "Masz przejety 1 z " .. #thrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc dalej."
+        string = "Masz przejety 1 z " .. #thrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby pojsc dalej."
       else
         local plural = ""
         if conqueredThrones < 5 then

@@ -33,7 +33,7 @@ local function creatureSayCallback(cid, type, msg)
 		    teleportPlayer(cid, destination)
 		    doSendMagicEffect(destination, CONST_ME_TELEPORT)
     else
-      npcHandler:say("Nie masz tylu pieniedzy.", cid)
+      npcHandler:say("Nie masz tyle zlota.", cid)
       npcHandler.topic[cid] = 0
     end
 	elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
