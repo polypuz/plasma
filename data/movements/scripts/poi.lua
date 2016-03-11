@@ -51,7 +51,13 @@ function onStepIn(cid, item, position, fromPosition)
       elseif conqueredThrones == 1 then
         string = "Masz przejety 1 z " .. #thrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc dalej."
       else
-        string = "Masz przejete " .. conqueredThrones .. " tronow. Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc."
+        local plural = ""
+        if conqueredThrones < 5 then
+          plural = "trony"
+        else
+          plural = "tronow"
+        end
+        string = "Masz przejete " .. conqueredThrones .. " " .. plural .. ". Musisz przejac pozostale " .. getThronesLeft(player, thrones) .. " aby przejsc."
       end
 
       doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, string)
