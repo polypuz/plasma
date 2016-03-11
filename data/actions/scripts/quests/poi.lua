@@ -63,6 +63,7 @@ local function rewardPlayer(cid, uniqueid)
         amount = 1
         message = "Znalazles Backpack of Holding."
       end
+      Player(cid):setStorageValue(uniqueid, 1)
     end
     addItem(cid, itemid, amount, message)
   end
