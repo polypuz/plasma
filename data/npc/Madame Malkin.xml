@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Madame Malkin" script="default.lua" walkinterval="2000" floorchange="0">
+<npc name="Madame Malkin" script="madame_malkin.lua" walkinterval="2000" floorchange="0">
 <health now="185" max="185"/>
 <look type="279" head="114" body="132" legs="132" feet="132" addons="0" />
 <parameters>
 <parameter key="module_shop" value="1"/>
-<parameter key="message_greet" value="Dzien dobry!"/>
+<parameter key="message_greet" value="Dzien dobry! Pohandlujemy, a moze naprawie Ci zuzyte {soft boots}?"/>
 <parameter key="message_farewall" value="Narazie!"/>
 <parameter key="message_walkaway" value="Nie to nie, dobranoc!"/>
 <parameter key="shop_sellable" value="
