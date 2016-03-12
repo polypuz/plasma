@@ -16,8 +16,8 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	local price = 5 -- amount
-	local crystalCoinsId = 5 -- crystal coin
-	local softBootsId = 2160 -- soft boots
+	local crystalCoinsId = 2160 -- crystal coin
+	local softBootsId = 2640 -- soft boots
 	local wornSoftBootsId = 10021 -- worn soft boots
 	local crystalCoins = player:getItemCount(crystalCoinsId)
 	local wornSoftBoots = player:getItemCount(wornSoftBootsId)
