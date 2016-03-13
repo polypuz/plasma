@@ -26,13 +26,16 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Chcesz zamienic worn {soft boots}? Koszt przywrocenia tych butow do stanu uzywalnosci to 50k.", cid)
 		npcHandler.topic[cid] = 1
 	elseif isInArray({"yes", "tak"}, msg) and npcHandler.topic[cid] == 1 then
-		if wornSoftBoots > 0 and crystalCoins >= price then
-			player:removeItem(crystalCoinsId, price)
-			player:removeItem(wornSoftBootsId, 1)
-			player:addItem(softBootsId, 1)
-			npcHandler:say("Prosze bardzo, oto Twoje buty.", cid)
+		if wornSoftBoots > 0 then
+			if crystalCoins >= price then
+				player:removeItem(crystalCoinsId, price)
+				player:removeItem(wornSoftBootsId, 1)
+				player:addItem(softBootsId, 1)
+				npcHandler:say("Prosze bardzo, oto Twoje buty.", cid)
+			else
+				npcHandler:say(" Zglupiales? Za darmo ja nie pracuje!", cid)
 		else
-			npcHandler:say("Sorry, ale nie masz zuzytych butow. Tylko worn {soft boots} moge naprawic.", cid)
+			npcHandler:say("Wybacz, ale nie masz zuzytych butow. Tylko worn {soft boots} moge naprawic.", cid)
 		end
 		npcHandler.topic[cid] = 0
 	elseif isInArray({"no", "nie"}, msg ) and npcHandler.topic[cid] == 1 then
