@@ -33,7 +33,8 @@ local function creatureSayCallback(cid, type, msg)
 				player:addItem(softBootsId, 1)
 				npcHandler:say("Prosze bardzo, oto Twoje buty.", cid)
 			else
-				npcHandler:say(" Zglupiales? Za darmo ja nie pracuje!", cid)
+				npcHandler:say("Zglupiales? Za darmo ja nie pracuje!", cid)
+			end
 		else
 			npcHandler:say("Wybacz, ale nie masz zuzytych butow. Tylko worn {soft boots} moge naprawic.", cid)
 		end
