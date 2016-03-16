@@ -139,9 +139,9 @@ if nextUseStaminaTime == nil then
 end
 
 
-local CURRENT_TASK = 65000
+CURRENT_TASK = 65000
 
-local PLAYER_TASKS = {
+PLAYER_TASKS = {
 	{
 	 	questStarted = 65001, -- czy zadanie rozpoczete
 	 	questKills = 65002, -- liczba ubitych potworow
