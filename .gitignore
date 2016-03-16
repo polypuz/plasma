@@ -17,3 +17,7 @@ build/*
 config.lua
 # binarka w glownym katalogu
 tfs
+
+
+# Ignore Vagrant specific files & dirs
+.vagrant/
