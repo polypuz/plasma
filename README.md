@@ -62,6 +62,8 @@ me@vm$ cd /vagrant
 me@vm$ ./tfs
 ```
 
+Na serwer można zalogować się przez adres ``localhost@7171``
+
 ## gałęzie
 
 ### master
