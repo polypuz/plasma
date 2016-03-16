@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif currentTask == 1 then
 			for k, x in pairs(tasks) do
 				if player:getStorageValue(x.questStarted) == 1 then
-					npcHandler:say("Czy zabiles juz ".. x.killsRequired .." ".. table.concat(c.creatures, ', ') .."?", cid)
+					npcHandler:say("Czy zabiles juz ".. x.killsRequired .." ".. table.concat(x.creatures, ', ') .."?", cid)
 					npcHandler.topic[cid] = 20
 				end
 			end
@@ -46,7 +46,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 1 then -- wziecie zadania
 		for k, x in pairs(tasks) do
 			if msgcontains(msg, x.raceName) then
-				npcHandler:say("Jestes pewny, ze chcesz zabic " .. x.killsRequired .." ".. table.concat(c.creatures, ', ') .."?", cid)
+				npcHandler:say("Jestes pewny, ze chcesz zabic " .. x.killsRequired .." ".. table.concat(x.creatures, ', ') .."?", cid)
 				npcHandler.topic[cid] = x.questStarted
 			end
 		end
