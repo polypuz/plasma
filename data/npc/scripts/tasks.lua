@@ -26,7 +26,7 @@ local function creatureSayCallback(cid, type, msg)
 		local text = ""
 
 		for k, x in pairs(tasks) do
-			if player:getLevel() >= x.minLevel and player:getLevel() <= x.maxLevel and isInArray(x.vocation, player:getVocation()) then
+			if player:getLevel() >= x.minLevel and player:getLevel() <= x.maxLevel and isInArray(x.vocation, player:getVocation():getId()) then
 				text = text .. ", "
 				text = text .. "".. x.killsRequired .." {".. x.raceName .."}"
 			end
