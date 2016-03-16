@@ -23,6 +23,8 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	elseif msgcontains(msg, "zadania") or msgcontains(msg, "zadanie") then
+		local text = ""
+
 		for k, x in pairs(tasks) do
 			if player:getLevel() >= x.minLevel and player:getLevel() <= x.maxLevel and isInArray(x.vocation, player:getVocation()) then
 				text = text .. ", "
