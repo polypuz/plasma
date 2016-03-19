@@ -45,27 +45,27 @@ function getPlayerMarriageStatus(id)
 end
 
 function getPlayerTitleId( id )
-	local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. db.escapeString( id ) )
-	if resultQuery ~= false then
-		local ret = result.getDataInt( resultQuery, "title")
-		result.free( resultQuery )
-		return ret
-	end
-	return -1
+  local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. db.escapeString( id ) )
+  if resultQuery ~= false then
+    local ret = result.getDataInt( resultQuery, "title")
+    result.free( resultQuery )
+    return ret
+  end
+  return -1
 end
 
 function getPlayerTitle( player_id )
-	local titleId = getPlayerTitleId( player_id )
-	if titleId then
-		local resultQuery = db.storeQuery("SELECT `title` FROM `player_titles` WHERE `id`=" .. titleId )
-		if resultQuery ~= false then
-			local ret = result.getDataString( resultQuery, "title")
-			result.free( resultQuery )
-			return ret
-		end
-		return false
-	end
-	return false
+  local titleId = getPlayerTitleId( player_id )
+  if titleId then
+    local resultQuery = db.storeQuery("SELECT `title` FROM `player_titles` WHERE `id`=" .. titleId )
+    if resultQuery ~= false then
+      local ret = result.getDataString( resultQuery, "title")
+      result.free( resultQuery )
+      return ret
+    end
+    return false
+  end
+  return false
 end
 
 function setPlayerMarriageStatus(id, val)
@@ -91,151 +91,191 @@ end
 -- The following 2 functions can be used for delayed shouted text
 
 function say(param)
-	selfSay(text)
-	doCreatureSay(param.cid, param.text, 1)
+  selfSay(text)
+  doCreatureSay(param.cid, param.text, 1)
 end
 
 function delayedSay(text, delay)
-	local delay = delay or 0
-	local cid = getNpcCid()
-	addEvent(say, delay, {cid = cid, text = text})
+  local delay = delay or 0
+  local cid = getNpcCid()
+  addEvent(say, delay, {cid = cid, text = text})
 end
 
 function getDistanceBetween(firstPosition, secondPosition)
-	local xDif = math.abs(firstPosition.x - secondPosition.x)
-	local yDif = math.abs(firstPosition.y - secondPosition.y)
-	local posDif = math.max(xDif, yDif)
-	if firstPosition.z ~= secondPosition.z then
-		posDif = posDif + 15
-	end
-	return posDif
+  local xDif = math.abs(firstPosition.x - secondPosition.x)
+  local yDif = math.abs(firstPosition.y - secondPosition.y)
+  local posDif = math.max(xDif, yDif)
+  if firstPosition.z ~= secondPosition.z then
+    posDif = posDif + 15
+  end
+  return posDif
 end
 
 function getFormattedWorldTime()
-	local worldTime = getWorldTime()
-	local hours = math.floor(worldTime / 60)
+  local worldTime = getWorldTime()
+  local hours = math.floor(worldTime / 60)
 
-	local minutes = worldTime % 60
-	if minutes < 10 then
-		minutes = '0' .. minutes
-	end
-	return hours .. ':' .. minutes
+  local minutes = worldTime % 60
+  if minutes < 10 then
+    minutes = '0' .. minutes
+  end
+  return hours .. ':' .. minutes
 end
 
 string.split = function(str, sep)
-	local res = {}
-	for v in str:gmatch("([^" .. sep .. "]+)") do
-		res[#res + 1] = v
-	end
-	return res
+  local res = {}
+  for v in str:gmatch("([^" .. sep .. "]+)") do
+    res[#res + 1] = v
+  end
+  return res
 end
 
 string.trim = function(str)
-	return str:match'^()%s*$' and '' or str:match'^%s*(.*%S)'
+  return str:match'^()%s*$' and '' or str:match'^%s*(.*%S)'
 end
 
 if nextUseStaminaTime == nil then
-	nextUseStaminaTime = {}
+  nextUseStaminaTime = {}
 end
 
+-- TASKS SYSTEM --
+TASKSYS = {
+  MAX_CONCURRENT_TASKS = 1,
 
-CURRENT_TASK = 65000
-
-PLAYER_TASKS = {
-	{
-	 	questStarted = 65001, -- czy zadanie rozpoczete
-	 	questKills = 65002, -- liczba ubitych potworow
-	 	questFinished = 65003, -- ile gracz ukoczyl zadan
-	 	killsRequired = 300, -- liczba potworow do zabicia
-	 	raceName = "Elfs", -- nazwa taska
-	 	creatures = {
-	 		"Elf", "Elf Scout", "Elf Arcanist" -- potwory do zabicia
-	 	}, 
-	 	minLevel = 1, -- minimalny poziom
-	 	maxLevel = 999, -- maksymalny poziom
-	 	vocation = { 1, 2, 3, 4, 5, 6, 7, 8 }, -- ktore profesje moga zadanie
-	 	repeatable = false, -- czy moze ukonczyc wiele razy
-		rewards = { -- nagrody
-			{
-				enable = true,
-				type = "exp",
-				values = 200000
-			},{
-				enable = true,
-				type = "money",
-				values = 300 -- platinum coins
-			},
-			{
-				enable = true,
-				type = "points",
-				values = 1
-			},{
-				enable = true,
-				type = "item",
-				values = {
-					{ 2789, 200 }
-				}
-			},{
-				enable = true,
-				bossKilled = 65003, -- 0 - tak, 1 - nie
-				type = "boss",
-	 			maxPlayers = 1, -- ile graczy moze wejsc
-				teleport = {
-					x = 1000, y = 1000, z = 7
-				},
-				creature = {
-					'orshabaal'
-				},
-				text = 'Potwor miesci sie pod depo' -- opis lokalizacji bossa
-			}
-		}
-	},
-	{
-	 	questStarted = 65011, -- czy zadanie rozpoczete
-	 	questKills = 65012, -- liczba ubitych potworow
-	 	questFinished = 65013, -- ile gracz ukoczyl zadan
-	 	killsRequired = 2, -- liczba potworow do zabicia
-	 	raceName = "Rotworms", -- nazwa taska
-	 	creatures = {
-	 		"Rotworm" -- potwory do zabicia
-	 	}, 
-	 	minLevel = 1, -- minimalny poziom
-	 	maxLevel = 999, -- maksymalny poziom
-	 	vocation = { 1, 2, 3, 4, 5, 6, 7, 8 }, -- ktore profesje moga zadanie
-	 	repeatable = false, -- czy moze ukonczyc wiele razy
-		rewards = { -- nagrody
-			{
-				enable = true,
-				type = "exp",
-				values = 20000000000000
-			},{
-				enable = true,
-				type = "money",
-				values = 10000 -- platinum coins
-			},
-			{
-				enable = true,
-				type = "points",
-				values = 1
-			},{
-				enable = true,
-				type = "item",
-				values = {
-					{ 2390, 1 }
-				}
-			},{
-				enable = true,
-				bossKilled = 65003, -- 0 - tak, 1 - nie
-				type = "boss",
-	 			maxPlayers = 1, -- ile graczy moze wejsc
-				teleport = {
-					x = 1000, y = 1000, z = 7
-				},
-				creature = {
-					'orshabaal'
-				},
-				text = 'Potwor miesci sie pod depo' -- opis lokalizacji bossa
-			}
-		}
-	}
+  TASKS = {}
 }
+
+-- TASKSYS.TASKS[0] = {
+--   enabled = true,
+
+--   type = "creatures", -- creatures / boss
+--   raceName = "Elfs", -- Global name
+--   creatures = {
+--     "Elf", "Elf Scout", "Elf Arcanist" -- All creatures to kill (IDs maybe?)
+--   },
+--   requirements = { -- Requirement definitions
+--     {
+--       type = "level", -- Player's level in specified range
+--       min = 1,
+--       max = 999
+--     },
+--     {
+--       type = "vocation", -- Player's vocation must match
+--       ids = { 1, 2, 3, 4, 5, 6, 7, 8 },
+--     },
+--     {
+--       type = "taskCompleted", -- Other task has to be completed
+--       taskID = 1 -- TaskID
+--     },
+--     {
+--       type = "bossPoints", -- Accumulation of boss points
+--       value = 10 -- Value
+--     },
+--     {
+--       type = "taskPoints", -- Accumulation of task points
+--       value = 10
+--     },
+--     {
+--       type = "lock", -- Task has to be unlocked
+--       repeatable = false -- Lock will be reseted upon completion
+--     },
+--     {
+--       type = "taskLocked", -- Other task has to be locked (use when locking normal task when boss task enabled)
+--       taskID = 1 -- Task ID
+--     }
+--   },
+--   killsRequired = 300, -- Kills count
+--   repeatable = false, -- Is task repetable?
+--   rewards = { -- Taks rewards definition
+--     {
+--       type = "exp", -- Experience
+--       value = 20000
+--     },
+--     {
+--       type = "skill", -- Skill percent (eg. 200 -> 200% -> 2 skills)
+--       skill = "axe",
+--       percent = 100,
+--     },
+--     {
+--       type = "money", -- Money (sent to bank?)
+--       value = 20000
+--     },
+--     {
+--       type = "item", -- Item (sent to depo?)
+--       itemID = 123,
+--       count = 100
+--     },
+--     {
+--       type = "taskPoints", -- Global task points
+--       value = 10
+--     },
+--     {
+--       type = "bossPoints", -- Boss points
+--       value = 10
+--     },
+--     {
+--       type = "taskUnlock", -- Unlocks another task
+--       taskID = 1
+--     },
+--     {
+--       type = "playerSetting", -- Defines player setting (useful for quests maybe?)
+--       key = "someSetting",
+--       value = "yes"
+--     }
+--   },
+
+--   hints = { -- NPC hints
+--     "Potwor jest pod miastem",
+--     "Strzez sie, jest mocny"
+--   },
+
+--   teleport = { -- (Boss only) teleport activator
+--     entrance = { -- Teleport entrance (position)
+--       x = 1,
+--       y = 1,
+--       z = 1,
+--       fallback = "N" -- (N)orth, (S)outh, (E)ast, (W)est
+--     },
+--     exit = { -- Teleport destination (Boss room)
+--       x = 2,
+--       y = 2,
+--       z = 1
+--     },
+--     maxPlayers = 1 -- How many players can join boss fight at once
+--   }
+-- }
+
+TASKSYS.TASKS[0] = {
+  enabled = true,
+
+  type = "creatures",
+  raceName = "Elfs",
+  creatures = {
+    "Elf", "Elf Scout", "Elf Arcanist"
+  },
+  requirements = {
+    {
+      type = "level",
+      min = 1,
+      max = 999
+    },
+    {
+      type = "vocation",
+      ids = { 1, 2, 3, 4, 5, 6, 7, 8 },
+    }
+  },
+  killsRequired = 300,
+  repeatable = false,
+  rewards = {
+    {
+      type = "exp",
+      value = 20000
+    }
+  },
+
+  hints = {
+    "Zabij elfy!"
+  }
+}
+
+-- END OF TASKS SYSTEM --
