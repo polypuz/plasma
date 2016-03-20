@@ -88,6 +88,23 @@ local function getPlayerTaskProgress(player, taskID)
   return value
 end
 
+local function setPlayerTaskActiveState(player, taskID, isActive)
+  local i = 0
+
+  while i < TASKSYS.MAX_CONCURRENT_TASKS do
+    local slot = player:getStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i)
+
+    if slot == -1 then
+      player:setStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i, taskID)
+      return true
+    end
+
+    i = i + 1
+  end
+
+  return false
+end
+
 local function setPlayerTaskState(player, taskID, value)
   player:setStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID, value)
 end
@@ -177,7 +194,7 @@ local function creatureSayCallback(cid, type, msg)
       setPlayerTaskState(player, taskID, TASKSYS.STATES.ACTIVE)
       setPlayerTaskProgress(player, taskID, 0)
 
-      print(getPlayerTaskState(player, taskID))
+      setPlayerTaskActiveState(player, taskID, TASKSYS.STATES.ACTIVE)
 
       npcHandler.topic[cid] = 0
       npcHandler.variables[cid].taskID = nil
