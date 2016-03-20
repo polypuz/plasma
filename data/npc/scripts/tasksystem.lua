@@ -105,6 +105,23 @@ local function setPlayerTaskActiveState(player, taskID, isActive)
   return false
 end
 
+local function unsetPlayerTaskActiveState(player, taskID)
+  local i = 0
+
+  while i < TASKSYS.MAX_CONCURRENT_TASKS do
+    local slot = player:getStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i)
+
+    if slot == taskID then
+      player:setStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i, -1)
+      return true
+    end
+
+    i = i + 1
+  end
+
+  return false
+end
+
 local function setPlayerTaskState(player, taskID, value)
   player:setStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID, value)
 end
@@ -186,6 +203,7 @@ local function creatureSayCallback(cid, type, msg)
 
   -- Obsluga tematow rozmowy (o zadaniach)
   if npcHandler.topic[cid] == 1 then
+    -- Rozpoczecie zadania
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
       local taskID = npcHandler.variables[cid].taskID
 
@@ -204,6 +222,42 @@ local function creatureSayCallback(cid, type, msg)
 
     if msgcontains(msg, "nie") or msgcontains(msg, "no") then
       npcHandler:say("Szkoda...", cid)
+
+      npcHandler.topic[cid] = 0
+      npcHandler.variables[cid].taskID = nil
+
+      return false
+    end
+  elseif npcHandler.topic[cid] == 2 then
+    -- Konczenie zadania
+
+    if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
+      local taskID = npcHandler.variables[cid].taskID
+      local task = TASKSYS.TASKS[taskID]
+
+      local playerProgress = getPlayerTaskProgress(player, taskID)
+
+      if playerProgress == task.killsRequired then
+        npcHandler:say("Gratulacje! Zakonczyles zadanie...", cid)
+
+        -- Dodaj nagrody
+        -- TODO: Dodawanie nagrod
+
+        -- Przestaw zadanie
+        unsetPlayerTaskActiveState(player, taskID)
+        setPlayerTaskState(player, taskID, TASKSYS.STATES.DONE)
+      else
+        npcHandler:say("Nie zabiles jeszcze wszystkich potworow...", cid)
+      end
+
+      npcHandler.topic[cid] = 0
+      npcHandler.variables[cid].taskID = nil
+
+      return false
+    end
+
+    if msgcontains(msg, "nie") or msgcontains(msg, "no") then
+      npcHandler:say("Wroc do mnie kiedy skonczysz...", cid)
 
       npcHandler.topic[cid] = 0
       npcHandler.variables[cid].taskID = nil
@@ -238,6 +292,10 @@ local function creatureSayCallback(cid, type, msg)
       elseif playerTaskState == TASKSYS.STATES.ACTIVE then
         -- Zapytaj czy skonczyl zadanie
         npcHandler:say("Czy skonczyles juz to zadanie?", cid)
+
+        npcHandler.topic[cid] = 2
+        npcHandler.variables[cid].taskID = taskID
+
         return false
       elseif playerTaskState == TASKSYS.STATES.DONE then
         -- Sprawdz czy mozna powtorzyc zadanie
