@@ -52,7 +52,9 @@ local function isRequirementFulfilled(requirement, player)
   return true
 end
 
-local function isTaskUnlocked(task, player)
+local function isTaskUnlocked(taskID, player)
+  local task = TASKSYS.TASKS[taskID]
+
   if task.enabled ~= true then
     return false
   end
@@ -106,8 +108,8 @@ local function creatureSayCallback(cid, type, msg)
 
     local taskNames = ""
 
-    for id, task in pairs(TASKSYS.TASKS) do
-      if isTaskUnlocked(task, player) then
+    for taskID, task in pairs(TASKSYS.TASKS) do
+      if isTaskUnlocked(taskID, player) then
         taskNames = taskNames .. ", " .. " {" .. task.raceName .. "}"
       end
     end

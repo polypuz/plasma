@@ -142,8 +142,19 @@ end
 TASKSYS = {
   MAX_CONCURRENT_TASKS = 1,
 
+  STATES = {
+    INACTIVE = 0,
+    UNLOCKED = 1,
+    ACTIVE = 2,
+    DONE = 3
+  },
+
   TASKS = {}
 }
+
+-- user settings explained --
+-- "tasksys_{ID}_state"
+-- "tasksys_{ID}_progress"
 
 -- TASKSYS.TASKS[0] = {
 --   enabled = true,
@@ -177,7 +188,7 @@ TASKSYS = {
 --     },
 --     {
 --       type = "lock", -- Task has to be unlocked
---       repeatable = false -- Lock will be reseted upon completion
+--       repeatable = false -- Lock will be reseted upon completion (when true)
 --     },
 --     {
 --       type = "taskLocked", -- Other task has to be locked (use when locking normal task when boss task enabled)
