@@ -88,6 +88,14 @@ local function getPlayerTaskProgress(player, taskID)
   return value
 end
 
+local function setPlayerTaskState(player, taskID, value)
+  player:setStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID, value)
+end
+
+local function setPlayerTaskProgress(player, taskID, value)
+  player:setStorageValue(TASKSYS.STORAGE_KEY_PROGRESS_START + taskID, value)
+end
+
 local function getPlayerActiveTaskIDs(player)
   -- Get player active task IDs
 
@@ -160,6 +168,32 @@ local function creatureSayCallback(cid, type, msg)
   end
 
   -- Obsluga tematow rozmowy (o zadaniach)
+  if npcHandler.topic[cid] == 1 then
+    if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
+      local taskID = npcHandler.variables[cid].taskID
+
+      npcHandler:say("Zalatwione! Wroc do mnie gdy skonczysz zadanie.", cid)
+
+      setPlayerTaskState(player, taskID, TASKSYS.STATES.ACTIVE)
+      setPlayerTaskProgress(player, taskID, 0)
+
+      print(getPlayerTaskState(player, taskID))
+
+      npcHandler.topic[cid] = 0
+      npcHandler.variables[cid].taskID = nil
+
+      return false
+    end
+
+    if msgcontains(msg, "nie") or msgcontains(msg, "no") then
+      npcHandler:say("Szkoda...", cid)
+
+      npcHandler.topic[cid] = 0
+      npcHandler.variables[cid].taskID = nil
+
+      return false
+    end
+  end
 
   -- Wymieniona nazwa zadania
   for taskID, task in pairs(TASKSYS.TASKS) do
