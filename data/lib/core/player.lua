@@ -108,3 +108,29 @@ function Player.addStagedExperience(self, exp, ...)
 
 	return self:addExperience(exp, ...)
 end
+
+local function mathRound(value)
+	return math.floor(value + 0.5)
+end
+
+function Player.addSkillPercent(self, skillID, value)
+	local vocation = self:getVocation()
+
+	local triesToAdd = 0
+	local percentLeft = value
+	local skillLevel = self:getSkillLevel(skillID)
+
+	while percentLeft > 0 do
+		local skillPercentLeft = 100 - self:getSkillPercent(skillID)
+		local thisPercent = percentLeft > skillPercentLeft and skillPercentLeft or percentLeft
+
+		local levelTries = self:getVocation():getRequiredSkillTries(skillID, skillLevel + 1)
+
+		triesToAdd = triesToAdd + mathRound(levelTries * (thisPercent / 100))
+
+		percentLeft = percentLeft - thisPercent
+		skillLevel = skillLevel + 1
+	end
+
+	return self:addSkillTries(skillID, triesToAdd)
+end
