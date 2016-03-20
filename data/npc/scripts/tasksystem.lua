@@ -172,7 +172,17 @@ local function creatureSayCallback(cid, type, msg)
 
       if playerTaskState == TASKSYS.STATES.INACTIVE or playerTaskState == TASKSYS.STATES.UNLOCKED then
         -- Wymien warunki zakonczenia i zapytaj czy bierze
-        npcHandler:say("Mozesz wziac to zadanie", cid)
+
+        local monsters = ""
+        for creatureIdx, creatureName in pairs(task.creatures) do
+          monsters = monsters .. ", " .. " {" .. creatureName .. "}"
+        end
+
+        npcHandler:say("Zadanie wymaga od ciebie bys zabil: " .. monsters .. ". Musisz zabic ich {" .. task.killsRequired .. "}. Czy podejmujesz sie zadania?", cid)
+
+        npcHandler.topic[cid] = 1
+        npcHandler.variables[cid].taskID = taskID
+
         return false
       elseif playerTaskState == TASKSYS.STATES.ACTIVE then
         -- Zapytaj czy skonczyl zadanie
