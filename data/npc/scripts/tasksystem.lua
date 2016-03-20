@@ -68,6 +68,26 @@ local function isTaskUnlocked(taskID, player)
   return true
 end
 
+local function getPlayerTaskState(player, taskID)
+  local value = player:getStorageValue("tasksys_" .. taskID .. "_state")
+
+  if value == -1 then
+    return TASKSYS.STATES.INACTIVE
+  end
+
+  return value
+end
+
+local function getPlayerTaskProgress(player, taskID)
+  local value = player:getStorageValue("tasksys_" .. taskID .. "_progress")
+
+  if value == -1 then
+    return 0
+  end
+
+  return value
+end
+
 local function getPlayerActiveTaskIDs(player)
   -- Get player active task IDs
 
@@ -137,6 +157,37 @@ local function creatureSayCallback(cid, type, msg)
 
     npcHandler:say("Chcesz sprawdzic {aktywne zadania} czy {dostepne zadania}?", cid)
     return false
+  end
+
+  -- Obsluga tematow rozmowy (o zadaniach)
+
+  -- Wymieniona nazwa zadania
+  for taskID, task in pairs(TASKSYS.TASKS) do
+    if msgcontains(msg, task.raceName) then
+      if not isTaskUnlocked(taskID, player) then
+        return false
+      end
+
+      local playerTaskState = getPlayerTaskState(player, taskID)
+
+      if playerTaskState == TASKSYS.STATES.INACTIVE or playerTaskState == TASKSYS.STATES.UNLOCKED then
+        -- Wymien warunki zakonczenia i zapytaj czy bierze
+        npcHandler:say("Mozesz wziac to zadanie", cid)
+        return false
+      elseif playerTaskState == TASKSYS.STATES.ACTIVE then
+        -- Zapytaj czy skonczyl zadanie
+        npcHandler:say("Czy skonczyles juz to zadanie?", cid)
+        return false
+      elseif playerTaskState == TASKSYS.STATES.DONE then
+        -- Sprawdz czy mozna powtorzyc zadanie
+        npcHandler:say("Wykonales juz to zadanie", cid)
+        return false
+      else
+        -- Niepoprawny status
+        npcHandler:say("Ehm, cos poszlo nie tak. Skontaktuj sie z administracja...", cid)
+        return false
+      end
+    end
   end
 
 
