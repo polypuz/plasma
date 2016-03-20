@@ -142,6 +142,11 @@ end
 TASKSYS = {
   MAX_CONCURRENT_TASKS = 1,
 
+  -- Do not use players' storage keys in range <50000, 51999> in other places!
+  -- Do not define more than 1000 tasks (indexing starts from 0)
+  STORAGE_KEY_STATE_START = 50000,
+  STORAGE_KEY_PROGRESS_START = 51000,
+
   STATES = {
     INACTIVE = 0,
     UNLOCKED = 1,
