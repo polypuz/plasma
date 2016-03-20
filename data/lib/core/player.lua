@@ -102,3 +102,9 @@ function Player.addManaSpent(...)
 	APPLY_SKILL_MULTIPLIER = true
 	return ret
 end
+
+function Player.addStagedExperience(self, exp, ...)
+	exp = exp * Game.getExperienceStage(self:getLevel())
+
+	return self:addExperience(exp, ...)
+end
