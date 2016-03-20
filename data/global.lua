@@ -206,7 +206,8 @@ TASKSYS = {
 --   rewards = { -- Taks rewards definition
 --     {
 --       type = "exp", -- Experience
---       value = 20000
+--       value = 20000,
+--       staged = false -- Should take exp stages into account
 --     },
 --     {
 --       type = "skill", -- Skill percent (eg. 200 -> 200% -> 2 skills)

@@ -136,6 +136,40 @@ local function getPlayerActiveTaskIDs(player)
   return {}
 end
 
+local function getSkillID(skillName)
+  if skillName == "club" then
+    return SKILL_CLUB
+  elseif skillName == "sword" then
+    return SKILL_SWORD
+  elseif skillName == "axe" then
+    return SKILL_AXE
+  elseif skillName:sub(1, 4) == "dist" then
+    return SKILL_DISTANCE
+  elseif skillName:sub(1, 6) == "shield" then
+    return SKILL_SHIELD
+  elseif skillName:sub(1, 4) == "fish" then
+    return SKILL_FISHING
+  else
+    return SKILL_FIST
+  end
+end
+
+local function rewardPlayer(player, taskID)
+  local rewards = TASKSYS.TASKS[taskID].rewards
+
+  for idx, reward in pairs(rewards) do
+    if reward.type == "exp" then
+      if reward.staged then
+        player:addStagedExperience(reward.value)
+      else
+        player:addExperience(reward.value)
+      end
+    elseif reward.type == "skill" then
+      player:addSkillPercent(getSkillID(reward.skill), reward.value)
+    end
+  end
+end
+
 
 local function creatureSayCallback(cid, type, msg)
   local player = Player(cid)
@@ -241,7 +275,7 @@ local function creatureSayCallback(cid, type, msg)
         npcHandler:say("Gratulacje! Zakonczyles zadanie...", cid)
 
         -- Dodaj nagrody
-        -- TODO: Dodawanie nagrod
+        rewardPlayer(player, taskID)
 
         -- Przestaw zadanie
         unsetPlayerTaskActiveState(player, taskID)
