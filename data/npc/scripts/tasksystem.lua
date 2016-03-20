@@ -310,6 +310,8 @@ local function creatureSayCallback(cid, type, msg)
   end
 
 
+  -- Commented code made by kajakpt
+
   -- if not npcHandler:isFocused(cid) then
   --   return false
   -- elseif msgcontains(msg, "zadania") or msgcontains(msg, "zadanie") then
