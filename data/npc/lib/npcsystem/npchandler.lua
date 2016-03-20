@@ -74,6 +74,7 @@ if NpcHandler == nil then
 		eventSay = nil,
 		eventDelayedSay = nil,
 		topic = nil,
+		variables = nil,
 		messages = {
 			-- These are the default replies of all npcs. They can/should be changed individually for each npc.
 			[MESSAGE_GREET] = "Uszanowanie, |PLAYERNAME|.",
@@ -116,6 +117,7 @@ if NpcHandler == nil then
 		obj.keywordHandler = keywordHandler
 		obj.messages = {}
 		obj.shopItems = {}
+		obj.variables = {}
 
 		setmetatable(obj.messages, self.messages)
 		self.messages.__index = self.messages
@@ -143,6 +145,7 @@ if NpcHandler == nil then
 
 		self.focuses[#self.focuses + 1] = newFocus
 		self.topic[newFocus] = 0
+		self.variables[newFocus] = {}
 		local callback = self:getCallback(CALLBACK_ONADDFOCUS)
 		if callback == nil or callback(newFocus) then
 			self:processModuleCallback(CALLBACK_ONADDFOCUS, newFocus)
@@ -207,6 +210,7 @@ if NpcHandler == nil then
 		self.eventDelayedSay[focus] = nil
 		self.talkStart[focus] = nil
 		self.topic[focus] = nil
+		self.variables[focus] = nil
 
 		local callback = self:getCallback(CALLBACK_ONRELEASEFOCUS)
 		if callback == nil or callback(focus) then
