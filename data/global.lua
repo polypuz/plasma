@@ -140,19 +140,34 @@ end
 
 -- TASKS SYSTEM --
 TASKSYS = {
+  -- Settings
   MAX_CONCURRENT_TASKS = 1,
+  REWARD_ITEMS_CONTAINER_ID = 1988, -- Brown Backpack
+  REWARD_ITEMS_INBOX_CONTAINER_ID = 2596, -- Parcel
 
-  -- Do not use players' storage keys in range <50000, 52999> in other places!
+  -- Do not use players' storage keys in range <50000, 54999> in other places!
   -- Do not define more than 1000 tasks (indexing starts from 0)
-  STORAGE_KEY_ACTIVE_START = 50000,
-  STORAGE_KEY_STATE_START = 51000,
-  STORAGE_KEY_PROGRESS_START = 52000,
+  STORAGE_KEY_COMMON_START = 50000,
+  STORAGE_KEY_ACTIVE_START = 52000,
+  STORAGE_KEY_STATE_START = 53000,
+  STORAGE_KEY_PROGRESS_START = 54000,
+
+  -- Common storage values
+  STORAGE_KEY_TASKPOINTS = 50000,
+  STORAGE_KEY_BOSSPOINTS = 50001,
+
 
   STATES = {
+    -- States use power-of-two values, useful for bitmasks
     INACTIVE = 0,
     UNLOCKED = 1,
     ACTIVE = 2,
-    DONE = 3
+    DONE = 4,
+    DONE_PROBLEMS = 8,
+
+    -- Done - Problem bits
+    DONE_PROBLEM_UNSPECIFIED = 16,
+    DONE_PROBLEM_REWARD_ITEM = 32
   },
 
   TASKS = {}
@@ -170,7 +185,9 @@ TASKSYS = {
 --   creatures = {
 --     "Elf", "Elf Scout", "Elf Arcanist" -- All creatures to kill (IDs maybe?)
 --   },
---   requirements = { -- Requirement definitions
+
+--   -- Requirement definitions
+--   requirements = {
 --     {
 --       type = "level", -- Player's level in specified range
 --       min = 1,
@@ -186,11 +203,13 @@ TASKSYS = {
 --     },
 --     {
 --       type = "bossPoints", -- Accumulation of boss points
---       value = 10 -- Value
+--       value = 10, -- Value
+--       subtract = true -- Should boss points be subtracted?
 --     },
 --     {
 --       type = "taskPoints", -- Accumulation of task points
---       value = 10
+--       value = 10,
+--       subtract = false -- Should task points be subtracted?
 --     },
 --     {
 --       type = "lock", -- Task has to be unlocked
@@ -203,7 +222,9 @@ TASKSYS = {
 --   },
 --   killsRequired = 300, -- Kills count
 --   repeatable = false, -- Is task repetable?
---   rewards = { -- Taks rewards definition
+
+--   -- Taks rewards definition
+--   rewards = {
 --     {
 --       type = "exp", -- Experience
 --       value = 20000,
@@ -215,13 +236,20 @@ TASKSYS = {
 --       percent = 100,
 --     },
 --     {
---       type = "money", -- Money (sent to bank?)
---       value = 20000
---     },
---     {
---       type = "item", -- Item (sent to depo?)
+--       type = "item", -- Item (note that wrong definition will lead to error)
 --       itemID = 123,
---       count = 100
+--       count = 2, -- Must be <1, 100> for stackables, "1" or undefined for non-stackables
+--       -- Contained items (only for containers)
+--       contains = {
+--         {
+--           itemID = 1988,
+--           count = 1
+--         },
+--         {
+--           itemID = 2596,
+--           count = 2
+--         }
+--       }
 --     },
 --     {
 --       type = "taskPoints", -- Global task points
@@ -242,19 +270,29 @@ TASKSYS = {
 --     }
 --   },
 
---   hints = { -- NPC hints
+--   -- NPC hints
+--   hints = {
 --     "Potwor jest pod miastem",
 --     "Strzez sie, jest mocny"
 --   },
 
---   teleport = { -- (Boss only) teleport activator
---     entrance = { -- Teleport entrance (position)
+--   -- NPC congratulations (may contain additional info about other tasks)
+--   -- May be empty (generic message used)
+--   completionTexts = {
+--     "Gratulacje! Teraz mozesz isc po {bossa}!"
+--   },
+
+--   -- (Boss only) teleport activator
+--   teleport = {
+--     -- Teleport entrance (position)
+--     entrance = {
 --       x = 1,
 --       y = 1,
 --       z = 1,
 --       fallback = "N" -- (N)orth, (S)outh, (E)ast, (W)est
 --     },
---     exit = { -- Teleport destination (Boss room)
+--     -- Teleport destination (Boss room)
+--     exit = {
 --       x = 2,
 --       y = 2,
 --       z = 1
@@ -282,12 +320,46 @@ TASKSYS.TASKS[0] = {
       ids = { 1, 2, 3, 4, 5, 6, 7, 8 },
     }
   },
-  killsRequired = 300,
+  killsRequired = 0,
   repeatable = false,
   rewards = {
     {
       type = "exp",
       value = 20000
+    },
+    {
+      type = "item", -- Item (sent to depo?)
+      itemID = 2152,
+      count = 100
+    },
+    {
+      type = "item", -- Item (note that wrong definition will lead to error)
+      itemID = 1988,
+      count = 1,
+      contains = {
+        {
+          itemID = 1988,
+          count = 1,
+          contains = {
+            {
+              itemID = 2152,
+              count = 100
+            },
+            {
+              itemID = 2152,
+              count = 100
+            }
+          }
+        },
+        {
+          itemID = 2596
+        }
+      }
+    },
+    {
+      type = "item", -- Item (note that wrong definition will lead to error)
+      itemID = 1988,
+      count = 1
     }
   },
 
