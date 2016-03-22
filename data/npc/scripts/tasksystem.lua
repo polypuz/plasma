@@ -193,8 +193,25 @@ local function createRewardItem(rewardItem)
   return itemUID
 end
 
+local function sumCapacity(items)
+  local totalCap = 0
+
+  for idx, itemUID in pairs(items) do
+    totalCap = totalCap + Item(itemUID):getWeight()
+  end
+
+  return totalCap
+end
+
+local REWARD_PLAYER_RESULTS = {
+  RESULT_OK = 0,
+  RESULT_NOCAP = 1
+}
+
 local function rewardPlayer(player, taskID)
   local rewards = TASKSYS.TASKS[taskID].rewards
+  local rewardsCap = 0
+  local result = REWARD_PLAYER_RESULTS.RESULT_OK
 
   local itemRewards = {}
   local itemRewardsProblem = false
@@ -221,20 +238,32 @@ local function rewardPlayer(player, taskID)
   end
 
   if #itemRewards > 0 and itemRewardsProblem == false then
-    -- Check if player has capacity
-    -- Check if player has enough room (first, in backpack, then in WHATEVER)
+    rewardsCap = sumCapacity(itemRewards)
 
-    -- If not, report warning and set PROBLEM_BIT
-    local destination = CONST_SLOT_BACKPACK
+    if player:getFreeCapacity() < rewardsCap then
+      result = REWARD_PLAYER_RESULTS.RESULT_NOCAP
+      itemRewardsProblem = true
+    else
+      -- Check if player has enough room (first, in backpack, then in WHATEVER)
 
-    for idx, itemUID in pairs(itemRewards) do
-      player:addItemEx(Item(itemUID), false, destination)
+      -- If not, report warning and set PROBLEM_BIT
+      local destination = CONST_SLOT_BACKPACK
+
+      for idx, itemUID in pairs(itemRewards) do
+        player:addItemEx(Item(itemUID), false, destination)
+      end
     end
   end
 
   if itemRewardsProblem == true then
     -- Set DONE_PROBLEM_REWARD_ITEM
   end
+
+  if result == REWARD_PLAYER_RESULTS.RESULT_NOCAP then
+    return result, rewardsCap
+  end
+
+  return result
 end
 
 
@@ -339,14 +368,22 @@ local function creatureSayCallback(cid, type, msg)
       local playerProgress = getPlayerTaskProgress(player, taskID)
 
       if playerProgress == task.killsRequired then
-        npcHandler:say("Gratulacje! Zakonczyles zadanie...", cid)
+        local response = "Gratulacje! Zakonczyles zadanie."
 
         -- Dodaj nagrody
-        rewardPlayer(player, taskID)
+        local result, resultVar = rewardPlayer(player, taskID)
 
         -- Przestaw zadanie
         unsetPlayerTaskActiveState(player, taskID)
         setPlayerTaskState(player, taskID, TASKSYS.STATES.DONE)
+
+        if result == REWARD_PLAYER_RESULTS.RESULT_NOCAP then
+          response =
+            response ..
+            " Nagrody ktore chcialem Ci wreczyc waza " .. (resultVar / 100) .. " oz. Wroc do mnie po nagrody pozniej. Powiedz, kiedy bedziesz {gotowy}."
+        end
+
+        npcHandler:say(response, cid)
       else
         npcHandler:say("Nie zabiles jeszcze wszystkich potworow...", cid)
       end
