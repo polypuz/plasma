@@ -154,8 +154,50 @@ local function getSkillID(skillName)
   end
 end
 
+local function createRewardItem(rewardItem)
+  local itemUID = doCreateItemEx(rewardItem.itemID, 1)
+
+  local itemInstance = Item(itemUID)
+
+  if itemInstance:getType():isStackable() == false and (rewardItem.count ~= nil and rewardItem.count > 1) then
+    print('[TaskSystem:NPC] Wrong rewardItem definition - unstackable item with count > 1 (itemID: ' .. rewardItem.itemID .. ')')
+    return false
+  end
+
+  if itemInstance:isContainer() == false and type(rewardItem.contains) == "table" then
+    print('[TaskSystem:NPC] Wrong rewardItem definition - tried to insert other items into non-container item (itemID: ' .. rewardItem.itemID .. ')')
+    return false
+  end
+
+  if itemInstance:isContainer() and type(rewardItem.contains) == "table" then
+    -- Fill container with content
+    if rewardItem.count ~= nil and rewardItem.count > 1 then
+      print('[TaskSystem:NPC] Wrong rewardItem definition - Filled containers cannot have "count"')
+      return false
+    end
+
+    for idx, containedReward in pairs(rewardItem.contains) do
+      local containedItem = createRewardItem(containedReward)
+
+      if containedItem == false then
+        print('[TaskSystem:NPC] Contained item error (container itemID: ' .. rewardItem.itemID .. ')')
+        return false
+      end
+
+      itemInstance:addItemEx(Item(containedItem))
+    end
+  else
+    itemUID = doCreateItemEx(rewardItem.itemID, rewardItem.count)
+  end
+
+  return itemUID
+end
+
 local function rewardPlayer(player, taskID)
   local rewards = TASKSYS.TASKS[taskID].rewards
+
+  local itemRewards = {}
+  local itemRewardsProblem = false
 
   for idx, reward in pairs(rewards) do
     if reward.type == "exp" then
@@ -166,7 +208,32 @@ local function rewardPlayer(player, taskID)
       end
     elseif reward.type == "skill" then
       player:addSkillPercent(getSkillID(reward.skill), reward.value)
+    elseif reward.type == "item" then
+      local item = createRewardItem(reward)
+
+      if item == false then
+        print('[TaskSystem:NPC] Problem with task definition (taskID: ' .. taskID .. ')')
+        itemRewardsProblem = true
+      else
+        table.insert(itemRewards, item)
+      end
     end
+  end
+
+  if #itemRewards > 0 and itemRewardsProblem == false then
+    -- Check if player has capacity
+    -- Check if player has enough room (first, in backpack, then in WHATEVER)
+
+    -- If not, report warning and set PROBLEM_BIT
+    local destination = CONST_SLOT_BACKPACK
+
+    for idx, itemUID in pairs(itemRewards) do
+      player:addItemEx(Item(itemUID), false, destination)
+    end
+  end
+
+  if itemRewardsProblem == true then
+    -- Set DONE_PROBLEM_REWARD_ITEM
   end
 end
 
