@@ -122,6 +122,23 @@ local function unsetPlayerTaskActiveState(player, taskID)
   return false
 end
 
+local function updatePlayerTaskActiveState(player, taskID, newState)
+  local i = 0
+
+  while i < TASKSYS.MAX_CONCURRENT_TASKS do
+    local slot = player:getStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i)
+
+    if slot == taskID then
+      player:setStorageValue(TASKSYS.STORAGE_KEY_ACTIVE_START + i, newState)
+      return true
+    end
+
+    i = i + 1
+  end
+
+  return false
+end
+
 local function setPlayerTaskState(player, taskID, value)
   player:setStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID, value)
 end
@@ -205,12 +222,13 @@ end
 
 local REWARD_PLAYER_RESULTS = {
   RESULT_OK = 0,
-  RESULT_NOCAP = 1
+  RESULT_ITEMS_INBOX_CAP = 1,
+  RESULT_ITEMS_INBOX_SPACE = 2,
+  RESULT_ITEMS_ERROR = 4
 }
 
 local function rewardPlayer(player, taskID)
   local rewards = TASKSYS.TASKS[taskID].rewards
-  local rewardsCap = 0
   local result = REWARD_PLAYER_RESULTS.RESULT_OK
 
   local itemRewards = {}
@@ -238,29 +256,52 @@ local function rewardPlayer(player, taskID)
   end
 
   if #itemRewards > 0 and itemRewardsProblem == false then
-    rewardsCap = sumCapacity(itemRewards)
+    local sendToInbox = false
 
-    if player:getFreeCapacity() < rewardsCap then
-      result = REWARD_PLAYER_RESULTS.RESULT_NOCAP
-      itemRewardsProblem = true
+    if player:getFreeCapacity() < sumCapacity(itemRewards) then
+      result = REWARD_PLAYER_RESULTS.RESULT_ITEMS_INBOX_CAP
+
+      sendToInbox = true
     else
-      -- Check if player has enough room (first, in backpack, then in WHATEVER)
+      local requiredSlots = #itemRewards
+      local bpSlots = player:getSlotItem(CONST_SLOT_BACKPACK):getEmptySlots(false)
 
-      -- If not, report warning and set PROBLEM_BIT
-      local destination = CONST_SLOT_BACKPACK
+      if bpSlots < requiredSlots then
+        result = REWARD_PLAYER_RESULTS.RESULT_ITEMS_INBOX_SPACE
 
+        sendToInbox = true
+      end
+    end
+
+    if sendToInbox == false then
       for idx, itemUID in pairs(itemRewards) do
-        player:addItemEx(Item(itemUID), false, destination)
+        player:addItemEx(Item(itemUID), false, CONST_SLOT_BACKPACK)
+      end
+    else
+      local inbox = player:getInbox()
+      local inboxContainer = inbox:addItem(TASKSYS.REWARD_ITEMS_INBOX_CONTAINER_ID, 1, false, 1)
+
+      if not inboxContainer then
+        print('[TaskSystem:NPC] Could not create inbox container in the Inbox (taskID: ' .. taskID .. ')')
+        itemRewardsProblem = true
+      else
+        local requiredSlots = #itemRewards
+        local inboxContainerSlots = inboxContainer:getEmptySlots(false)
+
+        if inboxContainerSlots < requiredSlots then
+          print('[TaskSystem:NPC] Inbox container is too small for all rewards (taskID: ' .. taskID .. ')')
+          itemRewardsProblem = true
+        else
+          for idx, itemUID in pairs(itemRewards) do
+            inboxContainer:addItemEx(Item(itemUID), INDEX_WHEREEVER, FLAG_NOLIMIT)
+          end
+        end
       end
     end
   end
 
   if itemRewardsProblem == true then
-    -- Set DONE_PROBLEM_REWARD_ITEM
-  end
-
-  if result == REWARD_PLAYER_RESULTS.RESULT_NOCAP then
-    return result, rewardsCap
+    result = REWARD_PLAYER_RESULTS.RESULT_ITEMS_ERROR
   end
 
   return result
@@ -371,19 +412,34 @@ local function creatureSayCallback(cid, type, msg)
         local response = "Gratulacje! Zakonczyles zadanie."
 
         -- Dodaj nagrody
-        local result, resultVar = rewardPlayer(player, taskID)
+        local result = rewardPlayer(player, taskID)
 
-        -- Przestaw zadanie
-        unsetPlayerTaskActiveState(player, taskID)
-        setPlayerTaskState(player, taskID, TASKSYS.STATES.DONE)
-
-        if result == REWARD_PLAYER_RESULTS.RESULT_NOCAP then
+        if result == REWARD_PLAYER_RESULTS.RESULT_ITEMS_INBOX_CAP then
           response =
             response ..
-            " Nagrody ktore chcialem Ci wreczyc waza " .. (resultVar / 100) .. " oz. Wroc do mnie po nagrody pozniej. Powiedz, kiedy bedziesz {gotowy}."
+            " Nagrody ktore chcialem Ci wreczyc wazyly zbyt duzo, wiec wyslalem je do twojej skrzynki."
+        elseif result == REWARD_PLAYER_RESULTS.RESULT_ITEMS_INBOX_SPACE then
+          response =
+            response ..
+            " Nagrody ktore chcialem Ci wreczyc nie zmiescilyby sie do twojego plecaka, wiec wyslalem je do twojej skrzynki."
+        elseif result == REWARD_PLAYER_RESULTS.RESULT_ITEMS_ERROR then
+          response =
+            response ..
+            " Nie moglem wreczyc Ci nagrod, skontaktuj sie z administracja i wroc aby {kontynuowac} zadanie."
         end
 
         npcHandler:say(response, cid)
+
+        -- Przestaw zadanie
+        if result == REWARD_PLAYER_RESULTS.RESULT_ITEMS_ERROR then
+          local state = bit.bor(TASKSYS.STATES.DONE_PROBLEMS, TASKSYS.STATES.DONE_PROBLEM_REWARD_ITEM)
+
+          updatePlayerTaskActiveState(player, taskID, state)
+          setPlayerTaskState(player, taskID, state)
+        else
+          unsetPlayerTaskActiveState(player, taskID)
+          setPlayerTaskState(player, taskID, TASKSYS.STATES.DONE)
+        end
       else
         npcHandler:say("Nie zabiles jeszcze wszystkich potworow...", cid)
       end
