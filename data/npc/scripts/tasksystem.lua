@@ -1,4 +1,5 @@
 -- Monster Tasks by mdziekon
+-- TODO: Massive code cleanup (most of these functions could be placed in Player class-space)
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
@@ -234,6 +235,7 @@ local function rewardPlayer(player, taskID)
   local itemRewards = {}
   local itemRewardsProblem = false
 
+  -- Iterate over all rewards
   for idx, reward in pairs(rewards) do
     if reward.type == "exp" then
       if reward.staged then
@@ -252,9 +254,36 @@ local function rewardPlayer(player, taskID)
       else
         table.insert(itemRewards, item)
       end
+    elseif reward.type == "taskPoints" then
+      local currentPoints = player:getStorageValue(TASKSYS.STORAGE_KEY_TASKPOINTS)
+
+      if currentPoints == -1 then
+        currentPoints = 0
+      end
+
+      player:setStorageValue(TASKSYS.STORAGE_KEY_TASKPOINTS, currentPoints + reward.value)
+    elseif reward.type == "bossPoints" then
+      local currentPoints = player:getStorageValue(TASKSYS.STORAGE_KEY_BOSSPOINTS)
+
+      if currentPoints == -1 then
+        currentPoints = 0
+      end
+
+      player:setStorageValue(TASKSYS.STORAGE_KEY_BOSSPOINTS, currentPoints + reward.value)
+    elseif reward.type == "taskUnlock" then
+      local currentState = getPlayerTaskState(player, reward.taskID)
+
+      if not currentState == TASKSYS.STATES.INACTIVE then
+        print('[TaskSystem:NPC] Trying to unlock non-inactive task (taskID: ' .. taskID .. ', unlocking: ' .. reward.taskID .. ')')
+      else
+        setPlayerTaskState(player, reward.taskID, TASKSYS.STATES.UNLOCKED)
+      end
+    elseif reward.type == "playerSetting" then
+      player:setStorageValue(reward.key, reward.value)
     end
   end
 
+  -- Handle item rewards (add them to player's BP or their's Inbox)
   if #itemRewards > 0 and itemRewardsProblem == false then
     local sendToInbox = false
 

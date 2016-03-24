@@ -233,7 +233,7 @@ TASKSYS = {
 --     {
 --       type = "skill", -- Skill percent (eg. 200 -> 200% -> 2 skills)
 --       skill = "axe",
---       percent = 100,
+--       value = 100,
 --     },
 --     {
 --       type = "item", -- Item (note that wrong definition will lead to error)
@@ -265,8 +265,8 @@ TASKSYS = {
 --     },
 --     {
 --       type = "playerSetting", -- Defines player setting (useful for quests maybe?)
---       key = "someSetting",
---       value = "yes"
+--       key = 1234,
+--       value = 1234
 --     }
 --   },
 
@@ -333,33 +333,26 @@ TASKSYS.TASKS[0] = {
       count = 100
     },
     {
-      type = "item", -- Item (note that wrong definition will lead to error)
-      itemID = 1988,
-      count = 1,
-      contains = {
-        {
-          itemID = 1988,
-          count = 1,
-          contains = {
-            {
-              itemID = 2152,
-              count = 100
-            },
-            {
-              itemID = 2152,
-              count = 100
-            }
-          }
-        },
-        {
-          itemID = 2596
-        }
-      }
+      type = "skill",
+      skill = "axe",
+      value = 100
     },
     {
-      type = "item", -- Item (note that wrong definition will lead to error)
-      itemID = 1988,
-      count = 1
+      type = "taskPoints",
+      value = 3
+    },
+    {
+      type = "bossPoints",
+      value = 2
+    },
+    {
+      type = "taskUnlock",
+      taskID = 10
+    },
+    {
+      type = "playerSetting",
+      key = 60000,
+      value = 123
     }
   },
 
