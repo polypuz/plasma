@@ -33,6 +33,7 @@
 	<talkaction words="/clean" script="clean.lua" />
 	<talkaction words="/hide" script="hide.lua" />
 	<talkaction words="/trophy" separator=" " script="create_trophy.lua" />
+	<talkaction words="/save" separator=" " script="server_save.lua" />
 
 	<!-- <talkaction words="/glosuj" separator=" " script="vote.lua" /> -->
 
