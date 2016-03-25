@@ -177,134 +177,6 @@ TASKSYS = {
   TASKS = {}
 }
 
--- user settings explained --
--- "tasksys_{ID}_state"
--- "tasksys_{ID}_progress"
-
--- TASKSYS.TASKS[0] = {
---   enabled = true,
-
---   type = "creatures", -- creatures / boss
---   raceName = "Elfs", -- Global name
---   creatures = {
---     "Elf", "Elf Scout", "Elf Arcanist" -- All creatures to kill (IDs maybe?)
---   },
-
---   -- Requirement definitions
---   requirements = {
---     {
---       type = "level", -- Player's level in specified range
---       min = 1,
---       max = 999
---     },
---     {
---       type = "vocation", -- Player's vocation must match
---       ids = { 1, 2, 3, 4, 5, 6, 7, 8 },
---     },
---     {
---       type = "taskCompleted", -- Other task has to be completed
---       taskID = 1 -- TaskID
---     },
---     {
---       type = "bossPoints", -- Accumulation of boss points
---       value = 10, -- Value
---       subtract = true -- Should boss points be subtracted?
---     },
---     {
---       type = "taskPoints", -- Accumulation of task points
---       value = 10,
---       subtract = false -- Should task points be subtracted?
---     },
---     {
---       type = "nolock", -- Task has to be unlocked
---       repeatable = false -- Lock will be reseted upon completion (when true)
---     },
---     {
---       type = "taskLocked", -- Other task has to be locked (use when locking normal task when boss task enabled)
---       taskID = 1 -- Task ID
---     }
---   },
---   killsRequired = 300, -- Kills count
---   repeatable = false, -- Is task repetable?
-
---   -- Taks rewards definition
---   rewards = {
---     {
---       type = "exp", -- Experience
---       value = 20000,
---       staged = false -- Should take exp stages into account
---     },
---     {
---       type = "skill", -- Skill percent (eg. 200 -> 200% -> 2 skills)
---       skill = "axe",
---       value = 100,
---     },
---     {
---       type = "item", -- Item (note that wrong definition will lead to error)
---       itemID = 123,
---       count = 2, -- Must be <1, 100> for stackables, "1" or undefined for non-stackables
---       -- Contained items (only for containers)
---       contains = {
---         {
---           itemID = 1988,
---           count = 1
---         },
---         {
---           itemID = 2596,
---           count = 2
---         }
---       }
---     },
---     {
---       type = "taskPoints", -- Global task points
---       value = 10
---     },
---     {
---       type = "bossPoints", -- Boss points
---       value = 10
---     },
---     {
---       type = "taskUnlock", -- Unlocks another task
---       taskID = 1
---     },
---     {
---       type = "playerSetting", -- Defines player setting (useful for quests maybe?)
---       key = 1234,
---       value = 1234
---     }
---   },
-
---   -- NPC hints
---   hints = {
---     "Potwor jest pod miastem",
---     "Strzez sie, jest mocny"
---   },
-
---   -- NPC congratulations (may contain additional info about other tasks)
---   -- May be empty (generic message used)
---   completionTexts = {
---     "Gratulacje! Teraz mozesz isc po {bossa}!"
---   },
-
---   -- (Boss only) teleport activator
---   teleport = {
---     -- Teleport entrance (position)
---     entrance = {
---       x = 1,
---       y = 1,
---       z = 1,
---       fallback = "N" -- (N)orth, (S)outh, (E)ast, (W)est
---     },
---     -- Teleport destination (Boss room)
---     exit = {
---       x = 2,
---       y = 2,
---       z = 1
---     },
---     maxPlayers = 1 -- How many players can join boss fight at once
---   }
--- }
-
 TASKSYS.TASKS[0] = {
   enabled = true,
 
@@ -362,6 +234,20 @@ TASKSYS.TASKS[0] = {
 
   hints = {
     "Zabij elfy!"
+  },
+
+  teleportSettings = {
+    maxPlayers = 2,
+    monsters = {
+      {
+        name = "Demodras",
+        pos = {
+          x = 1032,
+          y = 1030,
+          z = 6
+        }
+      }
+    }
   }
 }
 
