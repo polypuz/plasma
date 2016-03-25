@@ -35,25 +35,18 @@ function onStepIn(creature, item, position, fromPosition)
     end
 
     -- Despawn monsters
-    if playersInside == 1 and task.teleportSettings.monsters ~= nil then
-        if TASKSYS.TASKS_TEMP_STORAGE[taskID] == nil then
-            TASKSYS.TASKS_TEMP_STORAGE[taskID] = TASKSYS.TASKS_TEMP_STORAGE_TEMPLATE()
-        end
+    if playersInside == 1 then
+        local taskInstance = Task(taskID)
 
-        local tempStorage = TASKSYS.TASKS_TEMP_STORAGE[taskID]
-
-        for idx, monsterUID in pairs(tempStorage.monsterUIDs) do
-            local monster = Creature(monsterUID)
-
-            monster:remove()
-        end
-
-        tempStorage.monsterUIDs = {}
+        taskInstance:despawnMonsters()
     end
 
-    entranceItem:setAttribute(ITEM_ATTRIBUTE_TEXT, playersInside - 1)
+    if playersInside > 0 then
+        entranceItem:setAttribute(ITEM_ATTRIBUTE_TEXT, playersInside - 1)
+    end
 
     player:setStorageValue(TASKSYS.STORAGE_KEY_ENTERED_TELEPORT, 0)
+    player:setStorageValue(TASKSYS.STORAGE_KEY_TELEPORT_TASKID, -1)
 
     return true
 end
