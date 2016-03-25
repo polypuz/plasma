@@ -174,7 +174,16 @@ TASKSYS = {
     DONE_PROBLEM_REWARD_ITEM = 32
   },
 
-  TASKS = {}
+  TASKS = {},
+
+  -- Temporary storage, resets on every server restart!
+  -- (But it's ok, since monsters tend to reset on restart too...)
+  TASKS_TEMP_STORAGE = {},
+  TASKS_TEMP_STORAGE_TEMPLATE = function ()
+    return {
+      monsterUIDs = {}
+    }
+  end
 }
 
 TASKSYS.TASKS[0] = {
