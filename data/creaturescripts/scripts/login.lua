@@ -208,5 +208,16 @@ function onLogin(player)
 
 			end
 
+
+	-- Task system's code
+
+	if player:getStorageValue(TASKSYS.STORAGE_KEY_ENTERED_TELEPORT) == 1 then
+		player:teleportTo(player:getTown():getTemplePosition())
+		player:setStorageValue(TASKSYS.STORAGE_KEY_ENTERED_TELEPORT, 0)
+
+		-- Despawn monsters
+		-- TODO
+	end
+
 	return true
 end

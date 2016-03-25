@@ -70,5 +70,7 @@ function onStepIn(creature, item, position, fromPosition)
 
     item:setAttribute(ITEM_ATTRIBUTE_TEXT, playersInside + 1)
 
+    player:setStorageValue(TASKSYS.STORAGE_KEY_ENTERED_TELEPORT, 1)
+
     return true
 end

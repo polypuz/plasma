@@ -25,8 +25,6 @@ function onStepIn(creature, item, position, fromPosition)
     local playerID = creature:getId()
     local player = Player(playerID)
 
-    local state = player:getStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID)
-
     -- No item's storage, have to use hackish way to store how many players have entered the teleport
     -- But... it JUST WORKS (tm)
     local playersInside = entranceItem:getAttribute(ITEM_ATTRIBUTE_TEXT)
@@ -54,6 +52,8 @@ function onStepIn(creature, item, position, fromPosition)
     end
 
     entranceItem:setAttribute(ITEM_ATTRIBUTE_TEXT, playersInside - 1)
+
+    player:setStorageValue(TASKSYS.STORAGE_KEY_ENTERED_TELEPORT, 0)
 
     return true
 end
