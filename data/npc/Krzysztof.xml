@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Krzysztof" script="krzysztof.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100"/>
+	<look type="154" head="0" body="2" legs="2" feet="0" addons="3" mount="369" />
+	<parameters>
+    <parameter key="message_greet" value="Stoj! Kto cie przyslal?! Czego chcesz?!" />
+		<parameter key="message_walkaway" value="Ech..." />
+		<parameter key="message_farewell" value="W imie Krula!" />
+	</parameters>
+</npc>
