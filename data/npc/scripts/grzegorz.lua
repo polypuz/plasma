@@ -17,7 +17,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
   if msgcontains(msg, "problemy") or msgcontains(msg, "problems") or msgcontains(msg, "problemow") then
-    npcHandler:say("Problemy, problemy... co by duzo nie mowic. Wokol miasta wciaz rasuje wataha wilkow, a ostatnio mielismy plage samobojcow. Pod drzewami pietrzyly sie zwloki tych nieszczesnikow...", cid)
+    npcHandler:say("Problemy, problemy... co by duzo nie mowic. Wokol miasta wciaz grasuje wataha wilkow, a ostatnio mielismy plage samobojcow. Pod drzewami pietrzyly sie zwloki tych nieszczesnikow...", cid)
     Player(cid):setStorageValue(38004, 1)
   else
     npcHandler:say("Nie wiem o czym mowisz. Idz stad, mam wystarczajaco duzo {problemow}.", cid)
