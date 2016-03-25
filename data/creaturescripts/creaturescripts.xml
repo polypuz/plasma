@@ -20,7 +20,10 @@
 	<event type="extendedopcode" name="ExtendedOpcode" script="extendedopcode.lua" />
 
 	<!-- tasks -->
-	<event type="kill" name="TaskSystem" script="tasksystem.lua"/>
 	<event type="kill" name="Tasks" script="tasks.lua"/>
+
+	<event type="kill" name="TaskSystemKill" script="tasksystem/onkill.lua"/>
+	<event type="logout" name="TaskSystemLogout" script="tasksystem/onlogout.lua"/>
+	<event type="death" name="TaskSystemDeath" script="tasksystem/ondeath.lua"/>
 
 </creaturescripts>
