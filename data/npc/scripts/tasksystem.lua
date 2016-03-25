@@ -69,24 +69,22 @@ local function isTaskUnlocked(taskID, player)
   return true
 end
 
-local function getPlayerTaskState(player, taskID)
-  local value = player:getStorageValue(TASKSYS.STORAGE_KEY_STATE_START + taskID)
+local function getPlayerStorageValue(player, key, default)
+  local value = player:getStorageValue(key)
 
   if value == -1 then
-    return TASKSYS.STATES.INACTIVE
+    return default
   end
 
   return value
 end
 
+local function getPlayerTaskState(player, taskID)
+  return getPlayerStorageValue(player, TASKSYS.STORAGE_KEY_STATE_START + taskID, TASKSYS.STATES.INACTIVE)
+end
+
 local function getPlayerTaskProgress(player, taskID)
-  local value = player:getStorageValue(TASKSYS.STORAGE_KEY_PROGRESS_START + taskID)
-
-  if value == -1 then
-    return 0
-  end
-
-  return value
+  return getPlayerStorageValue(player, TASKSYS.STORAGE_KEY_PROGRESS_START + taskID, 0)
 end
 
 local function setPlayerTaskActiveState(player, taskID, isActive)
