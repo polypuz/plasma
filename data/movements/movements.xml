@@ -43,6 +43,10 @@
 	<movevent event="StepIn" itemid="1740" script="walkback.lua" />
 	<movevent event="StepIn" fromid="1746" toid="1749" script="walkback.lua" />
 
+	<!-- Task system teleports (boss teleports) -->
+	<movevent event="StepIn" item="1387" actionid="50001" script="tasksys_teleport_entrance.lua" />
+	<movevent event="StepIn" item="1387" actionid="50002" script="tasksys_teleport_exit.lua" />
+
 	<!-- (Level & quest) doors -->
 	<movevent event="StepOut" itemid="1224" script="closingdoor.lua" />
 	<movevent event="StepOut" itemid="1226" script="closingdoor.lua" />

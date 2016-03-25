@@ -156,6 +156,10 @@ TASKSYS = {
   STORAGE_KEY_TASKPOINTS = 50000,
   STORAGE_KEY_BOSSPOINTS = 50001,
 
+  -- Map Constants
+  ITEM_UID_TELEPORT_ENTRANCE = 52000,
+  ITEM_UID_TELEPORT_EXIT = 53000,
+
 
   STATES = {
     -- States use power-of-two values, useful for bitmasks
