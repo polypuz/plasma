@@ -46,7 +46,27 @@ function onStepIn(creature, item, position, fromPosition)
         return true
     end
 
-    
+    -- Spawn monster
+    if playersInside == 0 and task.teleportSettings.monsters ~= nil then
+        local monsters = task.teleportSettings.monsters
+
+        if TASKSYS.TASKS_TEMP_STORAGE[taskID] == nil then
+            TASKSYS.TASKS_TEMP_STORAGE[taskID] = TASKSYS.TASKS_TEMP_STORAGE_TEMPLATE()
+        end
+
+        local tempStorage = TASKSYS.TASKS_TEMP_STORAGE[taskID]
+
+        for idx, monster in pairs(monsters) do
+            local monsterInstance = Game.createMonster(
+                monster.name,
+                Position(monster.pos.x, monster.pos.y, monster.pos.z),
+                false,
+                true
+            )
+
+            table.insert(tempStorage.monsterUIDs, monsterInstance:getId())
+        end
+    end
 
     item:setAttribute(ITEM_ATTRIBUTE_TEXT, playersInside + 1)
 
