@@ -19,7 +19,7 @@ local function tableSize(T)
   return count
 end
 
-local function isRequirementFulfilled(requirement, player)
+local function isRequirementFulfilled(requirement, player, taskID)
   local type = requirement.type
 
   if type == "level" then
@@ -39,15 +39,15 @@ local function isRequirementFulfilled(requirement, player)
       return false
     end
   elseif type == "taskCompleted" then
-    -- Check if task has been completed
+    return getPlayerTaskProgress(player, requirement.taskID) == TASKSYS.STATES.DONE
   elseif type == "bossPoints" then
-    -- Check if player has enough boss points
+    return getPlayerStorageValue(player, TASKSYS.STORAGE_KEY_BOSSPOINTS, 0) >= requirement.value
   elseif type == "taskPoints" then
-    -- Check if player has enough task points
-  elseif type == "lock" then
-    -- Check if this task has been unlocked
+    return getPlayerStorageValue(player, TASKSYS.STORAGE_KEY_TASKPOINTS, 0) >= requirement.value
+  elseif type == "nolock" then
+    return getPlayerTaskState(player, taskID) == TASKSYS.STATES.UNLOCKED
   elseif type == "taskLocked" then
-    -- Check if other task is locked (it's requirements are not fulfilled)
+    return getPlayerTaskState(player, taskID) == TASKSYS.STATES.INACTIVE
   end
 
   return true
@@ -61,7 +61,7 @@ local function isTaskUnlocked(taskID, player)
   end
 
   for i, requirement in pairs(task.requirements) do
-    if isRequirementFulfilled(requirement, player) == false then
+    if isRequirementFulfilled(requirement, player, taskID) == false then
       return false
     end
   end

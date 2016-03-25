@@ -216,7 +216,7 @@ TASKSYS = {
 --       subtract = false -- Should task points be subtracted?
 --     },
 --     {
---       type = "lock", -- Task has to be unlocked
+--       type = "nolock", -- Task has to be unlocked
 --       repeatable = false -- Lock will be reseted upon completion (when true)
 --     },
 --     {
