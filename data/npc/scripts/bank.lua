@@ -9,7 +9,8 @@ local conversations = {}
 local function resetConversation(cid)
   conversations[cid] = {
     topic = 0,
-    moneyCount = 0
+    moneyCount = 0,
+    transferPlayerRealName = nil
   }
 end
 
@@ -47,6 +48,45 @@ function msgContainsAllOf(msg, keyphrases)
 end
 --
 
+-- Online-status agnostic player functions
+local function updatePlayersBalance(playerName, differenceValue)
+  local player = Player(playerName) -- Works when player is online
+
+  if player then
+    return player:setBankBalance(player:getBankBalance() + differenceValue)
+  else
+    local playerGUID = getPlayerGUIDByName(playerName) -- Get offline player's GUID
+
+    local query =
+      "UPDATE `players` SET `balance` = `balance` + " ..
+      db.escapeString(differenceValue) ..
+      " WHERE `id` = " ..
+      db.escapeString(playerGUID) ..
+      " LIMIT 1"
+    local queryResult = db.query(query)
+
+    return queryResult
+  end
+end
+
+local function getPlayerRealName(playerName)
+  local player = Player(playerName) -- Works when player is online
+
+  if player then
+    return player:getName()
+  else
+    local playerGUID = getPlayerGUIDByName(playerName) -- Get offline player's GUID
+
+    local playerName = getPlayerNameById(playerGUID)
+
+    if playerName == 0 then
+      return nil
+    end
+
+    return playerName
+  end
+end
+
 -- Setup handlers
 function onCreatureAppear(cid) npcHandler:onCreatureAppear(cid) end
 function onCreatureDisappear(cid) npcHandler:onCreatureDisappear(cid) end
@@ -67,6 +107,9 @@ function creatureSayCallback(cid, type, msg)
   -- 2  - [Deposit] Player said how much he wants to deposit
   -- 3  - [Withdraw] Player said he wants to withdraw
   -- 4  - [Withdraw] Player said how much he wants to withdraw
+  -- 5  - [Transfer] Player said he wants to transfer
+  -- 6  - [Transfer] Player said how much he wants to transfer
+  -- 7  - [Transfer] Player said who should be the recipient of the transfer
 
   if not npcHandler:isFocused(cid) then
     return false
@@ -270,12 +313,117 @@ function creatureSayCallback(cid, type, msg)
 
   -- Transfer
   if msgContainsOneOf(msg, { 'transfer', 'przelew' }) then
-    npcHandler:say(
-      'Tak jak mowilem, moj bank zostal przejety przez ABWehre, nie bardzo moge teraz w jakikolwiek sposob zarzadzac pieniedzmi. Przyjdz pozniej.',
-      cid
-    )
+    local playerBalanceCount = getPlayerBalance(cid)
 
-    -- TODO: Bank transfers
+    if playerBalanceCount == 0 then
+      npcHandler:say('Twoje konto jest puste.', cid)
+
+      conversations[cid].topic = 0
+    else
+      npcHandler:say('Ile zlota chcialbys przelac?', cid)
+
+      conversations[cid].topic = 5
+    end
+  elseif conversations[cid].topic == 5 then
+    local msgMoneyCount = getCount(msg)
+    local playerBalanceCount = getPlayerBalance(cid)
+
+    if msgContainsOneOf(msg, { 'all', 'wszystko' }) then
+      conversations[cid].moneyCount = playerBalanceCount
+      conversations[cid].topic = 6
+
+      npcHandler:say(
+        'Chcesz przelac wszystko? Hm, przeliczmy... Wychodzi ' .. conversations[cid].moneyCount .. ' zlota. Do kogo chcesz przelac te pieniadze?',
+        cid
+      )
+    elseif msgMoneyCount == -1 then
+      npcHandler:say('Ile zlota chcialbys przelac?', cid)
+
+      conversations[cid].topic = 5
+    elseif msgMoneyCount == 0 then
+      npcHandler:say('Mysle ze nikomu nie przyda sie twoje zero zlota...', cid)
+
+      conversations[cid].topic = 0
+    else
+      if msgMoneyCount > playerBalanceCount then
+        npcHandler:say('Nie ma tylu sztuk zlota na twoim koncie.', cid)
+
+        conversations[cid].topic = 0
+      else
+        conversations[cid].moneyCount = msgMoneyCount
+        conversations[cid].topic = 6
+
+        npcHandler:say(
+          'A wiec chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota. Do kogo chcesz przelac te pieniadze?',
+          cid
+        )
+      end
+    end
+  elseif conversations[cid].topic == 6 then
+    local otherPlayerGUID = getPlayerGUIDByName(msg)
+
+    if otherPlayerGUID == -1 then
+      npcHandler:say('Taki mirek nie istnieje.', cid)
+
+      conversations[cid].topic = 0
+    else
+      local otherPlayerRealName = getPlayerRealName(msg)
+
+      conversations[cid].transferPlayerRealName = otherPlayerRealName
+      conversations[cid].topic = 7
+
+      npcHandler:say(
+        'Na pewno chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota do ' .. otherPlayerRealName .. '?',
+        cid
+      )
+    end
+  elseif conversations[cid].topic == 7 then
+    local msgMoneyCount = conversations[cid].moneyCount
+    local otherPlayerRealName = conversations[cid].transferPlayerRealName
+
+    if msgContainsOneOf(msg, { 'tak', 'yes' }) then
+      -- Transfer
+      local updateOwnBalanceResult = doPlayerSetBalance(cid, getPlayerBalance(cid) - msgMoneyCount)
+
+      if updateOwnBalanceResult then
+        local updateOtherBalanceResult = updatePlayersBalance(otherPlayerRealName, msgMoneyCount)
+
+        if updateOtherBalanceResult then
+          -- Everything's fine...
+          npcHandler:say(
+            'Bardzo dobrze, ' .. msgMoneyCount .. ' sztuk zlota zostalo wyslane do gracza ' .. otherPlayerRealName .. '.',
+            cid
+          )
+        else
+          -- Problem (fatal)?
+          npcHandler:say(
+            'Cos poszlo nie tak, zglos sie do administracji...',
+            cid
+          )
+        end
+      else
+        -- Problem (fatal)?
+        npcHandler:say(
+          'Cos poszlo nie tak, zglos sie do administracji...',
+          cid
+        )
+      end
+
+      conversations[cid].topic = 0
+    elseif msgContainsOneOf(msg, { 'nie', 'no' }) then
+      -- Drop depositing
+      npcHandler:say('Czy moglbym jeszcze cos dla ciebie zrobic?', cid)
+
+      conversations[cid].topic = 0
+    else
+      -- Confirm withdraw once again
+      npcHandler:say(
+        'Na pewno chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota do ' .. otherPlayerRealName .. '?',
+        cid
+      )
+
+      -- No topic change
+    end
   end
 end
 
