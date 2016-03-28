@@ -4,6 +4,7 @@ NpcSystem.parseParameters(npcHandler)
 
 -- Local variable
 local conversations = {}
+local responseFatalError = 'Cos poszlo nie tak, zglos sie do administracji...'
 
 -- Utilities
 local function extractMsgCount(msg)
@@ -116,9 +117,9 @@ function creatureSayCallback(cid, type, msg)
   end
 
   -- Info
-  if msgContainsOneOf(msg, { 'bank' }) then
+  if msgContainsOneOf(msg, { 'bank', 'info' }) then
     npcHandler:say(
-      'Mozesz u nas wyplacic pieniadze oraz zarzadzac swoim kontem bankowym.',
+      'Mozesz u nas {wplacac} i {wyplacac} pieniadze ze swojego konta bankowego. Mozesz rowniez wykonac {przelew} do innego mirka.',
       cid
     )
 
@@ -128,7 +129,7 @@ function creatureSayCallback(cid, type, msg)
   -- Bank balance
   if msgContainsOneOf(msg, { 'stan konta', 'balance' }) then
     npcHandler:say(
-      'Stan twojego konta wynosi ' .. getPlayerBalance(cid) .. ' zlota.',
+      'Stan twojego konta wynosi {' .. getPlayerBalance(cid) .. '} zlota.',
       cid
     )
 
@@ -149,7 +150,7 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 2
 
       npcHandler:say(
-        'Chcesz wplacic wszystko? Hm, przeliczmy... Wychodzi ' .. playerMoneyCount .. ' zlota, zgadza sie?',
+        'Chcesz wplacic wszystko? Hm, przeliczmy... Wychodzi {' .. playerMoneyCount .. '} zlota, zgadza sie?',
         cid
       )
     elseif msgMoneyCount == -1 then
@@ -170,7 +171,7 @@ function creatureSayCallback(cid, type, msg)
         conversations[cid].topic = 2
 
         npcHandler:say(
-          'Czy na pewno chcesz wplacic ' .. conversations[cid].moneyCount .. ' sztuk zlota?',
+          'Czy na pewno chcesz wplacic {' .. conversations[cid].moneyCount .. '} sztuk zlota?',
           cid
         )
       end
@@ -188,15 +189,12 @@ function creatureSayCallback(cid, type, msg)
         if updateBalanceResult then
           -- Everything's fine...
           npcHandler:say(
-            'Dobrze, wplacilismy ' .. msgMoneyCount .. ' sztuk zlota na twoje konto. Mozesz je wyplacic w kazdym momencie.',
+            'Dobrze, wplacilismy {' .. msgMoneyCount .. '} sztuk zlota na twoje konto. Mozesz je wyplacic w kazdym momencie.',
             cid
           )
         else
           -- Problem (fatal)?
-          npcHandler:say(
-            'Cos poszlo nie tak, zglos sie do administracji...',
-            cid
-          )
+          npcHandler:say(responseFatalError, cid)
         end
       else
         -- Problem (warning)?
@@ -215,7 +213,7 @@ function creatureSayCallback(cid, type, msg)
     else
       -- Confirm deposition once again
       npcHandler:say(
-        'Czy na pewno chcesz wplacic ' .. msgMoneyCount .. ' sztuk zlota?',
+        'Czy na pewno chcesz wplacic {' .. msgMoneyCount .. '} sztuk zlota?',
         cid
       )
 
@@ -237,7 +235,7 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 4
 
       npcHandler:say(
-        'Chcesz wyplacic wszystko? Hm, przeliczmy... Wychodzi ' .. conversations[cid].moneyCount .. ' zlota, zgadza sie?',
+        'Chcesz wyplacic wszystko? Hm, przeliczmy... Wychodzi {' .. conversations[cid].moneyCount .. '} zlota, zgadza sie?',
         cid
       )
     elseif msgMoneyCount == -1 then
@@ -247,7 +245,7 @@ function creatureSayCallback(cid, type, msg)
     elseif msgMoneyCount == 0 then
       conversations[cid].topic = 0
 
-      npcHandler:say('Mam neoliberalne poglady - zazadales 0 zlota, wiec prosze bardzo: oto Twoje 0 zlota! Nie wydaj na glupoty.', cid)
+      npcHandler:say('Mam neoliberalne poglady - zazadales {0} zlota, wiec prosze bardzo: oto Twoje {0} zlota! Nie wydaj na glupoty.', cid)
     else
       if msgMoneyCount > playerBalanceCount then
         conversations[cid].topic = 0
@@ -258,7 +256,7 @@ function creatureSayCallback(cid, type, msg)
         conversations[cid].topic = 4
 
         npcHandler:say(
-          'Jestes pewny ze chcesz wyplacic ' .. conversations[cid].moneyCount .. ' sztuk zlota z twojego konta?',
+          'Jestes pewny ze chcesz wyplacic {' .. conversations[cid].moneyCount .. '} sztuk zlota z twojego konta?',
           cid
         )
       end
@@ -276,22 +274,16 @@ function creatureSayCallback(cid, type, msg)
         if addResult then
           -- Everything's fine...
           npcHandler:say(
-            'Prosze bardzo, to twoje ' .. msgMoneyCount .. ' sztuk zlota. Poinformuj mnie gdy bede mogl dla ciebie zrobic cos jeszcze.',
+            'Prosze bardzo, to twoje {' .. msgMoneyCount .. '} sztuk zlota. Poinformuj mnie gdy bede mogl dla ciebie zrobic cos jeszcze.',
             cid
           )
         else
           -- Problem (fatal)?
-          npcHandler:say(
-            'Cos poszlo nie tak, zglos sie do administracji...',
-            cid
-          )
+          npcHandler:say(responseFatalError, cid)
         end
       else
         -- Problem (fatal)?
-        npcHandler:say(
-          'Cos poszlo nie tak, zglos sie do administracji...',
-          cid
-        )
+        npcHandler:say(responseFatalError, cid)
       end
 
       conversations[cid].topic = 0
@@ -333,7 +325,7 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 6
 
       npcHandler:say(
-        'Chcesz przelac wszystko? Hm, przeliczmy... Wychodzi ' .. conversations[cid].moneyCount .. ' zlota. Do kogo chcesz przelac te pieniadze?',
+        'Chcesz przelac wszystko? Hm, przeliczmy... Wychodzi {' .. conversations[cid].moneyCount .. '} zlota. Do kogo chcesz przelac te pieniadze?',
         cid
       )
     elseif msgMoneyCount == -1 then
@@ -343,7 +335,7 @@ function creatureSayCallback(cid, type, msg)
     elseif msgMoneyCount == 0 then
       conversations[cid].topic = 0
 
-      npcHandler:say('Mysle ze nikomu nie przyda sie twoje zero zlota...', cid)
+      npcHandler:say('Mysle ze nikomu nie przyda sie twoje {0} zlota...', cid)
     else
       if msgMoneyCount > playerBalanceCount then
         conversations[cid].topic = 0
@@ -354,7 +346,7 @@ function creatureSayCallback(cid, type, msg)
         conversations[cid].topic = 6
 
         npcHandler:say(
-          'A wiec chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota. Do kogo chcesz przelac te pieniadze?',
+          'A wiec chcesz przelac {' .. conversations[cid].moneyCount .. '} sztuk zlota. Do kogo chcesz przelac te pieniadze?',
           cid
         )
       end
@@ -373,7 +365,7 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 7
 
       npcHandler:say(
-        'Na pewno chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota do ' .. otherPlayerRealName .. '?',
+        'Na pewno chcesz przelac {' .. conversations[cid].moneyCount .. '} sztuk zlota do {' .. otherPlayerRealName .. '}?',
         cid
       )
     end
@@ -391,34 +383,28 @@ function creatureSayCallback(cid, type, msg)
         if updateOtherBalanceResult then
           -- Everything's fine...
           npcHandler:say(
-            'Bardzo dobrze, ' .. msgMoneyCount .. ' sztuk zlota zostalo wyslane do gracza ' .. otherPlayerRealName .. '.',
+            'Bardzo dobrze, {' .. msgMoneyCount .. '} sztuk zlota zostalo wyslane do gracza {' .. otherPlayerRealName .. '}.',
             cid
           )
         else
           -- Problem (fatal)?
-          npcHandler:say(
-            'Cos poszlo nie tak, zglos sie do administracji...',
-            cid
-          )
+          npcHandler:say(responseFatalError, cid)
         end
       else
         -- Problem (fatal)?
-        npcHandler:say(
-          'Cos poszlo nie tak, zglos sie do administracji...',
-          cid
-        )
+        npcHandler:say(responseFatalError, cid)
       end
 
       conversations[cid].topic = 0
     elseif msgContainsOneOf(msg, { 'nie', 'no' }) then
-      -- Drop depositing
+      -- Drop transfer
       conversations[cid].topic = 0
 
       npcHandler:say('Czy moglbym jeszcze cos dla ciebie zrobic?', cid)
     else
-      -- Confirm withdraw once again
+      -- Confirm transfer once again
       npcHandler:say(
-        'Na pewno chcesz przelac ' .. conversations[cid].moneyCount .. ' sztuk zlota do ' .. otherPlayerRealName .. '?',
+        'Na pewno chcesz przelac {' .. conversations[cid].moneyCount .. '} sztuk zlota do {' .. otherPlayerRealName .. '}?',
         cid
       )
 
