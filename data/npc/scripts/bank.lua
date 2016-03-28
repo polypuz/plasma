@@ -358,6 +358,10 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 0
 
       npcHandler:say('Taki mirek nie istnieje.', cid)
+    elseif isPlayerBanned(otherPlayerGUID) then
+      conversations[cid].topic = 0
+
+      npcHandler:say('Konto tego mirka zostalo zamrozone przez ABWehre, przykro mi...', cid)
     else
       local otherPlayerRealName = getPlayerRealName(msg)
 
