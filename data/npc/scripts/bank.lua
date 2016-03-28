@@ -6,15 +6,7 @@ NpcSystem.parseParameters(npcHandler)
 local conversations = {}
 
 -- Utilities
-local function resetConversation(cid)
-  conversations[cid] = {
-    topic = 0,
-    moneyCount = 0,
-    transferPlayerRealName = nil
-  }
-end
-
-local function getCount(msg)
+local function extractMsgCount(msg)
   local b, e = msg:find('%d+')
   return b and e and math.min(4294967295, tonumber(msg:sub(b, e))) or -1
 end
@@ -76,7 +68,6 @@ local function getPlayerRealName(playerName)
     return player:getName()
   else
     local playerGUID = getPlayerGUIDByName(playerName) -- Get offline player's GUID
-
     local playerName = getPlayerNameById(playerGUID)
 
     if playerName == 0 then
@@ -94,7 +85,12 @@ function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) 
 function onThink() npcHandler:onThink() end
 
 function greetCallback(cid)
-  resetConversation(cid)
+  conversations[cid] = {
+    topic = 0,
+    moneyCount = 0,
+    transferPlayerRealName = nil
+  }
+
   return true
 end
 
@@ -137,13 +133,13 @@ function creatureSayCallback(cid, type, msg)
 
   -- Depositing
   if msgContainsOneOf(msg, { 'deposit', 'wplac' }) or conversations[cid].topic == 1 then
-    local msgMoneyCount = getCount(msg)
+    local msgMoneyCount = extractMsgCount(msg)
     local playerMoneyCount = getPlayerMoney(cid)
 
     if playerMoneyCount == 0 then
-      npcHandler:say('Nie masz przy sobie zadnego zlota.', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Nie masz przy sobie zadnego zlota.', cid)
     elseif msgContainsOneOf(msg, { 'all', 'wszystko' }) then
       conversations[cid].moneyCount = playerMoneyCount
       conversations[cid].topic = 2
@@ -153,18 +149,18 @@ function creatureSayCallback(cid, type, msg)
         cid
       )
     elseif msgMoneyCount == -1 then
-      npcHandler:say('Powiedz mi, ile zlota chcialbys wplacic.', cid)
-
       conversations[cid].topic = 1
-    elseif msgMoneyCount == 0 then
-      npcHandler:say('Zartujesz, tak?', cid)
 
+      npcHandler:say('Powiedz mi, ile zlota chcialbys wplacic.', cid)
+    elseif msgMoneyCount == 0 then
       conversations[cid].topic = 0
+
+      npcHandler:say('Zartujesz, tak?', cid)
     else
       if msgMoneyCount > playerMoneyCount then
-        npcHandler:say('Nie masz wystarczajacej ilosci sztuk zlota.', cid)
-
         conversations[cid].topic = 0
+
+        npcHandler:say('Nie masz wystarczajacej ilosci sztuk zlota.', cid)
       else
         conversations[cid].moneyCount = msgMoneyCount
         conversations[cid].topic = 2
@@ -209,9 +205,9 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 0
     elseif msgContainsOneOf(msg, { 'nie', 'no' }) then
       -- Drop depositing
-      npcHandler:say('Prosze bardzo. Jest jeszcze cos, co moge dla ciebie zrobic?', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Prosze bardzo. Jest jeszcze cos, co moge dla ciebie zrobic?', cid)
     else
       -- Confirm deposition once again
       npcHandler:say(
@@ -225,13 +221,13 @@ function creatureSayCallback(cid, type, msg)
 
   -- Withdrawing
   if msgContainsOneOf(msg, { 'withdraw', 'wyplac' }) or conversations[cid].topic == 3 then
-    local msgMoneyCount = getCount(msg)
+    local msgMoneyCount = extractMsgCount(msg)
     local playerBalanceCount = getPlayerBalance(cid)
 
     if playerBalanceCount == 0 then
-      npcHandler:say('Twoje konto jest puste.', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Twoje konto jest puste.', cid)
     elseif msgContainsOneOf(msg, { 'all', 'wszystko' }) then
       conversations[cid].moneyCount = playerBalanceCount
       conversations[cid].topic = 4
@@ -241,18 +237,18 @@ function creatureSayCallback(cid, type, msg)
         cid
       )
     elseif msgMoneyCount == -1 then
-      npcHandler:say('Ile zlota chcialbys wyplacic?', cid)
-
       conversations[cid].topic = 3
-    elseif msgMoneyCount == 0 then
-      npcHandler:say('Mam neoliberalne poglady - zazadales 0 zlota, wiec prosze bardzo: oto Twoje 0 zlota! Nie wydaj na glupoty.', cid)
 
+      npcHandler:say('Ile zlota chcialbys wyplacic?', cid)
+    elseif msgMoneyCount == 0 then
       conversations[cid].topic = 0
+
+      npcHandler:say('Mam neoliberalne poglady - zazadales 0 zlota, wiec prosze bardzo: oto Twoje 0 zlota! Nie wydaj na glupoty.', cid)
     else
       if msgMoneyCount > playerBalanceCount then
-        npcHandler:say('Nie ma tylu sztuk zlota na twoim koncie.', cid)
-
         conversations[cid].topic = 0
+
+        npcHandler:say('Nie ma tylu sztuk zlota na twoim koncie.', cid)
       else
         conversations[cid].moneyCount = msgMoneyCount
         conversations[cid].topic = 4
@@ -297,9 +293,9 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 0
     elseif msgContainsOneOf(msg, { 'nie', 'no' }) then
       -- Drop depositing
-      npcHandler:say('Klient nasz pan! Wroc gdy bedziesz potrzebowal jeszcze czegos!', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Klient nasz pan! Wroc gdy bedziesz potrzebowal jeszcze czegos!', cid)
     else
       -- Confirm withdraw once again
       npcHandler:say(
@@ -316,16 +312,16 @@ function creatureSayCallback(cid, type, msg)
     local playerBalanceCount = getPlayerBalance(cid)
 
     if playerBalanceCount == 0 then
-      npcHandler:say('Twoje konto jest puste.', cid)
-
       conversations[cid].topic = 0
-    else
-      npcHandler:say('Ile zlota chcialbys przelac?', cid)
 
+      npcHandler:say('Twoje konto jest puste.', cid)
+    else
       conversations[cid].topic = 5
+
+      npcHandler:say('Ile zlota chcialbys przelac?', cid)
     end
   elseif conversations[cid].topic == 5 then
-    local msgMoneyCount = getCount(msg)
+    local msgMoneyCount = extractMsgCount(msg)
     local playerBalanceCount = getPlayerBalance(cid)
 
     if msgContainsOneOf(msg, { 'all', 'wszystko' }) then
@@ -337,18 +333,18 @@ function creatureSayCallback(cid, type, msg)
         cid
       )
     elseif msgMoneyCount == -1 then
-      npcHandler:say('Ile zlota chcialbys przelac?', cid)
-
       conversations[cid].topic = 5
-    elseif msgMoneyCount == 0 then
-      npcHandler:say('Mysle ze nikomu nie przyda sie twoje zero zlota...', cid)
 
+      npcHandler:say('Ile zlota chcialbys przelac?', cid)
+    elseif msgMoneyCount == 0 then
       conversations[cid].topic = 0
+
+      npcHandler:say('Mysle ze nikomu nie przyda sie twoje zero zlota...', cid)
     else
       if msgMoneyCount > playerBalanceCount then
-        npcHandler:say('Nie ma tylu sztuk zlota na twoim koncie.', cid)
-
         conversations[cid].topic = 0
+
+        npcHandler:say('Nie ma tylu sztuk zlota na twoim koncie.', cid)
       else
         conversations[cid].moneyCount = msgMoneyCount
         conversations[cid].topic = 6
@@ -363,9 +359,9 @@ function creatureSayCallback(cid, type, msg)
     local otherPlayerGUID = getPlayerGUIDByName(msg)
 
     if otherPlayerGUID == -1 then
-      npcHandler:say('Taki mirek nie istnieje.', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Taki mirek nie istnieje.', cid)
     else
       local otherPlayerRealName = getPlayerRealName(msg)
 
@@ -412,9 +408,9 @@ function creatureSayCallback(cid, type, msg)
       conversations[cid].topic = 0
     elseif msgContainsOneOf(msg, { 'nie', 'no' }) then
       -- Drop depositing
-      npcHandler:say('Czy moglbym jeszcze cos dla ciebie zrobic?', cid)
-
       conversations[cid].topic = 0
+
+      npcHandler:say('Czy moglbym jeszcze cos dla ciebie zrobic?', cid)
     else
       -- Confirm withdraw once again
       npcHandler:say(
