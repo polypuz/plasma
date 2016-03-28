@@ -70,6 +70,7 @@ local function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say("Nie udalo Ci sie zebrac jeszcze wszystkich informacji. Pamietaj, musisz porozmawiac z Waldemarem, Tomaszem, Miroslawem, Grzegorzem i Krzysztofem. Sa przedstawicielami lokalnych wladz w roznych miastach krainy Mirko. Gdy to zrobisz, wroc do mnie i zdaj mi sprawozdanie.", cid)
 		end
+		npcHandler.topic[cid] = 0
 	elseif npcHandler.topic[cid] == 2 then
 		npcHandler:say("Nie zebrales wszystkich informacji?! Nie zawracaj mi glowy, pacanie!", cid)
 	elseif npcHandler.topic[cid] == 3 and ( msgcontains(msg, "yes") or msgcontains(msg, "tak")) then
@@ -79,6 +80,10 @@ local function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say("Jestes z nimi w zmowie?! Przynies mi wlasciwa ksiege!", cid)
 		end
+		npcHandler.topic[cid] = 0
+	elseif npcHandler.topic[cid] == 3 and (msgcontains(msg, "nie") or msgcontains(msg, "no")) then
+		npcHandler:say("W takim razie na co jeszcze czekasz? Idz, zdobadz ksiege!", cid)
+		npcHandler.topic[cid] = 0
 	else
 		npcHandler:say("Nie wiem o czym mowisz.", cid)
 	end
