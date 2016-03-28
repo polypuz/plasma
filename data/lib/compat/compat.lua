@@ -93,6 +93,19 @@ function getPlayerNameById(id)
 	return 0
 end
 
+function getPlayerGUIDByName(name)
+	local sqlResult = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name) .. " LIMIT 1")
+
+	if sqlResult ~= false then
+		local resultID = result.getDataInt(sqlResult, "id")
+		result.free(sqlResult)
+
+		return resultID
+	end
+
+	return -1
+end
+
 function pushThing(thing)
 	local t = {uid = 0, itemid = 0, type = 0, actionid = 0}
 	if thing ~= nil then
