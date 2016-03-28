@@ -41,12 +41,15 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("A wiec chcesz dolaczyc do {inkwizycji}?", cid)
 	elseif npcHandler.topic[cid] == 1 and ( msgcontains(msg, "tak") or msgcontains(msg, "yes") ) then
 		npcHandler:say("Niechaj tak bedzie. Jestes czlonkiem {Inkwizycji}. Jesli chcesz sie wykazac, moge od razu nadac Ci {misje}.", cid)
+	elseif npcHandler.topic[cid] == 1 and ( msgcontains(msg, "nie") or msgcontains(msg, "no")) then
+		npcHandler:say("To idz, przepadnij, niewierny!", cid)
+		npcHandler.topic[cid] = 0
+		return true -- lets end the talk right here, infidel.
 	elseif msgcontains(msg, "misja") or msgcontains(msg, "mission") or msgcontains(msg, "misje") then
 		if Player(cid):getStorageValue(38001) ~= -1 then
 			if Player(cid):getStorageValue(38001) == 1 then
 				npcHandler:say("Otrzymales juz wytyczne. Czy zebrales informacje od lokalnych wladz?", cid)
 				npcHandler.topic[cid] = 2
-
 			elseif Player(cid):getStorageValue(38001) == 2 then
 				npcHandler:say({"Sluchaj, " .. Player(cid):getName() .. ". Moje zrodla donosza o bezboznych wiedzmach, heretyczkach, uprawiajacych czarna magie i seks przedmalzenski, gorszac spoleczenstwo i napotkanych stulejkow.", "Natychmiast musimy powstrzymac ich dzialalnosc, zmusic, aby odeszly. Twoim zadaniem jest kradziez ich magicznej ksiegi - bez niej nie beda w stanie czarowac.", "Udaj sie na poludnie Mirko Town i odnajdz wieze czarownic. Powodzenia."}, cid)
 				Player(cid):setStorageValue(38001, 3)			--[[
@@ -57,7 +60,7 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Czy udalo Ci sie ukrasc ich ksiege? Masz ja ze soba?", cid)
 				npcHandler.topic[cid] = 3
 			else
-				npcHandler:say("Nie mam zadnych zadan na ten moment. Przyjdz pozniej.", cid)
+				npcHandler:say("Nie mam zadnych misji na ten moment. Przyjdz pozniej.", cid)
 			end
 		else
 			npcHandler:say("Wykaz sie. Przejdz sie po miastach krainy Mirko, porozmawiaj z lokalnymi wladzami, zapytaj jakie maja {problemy}. Musimy wiedziec na czym stoimy, zanim rozpoczniemy nasze dzialania.", cid)
