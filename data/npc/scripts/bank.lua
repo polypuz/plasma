@@ -11,8 +11,12 @@ local function extractMsgCount(msg)
   return b and e and math.min(4294967295, tonumber(msg:sub(b, e))) or -1
 end
 
-function msgContainsOneOf(msg, keyphrases)
-  if not type(keyphrases) == "table" then
+local function isTable(obj)
+  return type(obj) == "table"
+end
+
+local function msgContainsOneOf(msg, keyphrases)
+  if not isTable(keyphrases) then
     return false
   end
 
@@ -25,8 +29,8 @@ function msgContainsOneOf(msg, keyphrases)
   return false
 end
 
-function msgContainsAllOf(msg, keyphrases)
-  if not type(keyphrases) == "table" then
+local function msgContainsAllOf(msg, keyphrases)
+  if not isTable(keyphrases) then
     return false
   end
 
