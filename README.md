@@ -53,6 +53,7 @@ Skrypt konfiguracyjny wykonuje następujące czynności:
 Uruchomienie serwera przebiega następująco (na podstawie komend z systemów rodziny Linux):
 ```bash
 me@local$ cd katalog/z/repo
+me@local$ vagrant plugin install vagrant-hostmanager
 me@local$ vagrant up
 me@local$ vagrant ssh
 ```
