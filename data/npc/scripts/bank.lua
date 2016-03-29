@@ -117,7 +117,7 @@ function creatureSayCallback(cid, type, msg)
   end
 
   -- Info
-  if msgContainsOneOf(msg, { 'bank', 'info' }) then
+  if msgContainsOneOf(msg, { 'bank', 'info', 'pomoc', 'help' }) then
     npcHandler:say(
       'Mozesz u nas {wplacac} i {wyplacac} pieniadze ze swojego konta bankowego. Mozesz rowniez wykonac {przelew} do innego mirka.',
       cid
