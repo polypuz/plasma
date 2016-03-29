@@ -93,19 +93,6 @@ function getPlayerNameById(id)
 	return 0
 end
 
-function getPlayerGUIDByName(name)
-	local sqlResult = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name) .. " LIMIT 1")
-
-	if sqlResult ~= false then
-		local resultID = result.getDataInt(sqlResult, "id")
-		result.free(sqlResult)
-
-		return resultID
-	end
-
-	return -1
-end
-
 function getPlayerAccountID(playerGUID)
 	local sqlQuery = "SELECT `account_id` FROM `players` WHERE `id` = " .. db.escapeString(playerGUID) .. "LIMIT 1"
 	local sqlResult = db.storeQuery(sqlQuery)
@@ -392,17 +379,24 @@ function getPlayersByAccountNumber(accountNumber)
 end
 function getPlayerGUIDByName(name)
 	local player = Player(name)
+
+	-- Maybe player is online?
 	if player ~= nil then
 		return player:getGuid()
 	end
 
-	local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name))
-	if resultId ~= false then
-		local guid = result.getDataInt(resultId, "id")
-		result.free(resultId)
-		return guid
+	-- He's not, let's find him in the DB
+	local sqlQuery = "SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name) .. " LIMIT 1"
+	local sqlResult = db.storeQuery(sqlQuery)
+
+	if sqlResult ~= false then
+		local resultID = result.getDataInt(sqlResult, "id")
+		result.free(sqlResult)
+
+		return resultID
 	end
-	return 0
+
+	return -1
 end
 function getAccountNumberByPlayerName(name)
 	local player = Player(name)
