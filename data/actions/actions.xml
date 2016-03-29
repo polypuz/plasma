@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+	<!-- poi --> 
 	<action actionid="37010" script="quests/poi.lua" />
+	
 	<!-- blisher quest -->
 	<action actionid="36000" script="quests/martwedrzewa.lua" />
 
