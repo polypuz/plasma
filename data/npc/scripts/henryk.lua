@@ -59,6 +59,9 @@ local function creatureSayCallback(cid, type, msg)
 			elseif Player(cid):getStorageValue(38001) == 3 then
 				npcHandler:say("Czy udalo Ci sie ukrasc ich ksiege? Masz ja ze soba?", cid)
 				npcHandler.topic[cid] = 3
+			elseif Player(cid):getStorageValue(38001) == 4 then
+				npcHandler:say({"W porzadku, " .. Player(cid):getName() .. ". Czas naprawde przetestowac Twoje umiejetnosci.", "Moj dobry druh, {Inbalin}, potrzebuje pomocy. Zglos sie do niego po wytyczne, a gdy juz mu pomozesz, wroc do mnie i zdaj raport."}, cid)
+				Player(cid):setStorageValue(38001, 5)
 			else
 				npcHandler:say("Nie mam zadnych misji na ten moment. Przyjdz pozniej.", cid)
 			end
@@ -87,6 +90,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 3 and (msgcontains(msg, "nie") or msgcontains(msg, "no")) then
 		npcHandler:say("W takim razie na co jeszcze czekasz? Idz, zdobadz ksiege!", cid)
 		npcHandler.topic[cid] = 0
+	elseif msgcontains(msg, "inbalin") or msgcontains(msg, "balin") then
+		npcHandler:say("Inbalina znajdziesz w Opuszczonej Kopalni, na wschod od smoczej laki.", cid)
 	else
 		npcHandler:say("Nie wiem o czym mowisz.", cid)
 	end
