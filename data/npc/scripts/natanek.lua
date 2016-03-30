@@ -168,7 +168,7 @@ local function tryEngage(cid, message, keywords, parameters, node)
         npcHandler:say('Jestes w trakcie oswiadczyn wobec {' .. getPlayerNameById(playerSpouse) .. '}. Zawsze mozesz {anulowac} swoja propozycje.', cid)
     else
         local candidate = getPlayerGUIDByName(message)
-        if candidate == 0 then -- check if there is actually a player called like this
+        if candidate == -1 then -- check if there is actually a player called like this
             npcHandler:say('Ktos taki nie istnieje w moich ksiegach.', cid)
         elseif candidate == player:getGuid() then -- if it's himself, cannot marry
             npcHandler:say('Stulejo, badz powazna.', cid)
