@@ -5,6 +5,10 @@
 
 data/world/*
 
+
+## pliki .idea (IDE od JetBrains, polecam clion - marahin)
+.idea
+
 ## pliki cmake generujemy, nie wrzucamy do repo
 ## (ref. -> readme)
 
