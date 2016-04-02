@@ -37,9 +37,11 @@ local function creatureSayCallback(cid, type, msg)
         if k == titleId then
           found = true
           titleId = v.id
+          print("Set selected titleId to " .. tostring(v.id) )
         end
       end
       if found then
+        print("Setting player title to id " .. tostring(titleId))
         if setPlayerTitle(cid, titleId) then
           npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
         else
