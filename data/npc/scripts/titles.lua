@@ -26,10 +26,6 @@ local function setTitle(cid, title_id)
 end
 
 local function creatureSayCallback(cid, type, msg)
-  if not npcHandler:isFocused(cid) then
-    return false
-  end
-
   if msgcontains(msg, "tytul") or msgcontains(msg, "title") then
     npcHandler:say({"Zarzadzam tytulami. Tytuly zdobywasz za rozne osiagniecia; zabijanie graczy, konkretnych potworow, ukonczenie jakiegos wyjatkowo trudnego zadania, czy za uczestniczenie w beta testach.", "Aby zobaczyc, jakie masz aktualnie tytuly, napisz {tytuly}."}, cid)
   elseif msgcontains(msg, "tytuly") or msgcontains(msg, "titles") then
