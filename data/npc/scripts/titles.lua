@@ -16,9 +16,12 @@ local function getTitles(cid)
     local titleId = nil
     while res ~= -1 do
       titleId = result.getDataInt(res, "title_id")
+      print("DBG: got title id: " .. tostring(titleId) )
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
+      print("DBG: nexting the result...")
       result.next(res)
     end
+    print("DBG: freeing the result...")
     result.free(res)
   end
 
