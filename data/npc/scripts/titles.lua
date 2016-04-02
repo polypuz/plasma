@@ -34,7 +34,10 @@ local function creatureSayCallback(cid, type, msg)
     local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
     local titles = getTitles(cid)
     for k, v in ipairs(titles) do
-      titleString = titleString .. ", [" .. k .. "] {" .. v.title .. "}"
+      if k ~= 1 then
+        titleString = titleString .. ","
+      end
+      titleString = titleString .. " [{" .. k .. "}] " .. v.title .. ""
     end
     titleString = titleString .. "."
     npcHandler:say({titleString, "Aby zmienic tytul, napisz ktory konkretnie Cie interesuje (np. {1})."}, cid)
