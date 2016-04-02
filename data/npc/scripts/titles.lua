@@ -9,7 +9,7 @@ function onThink()				npcHandler:onThink()					end
 
 local function getTitleById(id)
   local res = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. id .. " LIMIT 1")
-  if res ~= nil and res and res:getID() ~= -1 then
+  if res:getID() ~= -1 then
     return result.getDataString(res, "title")
   else
     return false
@@ -20,7 +20,7 @@ local function getTitles(cid)
   local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
   local titleIdArr = nil
 
-  if res ~= nil and res and res:getID() ~= -1 then
+  if res:getID() ~= -1 then
     titleIdArr = {}
     local titleId = nil
 
