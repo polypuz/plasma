@@ -74,6 +74,15 @@ function getPlayerTitle( playerId )
 	return false
 end
 
+function setPlayerTitle(playerId, titleId)
+	if db.query("UPDATE `players` SET `title`=" .. titleId .. " WHERE `id`=" .. playerId) then
+		return true
+	else
+		return false
+	end
+	return false
+end
+
 function getTitles(cid)
 	local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
 	local titleIdArr = {}
