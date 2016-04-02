@@ -15,6 +15,7 @@ local function getTitles(cid)
     repeat
       titleId = result.getDataInt(res, "title_id")
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(titleId)} )
+      print("Got title: " .. getPlayerTitleById(titleId))
     until not result.next(res)
     result.free(res)
   end
