@@ -14,7 +14,7 @@ local function getTitles(cid)
   if res ~= -1 then
     titleIdArr = {}
     local titleId = nil
-    while res ~= -1 do
+    while res > -1 do
       titleId = result.getDataInt(res, "title_id")
       print("DBG: got title id: " .. tostring(titleId) )
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
