@@ -14,7 +14,7 @@ local function getTitles(cid)
   if res ~= -1 then
     repeat
       titleId = result.getDataInt(res, "title_id")
-      table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
+      table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(titleId)} )
     until not result.next(res)
     result.free(res)
   end
