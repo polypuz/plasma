@@ -7,29 +7,19 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()				npcHandler:onThink()					end
 
-local function getTitleById(id)
-  local res = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. id .. " LIMIT 1")
-  if res:getID() ~= -1 then
-    return result.getDataString(res, "title")
-  else
-    return false
-  end
-end
-
 local function getTitles(cid)
   local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
   local titleIdArr = nil
 
-  if res:getID() ~= -1 then
+  if res ~= -1 then
     titleIdArr = {}
     local titleId = nil
-
-    while res:getID() ~= -1 do
+    while res ~= -1 do
       titleId = result.getDataInt(res, "title_id")
-      table.insert(titleIdArr, {id = titleId, title=getTitleById(titleId)} )
-      res:next()
+      table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
+      result.next(res)
     end
-    res.free()
+    result.free(res)
   end
 
   if titleIdArr == {} then
