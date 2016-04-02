@@ -47,7 +47,6 @@ local function creatureSayCallback(cid, type, msg)
         if k == titleId then
           found = true
           titleId = v.id
-          print("Set selected titleId to " .. tostring(v.id) )
           break
         end
       end
