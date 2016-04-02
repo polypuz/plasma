@@ -74,7 +74,8 @@ function getPlayerTitle( playerId )
 	return false
 end
 
-function setPlayerTitle(playerId, titleId)
+function setPlayerTitle(cid, titleId)
+	local playerId = Player(cid):getGuid()
 	if db.query("UPDATE `players` SET `title`=" .. titleId .. " WHERE `id`=" .. playerId) then
 		return true
 	else

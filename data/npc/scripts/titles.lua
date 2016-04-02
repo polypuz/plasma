@@ -39,7 +39,7 @@ local function creatureSayCallback(cid, type, msg)
         end
       end
       if found then
-        if setPlayerTitle(Player(cid):getGuid(), titleId) then
+        if setPlayerTitle(cid, titleId) then
           npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od dzisiaj Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
         else
           npcHandler:say("Cos poszlo nie tak.", cid)
