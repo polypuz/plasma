@@ -88,8 +88,7 @@ function getTitles(cid)
 	local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
 	local titleIdArr = {}
 	local titleId = nil
-	print("res: " .. tostring(res))
-	if res ~= -1 then
+	if res ~= -1 and res then
 		repeat
 			titleId = result.getDataInt(res, "title_id")
 			table.insert(titleIdArr, {id = titleId, title=getTitle(titleId)} )
