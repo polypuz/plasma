@@ -10,17 +10,16 @@ function onThink()				npcHandler:onThink()					end
 local function getTitles(cid)
   local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
   local titleIdArr = nil
+  titleIdArr = {}
+  local titleId = nil
 
   if res ~= -1 then
-    titleIdArr = {}
-    local titleId = nil
-    while res > -1 do
+    repeat
       titleId = result.getDataInt(res, "title_id")
       print("DBG: got title id: " .. tostring(titleId) )
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
       print("DBG: nexting the result... (now: " .. tostring(res))
-      result.next(res)
-    end
+    until not result.next(res)
     print("DBG: freeing the result...")
     result.free(res)
   end
