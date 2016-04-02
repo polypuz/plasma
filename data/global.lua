@@ -44,8 +44,20 @@ function getPlayerMarriageStatus(id)
     return -1
 end
 
-function getPlayerTitleById( id )
-	local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. db.escapeString( id ) )
+function getTitle(titleId)
+	local res = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. titleId)
+	local title = ""
+	if res ~= false then
+		title = result.getDataString(res, "title")
+		result.free(res)
+
+		return title
+	end
+	return -1
+end
+
+function getPlayerTitleId( id )
+	local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. id )
 	if resultQuery ~= false then
 		local ret = result.getDataInt( resultQuery, "title")
 		result.free( resultQuery )
@@ -54,16 +66,10 @@ function getPlayerTitleById( id )
 	return -1
 end
 
-function getPlayerTitle( player_id )
-	local titleId = getPlayerTitleById( player_id )
+function getPlayerTitle( playerId )
+	local titleId = getPlayerTitleId( playerId )
 	if titleId then
-		local resultQuery = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. titleId )
-		if resultQuery ~= false then
-			local ret = result.getDataString( resultQuery, "title")
-			result.free( resultQuery )
-			return ret
-		end
-		return false
+		return getTitle(titleId)
 	end
 	return false
 end
