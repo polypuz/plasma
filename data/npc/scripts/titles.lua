@@ -7,6 +7,13 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()				npcHandler:onThink() end
 
+--[[
+--getTitles()
+--setPlayerTitle()
+--getPlayerTitle(cid)
+-- can all be found in data/global.lua as global functions
+ ]]
+
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
