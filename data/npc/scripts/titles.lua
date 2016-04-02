@@ -9,25 +9,18 @@ function onThink()				npcHandler:onThink()					end
 
 local function getTitles(cid)
   local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
-  local titleIdArr = nil
-  titleIdArr = {}
+  local titleIdArr = {}
   local titleId = nil
-
   if res ~= -1 then
     repeat
       titleId = result.getDataInt(res, "title_id")
-      print("DBG: got title id: " .. tostring(titleId) )
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
-      print("DBG: nexting the result... (now: " .. tostring(res))
     until not result.next(res)
-    print("DBG: freeing the result...")
     result.free(res)
   end
-
   if titleIdArr == {} then
     titleIdArr = nil
   end
-
   return titleIdArr
 end
 
@@ -37,7 +30,16 @@ local function creatureSayCallback(cid, type, msg)
   end
 
   if msgcontains(msg, "tytuly") or msgcontains(msg, "titles") then
-    print(tostring(getTitles(cid)))
+    local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
+    local titles = getTitles(cid)
+
+    for k, v in ipairs(titles) do
+      titleString = titleString .. " {" .. v.title .. "}"
+    end
+
+    titleString = titleString .. "."
+    npcHandler:say(titleString, cid)
+
     npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "tytul") or msgcontains(msg, "title") then
     npcHandler:say({"Tytuly nadawane sa za otrzymanie osiagniecia, ukonczenie wyjatkowo trudnego zadania lub za uczestniczenie w wydarzeniach serwera.", "Jesli chcesz zobaczyc swoje tytuly i zmienic tytul dla swojej postaci, napisz {tytuly}."}, cid)
