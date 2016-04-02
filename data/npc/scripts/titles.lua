@@ -27,7 +27,7 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say({"Tytuly nadawane sa za otrzymanie osiagniecia, ukonczenie wyjatkowo trudnego zadania lub za uczestniczenie w wydarzeniach serwera.", "Jesli chcesz zobaczyc swoje tytuly i zmienic tytul dla swojej postaci, napisz {tytuly}."}, cid)
   elseif npcHandler.topic[cid] == 1 then
     local titleId = tonumber(msg)
-
+    print("Msg: " .. msg .. ", so the titleId for the first time is set to: " .. tostring(titleId))
     if titleId == nil then
       npcHandler:say("He? Nie ma takiej opcji wsrod Twoich tytulow. Zapytaj mnie o {tytuly}, jesli nie jestes pewny jak to dziala.", cid)
       npcHandler.topic[cid] = 0
