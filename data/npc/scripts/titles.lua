@@ -34,13 +34,14 @@ local function creatureSayCallback(cid, type, msg)
     else
       local found = false
       for k,v in ipairs(titles) do
-        if v.id == titleId then
+        if k == titleId then
           found = true
+          titleId = v.id
         end
       end
       if found then
         if setPlayerTitle(cid, titleId) then
-          npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od dzisiaj Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
+          npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
         else
           npcHandler:say("Cos poszlo nie tak.", cid)
         end
