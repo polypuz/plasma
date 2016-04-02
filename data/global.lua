@@ -88,6 +88,7 @@ function getTitles(cid)
 	local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
 	local titleIdArr = {}
 	local titleId = nil
+	print("res: " .. tostring(res))
 	if res ~= -1 then
 		repeat
 			titleId = result.getDataInt(res, "title_id")

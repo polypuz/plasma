@@ -23,7 +23,6 @@ local function creatureSayCallback(cid, type, msg)
     if titles == nil then
       npcHandler:say("Aktualnie nie masz zadnych dostepnych tytulow.", cid)
     else
-
       local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
       for k, v in ipairs(titles) do
         if k ~= 1 then
