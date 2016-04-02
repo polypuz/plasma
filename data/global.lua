@@ -95,7 +95,8 @@ function getTitles(cid)
 		until not result.next(res)
 		result.free(res)
 	end
-	if titleIdArr == {} then
+
+	if titleIdArr == {} or res == false or res == nil then
 		titleIdArr = nil
 	end
 	return titleIdArr
