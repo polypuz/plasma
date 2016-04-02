@@ -24,7 +24,7 @@ local function getTitles(cid)
     titleIdArr = {}
     local titleId = nil
 
-    while res:getID() ~= -1 then
+    while res:getID() ~= -1 do
       titleId = result.getDataInt(res, "title_id")
       table.insert(titleIdArr, {id = titleId, title=getTitleById(titleId)} )
       res:next()
