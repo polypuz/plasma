@@ -29,6 +29,8 @@ local function creatureSayCallback(cid, type, msg)
     local titleId = tonumber(msg)
 
     if titleId == nil then
+      npcHandler:say("He? Nie ma takiej opcji wsrod Twoich tytulow. Zapytaj mnie o {tytuly}, jesli nie jestes pewny jak to dziala.", cid)
+      npcHandler.topic[cid] = 0
     else
       local found = false
       for k,v in ipairs(titles) do
@@ -43,9 +45,6 @@ local function creatureSayCallback(cid, type, msg)
           npcHandler:say("Cos poszlo nie tak.", cid)
         end
       end
-    end
-    else
-      npcHandler:say("He? W moich dokumentach nie masz przyznanego takiego tytulu. Zapytaj mnie o swoje {tytuly}, jesli nie jestes pewny, jakie masz dostepne.", cid)
     end
   else
     npcHandler:say("Nie rozumiem. Moge wytlumaczyc Ci jak zdobyc {tytul}, albo powiedziec jakie {tytuly} juz zdobyles.", cid)
