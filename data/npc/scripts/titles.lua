@@ -11,7 +11,7 @@ local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
   end
-  local titles = getTitles(cid)
+  local titles = getTitles(Player(cid):getGuid())
   if msgcontains(msg, "tytuly") or msgcontains(msg, "titles") then
     local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
     for k, v in ipairs(titles) do
@@ -40,7 +40,7 @@ local function creatureSayCallback(cid, type, msg)
       end
       if found then
         if setPlayerTitle(cid, titleId) then
-          npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od dzisiaj Twoim przydomkiem jest " .. getPlayerTitle(cid) .. ".", cid)
+          npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od dzisiaj Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
         else
           npcHandler:say("Cos poszlo nie tak.", cid)
         end
