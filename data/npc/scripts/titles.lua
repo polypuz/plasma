@@ -13,16 +13,21 @@ local function creatureSayCallback(cid, type, msg)
   end
   local titles = getTitles(cid)
   if msgcontains(msg, "tytuly") or msgcontains(msg, "titles") then
-    local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
-    for k, v in ipairs(titles) do
-      if k ~= 1 then
-        titleString = titleString .. ","
+    if titles == nil then
+      npcHandler:say("Aktualnie nie masz zadnych dostepnych tytulow.", cid)
+    else
+
+      local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
+      for k, v in ipairs(titles) do
+        if k ~= 1 then
+          titleString = titleString .. ","
+        end
+        titleString = titleString .. " [{" .. k .. "}] " .. v.title .. ""
       end
-      titleString = titleString .. " [{" .. k .. "}] " .. v.title .. ""
+      titleString = titleString .. "."
+      npcHandler:say({titleString, "Aby zmienic tytul, napisz ktory konkretnie Cie interesuje (np. {1})."}, cid)
+     npcHandler.topic[cid] = 1
     end
-    titleString = titleString .. "."
-    npcHandler:say({titleString, "Aby zmienic tytul, napisz ktory konkretnie Cie interesuje (np. {1})."}, cid)
-    npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "tytul") or msgcontains(msg, "title") then
     npcHandler:say({"Tytuly nadawane sa za otrzymanie osiagniecia, ukonczenie wyjatkowo trudnego zadania lub za uczestniczenie w wydarzeniach serwera.", "Jesli chcesz zobaczyc swoje tytuly i zmienic tytul dla swojej postaci, napisz {tytuly}."}, cid)
   elseif npcHandler.topic[cid] == 1 then
