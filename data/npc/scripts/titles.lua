@@ -11,7 +11,7 @@ local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
   end
-  local titles = getTitles(Player(cid):getGuid())
+  local titles = getTitles(cid)
   if msgcontains(msg, "tytuly") or msgcontains(msg, "titles") then
     local titleString = "Aktualnie masz dostepne nastepujace tytuly:"
     for k, v in ipairs(titles) do
