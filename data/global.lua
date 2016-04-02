@@ -74,6 +74,23 @@ function getPlayerTitle( playerId )
 	return false
 end
 
+function getTitles(cid)
+	local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
+	local titleIdArr = {}
+	local titleId = nil
+	if res ~= -1 then
+		repeat
+			titleId = result.getDataInt(res, "title_id")
+			table.insert(titleIdArr, {id = titleId, title=getTitle(titleId)} )
+		until not result.next(res)
+		result.free(res)
+	end
+	if titleIdArr == {} then
+		titleIdArr = nil
+	end
+	return titleIdArr
+end
+
 function setPlayerMarriageStatus(id, val)
     db.query("UPDATE `players` SET `marriage_status` = " .. val .. " WHERE `id` = " .. id)
 end

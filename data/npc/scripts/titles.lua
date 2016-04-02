@@ -5,25 +5,7 @@ NpcSystem.parseParameters(npcHandler)
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
-
-local function getTitles(cid)
-  local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
-  local titleIdArr = {}
-  local titleId = nil
-  if res ~= -1 then
-    repeat
-      titleId = result.getDataInt(res, "title_id")
-      table.insert(titleIdArr, {id = titleId, title=getTitle(titleId)} )
-      print("Got title: " .. getTitle(titleId))
-    until not result.next(res)
-    result.free(res)
-  end
-  if titleIdArr == {} then
-    titleIdArr = nil
-  end
-  return titleIdArr
-end
+function onThink()				npcHandler:onThink() end
 
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
