@@ -18,7 +18,7 @@ local function getTitles(cid)
       titleId = result.getDataInt(res, "title_id")
       print("DBG: got title id: " .. tostring(titleId) )
       table.insert(titleIdArr, {id = titleId, title=getPlayerTitleById(id)} )
-      print("DBG: nexting the result...")
+      print("DBG: nexting the result... (now: " .. tostring(res))
       result.next(res)
     end
     print("DBG: freeing the result...")
