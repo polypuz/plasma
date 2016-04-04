@@ -13,7 +13,8 @@ local function serverClean()
 	end
 	]]
 	broadcastMessage("Czyszczenie mapy...", MESSAGE_EVENT_ADVANCE)
-	cleanMap()
+	local itemsCount = cleanMap()
+	print("DBG: podczas czyszczenia mapy zniknelo " .. tostring(itemsCount) .. " przedmiotow.\n")
 end
 
 local function secondServerCleanWarning()
