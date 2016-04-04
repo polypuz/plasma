@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Rudobrody" script="rudobrody.lua" walkinterval="2000" floorchange="0">
+<npc name="Rudobrody" script="rudobrody.lua" walkinterval="2000" floorchange="0" speechbubble="1">
 	<health now="100" max="100"/>
 	<look type="153" head="132" body="114" legs="114" feet="114" addons="1"/>
 	<parameters>
