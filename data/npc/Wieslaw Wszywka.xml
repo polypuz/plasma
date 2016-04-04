@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Wieslaw Wszywka" script="wieslaw.lua" walkinterval="2000" floorchange="0">
+<npc name="Wieslaw Wszywka" script="wieslaw.lua" walkinterval="2000" floorchange="0" speechbubble="1">
 	<health now="100" max="100" />
 	<look type="130" head="114" body="87" legs="114" feet="0" addons="2" />
 	<parameters>
