@@ -15,12 +15,6 @@ function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) 
 function onThink() npcHandler:onThink() end
 
 local function greetCallback(cid)
-  if Player(cid):getStorageValue(38100) <= 1 then
-    npcHandler:say("Kim jestes?! Kto cie przyslal?!", cid)
-  else
-    npcHandler:say("Przyniosles to, o co prosilem?", cid)
-    npcHandler.topic[cid] = 2
-  end
   return true
 end
 
@@ -53,8 +47,14 @@ local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
   end
-
-  if msgcontains(msg, "Pintel") then
+  if isInArray(FOCUS_GREETWORDS, msg) then
+    if Player(cid):getStorageValue(38100) <= 1 then
+      npcHandler:say("Kim jestes?! Kto cie przyslal?!", cid)
+    else
+      npcHandler:say("Przyniosles to, o co prosilem?", cid)
+      npcHandler.topic[cid] = 2
+    end
+  elseif msgcontains(msg, "Pintel") then
     npcHandler:say(msg, "Moj braciszek sie o mnie martwi?", cid)
     npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "nikt") then
