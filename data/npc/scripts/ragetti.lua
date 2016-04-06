@@ -48,10 +48,10 @@ local function creatureSayCallback(cid, type, msg)
     return false
   end
   print("dbg: FOCUS_GREETWORDS: " .. tostring(FOCUS_GREETWORDS))
-  for k, v do
+  for k, v in ipairs(FOCUS_GREETWORDS) do
     print(tostring(v))
   end
-  
+
   if isInArray(FOCUS_GREETWORDS, msg) then
     if Player(cid):getStorageValue(38100) <= 1 then
       npcHandler:say("Kim jestes?! Kto cie przyslal?!", cid)
