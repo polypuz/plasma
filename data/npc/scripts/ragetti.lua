@@ -48,16 +48,15 @@ end
 
 
 local function creatureSayCallback(cid, type, msg)
-
   if not npcHandler:isFocused(cid) then
     return false
   end
 
   if msgcontains(msg, "Pintel") or msgcontains(msg, "brat") then
-    npcHandler:say(msg, "Moj braciszek sie o mnie martwi?", cid)
+    npcHandler:say("Moj braciszek sie o mnie martwi?", cid)
     npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "nikt") then
-    npcHandler:say(msg, {"Hm... dobra, mniejsza. Sluchaj, jest sprawa - chcesz mi pomoc? Te mendy mnie tu zamknely... Nie wiem jakie maja plany.", "Potrzebny nam {klucz}. Widzisz, klodeczka.."}, cid)
+    npcHandler:say({"Hm... dobra, mniejsza. Sluchaj, jest sprawa - chcesz mi pomoc? Te mendy mnie tu zamknely... Nie wiem jakie maja plany.", "Potrzebny nam {klucz}. Widzisz, klodeczka.."}, cid)
   elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
     npcHandler:say("Dobrze, ze Cie przyslal. Musisz mnie uwolnic. Potrzebny nam {klucz}, widzisz, klodeczka...", cid)
   elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
