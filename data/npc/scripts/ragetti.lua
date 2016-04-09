@@ -20,7 +20,7 @@ local function greetCallback(cid)
   elseif Player(cid):getStorageValue(38100) == 2 then
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
   else
-    npcHandler:setMesssage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
+    npcHandler:setMessage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
   end
   return true
 end
