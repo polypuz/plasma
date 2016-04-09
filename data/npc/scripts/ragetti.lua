@@ -17,7 +17,7 @@ function onThink() npcHandler:onThink() end
 local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) <= 1 then
     npcHandler:setMessage(MESSAGE_GREET, "Kim jestes?! Kto cie przyslal?!", cid)
-  elseif Player(cid)getStorageValue(38100) == 2 then
+  elseif Player(cid):getStorageValue(38100) == 2 then
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
   else
     npcHandler:setMesssage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
