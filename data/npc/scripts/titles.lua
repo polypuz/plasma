@@ -52,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
       end
       if found then
         if setPlayerTitle(cid, titleId) then
-          if titleid == 0 then
+          if titleId == 0 then
             npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz nie przedstawiasz sie zadnym tytulem.", cid)
           else
             npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
