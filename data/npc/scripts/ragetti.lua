@@ -32,7 +32,7 @@ local function removePirateItems(cid)
   local p = Player(cid)
   local hasItems = true
   for k, v in ipairs(pirateItems) do
-    if not getPlayerItemCount(cid, v.id, v.amount) then
+    if getPlayerItemCount(cid, v.id) < v.amount then
       hasItems = false
     end
   end
@@ -57,6 +57,7 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "nikt") then
     npcHandler:say({"Hm... dobra, mniejsza. Sluchaj, jest sprawa - chcesz mi pomoc? Te mendy mnie tu zamknely... Nie wiem jakie maja plany.", "Potrzebny nam {klucz}. Widzisz, klodeczka.."}, cid)
+    npcHandler.topic[cid] = 1
   elseif (msgcontains(msg, "tak") or msgcontains(msg, "yes")) and npcHandler.topic[cid] == 1 then
     npcHandler:say("Dobrze, ze Cie przyslal. Musisz mnie uwolnic. Potrzebny nam {klucz}, widzisz, klodeczka...", cid)
   elseif (msgcontains(msg, "nie") or msgcontains(msg, "no")) and npcHandler.topic[cid] == 1 then
