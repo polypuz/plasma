@@ -19,7 +19,6 @@ local function greetCallback(cid)
     npcHandler:setMessage(MESSAGE_GREET, "Kim jestes?! Kto cie przyslal?!", cid)
   else
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
-    npcHandler.topic[cid] = 2
   end
   return true
 end
@@ -64,8 +63,8 @@ local function creatureSayCallback(cid, type, msg)
   elseif msgcontains(msg, "klucz") then
     npcHandler:say("Widzialem, jak ktorys z korsarzy chowa go w swoich rzeczach. Przeszukaj ich, w sposob dla Ciebie dogodniejszy, i przynies mi ich rzeczy - powinien sie gdzies znalezc.", cid)
     Player(cid):setStorageValue(38100, 2)
-  elseif npcHandler.topic[cid] == 2 then
-    if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
+  else
+    if ( msgcontains(msg, "tak") or msgcontains(msg, "yes") ) and Player(cid):getStorageValue(38100) > 1 then
       if removePirateItems(cid) then
         npcHandler:say({"Swietnie! Sluchaj teraz uwaznie: musisz isc do mojego brata i powiedziec mu, zeby tu przyszedl. Nie moge tak po prostu odejsc, bo piraci sie zorientuja i zaatakuja port.", "Powiedz mu, zeby przyszedl z odsiecza. Pospiesz sie, ja tu poczekam."}, cid)
         Player(cid):setStorageValue(38100, 3)
@@ -75,11 +74,9 @@ local function creatureSayCallback(cid, type, msg)
     elseif msgcontains(msg, "nie") or msgcontains(msg, "no") then
       npcHandler:say("No to zapindalaj dalej! Chcesz, zebym tu zgnil?!", cid)
     else
-      npcHandler:say("Hm?! To masz, czy nie masz?!", cid)
+      npcHandler:say("Przestan gadac glupoty i wyciagnij mnie stad, do jasnej cholery!", cid)
     end
     npcHandler.topic[cid] = 0
-  else
-    npcHandler:say("Przestan gadac glupoty i wyciagnij mnie stad, do jasnej cholery!", cid)
   end
 
   return true

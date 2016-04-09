@@ -18,7 +18,6 @@ function onThink() npcHandler:onThink() end
 local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) ~= -1 then
     npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
-    npcHandler.topic[cid] = 1
   else
     npcHandler:setMessage(MESSAGE_GREET, "Biada, zgroza, co za {nieszczescie}!", cid)
   end
@@ -31,6 +30,7 @@ local function creatureSayCallback(cid, type, msg)
   end
 
   local questStep = Player(cid):getStorageValue(38100)
+
   if msgcontains(msg, "nieszczescie") then
     npcHandler:say("Panie! Przyrodniego {brata} mi porwali, {szuje} jedne. {Ojciec} nigdy by do tego nie dopuscil!", cid)
   elseif msgcontains(msg, "brat") or msgcontains(msg, "brata") then
@@ -44,18 +44,16 @@ local function creatureSayCallback(cid, type, msg)
   elseif msgcontains(msg, "pomoc") or msgcontains(msg, "pomoz") then
     npcHandler:say("Szybko! Nie ma czasu do stracenia. Nie wiadomo, do czego sa zdolni. Odszukaj mojego {brata}, odbij go z rak {piratow}, a na pewno sie {odwdziecze}.", cid)
     Player(cid):setStorageValue(38100, 1)
-  elseif npcHandler.topic[cid] == 1 then
-    if msgcontains(msg, "yes") or msgcontains(msg, "tak") then
-      if questStep == 2 then
-        npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.", cid)
-      elseif questStep == 3 then
-        npcHandler:say({"Swietnie, dziekuje Ci bardzo. Jestes odwazniejszy niz wygladasz.", "Mialem takiego przyjaciela, zeglarz. Ciezko myslal, ale zabawny byl. Nieraz, jak sie popilismy rumu, pojawialy sie burdy. Mial wtedy w zwyczaju mowic: \"ZROBIMY IM DOMINANDO JAK NA GUNZO...\"costam. No, wiec zaraz tak bedzie.", "Teraz czas, abym Ci sie {odwdzieczyl}."}, cid)
-        Player(cid):setStorageValue(38100, 4) -- quest finished
-        npcHandler.topic[cid] = 2
-      end
-    else
-      npcHandler:say("To na co jeszcze czekasz?!", cid)
+  elseif msgcontains(msg, "yes") or msgcontains(msg, "tak") then
+    if questStep == 2 then
+      npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.", cid)
+    elseif questStep == 3 then
+      npcHandler:say({"Swietnie, dziekuje Ci bardzo. Jestes odwazniejszy niz wygladasz.", "Mialem takiego przyjaciela, zeglarz. Ciezko myslal, ale zabawny byl. Nieraz, jak sie popilismy rumu, pojawialy sie burdy. Mial wtedy w zwyczaju mowic: \"ZROBIMY IM DOMINANDO JAK NA GUNZO...\"costam. No, wiec zaraz tak bedzie.", "Teraz czas, abym Ci sie {odwdzieczyl}."}, cid)
+      Player(cid):setStorageValue(38100, 4) -- quest finished
+      npcHandler.topic[cid] = 2
     end
+  elseif msgcontains(msg, "no") or msgcontains(msg, "nie") then
+    npcHandler:say("To na co jeszcze czekasz?!", cid)
   elseif npcHandler.topic[cid] == 2 and (msgcontains(msg, "nagroda") or msgcontains(msg, "odwdzieczyl")) then
     npcHandler:say("Jako wlasciciel jednej z glownych flot handlowych, mam tutaj kilku przyjaciol. Wsrod nich jest pewien straznik, strzegacy bramy do Dzielnicy Zywiolakow. Szepne o Tobie kilka dobrych slow - podobno poszukiwacze przygod moga dobrze sie oblowic z odnalezionych tam artefaktow.", cid)
   elseif msgcontains(msg, "odwdziecze") then
