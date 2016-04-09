@@ -6,7 +6,6 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
@@ -27,6 +26,10 @@ local function greetCallback(cid)
 end
 
 local function creatureSayCallback(cid, type, msg)
+  if not npcHandler:isFocused(cid) then
+    return false
+  end
+
   local questStep = Player(cid):getStorageValue(38100)
   if msgcontains(msg, "nieszczescie") then
     npcHandler:say("Panie! Przyrodniego {brata} mi porwali, {szuje} jedne. {Ojciec} nigdy by do tego nie dopuscil!", cid)
