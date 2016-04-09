@@ -56,6 +56,8 @@ local function creatureSayCallback(cid, type, msg)
         else
           npcHandler:say("Cos poszlo nie tak.", cid)
         end
+      else
+        npcHandler:say("Niestety, nie znalazlem takiego tytulu w Twoich zasobach.", cid)
       end
     end
   else

@@ -48,12 +48,14 @@ function getTitle(titleId)
 	local res = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. titleId)
 	local title = ""
 	if res ~= false then
+
 		title = result.getDataString(res, "title")
 		result.free(res)
-
-		return title
+		if title ~= "" then
+			return title
+		end
 	end
-	return -1
+	return false
 end
 
 function getPlayerTitleId( id )
@@ -63,7 +65,7 @@ function getPlayerTitleId( id )
 		result.free( resultQuery )
 		return ret
 	end
-	return -1
+	return false
 end
 
 function getPlayerTitle( playerId )
