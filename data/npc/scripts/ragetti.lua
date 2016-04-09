@@ -17,8 +17,10 @@ function onThink() npcHandler:onThink() end
 local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) <= 1 then
     npcHandler:setMessage(MESSAGE_GREET, "Kim jestes?! Kto cie przyslal?!", cid)
-  else
+  elseif Player(cid)getStorageValue(38100) == 2 then
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
+  else
+    npcHandler:setMesssage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
   end
   return true
 end
@@ -50,7 +52,6 @@ local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
   end
-  print("dbg: topic[cid] = " .. tostring(npcHandler.topic[cid]))
   if msgcontains(msg, "Pintel") or msgcontains(msg, "brat") then
     npcHandler:say("Moj braciszek sie o mnie martwi?", cid)
     npcHandler.topic[cid] = 1

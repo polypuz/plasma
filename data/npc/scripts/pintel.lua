@@ -18,6 +18,11 @@ function onThink() npcHandler:onThink() end
 local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) ~= -1 then
     npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
+  elseif Player(cid):getStorageValue(38100) == 2 then
+    npcHandler:setMessage(MESSAGE_GREET, "Uwolniles Ragettiego?", cid)
+  elseif Player(cid):getStorageValue(38100) == 4 then
+    npcHandler:say("Twoje zaslugi nie zostana zapomniane.", cid)
+    return false
   else
     npcHandler:setMessage(MESSAGE_GREET, "Biada, zgroza, co za {nieszczescie}!", cid)
   end
