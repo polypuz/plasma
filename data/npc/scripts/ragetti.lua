@@ -30,7 +30,7 @@ local function removePirateItems(cid)
   local p = Player(cid)
   local hasItems = true
   for k, v in ipairs(pirateItems) do
-    if not p:hasItem(v.id, v.amount) then
+    if not getPlayerItemCount(cid, v.id) < v.amount then
       hasItems = false
     end
   end
