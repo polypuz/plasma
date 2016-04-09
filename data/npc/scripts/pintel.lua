@@ -35,7 +35,7 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say("Panie! Przyrodniego {brata} mi porwali, {szuje} jedne. {Ojciec} nigdy by do tego nie dopuscil!", cid)
   elseif msgcontains(msg, "brat") or msgcontains(msg, "brata") then
     npcHandler:say("Bekart jeden, {ojciec} zawsze byl rozwiazly, teraz ja sie nim opiekuje... przynajmniej do niedawna. Teraz porwali go {piraci}, musisz mi {pomoc}!", cid)
-  elseif msgcontains(msg, "piraci") or msgcontains(msg, "szuje") then
+  elseif msgcontains(msg, "piraci") or msgcontains(msg, "szuje") or msgcontains(msg, "piratow") then
     npcHandler:say("Biada, biada. Nie dosc, ze {ojca} ubili, to jeszcze {brata} porwali! {Pomoz} mi, prosze!", cid)
   elseif msgcontains(msg, "ojciec") or msgcontains(msg, "ojca") then
     npcHandler:say("Nasz ojciec nie zyje od dawna. Zabili go {piraci}, teraz ja przejalem jego biznes i jeszcze musze sie bratem opiekowac. A jego {matka}.. coz, tez sie gdzies ulotnila.", cid)
@@ -58,6 +58,8 @@ local function creatureSayCallback(cid, type, msg)
     end
   elseif npcHandler.topic[cid] == 2 and (msgcontains(msg, "nagroda") or msgcontains(msg, "odwdzieczyl")) then
     npcHandler:say("Jako wlasciciel jednej z glownych flot handlowych, mam tutaj kilku przyjaciol. Wsrod nich jest pewien straznik, strzegacy bramy do Dzielnicy Zywiolakow. Szepne o Tobie kilka dobrych slow - podobno poszukiwacze przygod moga dobrze sie oblowic z odnalezionych tam artefaktow.", cid)
+  elseif msgcontains(msg, "odwdziecze") then
+    npcHandler:say("Najpierw znajdz mojego brata, wtedy porozmawiamy!", cid)
   else
     npcHandler:say("Hm? Sluchales w ogole, co do Ciebie mowilem?", cid)
   end

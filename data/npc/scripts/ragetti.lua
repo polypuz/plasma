@@ -52,7 +52,8 @@ local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
   end
-  if msgcontains(msg, "Pintel") then
+
+  if msgcontains(msg, "Pintel") or msgcontains(msg, "brat") then
     npcHandler:say(msg, "Moj braciszek sie o mnie martwi?", cid)
     npcHandler.topic[cid] = 1
   elseif msgcontains(msg, "nikt") then
