@@ -96,6 +96,7 @@ function getTitles(cid)
 			table.insert(titleIdArr, {id = titleId, title=getTitle(titleId)} )
 		until not result.next(res)
 		result.free(res)
+		table.insert(titleIdArr, { id = 0, title="brak tytulu" })
 	end
 
 	if titleIdArr == {} or res == false or res == nil then
