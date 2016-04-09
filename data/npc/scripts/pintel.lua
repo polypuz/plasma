@@ -37,15 +37,17 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say("Bekart jeden, {ojciec} zawsze byl rozwiazly, teraz ja sie nim opiekuje... przynajmniej do niedawna. Teraz porwali go {piraci}, musisz mi {pomoc}!", cid)
   elseif msgcontains(msg, "piraci") or msgcontains(msg, "szuje") then
     npcHandler:say("Biada, biada. Nie dosc, ze {ojca} ubili, to jeszcze {brata} porwali! {Pomoz} mi, prosze!", cid)
+  elseif msgcontains(msg, "ojciec") or msgcontains(msg, "ojca") then
+    npcHandler:say("Nasz ojciec nie zyje od dawna. Zabili go {piraci}, teraz ja przejalem jego biznes i jeszcze musze sie bratem opiekowac. A jego {matka}.. coz, tez sie gdzies ulotnila.", cid)
   elseif msgcontains(msg, "matka") then
     npcHandler:say("Jestem pewny, ze maczala palce w morderstwie {ojca}.", cid)
   elseif msgcontains(msg, "pomoc") or msgcontains(msg, "pomoz") then
-    npcHandler:say("Szybko! Nie ma czasu do stracenia. Nie wiadomo, do czego sa zdolni. Odszukaj mojego {brata}, odbij go z rak {piratow}, a na pewno sie {odwdziecze}.")
+    npcHandler:say("Szybko! Nie ma czasu do stracenia. Nie wiadomo, do czego sa zdolni. Odszukaj mojego {brata}, odbij go z rak {piratow}, a na pewno sie {odwdziecze}.", cid)
     Player(cid):setStorageValue(38100, 1)
   elseif npcHandler.topic[cid] == 1 then
     if msgcontains(msg, "yes") or msgcontains(msg, "tak") then
       if questStep == 2 then
-        npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.")
+        npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.", cid)
       elseif questStep == 3 then
         npcHandler:say({"Swietnie, dziekuje Ci bardzo. Jestes odwazniejszy niz wygladasz.", "Mialem takiego przyjaciela, zeglarz. Ciezko myslal, ale zabawny byl. Nieraz, jak sie popilismy rumu, pojawialy sie burdy. Mial wtedy w zwyczaju mowic: \"ZROBIMY IM DOMINANDO JAK NA GUNZO...\"costam. No, wiec zaraz tak bedzie.", "Teraz czas, abym Ci sie {odwdzieczyl}."}, cid)
         Player(cid):setStorageValue(38100, 4) -- quest finished
