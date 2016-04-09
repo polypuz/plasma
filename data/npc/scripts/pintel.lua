@@ -18,10 +18,10 @@ function onThink() npcHandler:onThink() end
 
 local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) ~= -1 then
-    npcHandler:say("Czy odnalazles juz mojego {brata}?", cid)
+    npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
     npcHandler.topic[cid] = 1
   else
-    npcHandler:say("Biada, zgroza, co za {nieszczescie}!", cid)
+    npcHandler:setMessage(MESSAGE_GREET, "Biada, zgroza, co za {nieszczescie}!", cid)
   end
   return true
 end

@@ -18,7 +18,7 @@ local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) <= 1 then
     npcHandler:setMessage(MESSAGE_GREET, "Kim jestes?! Kto cie przyslal?!", cid)
   else
-    npcHandler:setMessage("Przyniosles to, o co prosilem?", cid)
+    npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
     npcHandler.topic[cid] = 2
   end
   return true
