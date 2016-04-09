@@ -41,12 +41,6 @@ local function creatureSayCallback(cid, type, msg)
     if titleId == nil then
       npcHandler:say("He? Nie ma takiej opcji wsrod Twoich tytulow. Zapytaj mnie o {tytuly}, jesli nie jestes pewny jak to dziala.", cid)
       npcHandler.topic[cid] = 0
-    elseif titleId == 0 then
-      if setPlayerTitle(cid, 0) then
-        npcHandler:say("W porzadku, nie przedstawiasz sie teraz zadnym tytulem.", cid)
-      else
-        npcHandler:say("Cos poszlo nie tak.", cid)
-      end
     else
       local found = false
       for k,v in ipairs(titles) do
@@ -58,7 +52,11 @@ local function creatureSayCallback(cid, type, msg)
       end
       if found then
         if setPlayerTitle(cid, titleId) then
-          npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
+          if titleid == 0 then
+            npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz nie przedstawiasz sie zadnym tytulem.", cid)
+          else
+            npcHandler:say("W porzadku, " .. Player(cid):getName() .. ", od teraz Twoim przydomkiem jest " .. getPlayerTitle(Player(cid):getGuid()) .. ".", cid)
+          end
         else
           npcHandler:say("Cos poszlo nie tak.", cid)
         end
