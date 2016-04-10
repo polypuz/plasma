@@ -21,7 +21,6 @@ local function greetCallback(cid)
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
   else
     npcHandler:setMessage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
-    npcHandler:releaseFocus(cid)
   end
   return true
 end
@@ -40,15 +39,15 @@ end
 
 
 local function creatureSayCallback(cid, type, msg)
+  if not npcHandler:isFocused(cid) then
+    return false
+  end
   if Player(cid):getStorageValue(38100) >= 4 then
     npcHandler:say("Czekam na braciszka i zabieram sie stad. Tobie proponuje rowniez sie ewakuowac, colego, niebezpieczne typy sie tu szlajaja.", cid)
     npcHandler:releaseFocus(cid)
     return false
   end
 
-  if not npcHandler:isFocused(cid) then
-    return false
-  end
   if msgcontains(msg, "Pintel") or msgcontains(msg, "brat") then
     npcHandler:say("Moj braciszek sie o mnie martwi?", cid)
     npcHandler.topic[cid] = 1
