@@ -93,6 +93,42 @@ function getPlayerNameById(id)
 	return 0
 end
 
+function getPlayerAccountID(playerGUID)
+	local sqlQuery = "SELECT `account_id` FROM `players` WHERE `id` = " .. db.escapeString(playerGUID) .. "LIMIT 1"
+	local sqlResult = db.storeQuery(sqlQuery)
+
+	if sqlResult ~= false then
+		local accountID = result.getDataInt(sqlResult, "account_id")
+		result.free(sqlResult)
+
+		return accountID
+	end
+
+	return -1
+end
+
+function isPlayerBanned(playerGUID)
+	local accountID = getPlayerAccountID(playerGUID)
+
+	if accountID == -1 then
+		return false
+	end
+
+	local sqlQuery = "SELECT `account_id` FROM `account_bans` WHERE `account_id` = " .. db.escapeString(accountID) .. " AND `expires_at` > UNIX_TIMESTAMP() LIMIT 1"
+	local sqlResult = db.storeQuery(sqlQuery)
+
+	if sqlResult ~= false then
+		local hasActiveBan = result.getDataInt(sqlResult, "account_id")
+		result.free(sqlResult)
+
+		if hasActiveBan == accountID then
+			return true
+		end
+	end
+
+	return false
+end
+
 function pushThing(thing)
 	local t = {uid = 0, itemid = 0, type = 0, actionid = 0}
 	if thing ~= nil then
@@ -343,17 +379,24 @@ function getPlayersByAccountNumber(accountNumber)
 end
 function getPlayerGUIDByName(name)
 	local player = Player(name)
+
+	-- Maybe player is online?
 	if player ~= nil then
 		return player:getGuid()
 	end
 
-	local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name))
-	if resultId ~= false then
-		local guid = result.getDataInt(resultId, "id")
-		result.free(resultId)
-		return guid
+	-- He's not, let's find him in the DB
+	local sqlQuery = "SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(name) .. " LIMIT 1"
+	local sqlResult = db.storeQuery(sqlQuery)
+
+	if sqlResult ~= false then
+		local resultID = result.getDataInt(sqlResult, "id")
+		result.free(sqlResult)
+
+		return resultID
 	end
-	return 0
+
+	return -1
 end
 function getAccountNumberByPlayerName(name)
 	local player = Player(name)

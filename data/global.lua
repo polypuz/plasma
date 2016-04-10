@@ -44,28 +44,65 @@ function getPlayerMarriageStatus(id)
     return -1
 end
 
+function getTitle(titleId)
+	local res = db.storeQuery("SELECT `title` FROM `titles` WHERE `id`=" .. titleId)
+	local title = ""
+	if res ~= false then
+
+		title = result.getDataString(res, "title")
+		result.free(res)
+		if title ~= "" then
+			return title
+		end
+	end
+	return false
+end
+
 function getPlayerTitleId( id )
-	local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. db.escapeString( id ) )
+	local resultQuery = db.storeQuery("SELECT `title` FROM `players` WHERE `id`=" .. id )
 	if resultQuery ~= false then
 		local ret = result.getDataInt( resultQuery, "title")
 		result.free( resultQuery )
 		return ret
 	end
-	return -1
+	return false
 end
 
-function getPlayerTitle( player_id )
-	local titleId = getPlayerTitleId( player_id )
+function getPlayerTitle( playerId )
+	local titleId = getPlayerTitleId( playerId )
 	if titleId then
-		local resultQuery = db.storeQuery("SELECT `title` FROM `player_titles` WHERE `id`=" .. titleId )
-		if resultQuery ~= false then
-			local ret = result.getDataString( resultQuery, "title")
-			result.free( resultQuery )
-			return ret
-		end
+		return getTitle(titleId)
+	end
+	return false
+end
+
+function setPlayerTitle(cid, titleId)
+	local playerId = Player(cid):getGuid()
+	if db.query("UPDATE `players` SET `title`=" .. titleId .. " WHERE `id`=" .. playerId) then
+		return true
+	else
 		return false
 	end
 	return false
+end
+
+function getTitles(cid)
+	local res = db.storeQuery("SELECT `title_id` FROM `player_titles` WHERE `account_id`=" .. Player(cid):getAccountId())
+	local titleIdArr = {}
+	local titleId = nil
+	if res ~= -1 and res then
+		repeat
+			titleId = result.getDataInt(res, "title_id")
+			table.insert(titleIdArr, {id = titleId, title=getTitle(titleId)} )
+		until not result.next(res)
+		result.free(res)
+		table.insert(titleIdArr, { id = 0, title="brak tytulu" })
+	end
+
+	if titleIdArr == {} or res == false or res == nil then
+		titleIdArr = nil
+	end
+	return titleIdArr
 end
 
 function setPlayerMarriageStatus(id, val)

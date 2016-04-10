@@ -28,8 +28,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif  isInArray({"lottery ticket", "ticket", "lottery", "pomoc", "help"}, msg)  then
 		npcHandler:say("Apropo defacto, za 100 pustych butelek, mozesz otrzymac ode mnie kupon lotto - Lottery Ticket... Jezeli masz odrobine szczescia, to zdobedziesz dodatek do stroju, mianowicie.", cid)
 		npcHandler.topic[cid] = 0
+	end
 	return true
-end
 end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
