@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Kwatermistrz" script="titles.lua" walkinterval="1500" speed="100" walkradius="2" floorchange="0" speechbubble="1">
+    <health max="100" now="100"/>
+    <parameters>
+        <parameter key="message_greet" value="Czolem! Mozesz zapytac mnie o swoje {tytuly}, lub jesli nie wiesz o co chodzi - moge Ci wyjasnic czym ow {tytul} jest." />
+
+    </parameters>
+    <look type="472" head="0" body="29" legs="95" feet="79" addons="0" mount="0"/>
+</npc>

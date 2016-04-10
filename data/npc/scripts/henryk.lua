@@ -74,7 +74,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say({"Hm... tak, to potwierdza dane od innych informatorow. Oczywiscie spodziewalem sie, ze tak bedzie. To byl tylko test...", "Coz, skoro juz pokazales ze co nieco potrafisz, moge nadac Ci kolejna {misje}. Zobaczymy, czy bedac w polu poradzisz sobie tak samo dobrze."}, cid)
 			Player(cid):setStorageValue(38001, 2)
 		else
-			npcHandler:say("Nie udalo Ci sie zebrac jeszcze wszystkich informacji. Pamietaj, musisz porozmawiac z Waldemarem, Tomaszem, Miroslawem, Grzegorzem i Krzysztofem. Sa przedstawicielami lokalnych wladz w roznych miastach krainy Mirko. Gdy to zrobisz, wroc do mnie i zdaj mi sprawozdanie.", cid)
+			npcHandler:say("Nie udalo Ci sie zebrac jeszcze wszystkich informacji. Pamietaj, musisz porozmawiac z Waldemarem, Tadeuszem, Miroslawem, Grzegorzem i Krzysztofem. Sa przedstawicielami lokalnych wladz w roznych miastach krainy Mirko. Gdy to zrobisz, wroc do mnie i zdaj mi sprawozdanie.", cid)
 		end
 		npcHandler.topic[cid] = 0
 	elseif npcHandler.topic[cid] == 2 then

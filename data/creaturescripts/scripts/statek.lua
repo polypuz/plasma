@@ -11,11 +11,11 @@ local miasta = {
 	[6] = Position(1506, 738, 6),	--Kolobrzeg
 	[7] = Position(1861, 1405, 6), --Opuszczona Kolonia
 	[8] = Position(530, 647, 6), 	--Wyspa Horrorow
-	[9] = Position(1322, 2012, 7),	--Bagna
-	[10] = Position(885, 605, 6),	--Cotopaxi
-	[11] = Position(2411, 416, 6),	--Bananowo
-	[12] = Position(1882, 2552, 7), -- Praga polnoc
-	[13] = Position(1441, 1734, 6) -- Cebulahar
+	--[9] = Position(1322, 2012, 7),	--Bagna
+	[9] = Position(885, 605, 6),	--Cotopaxi
+	[10] = Position(2411, 416, 6),	--Bananowo
+	[11] = Position(1882, 2552, 7), -- Praga polnoc
+	[12] = Position(1441, 1734, 6) -- Cebulahar
 }
 
 local miasta_szmugler = {
@@ -31,11 +31,11 @@ local miasta_szmugler = {
 	[6] = Position(1506, 738, 7),	--Kolobrzeg
 	[7] = Position(1860, 1405, 7),	--Opuszczona Kolonia
 	[8] = Position(530, 645, 7), 	--Wyspa Horrorow
-	[9] = Position(1322, 2012, 7),	--Bagna
-	[10] = Position(1294, 1950, 7),	--Cotopaxi
-	[11] = Position(2410, 418, 7),	--Bananowo
-	[12] = Position(1885, 2489, 7), -- Praga polnoc
-	[13] = Position(1441, 1736, 7) -- Cebulahar
+	--[9] = Position(1322, 2012, 7),	--Bagna
+	[9] = Position(1294, 1950, 7),	--Cotopaxi
+	[10] = Position(2410, 418, 7),	--Bananowo
+	[11] = Position(1885, 2489, 7), -- Praga polnoc
+	[12] = Position(1441, 1736, 7) -- Cebulahar
 }
 
 
