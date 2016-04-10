@@ -41,7 +41,7 @@ end
 
 local function creatureSayCallback(cid, type, msg)
   if Player(cid):getStorageValue(38100) >= 4 then
-    npcHandler:say("Dzieki colego. Czekam na braciszka i zabieram sie stad.", cid)
+    npcHandler:say("Czekam na braciszka i zabieram sie stad. Tobie proponuje rowniez sie ewakuowac, colego, niebezpieczne typy sie tu szlajaja.", cid)
     npcHandler:releaseFocus(cid)
     return false
   end
