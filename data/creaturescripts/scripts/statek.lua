@@ -35,7 +35,7 @@ local miasta_szmugler = {
 	[9] = Position(1294, 1950, 7),	--Cotopaxi
 	[10] = Position(2410, 418, 7),	--Bananowo
 	[11] = Position(1885, 2489, 7), -- Praga polnoc
-	[12] = Position(1441, 1734, 6) -- Cebulahar
+	[12] = Position(1441, 1736, 7) -- Cebulahar
 }
 
 
