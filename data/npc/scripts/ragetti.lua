@@ -21,7 +21,7 @@ local function greetCallback(cid)
     npcHandler:setMessage(MESSAGE_GREET, "Przyniosles to, o co prosilem?", cid)
   else
     npcHandler:setMessage(MESSAGE_GREET, "Dzieki, brachu! Czekam teraz na ekipe i spadam stad...", cid)
-    return false
+    npcHandler:releaseFocus(cid)
   end
   return true
 end
