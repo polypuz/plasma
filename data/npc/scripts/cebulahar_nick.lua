@@ -35,6 +35,14 @@ end
 local city = {x=1356, y=1683, z=6 }
 local district = {x=1352, y=1683, z=6}
 
+local function teleportPlayer(pos, cid)
+  if not npcHandler:isFocused(cid) then
+    return false
+  else
+    doTeleportThing(cid, pos)
+  end
+  return true
+end
 
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
@@ -60,16 +68,13 @@ local function creatureSayCallback(cid, type, msg)
   elseif npcHandler.topic[cid] == 2 then
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
       npcHandler:say({"Tak myslalem. Wspominal mi, glupek jeden...", "Dobra, przelaz. Tylko nikomu ani slowa, bo mnie wyleja, a niedawno zniesiono ustawe 500+, nie bedzie mial kto mlodych utrzymac. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*"}, cid)
-      addEvent(
-        function()
-          doTeleportThing(cid, district)
-        end, 35000)
+      addEvent(teleportPlayer(district, cid), 7500)
     else
       npcHandler:say("Niewazne. Spadaj, jestem na warcie.", cid)
     end
   elseif msgcontains(msg, "powrot") or msgcontains(msg, "miasta") or msgcontains(msg, "miasto") then
     npcHandler:say("W porzadku, przelaz, tylko szybko... i nikomu nic nie mow. *wyjmuje klucze do bramy*")
-    addEvent(doTeleportThing(cid, city), 3000)
+    addEvent(teleportPlayer(city, cid), 3500)
   else
     npcHandler:say("Nie wiem o co chodzi, obywatelu. Prosze odejsc.", cid)
   end
