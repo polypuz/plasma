@@ -20,8 +20,6 @@ local function greetCallback(cid)
     npcHandler:setMessage(MESSAGE_GREET, "Uwolniles Ragettiego?", cid)
   elseif Player(cid):getStorageValue(38100) >= 4 then
     npcHandler:setMessage(MESSAGE_GREET, "Twoje zaslugi nie zostana zapomniane.", cid)
-    npcHandler:releaseFocus(cid)
-    return false
   elseif Player(cid):getStorageValue(38100) ~= -1 then
     npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
   else
@@ -37,6 +35,12 @@ local function creatureSayCallback(cid, type, msg)
   end
 
   local questStep = Player(cid):getStorageValue(38100)
+
+  if questStep >= 4 then
+    npcHandler:say("Zrobiles dla mnie wielka rzecz. Szepnalem slowo Nickowi, powodzenia.", cid)
+    npcHandler:releaseFocus(cid)
+    return false
+  end
 
   if msgcontains(msg, "nieszczescie") then
     npcHandler:say("Panie! Przyrodniego {brata} mi porwali, {szuje} jedne. {Ojciec} nigdy by do tego nie dopuscil!", cid)
