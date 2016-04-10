@@ -85,15 +85,9 @@ local function creatureSayCallback(cid, type, msg)
 end
 
 local function onAddFocus(cid)
-  town[cid] = 0
-  vocation[cid] = 0
-  destination[cid] = 0
 end
 
 local function onReleaseFocus(cid)
-  town[cid] = nil
-  vocation[cid] = nil
-  destination[cid] = nil
 end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
