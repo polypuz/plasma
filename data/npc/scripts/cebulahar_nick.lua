@@ -44,6 +44,10 @@ local function teleportPlayer(cid, pos)
   return true
 end
 
+local function alreadyTalkedWithPlayer(cid)
+  return Player(cid):getStorageValue(38100) >= 5
+end
+
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
@@ -54,7 +58,10 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler.topic[cid] = 1
   elseif npcHandler.topic[cid] == 1 then
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
-      if playerCanPass(cid) then
+      if alreadyTalkedWithPlayer(cid) then
+        npcHandler:say("Dobra, przelaz. Tylko nikomu ani slowa, bo mnie wyleja, a niedawno zniesiono ustawe 500+, nie bedzie mial kto mlodych utrzymac. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*", cid)
+        addEvent( teleportPlayer, 2500, cid, district)
+      elseif playerCanPass(cid) then
         npcHandler:say("Hymm... Znasz moze Pintala?", cid)
         npcHandler.topic[cid] = 2
       else
@@ -69,6 +76,7 @@ local function creatureSayCallback(cid, type, msg)
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
       npcHandler:say({"Tak myslalem. Wspominal mi, glupek jeden...", "Dobra, przelaz. Tylko nikomu ani slowa, bo mnie wyleja, a niedawno zniesiono ustawe 500+, nie bedzie mial kto mlodych utrzymac. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*"}, cid)
       addEvent( teleportPlayer, 9000, cid, district)
+      Player(cid):setStorageValue(38100, 5)
     else
       npcHandler:say("Niewazne. Spadaj, jestem na warcie.", cid)
     end
