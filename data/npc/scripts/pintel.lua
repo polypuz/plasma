@@ -19,7 +19,7 @@ local function greetCallback(cid)
   if Player(cid):getStorageValue(38100) == 2 then
     npcHandler:setMessage(MESSAGE_GREET, "Uwolniles Ragettiego?", cid)
   elseif Player(cid):getStorageValue(38100) >= 4 then
-    npcHandler:say("Twoje zaslugi nie zostana zapomniane.", cid)
+    npcHandler:setMessage(MESSAGE_GREET, "Twoje zaslugi nie zostana zapomniane.", cid)
     npcHandler:releaseFocus(cid)
   elseif Player(cid):getStorageValue(38100) ~= -1 then
     npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
