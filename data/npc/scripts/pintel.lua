@@ -48,7 +48,9 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say("Jestem pewny, ze maczala palce w morderstwie {ojca}.", cid)
   elseif msgcontains(msg, "pomoc") or msgcontains(msg, "pomoz") then
     npcHandler:say("Szybko! Nie ma czasu do stracenia. Nie wiadomo, do czego sa zdolni. Odszukaj mojego {brata}, odbij go z rak {piratow}, a na pewno sie {odwdziecze}.", cid)
-    Player(cid):setStorageValue(38100, 1)
+    if questStep == -1 then
+      Player(cid):setStorageValue(38100, 1)
+    end
   elseif msgcontains(msg, "yes") or msgcontains(msg, "tak") then
     if questStep == 2 then
       npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.", cid)
