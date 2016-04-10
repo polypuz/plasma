@@ -38,11 +38,11 @@ local function creatureSayCallback(cid, type, msg)
 	modal:addChoice(6, "Kolobrzeg")
 	modal:addChoice(7, "Opuszczona Kolonia")
 	modal:addChoice(8, "Wyspa Upiorow")
-	modal:addChoice(9, "Bagna")
-	modal:addChoice(10, "Cotopaxi")
-	modal:addChoice(11, "Bananowo")
-	modal:addChoice(12, "Praga Polnoc")
-	modal:addChoice(13, "Cebulahar")
+	--modal:addChoice(9, "Bagna")
+	modal:addChoice(9, "Cotopaxi")
+	modal:addChoice(10, "Bananowo")
+	modal:addChoice(11, "Praga Polnoc")
+	modal:addChoice(12, "Cebulahar")
 
 
 
