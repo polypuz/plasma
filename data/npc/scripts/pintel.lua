@@ -21,6 +21,7 @@ local function greetCallback(cid)
   elseif Player(cid):getStorageValue(38100) >= 4 then
     npcHandler:setMessage(MESSAGE_GREET, "Twoje zaslugi nie zostana zapomniane.", cid)
     npcHandler:releaseFocus(cid)
+    return false
   elseif Player(cid):getStorageValue(38100) ~= -1 then
     npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
   else
@@ -73,12 +74,6 @@ local function creatureSayCallback(cid, type, msg)
   end
   return true
 
-end
-
-local function onAddFocus(cid)
-end
-
-local function onReleaseFocus(cid)
 end
 
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
