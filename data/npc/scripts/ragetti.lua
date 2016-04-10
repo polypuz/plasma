@@ -54,13 +54,17 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say({"Przestan sie ze mna droczyc... na pewno sie martwi...", "A Ty bezbekowy smieszku lepiej #usunkonto. Uwolnij mnie. Do tego potrzebujesz {klucza}, widzisz ta klodke..?"}, cid)
   elseif msgcontains(msg, "klucz") then
     npcHandler:say("Widzialem, jak ktorys z korsarzy chowa go w kieszeni swojej koszuli. Przynies kilka szmat, przeszukam je.", cid)
-    Player(cid):setStorageValue(38100, 2)
+    if Player(cid):getStorageValue(38100) < 2 then
+      Player(cid):setStorageValue(38100, 2)
+    end
   else
     if ( msgcontains(msg, "tak") or msgcontains(msg, "yes") ) and Player(cid):getStorageValue(38100) > 1 then
       if getPlayerItemCount(cid, 6095) >= 1 then
         if checkIfShirtHasKey(cid) then
           npcHandler:say({"Swietnie! Sluchaj teraz uwaznie: musisz isc do mojego brata i powiedziec mu, zeby tu przyszedl. Nie moge tak po prostu odejsc, bo piraci sie zorientuja i zaatakuja port.", "Powiedz mu, zeby przyszedl z odsiecza. Pospiesz sie, ja tu poczekam."}, cid)
-          Player(cid):setStorageValue(38100, 3)
+          if Player(cid):getStorageValue(38100) == 2 then
+            Player(cid):setStorageValue(38100, 3)
+          end
         else
           npcHandler:say("No niestety, brak szczescia. Sprobuj dorwac inna.", cid)
         end
