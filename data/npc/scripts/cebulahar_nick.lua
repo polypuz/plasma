@@ -68,12 +68,12 @@ local function creatureSayCallback(cid, type, msg)
   elseif npcHandler.topic[cid] == 2 then
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
       npcHandler:say({"Tak myslalem. Wspominal mi, glupek jeden...", "Dobra, przelaz. Tylko nikomu ani slowa, bo mnie wyleja, a niedawno zniesiono ustawe 500+, nie bedzie mial kto mlodych utrzymac. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*"}, cid)
-      addEvent( teleportPlayer, 7500, cid, district)
+      addEvent( teleportPlayer, 9000, cid, district)
     else
       npcHandler:say("Niewazne. Spadaj, jestem na warcie.", cid)
     end
   elseif msgcontains(msg, "powrot") or msgcontains(msg, "miasta") or msgcontains(msg, "miasto") then
-    npcHandler:say("W porzadku, przelaz, tylko szybko... i nikomu nic nie mow. *wyjmuje klucze do bramy*")
+    npcHandler:say("W porzadku, przelaz, tylko szybko... i nikomu nic nie mow. *wyjmuje klucze do bramy*", cid)
     addEvent( teleportPlayer, 3500, cid, city)
   else
     npcHandler:say("Nie wiem o co chodzi, obywatelu. Prosze odejsc.", cid)
