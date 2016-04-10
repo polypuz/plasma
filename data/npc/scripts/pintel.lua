@@ -29,6 +29,7 @@ local function greetCallback(cid)
   return true
 end
 
+
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
     return false
@@ -74,6 +75,19 @@ local function creatureSayCallback(cid, type, msg)
 
 end
 
+local function onAddFocus(cid)
+  town[cid] = 0
+  vocation[cid] = 0
+  destination[cid] = 0
+end
+
+local function onReleaseFocus(cid)
+  town[cid] = nil
+  vocation[cid] = nil
+  destination[cid] = nil
+end
+
+npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
