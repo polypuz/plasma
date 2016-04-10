@@ -39,8 +39,10 @@ local function creatureSayCallback(cid, type, msg)
 	modal:addChoice(10, "Cotopaxi")
 	modal:addChoice(11, "Bananowo")
 	modal:addChoice(12, "Praga Polnoc")
-	
-	-- przyciski oraz efekt klawiszy Enter/Escape
+	modal:addChoice(13, "Cebulahar")
+
+
+		-- przyciski oraz efekt klawiszy Enter/Escape
 	modal:addButton(1, "Anuluj")
 	modal:addButton(2, "Wybierz")
     modal:addButton(3, "Pomoc")
