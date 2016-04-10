@@ -16,18 +16,18 @@ function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) 
 function onThink() npcHandler:onThink() end
 
 local function greetCallback(cid)
-  if Player(cid):getStorageValue(38100) ~= -1 then
-    npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
-  elseif Player(cid):getStorageValue(38100) == 2 then
+  if Player(cid):getStorageValue(38100) == 2 then
     npcHandler:setMessage(MESSAGE_GREET, "Uwolniles Ragettiego?", cid)
-  elseif Player(cid):getStorageValue(38100) == 4 then
-    npcHandler:say("Twoje zaslugi nie zostana zapomniane.", cid)
-    return false
+  elseif Player(cid):getStorageValue(38100) >= 4 then
+    npcHandler:setMessage(MESSAGE_GREET, "Twoje zaslugi nie zostana zapomniane.", cid)
+  elseif Player(cid):getStorageValue(38100) ~= -1 then
+    npcHandler:setMessage(MESSAGE_GREET, "Czy odnalazles juz mojego {brata}?", cid)
   else
     npcHandler:setMessage(MESSAGE_GREET, "Biada, zgroza, co za {nieszczescie}!", cid)
   end
   return true
 end
+
 
 local function creatureSayCallback(cid, type, msg)
   if not npcHandler:isFocused(cid) then
@@ -35,6 +35,12 @@ local function creatureSayCallback(cid, type, msg)
   end
 
   local questStep = Player(cid):getStorageValue(38100)
+
+  if questStep >= 4 then
+    npcHandler:say("Zrobiles dla mnie wielka rzecz. Szepnalem slowo Nickowi, powodzenia.", cid)
+    npcHandler:releaseFocus(cid)
+    return false
+  end
 
   if msgcontains(msg, "nieszczescie") then
     npcHandler:say("Panie! Przyrodniego {brata} mi porwali, {szuje} jedne. {Ojciec} nigdy by do tego nie dopuscil!", cid)
@@ -48,13 +54,17 @@ local function creatureSayCallback(cid, type, msg)
     npcHandler:say("Jestem pewny, ze maczala palce w morderstwie {ojca}.", cid)
   elseif msgcontains(msg, "pomoc") or msgcontains(msg, "pomoz") then
     npcHandler:say("Szybko! Nie ma czasu do stracenia. Nie wiadomo, do czego sa zdolni. Odszukaj mojego {brata}, odbij go z rak {piratow}, a na pewno sie {odwdziecze}.", cid)
-    Player(cid):setStorageValue(38100, 1)
+    if questStep < 1 then
+      Player(cid):setStorageValue(38100, 1)
+    end
   elseif msgcontains(msg, "yes") or msgcontains(msg, "tak") then
     if questStep == 2 then
       npcHandler:say("Ech? No to idz mu pomoz! Zaraz Was dogonie, uwolnij go, a przybede z chlopakami.", cid)
     elseif questStep == 3 then
       npcHandler:say({"Swietnie, dziekuje Ci bardzo. Jestes odwazniejszy niz wygladasz.", "Mialem takiego przyjaciela, zeglarz. Ciezko myslal, ale zabawny byl. Nieraz, jak sie popilismy rumu, pojawialy sie burdy. Mial wtedy w zwyczaju mowic: \"ZROBIMY IM DOMINANDO JAK NA GUNZO...\"costam. No, wiec zaraz tak bedzie.", "Teraz czas, abym Ci sie {odwdzieczyl}."}, cid)
-      Player(cid):setStorageValue(38100, 4) -- quest finished
+      if questStep < 4 then
+        Player(cid):setStorageValue(38100, 4) -- quest finished
+      end
       npcHandler.topic[cid] = 2
     end
   elseif msgcontains(msg, "no") or msgcontains(msg, "nie") then
@@ -70,7 +80,8 @@ local function creatureSayCallback(cid, type, msg)
 
 end
 
-
+npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
+npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

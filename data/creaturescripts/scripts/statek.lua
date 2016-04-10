@@ -14,8 +14,8 @@ local miasta = {
 	[9] = Position(1322, 2012, 7),	--Bagna
 	[10] = Position(885, 605, 6),	--Cotopaxi
 	[11] = Position(2411, 416, 6),	--Bananowo
-	[12] = Position(1882, 2552, 7) -- Praga polnoc
-
+	[12] = Position(1882, 2552, 7), -- Praga polnoc
+	[13] = Position(1441, 1734, 6) -- Cebulahar
 }
 
 local miasta_szmugler = {
@@ -34,7 +34,8 @@ local miasta_szmugler = {
 	[9] = Position(1322, 2012, 7),	--Bagna
 	[10] = Position(1294, 1950, 7),	--Cotopaxi
 	[11] = Position(2410, 418, 7),	--Bananowo
-	[12] = Position(1885, 2489, 7) -- Praga polnoc
+	[12] = Position(1885, 2489, 7), -- Praga polnoc
+	[13] = Position(1441, 1734, 6) -- Cebulahar
 }
 
 

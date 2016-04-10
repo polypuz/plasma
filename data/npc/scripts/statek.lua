@@ -42,6 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 	modal:addChoice(10, "Cotopaxi")
 	modal:addChoice(11, "Bananowo")
 	modal:addChoice(12, "Praga Polnoc")
+	modal:addChoice(13, "Cebulahar")
 
 
 
