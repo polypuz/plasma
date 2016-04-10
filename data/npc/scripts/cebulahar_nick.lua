@@ -62,7 +62,7 @@ local function creatureSayCallback(cid, type, msg)
       npcHandler:say({"Tak myslalem. Wspominal mi, glupek jeden...", "Dobra, przelaz. Tylko nikomu ani slowa, bo mnie wyleja, a niedawno zniesiono ustawe 500+, nie bedzie mial kto mlodych utrzymac. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*"}, cid)
       addEvent(
         function()
-          enddoTeleportThing(cid, district)
+          doTeleportThing(cid, district)
         end, 35000)
     else
       npcHandler:say("Niewazne. Spadaj, jestem na warcie.", cid)
