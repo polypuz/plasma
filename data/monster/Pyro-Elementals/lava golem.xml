@@ -70,7 +70,7 @@
 		<item id="7890" chance="2900" /><!-- magma amulet -->
 		<item id="7891" chance="2650" /><!-- magma boots -->
 		<item id="5911" chance="3530" /><!-- red piece of cloth -->
-		<item id="18409" chance="1390" /><!-- wand of everblazing -->
+		<item id="18409" chance="1320" /><!-- wand of everblazing -->
 		<item id="18416" countmax="2" chance="13990" /><!-- Green Crystal Splinters -->
 		<item id="18420" chance="10990" /><!-- Red Crystal Fragment -->
 		<item id="18414" chance="6200" /><!-- Violet Crystal Shard -->
@@ -78,8 +78,8 @@
 		<item id="18425" chance="15200" /><!-- Blazing Bone -->
 		<item id="2156" chance="1180" /><!-- red gem -->
 		<item id="2519" chance="1180" /><!-- crown shield -->
-		<item id="2432" chance="1560" /><!-- fire axe -->
-		<item id="7899" chance="430" /><!-- magma coat -->
+		<item id="2432" chance="1430" /><!-- fire axe -->
+		<item id="7899" chance="380" /><!-- magma coat -->
 		<item id="8902" chance="450" /><!-- spellbook of mind control -->
 	</loot>
 </monster>

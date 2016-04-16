@@ -38,7 +38,7 @@
 	<loot>
 		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
 		<item id="2148" countmax="43" chance="100000" /><!-- gold coin -->
-		<item id="7589" chance="14285" /><!-- strong mana potion -->
+		<item id="7589" chance="11290" /><!-- strong mana potion -->
 		<item id="13304" chance="5000" /><!-- giant crab pincer -->
 	</loot>
 </monster>

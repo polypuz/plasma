@@ -67,16 +67,16 @@
 		<item id="2158" chance="480" /><!-- blue gem -->
 		<item id="18420" chance="10540" /><!-- red crystal fragment -->
 		<item id="18421" chance="10540" /><!-- green crystal fragment -->
-		<item id="18415" chance="5720" /><!-- green crystal shard -->
+		<item id="18415" chance="5320" /><!-- green crystal shard -->
 		<item id="18417" countmax="2" chance="12610" /><!-- brown crystal splinter -->
 		<item id="18432" chance="18400" /><!-- crystalline spikes -->
 		<item id="9942" chance="4480" /><!-- crystal of balance -->
 		<item id="9980" chance="2480" /><!-- crystal of power -->
 		<item id="5904" chance="830" /><!-- magic sulphur -->
-		<item id="2245" chance="620" /><!-- crystal mace -->
+		<item id="2245" chance="530" /><!-- crystal mace -->
 		<item id="2438" chance="480" /><!-- epee -->
 		<item id="7437" chance="480" /><!-- sapphire hammer -->
-		<item id="8855" chance="210" /><!-- composite hornbow -->
+		<item id="8855" chance="180" /><!-- composite hornbow -->
 		<item id="18412" chance="960" /><!-- glacial rod -->
 		<item id="8912" chance="1720" /><!-- springsprout rod -->
 		<item id="11368" chance="210" /><!-- jade hat -->

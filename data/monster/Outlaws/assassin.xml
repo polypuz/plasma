@@ -51,7 +51,7 @@
 		<item id="2403" chance="9500" /><!-- knife -->
 		<item id="2404" chance="4000" /><!-- combat knife -->
 		<item id="2457" chance="3230" /><!-- steel helmet -->
-		<item id="2509" chance="970" /><!-- steel shield -->
+		<item id="2509" chance="920" /><!-- steel shield -->
 		<item id="2510" chance="1900" /><!-- plate shield -->
 		<item id="3968" chance="480" /><!-- leopard armor -->
 		<item id="2513" chance="1600" /><!-- battle shield -->

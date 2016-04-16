@@ -62,8 +62,8 @@
 		<item id="7589" chance="10000" /><!-- smp -->
 		<item id="2167" chance="950" /><!-- energy ring -->
 		<item id="2168" chance="930" /><!-- life ring -->
-		<item id="7158" chance="940" /><!-- rainbow trout -->
-		<item id="7159" chance="1050" /><!-- green perch -->
+		<item id="7158" chance="790" /><!-- rainbow trout -->
+		<item id="7159" chance="850" /><!-- green perch -->
 		<item id="10220" chance="260" /><!-- leviathan's amulet -->
 	</loot>
 </monster>

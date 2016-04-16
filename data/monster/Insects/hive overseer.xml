@@ -62,9 +62,9 @@
 		<item id="9971" chance="29000" /><!-- gold ingot -->
 		<item id="15572" countmax="2" chance="13000" /><!-- gooey mass -->
 		<item id="15489" chance="830" /><!-- calpteryx cape -->
-		<item id="15492" chance="1650" /><!-- hive scythe -->
-		<item id="15643" chance="830" /><!-- hive bow -->
-		<item id="15491" chance="920" /><!-- carapace shield -->
-		<item id="2645" chance="550" /><!-- steel boots -->
+		<item id="15492" chance="1520" /><!-- hive scythe -->
+		<item id="15643" chance="760" /><!-- hive bow -->
+		<item id="15491" chance="850" /><!-- carapace shield -->
+		<item id="2645" chance="510" /><!-- steel boots -->
 	</loot>
 </monster>

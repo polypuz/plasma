@@ -60,6 +60,6 @@
 		<item id="18421" chance="2070" /><!-- green crystal fragment -->
 		<item id="2409" chance="1360" /><!-- serpent sword -->
 		<item id="2529" chance="1320" /><!-- black shield -->
-		<item id="2181" chance="850" /><!-- terra rod -->
+		<item id="2181" chance="770" /><!-- terra rod -->
 	</loot>
 </monster>

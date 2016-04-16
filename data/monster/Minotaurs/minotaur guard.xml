@@ -33,7 +33,7 @@
 	<loot>
 		<item id="2148" countmax="20" chance="59640" /><!-- gold coin -->
 		<item id="2580" chance="480" /><!-- fishing rod -->
-		<item id="2465" chance="4390" /><!-- brass armor -->
+		<item id="2465" chance="4120" /><!-- brass armor -->
 		<item id="2464" chance="2980" /><!-- chain armor -->
 		<item id="2513" chance="2150" /><!-- battle shield -->
 		<item id="5878" chance="1000" /><!-- minotaur leather -->

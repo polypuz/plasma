@@ -64,9 +64,9 @@
 		<item id="2541" chance="2000" /><!-- bone shield -->
 		<item id="2796" chance="1350" /><!-- green mushroom -->
 		<item id="2463" chance="8000" /><!-- plate armor -->
-		<item id="7618" chance="540" /><!-- health potion -->
+		<item id="7618" chance="500" /><!-- health potion -->
 		<item id="2229" chance="20000" /><!-- skull -->
 		<item id="11194" chance="9780" /><!-- bony tail -->
-		<item id="11161" chance="120" /><!-- bonebeast trophy -->
+		<item id="11161" chance="100" /><!-- bonebeast trophy -->
 	</loot>
 </monster>

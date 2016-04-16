@@ -48,9 +48,9 @@
 		<item id="15486" chance="6060" /><!-- compound eye -->
 		<item id="2144" chance="4230" /><!-- black pearl -->
 		<item id="2127" chance="2040" /><!-- emerald bangle -->
-		<item id="2154" chance="1040" /><!-- yellow gem -->
-		<item id="15490" chance="230" /><!-- grasshopper legs -->
-		<item id="15492" chance="330" /><!-- hive scythe -->
-		<item id="15491" chance="120" /><!-- carapace shield -->
+		<item id="2154" chance="840" /><!-- yellow gem -->
+		<item id="15490" chance="150" /><!-- grasshopper legs -->
+		<item id="15492" chance="310" /><!-- hive scythe -->
+		<item id="15491" chance="80" /><!-- carapace shield -->
 	</loot>
 </monster>
