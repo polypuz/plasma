@@ -67,6 +67,7 @@
 		<item id="2214" chance="3000" /><!-- ring of healing -->
 		<item id="5913" chance="4650" /><!-- brown piece of cloth -->
 		<item id="5914" chance="2960" /><!-- yellow piece of cloth -->
+		<item id="5911" chance="980" /><!-- red piece of cloth -->
 		<item id="7590" countmax="3" chance="20000" /><!-- great mana potion -->
 		<item id="7886" chance="560" /><!-- terra boots -->
 		<item id="8910" chance="720" /><!-- underworld rod -->
