@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Grzegorz" script="grzegorz.lua" walkinterval="2000" floorchange="0" speechbubble="1">
+	<health now="100" max="100"/>
+	<look type="251" head="0" body="10" legs="10" feet="10" addons="3" mount="401" />
+	<parameters>
+    <parameter key="message_greet" value="Witaj zielonko, chcialbys dowiedziec sie czegos o tej mroznej krainie?" />
+		<parameter key="message_walkaway" value="Ech..." />
+		<parameter key="message_farewell" value="W imie Krula!" />
+	</parameters>
+</npc>

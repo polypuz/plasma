@@ -1,8 +1,9 @@
 ----------------- CONFIG ---------------------
 
 local reqLevel = 50
-local reqCreationDate = 1454194800
-
+local reqCreationDate = 1457222460
+local afterDate = "6 marca" -- np. po <6 marca>, po <7 stycznia>
+local isVotePresent = false
 ----------------- CONFIG ---------------------
 
 local function playerMsg(player, msg)
@@ -31,13 +32,13 @@ local function accountCreatedAfterBroadcast( player, reqCreationDate )
 	print( "Got: " .. tostring( reqCreationDate) .. " as reqCreationDate")
 	local val = db.storeQuery("SELECT `creation` FROM `accounts` WHERE `id`=( SELECT `account_id` FROM `players` WHERE `id`=" .. player:getGuid() .. ")")
 	local accCreationTimestamp = result.getDataInt( val, "creation" )
-	
+
 	print( "Creation got: " .. tostring( accCreationTimestamp ) )
 	if accCreationTimestamp and accCreationTimestamp > 0 then
 		if accCreationTimestamp <= reqCreationDate then
 			return false
 		else
-			playerMsg( player, "Twoje konto zostalo utworzone po 31 stycznia. Nie mozesz wziac udzialu w glosowaniu.")
+			playerMsg( player, "Twoje konto zostalo utworzone po " .. afterDate .. ". Nie mozesz wziac udzialu w glosowaniu.")
 			return true
 		end
 	else
@@ -73,7 +74,7 @@ end
 function addRecord( player, option )
 
 	local query = "INSERT INTO `vote` (`id` ,`option_id` ,`player_id` ,`account_id`, `ip`) VALUES (NULL,  ".. tostring( option ) .. ", " .. tostring( player:getGuid() ) .. ", " .. tostring( player:getAccountId() ) .. ", " .. tostring( player:getIp() ) .. ");"
-	
+
 	if db.query( query ) then
 		return true
 	else
@@ -93,41 +94,40 @@ local function vote( player, option )
 			else
 				--playerMsg( player, "Wystapil blad przy zapisywaniu Twojego glosu. Zglos to administracji, najlepiej wraz z godzina.")
 				return false
-			end			
+			end
 		else
-			--playerBroadcast( player, "Nie masz adekwatnego poziomu (50). Przeloguj sie na postac o wyzszym poziomie.") 
+			--playerBroadcast( player, "Nie masz adekwatnego poziomu (50). Przeloguj sie na postac o wyzszym poziomie.")
 			return false
 		end
 	else
 		--playerBroadcast(player, "Juz glosowales.")
 		return false
 	end
-	
+
 	return false
 end
 
 function onSay(player, words, param)
 	local level = player:getLevel()
-	
-	
-	local options = { 
-		[1] = "Kompletny reset.",
-		[2] = "Reset z zachowanymi outfitami i addonami",
-		[3] = "Reset z zachowanymi outfitami, addonami i mountami"
+
+
+	local options = {
+		[1] = "2x exp od 23:59 7 marca do 23:59 8 marca.",
+		[2] = "Bez 2x exp",
 	}
-	
+
 	-- doPlayerSendTextMessage(cid,MESSAGE_STATUS_CONSOLE_BLUE, "...")
 	local split = param:split(" ")
-	
+
 	if split[1] == " " or split[1] == nil then
-		playerMsg( player, "Glosowanie ws. resetu postaci - dostepne opcje: ")
+		playerMsg( player, "Glosowanie ws. 2x exp - dostepne opcje: ")
 		local msg = ""
 		for k, v in ipairs( options ) do
 			msg = "[" .. tostring(k) .. "] " .. tostring(v)
 			playerMsg( player, msg )
 		end
 		playerMsg(player, "Glosowac mozesz za pomoca komendy /glosuj opcja, wiec np. /glosuj 1, /glosuj 2, /glosuj 3.")
-		playerMsg(player, "Zaglosowac moze kazde konto, z postaci o poziomie 50 lub wyzszym, ktore zostalo utworzone przed 31 stycznia 2016.")
+		playerMsg(player, "Zaglosowac moze kazde konto, z postaci o poziomie " .. tostring(reqLevel) .. " lub wyzszym, ktore zostalo utworzone przed " .. afterDate .. ".")
 	else
 		if tonumber(split[1])>0 and tonumber(split[1])<4 then
 			if vote( player, tonumber(split[1]) ) then
@@ -139,6 +139,6 @@ function onSay(player, words, param)
 			playerBroadcast( player, "Nie ma takiej opcji w glosowaniu.")
 		end
 	end
-	
+
 	return false
 end

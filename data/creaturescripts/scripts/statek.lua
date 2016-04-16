@@ -1,37 +1,41 @@
 local miasta = {
 	[1] = Position(1017, 1053, 6), 	--Mirko Town
-	[2] = Position(216, 966, 7), 	--Jaszczurze Miasto
-	[3] = Position(658, 335, 7),    --Smoki, wyrmy, behemothy
-	[4] = Position(847, 370, 6), 	--Kraina Aladyna
-	[5] = Position(1900, 380, 6), 	--Amazonia
-	[6] = Position(1522, 308, 7), 	--Atlantyda
-	[7] = Position(349, 1736, 6),	--Skala Barbarzyncow
-	[8] = Position(2069, 1080, 6),	--Puerto de mogan
-	[9] = Position(459, 1649, 7),	--Fryst	
-	[10] = Position(1506, 738, 6),	--Kolobrzeg
-	[11] = Position(1861, 1405, 6), --Opuszczona Kolonia
-	[12] = Position(530, 647, 6), 	--Wyspa Horrorow
-	[13] = Position(1322, 2012, 7),	--Bagna
-	[14] = Position(885, 605, 6),	--Cotopaxi
-	[15] = Position(2411, 416, 6)	--Bananowo
-	
+	--[2] = Position(216, 966, 7), 	--Jaszczurze Miasto
+	--[3] = Position(658, 335, 7),    --Smoki, wyrmy, behemothy
+	[2] = Position(847, 370, 6), 	--Kraina Aladyna
+	--[5] = Position(1900, 380, 6), 	--Amazonia
+	--[6] = Position(1522, 308, 7), 	--Atlantyda
+	[3] = Position(349, 1736, 6),	--Skala Barbarzyncow
+	[4] = Position(2069, 1080, 6),	--Puerto de mogan
+	[5] = Position(459, 1649, 7),	--Fryst
+	[6] = Position(1506, 738, 6),	--Kolobrzeg
+	[7] = Position(1861, 1405, 6), --Opuszczona Kolonia
+	[8] = Position(530, 647, 6), 	--Wyspa Horrorow
+	--[9] = Position(1322, 2012, 7),	--Bagna
+	[9] = Position(885, 605, 6),	--Cotopaxi
+	[10] = Position(2411, 416, 6),	--Bananowo
+	[11] = Position(1882, 2552, 7), -- Praga polnoc
+	[12] = Position(1441, 1734, 6) -- Cebulahar
 }
 
 local miasta_szmugler = {
 	[1] = Position(1016, 1052, 7), 	--Mirko Town
-	[2] = Position(175, 1008, 7), 	--Jaszczurze Miasto
-	[3] = Position(599, 267, 7),    --Smoki, wyrmy, behemothy
-	[4] = Position(850, 376, 7), 	--Kraina Aladyna
-	[5] = Position(1900, 380, 7), 	--Amazonia
-	[6] = Position(1451, 272, 7), 	--Atlantyda
-	[7] = Position(344, 1736, 7),	--Skala Barbarzyncow
-	[8] = Position(2069, 1080, 7),	--Puerto de mogan
-	[9] = Position(425, 1673, 7),	--Fryst	
-	[10] = Position(1506, 738, 7),	--Kolobrzeg
-	[11] = Position(1860, 1405, 7),	--Opuszczona Kolonia
-	[12] = Position(530, 645, 7), 	--Wyspa Horrorow
-	[13] = Position(1294, 1950, 7),	--Cotopaxi
-	[15] = Position(2410, 418, 7)	--Bananowo
+	--[2] = Position(175, 1008, 7), 	--Jaszczurze Miasto
+	--[3] = Position(599, 267, 7),    --Smoki, wyrmy, behemothy
+	[2] = Position(850, 376, 7), 	--Kraina Aladyna
+	--[5] = Position(1900, 380, 7), 	--Amazonia
+	--[6] = Position(1451, 272, 7), 	--Atlantyda
+	[3] = Position(344, 1736, 7),	--Skala Barbarzyncow
+	[4] = Position(2069, 1080, 7),	--Puerto de mogan
+	[5] = Position(425, 1673, 7),	--Fryst
+	[6] = Position(1506, 738, 7),	--Kolobrzeg
+	[7] = Position(1860, 1405, 7),	--Opuszczona Kolonia
+	[8] = Position(530, 645, 7), 	--Wyspa Horrorow
+	--[9] = Position(1322, 2012, 7),	--Bagna
+	[9] = Position(1294, 1950, 7),	--Cotopaxi
+	[10] = Position(2410, 418, 7),	--Bananowo
+	[11] = Position(1885, 2489, 7), -- Praga polnoc
+	[12] = Position(1441, 1736, 7) -- Cebulahar
 }
 
 
@@ -60,8 +64,8 @@ local player = Player(cid)
 		else
 			player:sendCancelMessage("Spadaj zielonko, nie masz monet.")
 		end
-	
+
    end
-	
-	
+
+
 end

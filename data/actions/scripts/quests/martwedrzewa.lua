@@ -62,8 +62,8 @@ local function rewardPlayer( cid, uniqueid)
 end
 
 function onUse(cid, item, position, target, pos)
-
-	if cid:getStorageValue(36900) ~= 1 and cid:getStorageValue(36900) ~= 2 then
+	
+	if cid:getStorageValue(36900) < 1 then
 		return false
 	end
 	

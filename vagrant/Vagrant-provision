@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Fix locales
+sudo locale-gen en_US en_US.UTF-8 pl_PL.UTF-8
+sudo dpkg-reconfigure locales
+
+# Append to .bashrc & update hostname
+cat /vagrant/vagrant/Vagrant-bashrc >> /home/vagrant/.bashrc
+echo 'echo "vagrant-mirkots" > /etc/hostname' | sudo bash
+
+# Prepare mysql-server settings
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+
+# Install necessary packages
+sudo apt-get update
+sudo apt-get install -y git git-core cmake curl htop build-essential openssl liblua5.2-dev libgmp3-dev libmysqlclient-dev libboost-system-dev libpugixml-dev mysql-server
+

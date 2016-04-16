@@ -8,8 +8,8 @@
 	<!-- end of npc statek -->
 	<!-- npc pirog addon -->
 	<event type="modalwindow" name="addon" script="addon.lua"/>
-	<!-- end of npc pirog addon --> 
-	
+	<!-- end of npc pirog addon -->
+
 	<event type="login" name="PlayerLogin" script="login.lua" />
 	<event type="logout" name="PlayerLogout" script="logout.lua" />
 	<event type="login" name="FirstItems" script="firstitems.lua" />
@@ -18,5 +18,8 @@
 	<event type="death" name="PlayerDeath" script="playerdeath.lua" />
 	<event type="death" name="DropLoot" script="droploot.lua" />
 	<event type="extendedopcode" name="ExtendedOpcode" script="extendedopcode.lua" />
-	<event type="modalwindow" name="addon" script="addon.lua"/>
+
+	<!-- tasks -->
+	<event type="kill" name="Tasks" script="tasks.lua"/>
+
 </creaturescripts>

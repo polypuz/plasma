@@ -22,7 +22,7 @@ function onStepIn(cid, item, position, to)
 		local failure = {x = 893, y = 2035, z = 10}
 		local dest = { }
 
-		if cid:getStorageValue(36900) == 2 and not hasCompletedQuest( cid ) then
+		if cid:getStorageValue(36900) == 3 and not hasCompletedQuest( cid ) then
 			dest = success
 		else
 			dest = failure

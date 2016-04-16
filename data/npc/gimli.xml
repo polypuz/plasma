@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Gimli" script="default.lua" walkinterval="2000" floorchange="0" speechbubble="1">
+<health now="185" max="185"/>
+<look type="69" head="115" body="76" legs="37" feet="116" addons="3"/>
+<parameters>
+<parameter key="module_shop" value="1"/>
+<parameter key="message_greet" value="Szacuneczek. Aby zobaczyc co mam na stanie, napisz {wymiana}."/>
+<parameter key="message_farewall" value="Do nastepnego."/>
+<parameter key="message_walkaway" value="Nastepny!"/>
+<parameter key="shop_sellable" value="
+Elite Draken Mail,12607,50000;
+zaoan helmet,11302,45000;
+draken boots,12646,40000;
+guardian boots,11240,35000;
+zaoan sword,11307,30000;
+twiceslicer,12613,28000;
+sai,11306,16500;
+zaoan armor,11301,14000;
+zaoan legs,11304,14000;
+drachaku,11308,10000;
+drakinata,11305,10000;
+zaoan shoes,11303,5000;
+wailing widow's necklace,11329,3000;
+beetle necklace,11374,1000;
+zaoan halberd,11323,500;
+twin hooks,11309,500;
+cursed shoulder spikes,11327,320;
+bone shoulderplate,11321,150;
+zaogun shoulderplates,11331,150;
+high guard shoulderplates,11333,130;
+spiked iron ball,11325,100;
+broken halberd,11335,100;
+broken slicer,12617,120;
+warmaster's wristguards,11322,200;
+broken draken mail,12616,340;
+draken wristbands,12615,430;
+axe,2386,7;
+battle axe,2378,80;
+battle hammer,2417,120;
+bone club,2449,5;
+bone sword,2450,20;
+carlin sword,2395,118;
+club,2382,1;
+dagger,2379,2;
+double axe,2387,260;
+fire sword,2392,1000;
+halberd,2381,400;
+hand axe,2380,4;
+hatchet,2388,25;
+katana,2412,35;
+longsword,2397,51;
+mace,2398,30;
+morning star,2394,100;
+orcish axe,2428,350;
+rapier,2384,5;
+sabre,2385,12;
+short sword,2406,10;
+sickle,2405,3;
+small axe,2559,5;
+spike sword,2383,240;
+studded club,2448,10;
+swampling club,20104,40;
+sword,2376,25;
+two handed sword,2377,450;
+war hammer,2391,470;
+battle shield,2513,95;
+copper shield,2530,50;
+wooden shield,2512,5;
+brass armor,2465,150;
+chain armor,2464,70;
+coat,2651,1;
+doublet,2485,3;
+jacket,2650,1;
+leather armor,2467,12;
+plate armor,2463,400;
+scale armor,2483,75;
+studded armor,2484,25;
+brass helmet,2460,30;
+chain helmet,2458,17;
+iron helmet,2459,150;
+leather helmet,2461,4;
+legion helmet,2480,22;
+soldier helmet,2481,16;
+steel helmet,2457,293;
+studded helmet,2482,20;
+viking helmet,2473,66;
+brass legs,2478,49;
+chain legs,2648,25;
+leather legs,2649,9;
+plate legs,2647,115;
+studded legs,2468,15;
+brass shield,2511,25;
+dwarven shield,2525,100;
+plate shield,2510,45;
+steel shield,2509,80;
+studded shield,2526,16;
+viking shield,2531,85;
+leather boots,2643,2;
+throwing knife,2410,2;
+crowbar,2416,50;" />
+<parameter key="shop_buyable" value="
+mace,2398,90;
+throwing knife,2410,25;
+battle hammer,2417,350;
+axe,2386,20;
+dagger,2379,5;
+rapier,2384,15;
+sabre,2385,35;
+sword,2376,85;
+spear,2389,10;
+leather armor,2467,35;
+chain armor,2464,200;
+brass armor,2465,450;
+wooden shield,2512,15;
+steel shield,2509,240;
+leather helmet,2461,12;
+chain helmet,2458,52;
+chain legs,2648,80;" />
+</parameters>
+</npc>

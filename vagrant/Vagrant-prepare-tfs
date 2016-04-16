@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Copy example-world
+cp /vagrant/data/example-world /vagrant/data/world -rf
+
+# Create database, load schema & test admins
+mysql -u root --password=root -e "CREATE DATABASE mirkots;"
+mysql -u root --password=root -e "SOURCE /vagrant/schema.sql;" mirkots
+mysql -u root --password=root -e "SOURCE /vagrant/data/world/test-players.sql;" mirkots
+
+# Copy config & modify it
+cp /vagrant/config-EXAMPLE.lua /vagrant/config.lua
+sed -i 's/ip = .*/ip = "localhost"/g' /vagrant/config.lua
+sed -i 's/mapName = .*/mapName = "HUB"/g' /vagrant/config.lua
+sed -i 's/mysqlUser = .*/mysqlUser = "root"/g' /vagrant/config.lua
+sed -i 's/mysqlPass = .*/mysqlPass = "root"/g' /vagrant/config.lua
+sed -i 's/mysqlDatabase = .*/mysqlDatabase = "mirkots"/g' /vagrant/config.lua
+
+# Build TFS (MirkOTS)
+cd /vagrant
+rm -rf build
+mkdir build
+cd build
+cmake ..
+make
+cd ..
+cp build/tfs .

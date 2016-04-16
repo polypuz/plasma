@@ -2,6 +2,8 @@
 _Silnik serwera MirkOTS na bazie The Forgotten Server._
 
 Przed instalacją prosimy o podejrzenie "licencji" (niżej).
+
+Kontakt: #mirkots na Freenode.
 # wiki, dokumentacja
 The Forgotten Server ma bardzo słąbą dokumentację, więc staramy się tworzyć w miarę możliwości własną. Więcej informacji na [wiki projektu](https://github.com/Marahin/mirkots-engine/wiki)
 
@@ -32,6 +34,36 @@ Bardziej szczególowo opisany proces (i inne systemy): https://github.com/otland
 ### konfiguracja
 
 mirkots-engine/config.lua
+
+### Maszyna wirtualna Vagranta
+
+Możliwe jest również uruchomienie serwera na maszynie wirtualnej, zarządzanej i konfigurowanej za pomocą narzędzia [Vagrant](https://www.vagrantup.com/).  
+Maszyna jest kontrolowana przez system Ubuntu Trusty Tahr (14.04 LTS).  
+Skrypt konfiguracyjny wykonuje następujące czynności:
+* Tworzy maszynę wirtualną
+* Dokonuje wstępnej konfiguracji systemu
+* Instaluje wymagane pakiety
+* Konfiguruje serwer MySQL
+* Kopiuje przykładową mapę HUB (data/example-world) jako domyślną mapę serwera
+* Tworzy bazę danych na podstawie schematu z repo (schema.sql)
+* Tworzy przykładowe konta graczy (data/example-world/test-players.sql)
+* Konfiguruje serwer na podstawie przykładowego pliku konfiguracji (config-EXAMPLE.lua)
+* Buduje serwer
+
+Uruchomienie serwera przebiega następująco (na podstawie komend z systemów rodziny Linux):
+```bash
+me@local$ cd katalog/z/repo
+me@local$ vagrant plugin install vagrant-hostmanager
+me@local$ vagrant up
+me@local$ vagrant ssh
+```
+
+```bash
+me@vm$ cd /vagrant
+me@vm$ ./tfs
+```
+
+Na serwer można zalogować się przez adres ``localhost@7171``
 
 ## gałęzie
 

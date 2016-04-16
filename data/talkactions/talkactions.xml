@@ -31,11 +31,11 @@
 	<talkaction words="/mccheck" script="mccheck.lua" />
 	<talkaction words="/ghost" script="ghost.lua" />
 	<talkaction words="/clean" script="clean.lua" />
-	<talkaction words="/hide" script="hide.lua" />	
+	<talkaction words="/hide" script="hide.lua" />
 	<talkaction words="/trophy" separator=" " script="create_trophy.lua" />
 
 	<!-- <talkaction words="/glosuj" separator=" " script="vote.lua" /> -->
-	
+
 	<!-- tutor talkactions -->
 	<talkaction words="/mute" separator=" " script="mute.lua" />
 

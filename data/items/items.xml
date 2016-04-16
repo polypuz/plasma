@@ -2443,10 +2443,10 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="transformDeEquipTo" value="2168" />
-		<attribute key="duration" value="1200" />
-		<attribute key="healthGain" value="2" />
+		<attribute key="duration" value="600" />
+		<attribute key="healthGain" value="4" />
 		<attribute key="healthTicks" value="6000" />
-		<attribute key="manaGain" value="8" />
+		<attribute key="manaGain" value="16" />
 		<attribute key="manaTicks" value="6000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -2538,10 +2538,10 @@
 		<attribute key="slotType" value="ring" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="transformDeEquipTo" value="2214" />
-		<attribute key="duration" value="450" />
-		<attribute key="healthGain" value="6" />
+		<attribute key="duration" value="300" />
+		<attribute key="healthGain" value="9" />
 		<attribute key="healthTicks" value="6000" />
-		<attribute key="manaGain" value="24" />
+		<attribute key="manaGain" value="36" />
 		<attribute key="manaTicks" value="6000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -4417,9 +4417,9 @@
 		<attribute key="decayTo" value="10021" />
 		<attribute key="transformDeEquipTo" value="6132" />
 		<attribute key="duration" value="14400" />
-		<attribute key="healthGain" value="1" />
+		<attribute key="healthGain" value="2" />
 		<attribute key="healthTicks" value="2000" />
-		<attribute key="manaGain" value="2" />
+		<attribute key="manaGain" value="4" />
 		<attribute key="manaTicks" value="1000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -11183,7 +11183,8 @@
 		<attribute key="fluidSource" value="water" />
 	</item>
 	<item id="6391" article="" name="nightmare shield">
-		<attribute key="description" value="It was crafted by the ancient order of the nightmare knights." />
+		<!-- <attribute key="description" value="It was crafted by the ancient order of the nightmare knights." /> -->
+		<attribute key="description" value="Zostala wyrzezbiona przez czeladnikow zakonu 4konserw, z wygrawerowanym napisem 'Nie poruchasz, kucu' - Maurycy Rothbard" />
 		<attribute key="weight" value="3200" />
 		<attribute key="defense" value="37" />
 		<attribute key="weaponType" value="shield" />
@@ -11201,7 +11202,7 @@
 	<item fromid="6423" toid="6430" article="" name="large branch" />
 	<item fromid="6431" toid="6432" article="" name="branch" />
 	<item id="6433" article="" name="necromancer shield">
-		<attribute key="description" value="It is enchanted with unholy, necromantic powers." />
+		<attribute key="description" value="Ma na niej przyklejona brudna kartke A4, z napisem 'ubostwo zniesc ustawa' - Piotr Sz." />
 		<attribute key="weight" value="3200" />
 		<attribute key="defense" value="37" />
 		<attribute key="weaponType" value="shield" />
@@ -15666,7 +15667,7 @@
 	<item id="8843" article="" name="onion">
 		<attribute key="weight" value="140" />
 	</item>
-	<item id="8844" name="jalapeño pepper" article="">
+	<item id="8844" name="jalapeï¿½o pepper" article="">
 		<attribute key="weight" value="30" />
 	</item>
 	<item id="8845" article="" name="beetroot">
@@ -17699,7 +17700,7 @@
 		<attribute key="description" value="This one would be quite healthy if it wasn't for all the melted cheese on top." />
 		<attribute key="weight" value="1100" />
 	</item>
-	<item id="9998" article="" name="filled jalapeño peppers">
+	<item id="9998" article="" name="filled jalapeï¿½o peppers">
 		<attribute key="description" value="The creamy cheese makes a great combination with the spicy peppers." />
 		<attribute key="weight" value="650" />
 	</item>

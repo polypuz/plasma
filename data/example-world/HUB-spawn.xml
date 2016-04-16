@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<spawns>
+	<spawn centerx="951" centery="1008" centerz="7" radius="1">
+		<npc name="Jacek Wrobel" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="960" centery="1008" centerz="7" radius="1">
+		<npc name="iniekcja" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="968" centery="1008" centerz="7" radius="1">
+		<npc name="Grave Digger" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="975" centery="1008" centerz="7" radius="1">
+		<npc name="fstab" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="984" centery="1008" centerz="7" radius="1">
+		<npc name="Filozofujaca Calka" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="993" centery="1008" centerz="7" radius="1">
+		<npc name="Czarnobrody" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="1002" centery="1008" centerz="7" radius="1">
+		<npc name="Cygan" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="1010" centery="1008" centerz="7" radius="1">
+		<npc name="Biedronka07" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="1021" centery="1008" centerz="7" radius="1">
+		<npc name="Bibliotekarka" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1018" centerz="7" radius="1">
+		<npc name="Janusz Biznesu" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1026" centerz="7" radius="1">
+		<npc name="Jasiu Mela" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1033" centerz="7" radius="1">
+		<npc name="Jonasz" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1040" centerz="7" radius="1">
+		<npc name="Komor" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1047" centerz="7" radius="1">
+		<npc name="Ks. Natanek" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1054" centerz="7" radius="1">
+		<npc name="Lech Walesa" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1061" centerz="7" radius="1">
+		<npc name="Michal Pirog" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1067" centerz="7" radius="1">
+		<npc name="Old Postman" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="951" centery="1073" centerz="7" radius="1">
+		<npc name="Owsiak" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="958" centery="1078" centerz="7" radius="1">
+		<npc name="rpg7" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="968" centery="1078" centerz="7" radius="1">
+		<npc name="Rudobrody" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="977" centery="1078" centerz="7" radius="1">
+		<npc name="Ryszard Petru" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="985" centery="1078" centerz="7" radius="1">
+		<npc name="Szmugler" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="991" centery="1078" centerz="7" radius="1">
+		<npc name="Trollsky" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="997" centery="1078" centerz="7" radius="1">
+		<npc name="Wieslaw Wszywka" x="0" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+</spawns>

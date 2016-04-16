@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 		]]
 	elseif  isInArray({"mark", "zaznacz", "map", "zaznaczyc"}, msg) then
 		npcHandler.topic[cid] = 0
-		npcHandler:say("Prosze bardzo. Zagladnij do mnie za jakis czas, mozliwe ze pojawia sie nowi NPC.", cid)		
+		npcHandler:say("Prosze bardzo. Zagladnij do mnie za jakis czas, mozliwe ze pojawia sie nowi NPC.", cid)
 	elseif isInArray({"bless","blessy","blessing","blessings","blogoslawienstwo","blogoslawienstwa","blogoslaw","poblogoslawic", "poblogoslaw"}, msg ) then
 		if player:hasBlessing(5) then
 			npcHandler:say("Juz Cie poblogoslawilem. Odezwij sie, gdy stracisz moja moc.", cid)
@@ -46,7 +46,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Dzieki Ci za ofiare. Idz w pokoju i badz blogoslawiony!", cid)
 		else
 			npcHandler:say("Wybacz, ale abym Cie poblogoslawil musisz wpierw zlozyc ofiare na tace... skromne 70 000 sztuk zlota. Akurat na nowy konfesjonal!", cid)
-		end	
+		end
 		local configMarks = {
 			{mark = "tools", position = Position(897, 1109, 7), markId = 7, description = "Sklep z narzedziami"},
 			{mark = "fluids", position = Position(911, 1108, 7), markId = 3, description = "Zaopatrzenie magiczne"},
@@ -60,12 +60,12 @@ local function creatureSayCallback(cid, type, msg)
 			{mark = "shophouse", position = Position(877, 1111, 7), markId = 11, description = "Wyposazenie domu"},
 			{mark = "food", position = Position(911, 1124, 7), markId = 11, description = "Sklep z jedzeniem"}
 		}
-	
+
 		for i = 1, #configMarks do
 			mark = configMarks[i]
 			player:addMapMark(mark.position, mark.markId, mark.description)
 		end
-		
+
 	elseif isInArray({"rany", "lecz", "ulecz", "heal", "uleczyc"}, msg) then
 		npcHandler.topic[cid] = 0
 		player:addHealth(9999)
@@ -73,8 +73,8 @@ local function creatureSayCallback(cid, type, msg)
 		local conditions = { CONDITION_POISON, CONDITION_FIRE, CONDITION_ENERGY, CONDITION_BLEEDING, CONDITION_PARALYZE, CONDITION_DROWN, CONDITION_FREEZING, CONDITION_DAZZLED, CONDITION_CURSED }
 		for i = 1, #conditions do
 			player:removeCondition(conditions[i])
-		
-		end	
+
+		end
     elseif msgcontains(msg, "malzenstwo") or msgcontains(msg, "malzenstwa") or msgcontains(msg, "marriage") then
         local playerStatus = getPlayerMarriageStatus(player:getGuid())
         local playerSpouse = getPlayerSpouse(player:getGuid())
@@ -110,7 +110,33 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Bolec kosztuje 5000. Prawie niesmigany. To co, chcesz? ({tak} / {nie})", cid)
 		npcHandler.topic[cid] = 2
 	elseif isInArray({"poblogoslawiony bolec na boku", "poblogoslawiony bolec"}, msg) then
-		npcHandler:say("Musisz poczekac az Jedyny Prawilny Imperator, zwany tez Marahinem, doda aktualizacje. Nastepnym razem.", cid)
+		--npcHandler:say("Musisz poczekac az Jedyny Prawilny Imperator, zwany tez Marahinem, doda aktualizacje. Nastepnym razem.", cid)
+		--npcHandler.topic[cid] = 0
+		local playerHasBolec = player:getItemById( 5941, true )
+		if playerHasBolec then
+			local val = player:getStorageValue(5000)
+			if val > 0 then
+				if val == 1 then
+					npcHandler:say("Galganie, nie skonczyles zadania. Zabij 100 wampirow i dopiero wtedy tutaj przyjdz.", cid)
+				elseif val > 2 then
+					npcHandler:say("Poblogoslawilem juz raz Twojego bolca, nie bede robil tego co chwile.", cid)
+				else -- == 2 ( state completed and havent picked up the reward )
+					if player:removeItem(5941, 1) then
+						npcHandler:say("Wiec udalo Ci sie, amen. Oto Twoj bolec na boku.", cid)
+						player:addItem(5942, 1)
+						player:setStorageValue(5000, 3) -- 3 = state finished
+					else
+						npcHandler:say("Udalo Ci sie, to swietnie. Przynies mi bolec, a go poblogoslawie.", cid)
+					end
+				end
+			else
+				npcHandler:say("Moge poblogoslawic Twojego bolca, ale nie bez przyslugi. Aby bolec nabral mocy, musisz wybic 100 wampirow, ktore ostatnio panosza sie po naszym swiecie. Gdy juz to zrobisz, odezwij sie do mnie.", cid)
+					player:setStorageValue(19000, 0)
+					player:setStorageValue( 5000, 1 ) --5001 is the storageKey for natanek's task (state started == 1)
+				end
+		else
+			npcHandler:say("Abym mogl poblogoslawic Twojego bolca, najpierw musisz go miec. Moge Ci sprzedac swojego, za 5000 zlota - wspomnij tylko o {wooden stake} albo po prostu - {bolec}.", cid)
+		end
 		npcHandler.topic[cid] = 0
 	elseif isInArray({"yes", "tak"}, msg) and npcHandler.topic[cid] == 2 then
 		if player:removeMoney( 5000 ) then
@@ -131,9 +157,9 @@ local function tryEngage(cid, message, keywords, parameters, node)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-   
+
     local player = Player(cid)
-   
+
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local playerSpouse = getPlayerSpouse(player:getGuid())
     if playerStatus == MARRIED_STATUS then -- check if the player is already married
@@ -142,7 +168,7 @@ local function tryEngage(cid, message, keywords, parameters, node)
         npcHandler:say('Jestes w trakcie oswiadczyn wobec {' .. getPlayerNameById(playerSpouse) .. '}. Zawsze mozesz {anulowac} swoja propozycje.', cid)
     else
         local candidate = getPlayerGUIDByName(message)
-        if candidate == 0 then -- check if there is actually a player called like this
+        if candidate == -1 then -- check if there is actually a player called like this
             npcHandler:say('Ktos taki nie istnieje w moich ksiegach.', cid)
         elseif candidate == player:getGuid() then -- if it's himself, cannot marry
             npcHandler:say('Stulejo, badz powazna.', cid)
@@ -216,10 +242,10 @@ local function confirmWedding(cid, message, keywords, parameters, node)
         local item2 = Item(doPlayerAddItem(cid,ITEM_ENGRAVED_WEDDING_RING,1))
 		local trophy1 = Item( doPlayerAddItem(cid, 7370, 1) )
 		local trophy2 = Item( doPlayerAddItem(cid, 7370, 1) )
-		
+
 		trophy1:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "To trofeum nalezy do "..player:getName()..", nadane przez Ks. Natanka, za zawarcie zwiazku malzenskiego.")
 		trophy2:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "To trofeum nalezy do "..getPlayerNameById( candidate )..", nadane przez Ks. Natanka, za zawarcie zwiazku malzenskiego.")
-		
+
         item1:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, player:getName() .. ' & ' .. getPlayerNameById(candidate) .. ', dopoki tagi na Wykopie nie zostana naprawione, od ' .. os.date('%B %d, %Y.'))
         item2:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, player:getName() .. ' & ' .. getPlayerNameById(candidate) .. ', dopoki tagi na Wykopie nie zostana naprawione, od ' .. os.date('%B %d, %Y.'))
     else
@@ -232,14 +258,14 @@ local function confirmRemoveEngage(cid, message, keywords, parameters, node)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-   
+
     local player = Player(cid)
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local playerSpouse = getPlayerSpouse(player:getGuid())
     if playerStatus == PROPOSED_STATUS then
         npcHandler:say('Czy na pewno chcesz zrezygnowac z oswiadczyn wobec {' .. getPlayerNameById(playerSpouse) .. '}? ({tak} / {nie})', cid)
         node:addChildKeyword({'nie'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, moveup = 3, text = 'Okej, w takim razie nic nie zmieniamy.'})
-       
+
         local function removeEngage(cid, message, keywords, parameters, node)
             doPlayerAddItem(cid,ITEM_WEDDING_RING,1)
 			doPlayerAddItem(cid,10503,1)
@@ -260,14 +286,14 @@ local function confirmDivorce(cid, message, keywords, parameters, node)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-   
+
     local player = Player(cid)
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local playerSpouse = getPlayerSpouse(player:getGuid())
     if playerStatus == MARRIED_STATUS then
         npcHandler:say('A wiec chcesz rozwiesc sie z {' .. getPlayerNameById(playerSpouse) .. '}? ({tak} / {nie})', cid)
         node:addChildKeyword({'nie'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, moveup = 3, text = 'To dobrze. Gardze rozwodami.'})
-       
+
         local function divorce(cid, message, keywords, parameters, node)
             local player = Player(cid)
             local spouse = getPlayerSpouse(player:getGuid())

@@ -99,7 +99,7 @@ function creatureSayCallback(cid, type, msg)
 		[5] = 2190,
 		[6] = 2182
 	}
-
+	--[[
 	if msgcontains(msg, 'first rod') or msgcontains(msg, 'first wand') then
 		local vocationId = player:getVocation():getId()
 		if isInArray({1, 2, 5, 6}, vocationId) then
@@ -123,6 +123,7 @@ function creatureSayCallback(cid, type, msg)
 		selfSay('Okej.', cid)
 		npcHandler.topic[cid] = 0
 	end
+	]]
 
 	return true
 end

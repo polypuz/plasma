@@ -5,6 +5,10 @@
 
 data/world/*
 
+
+## pliki .idea (IDE od JetBrains, polecam clion - marahin)
+.idea
+
 ## pliki cmake generujemy, nie wrzucamy do repo
 ## (ref. -> readme)
 
@@ -15,3 +19,9 @@ build/*
 ## konfig generyczny dostepny w root folderze o nazwie
 ## config-EXAMPLE.lua
 config.lua
+# binarka w glownym katalogu
+tfs
+
+
+# Ignore Vagrant specific files & dirs
+.vagrant/
