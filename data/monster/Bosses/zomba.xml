@@ -32,7 +32,7 @@
 	<loot>
 		<item id="2148" countmax="25" chance="100000" /><!-- gold coin -->
 		<item id="10608" countmax="2" chance="100000" /><!-- lion's mane -->
-		<item id="2152" chance="25000" /><!-- platinum coin -->
+		<item id="2152" chance="20000" /><!-- platinum coin -->
 		<item id="2168" chance="12500" /><!-- life ring -->
 	</loot>
 </monster>

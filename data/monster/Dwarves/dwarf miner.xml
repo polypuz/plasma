@@ -31,7 +31,7 @@
 		<item id="2649" chance="9090" /><!-- leather legs -->
 		<item id="2484" chance="6666" /><!-- studded armor -->
 		<item id="2666" chance="3846" /><!-- meat -->
-		<item id="2213" chance="793" /><!-- dwarven ring -->
+		<item id="2213" chance="680" /><!-- dwarven ring -->
 		<item id="5880" chance="793" /><!-- iron ore -->
 	</loot>
 </monster>

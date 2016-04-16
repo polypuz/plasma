@@ -50,11 +50,11 @@
 		<item id="2148" countmax="100" chance="50000" /><!-- gold coin -->
 		<item id="2148" countmax="69" chance="47000" /><!-- gold coin -->
 		<item id="2152" countmax="8" chance="77400" /><!-- platinum coins -->
-		<item id="7368" countmax="7" chance="1830" /><!-- assassin star -->
+		<item id="7368" countmax="10" chance="1830" /><!-- assassin star -->
 		<item id="5911" chance="31100" /><!-- red piece of cloth -->
 		<item id="7590" countmax="5" chance="23170" /><!-- great mana potion -->
 		<item id="7591" countmax="5" chance="26830" /><!-- great health potion -->
-		<item id="2792" countmax="3" chance="3600" /><!-- dark mushroom -->
+		<item id="2792" countmax="4" chance="3600" /><!-- dark mushroom -->
 		<item id="2178" chance="9760" /><!-- mind stone -->
 		<item id="7443" chance="6710" /><!-- bullseye potion -->
 		<item id="8871" chance="4880" /><!-- focus cape -->

@@ -35,7 +35,7 @@
 		<item id="2230" chance="49100" /><!-- bone -->
 		<item id="2388" chance="4850" /><!-- hatchet -->
 		<item id="2398" chance="4850" /><!-- mace -->
-		<item id="2511" chance="2090" /><!-- brass shield -->
+		<item id="2511" chance="1420" /><!-- brass shield -->
 		<item id="2050" chance="9880" /><!-- torch -->
 		<item id="2473" chance="7520" /><!-- viking helmet -->
 		<item id="2376" chance="1940" /><!-- sword -->

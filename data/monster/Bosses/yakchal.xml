@@ -61,7 +61,7 @@
 	<loot>
 		<item id="2148" countmax="88" chance="10000" /><!-- gold coin -->
 		<item id="5912" chance="5000" /><!-- ice cube -->
-		<item id="7449" chance="4000" /><!-- green mushroom -->
+		<item id="7449" chance="1030" /><!-- green mushroom -->
 		<item id="7440" chance="1500" /><!-- glacier shoes -->
 		<item id="7439" chance="1500" /><!-- diamond sceptre -->
 		<item id="7443" chance="1500" /><!-- crystal sword -->

@@ -52,7 +52,7 @@
 		<item id="13870" chance="28850" /><!-- eye of a deepling -->
 		<item id="7591" countmax="3" chance="33430" /> <!-- great health potion -->
 		<item id="15454" chance="1420" /> <!-- guardian axe -->
-		<item id="15647" chance="1540" /><!-- deepling squelcher -->
-		<item id="15545" chance="80" /><!-- foxtail -->
+		<item id="15647" chance="1440" /><!-- deepling squelcher -->
+		<item id="15545" chance="40" /><!-- foxtail -->
 	</loot>
 </monster>

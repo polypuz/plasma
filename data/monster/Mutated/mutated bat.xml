@@ -53,7 +53,7 @@
 		<item id="2513" chance="7760" /><!-- battle shield -->
 		<item id="2144" countmax="3" chance="720" /><!-- black pearl -->
 		<item id="2529" chance="70" /><!-- black shield -->
-		<item id="2167" chance="990" /><!-- energy ring -->
+		<item id="2167" chance="930" /><!-- energy ring -->
 		<item id="2800" chance="7260" /><!-- obsidian lance -->
 		<item id="9809" countmax="2" chance="12530" /><!-- rusty armor -->
 		<item id="9808" chance="12530" /><!-- rusty armor -->

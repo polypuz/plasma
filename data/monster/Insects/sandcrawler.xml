@@ -28,6 +28,6 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="6" chance="33333" /><!-- gold coin -->
-		<item id="11373" chance="2173" /><!-- sandcrawler shell -->
+		<item id="11373" chance="2050" /><!-- sandcrawler shell -->
 	</loot>
 </monster>

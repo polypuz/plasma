@@ -62,6 +62,6 @@
 		<item id="2149" countmax="4" chance="2702" /><!-- small emerald -->
 		<item id="5904" chance="1639" /><!-- magic sulphur -->
 		<item id="2165" chance="892" /><!-- stealth ring -->
-		<item id="2171" chance="110" /><!-- platinum amulet -->
+		<item id="2171" chance="90" /><!-- platinum amulet -->
 	</loot>
 </monster>

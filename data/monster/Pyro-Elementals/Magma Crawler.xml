@@ -80,7 +80,7 @@
 		<item id="18418" countmax="2" chance="8500" /><!-- blue crystal splinter -->
 		<item id="18417" countmax="2" chance="8500" /><!-- brown crystal splinter -->
 		<item id="18421" chance="7000" /><!-- green crystal fragment -->
-		<item id="18413" countmax="2" chance="3930" /><!-- blue crystal shard -->
+		<item id="18413" countmax="1" chance="3930" /><!-- blue crystal shard -->
 		<item id="2392" chance="1680" /><!-- fire sword -->
 	</loot>
 </monster>

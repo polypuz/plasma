@@ -61,7 +61,7 @@
 		<item id="2789" countmax="5" chance="3846" /><!-- brown mushroom -->
 		<item id="2114" chance="1052" /><!-- piggy bank -->
 		<item id="2167" chance="961" /><!-- energy ring -->
-		<item id="8912" chance="512" /><!-- springsprout rod -->
+		<item id="8912" chance="480" /><!-- springsprout rod -->
 		<item id="7440" chance="431" /><!-- mastermind potion -->
 		<item id="7885" chance="123" /><!-- terra legs -->
 		<item id="5904" chance="102" /><!-- magic sulphur -->

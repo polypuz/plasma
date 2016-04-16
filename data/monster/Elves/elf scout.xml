@@ -48,6 +48,6 @@
 		<item id="10552" chance="5200" /><!-- elvish talisman -->
 		<item id="2456" chance="4000" /><!-- bow -->
 		<item id="5921" chance="1130" /><!-- heaven blossom -->
-		<item id="7438" chance="140" /><!-- elvish bow -->
+		<item id="7438" chance="130" /><!-- elvish bow -->
 	</loot>
 </monster>

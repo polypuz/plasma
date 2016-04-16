@@ -27,6 +27,6 @@
 		<voice sentence="Flap!Flap!" />
 	</voices>
 	<loot>
-		<item id="5894" chance="1220" /><!-- bat wing -->
+		<item id="5894" chance="1140" /><!-- bat wing -->
 	</loot>
 </monster>

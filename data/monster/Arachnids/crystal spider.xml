@@ -55,8 +55,8 @@
 		<item id="2148" countmax="92" chance="50000" /><!-- gold coin -->
 		<item id="7589" chance="14810" /><!-- strong mana potion -->
 		<item id="2463" chance="10000" /><!-- plate armor -->
-		<item id="7364" countmax="6" chance="6250" /><!-- sniper arrow -->
-		<item id="2463" chance="5263" /><!-- ice cube -->
+		<item id="7364" countmax="6" chance="5840" /><!-- sniper arrow -->
+		<item id="2463" chance="4890" /><!-- ice cube -->
 		<item id="2457" chance="4545" /><!-- steel helmet -->
 		<item id="7449" chance="2564" /><!-- crystal sword -->
 		<item id="2125" chance="1730" /><!-- crystal necklace -->

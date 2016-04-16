@@ -71,13 +71,13 @@
 		<item id="7591" countmax="2" chance="5000" /><!-- great health potion -->
 		<item id="7589" countmax="2" chance="5000" /><!-- strong mana potion -->
 		<item id="5912" chance="4545" /><!-- blue piece of cloth -->
-		<item id="5911" chance="2941" /><!-- red piece of cloth -->
+		<item id="5911" chance="2730" /><!-- red piece of cloth -->
 		<item id="7887" chance="2127" /><!-- terra amulet -->
 		<item id="7886" chance="1851" /><!-- terra boots -->
 		<item id="7436" chance="1265" /><!-- angelic axe -->
 		<item id="7885" chance="1123" /><!-- terra legs -->
 		<item id="7884" chance="869" /><!-- terra mantle -->
-		<item id="18411" chance="680" /><!-- muck rod -->
-		<item id="18454" chance="150" /><!-- mycological bow -->
+		<item id="18411" chance="620" /><!-- muck rod -->
+		<item id="18454" chance="130" /><!-- mycological bow -->
 	</loot>
 </monster>
