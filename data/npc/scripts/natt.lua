@@ -70,13 +70,32 @@ local function creatureSayCallback(cid, type, msg)
     -- some further quest progression
     if msgcontains(msg, "tak") or msgcontains(msg, "yes") then
       --quest finishes
-    elseif msgcontains(msg, "nie") or msgcontains(msg, "no") then
+      if player:removeItem( 11222, 20) then
+        npcHandler:say("Nareszcie moge przejsc do nastepnego etapu badan! Teraz tylko wystarczy znalezc fraje... to znaczy, {ochotnika}, ktory podda sie przemianie! Huahuahua!", cid)
+        player:setStorageValue(38150, 2)
+      else
+        npcHandler:say("No i czego klamiesz...? Przynies mi 20 {Lump of Dirt}, albo spadaj na drzewo, galganie!", cid)
+        npcHandler:releaseFocus(cid)
+        return false
+      end
+    elseif msgcontains(msg, "nie") or msgcontains(msg, "no") or msgcontains(msg, "brak skladnikow") then
       npcHandler:say("No to co tu jeszcze robisz? Migusiem!", cid)
       npcHandler:releaseFocus(cid)
       return false
     else
       npcHandler:say("Co...? Nie rozumiem, zdecyduj sie.", cid)
     end
+  elseif questStep == 2 then
+    if msgcontains(msg, "ochotnika") then
+      npcHandler:say({"Chcesz poddac sie moim eksperymentom...?", "Wiesz co? Lubie Cie. Nie bede na Tobie eksperymentowal. Idz do Dzielnicy Magicznej i odszukaj mojego ucznia. On na pewno znajdzie kogos, kto podejmie sie tego za garsc grzybkow."}, cid)
+      player:setStorageValue(38150, 3)
+    else
+      npcHandler:say("He...? Mowilem przed chwila, ze potrzebuje {ochotnika}!", cid)
+    end
+  elseif questStep == 3 then
+    npcHandler:say({"Odnajdz mojego ucznia w Dzielnicy Magicznej - on wskaze Ci kogos, kto bedzie mogl zostac ochotnikiem...", "Pod przymusem, lub nie."}, cid)
+    npcHandler:releaseFocus(cid)
+    return false
   else
     npcHandler:say("Nie zawracaj mi teraz glowy, jestem zajety.", cid)
     npcHandler:releaseFocus(cid)
