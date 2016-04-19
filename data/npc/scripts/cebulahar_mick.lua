@@ -58,7 +58,7 @@ local function creatureSayCallback(cid, type, msg)
         npcHandler:say("W porzadku, przechodz. Jak bedziesz chcial wrocic do {miasta}, to powiedz po prostu {powrot}. *wyjmuje klucze do bramy*", cid)
         addEvent( teleportPlayer, 1950, cid, district)
       else
-        npcHandler:say("Cos mi sie nie wydaje. Spadaj stad, dzieciaku, to nie miejsce dla ciebie.", cid)      \
+        npcHandler:say("Cos mi sie nie wydaje. Spadaj stad, dzieciaku, to nie miejsce dla ciebie.", cid)
         npcHandler.topic[cid] = 0
       end
     else
