@@ -48,18 +48,18 @@ local function creatureSayCallback(cid, type, msg)
         return false
       elseif msgcontains(msg, "yes") or msgcontains(msg, "tak") then
         npcHandler:say({ "Wyobraz sobie, ze walczysz z potworami miotajac kule ognia tak, jak robia to zywiolaki. Obecnie jest to mozliwe, ale tylko przy pomocy run! Moje nowatorskie badania maja szanse to zmienic...", "Stworze rase magow mogacych inwokowac czary runiczne natychmiastowo! To beda... nadludzie. Ech, gdyby tylko to bylo takie {proste}..." }, cid)
+      elseif msgcontains(msg, "proste") then
+        npcHandler:say("Sam jestes prosty! Bez pomocy nic nie jest proste. Mial mi tu {pomoc} moj {uczen}, ale ten woli mieszac ziola i pisac wierszyki, zamiast zglebiac sie w powazne nauki.", cid)
+      elseif msgcontains(msg, "uczen") then
+        npcHandler:say("Ten bezuzyteczny chlopak zostal przydzielony z ministerstwa... Jak zwykle rzad mysli, ze wie lepiej od naukowcow. Pewnie powolali jakies komisje ekspertow z arcymagiem Antonim na czele, i teraz sa takie {efekty}!", cid)
+      elseif msgcontains(msg, "efekty") or msgcontains(msg, "skutki") then
+        npcHandler:say({ "Moj uczen, Piotrek Luszczowy, to jakis blokersowy margines.", "Jak tylko dorwal sie do mojego sprzetu, to nawial do dzielnicy magicznej i udaje alchemika, a tak naprawde miesza jakies ziola odurzajace razem z jego kolesiami - Kakofonika? Jakos tak sie nazywaja.", "No... dosc juz tych pierdol. Moze Ty moglbys mi {pomoc}?" }, cid)
+      elseif msgcontains(msg, "pomoc") then
+        npcHandler:say({ "Pomocnik! Swietnie! Do prowadzenia swoich badan potrzebuje kilka probek zywiolakow, by dowiedziec sie czym sa nasycone i jak tak proste w porownaniu do nas stwory opanowaly tak zaawansowana magie.", "Czy podejmiesz sie tego zadania?" }, cid)
+        npcHandler.topic[cid] = 2
       else
         npcHandler:say("Nie rozumiem. Wez sie zdecyduj.", cid)
       end
-    elseif msgcontains(msg, "proste") then
-      npcHandler:say("Sam jestes prosty! Bez pomocy nic nie jest proste. Mial mi tu {pomoc} moj {uczen}, ale ten woli mieszac ziola i pisac wierszyki, zamiast zglebiac sie w powazne nauki.", cid)
-    elseif msgcontains(msg, "uczen") then
-      npcHandler:say("Ten bezuzyteczny chlopak zostal przydzielony z ministerstwa... Jak zwykle rzad mysli, ze wie lepiej od naukowcow. Pewnie powolali jakies komisje ekspertow z arcymagiem Antonim na czele, i teraz sa takie {efekty}!", cid)
-    elseif msgcontains(msg, "efekty") or msgcontains(msg, "skutki") then
-      npcHandler:say({ "Moj uczen, Piotrek Luszczowy, to jakis blokersowy margines.", "Jak tylko dorwal sie do mojego sprzetu, to nawial do dzielnicy magicznej i udaje alchemika, a tak naprawde miesza jakies ziola odurzajace razem z jego kolesiami - Kakofonika? Jakos tak sie nazywaja.", "No... dosc juz tych pierdol. Moze Ty moglbys mi {pomoc}?" }, cid)
-    elseif msgcontains(msg, "pomoc") then
-      npcHandler:say({ "Pomocnik! Swietnie! Do prowadzenia swoich badan potrzebuje kilka probek zywiolakow, by dowiedziec sie czym sa nasycone i jak tak proste w porownaniu do nas stwory opanowaly tak zaawansowana magie.", "Czy podejmiesz sie tego zadania?" }, cid)
-      npcHandler.topic[cid] = 2
     elseif npcHandler.topic[cid] == 2 then
       if msgcontains(msg, "yes") or msgcontains(msg, "tak") then
         npcHandler:say({ "Wspaniale. Bierz sie do roboty, dostarcz mi nastepujace skladniki. Wszystko jest na notatce.", "No, juz, idz!" }, cid)
