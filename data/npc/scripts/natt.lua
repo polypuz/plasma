@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
       elseif msgcontains(msg, "uczen") then
         npcHandler:say("Ten bezuzyteczny chlopak zostal przydzielony z ministerstwa... Jak zwykle rzad mysli, ze wie lepiej od naukowcow. Pewnie powolali jakies komisje ekspertow z arcymagiem Antonim na czele, i teraz sa takie {efekty}!", cid)
       elseif msgcontains(msg, "efekty") or msgcontains(msg, "skutki") then
-        npcHandler:say({ "Moj uczen, Piotrek Luszczowy, to jakis blokersowy margines.", "Jak tylko dorwal sie do mojego sprzetu, to nawial do dzielnicy magicznej i udaje alchemika, a tak naprawde miesza jakies ziola odurzajace razem z jego kolesiami - Kakofonika? Jakos tak sie nazywaja.", "No... dosc juz tych pierdol. Moze Ty moglbys mi {pomoc}?" }, cid)
+        npcHandler:say({ "Moj uczen, Piotrek Luszczowy, to jakis blokersowy margines.", "Jak tylko dorwal sie do mojego sprzetu, to nawial do zniszczonej dzielnicy i udaje alchemika, a tak naprawde miesza jakies ziola odurzajace razem z jego kolesiami - Kakofonika? Jakos tak sie nazywaja.", "No... dosc juz tych pierdol. Moze Ty moglbys mi {pomoc}?" }, cid)
       elseif msgcontains(msg, "pomoc") then
         npcHandler:say({ "Pomocnik! Swietnie! Do prowadzenia swoich badan potrzebuje kilka probek zywiolakow, by dowiedziec sie czym sa nasycone i jak tak proste w porownaniu do nas stwory opanowaly tak zaawansowana magie.", "Czy podejmiesz sie tego zadania?" }, cid)
         npcHandler.topic[cid] = 2
@@ -99,13 +99,13 @@ local function creatureSayCallback(cid, type, msg)
     end
   elseif questStep == 2 then
     if msgcontains(msg, "ochotnika") then
-      npcHandler:say({"Chcesz poddac sie moim eksperymentom...? Wiesz co? Lubie Cie. Nie bede na Tobie eksperymentowal. Idz do Dzielnicy Magicznej i odszukaj mojego ucznia. On na pewno znajdzie kogos, kto podejmie sie tego za garsc grzybkow."}, cid)
+      npcHandler:say({"Chcesz poddac sie moim eksperymentom...? Wiesz co? Lubie Cie. Nie bede na Tobie eksperymentowal. Idz do Zniszczonej Dzielnicy i odszukaj mojego ucznia. On na pewno znajdzie kogos, kto podejmie sie tego za garsc grzybkow."}, cid)
       player:setStorageValue(38150, 3)
     else
       npcHandler:say("He...? Mowilem przed chwila, ze potrzebuje {ochotnika}!", cid)
     end
   elseif questStep == 3 then
-    npcHandler:say({"Odnajdz mojego ucznia w Dzielnicy Magicznej - on wskaze Ci kogos, kto bedzie mogl zostac ochotnikiem...", "Pod przymusem, lub nie."}, cid)
+    npcHandler:say({"Odnajdz mojego ucznia w Zniszczonej Dzielnicy - on wskaze Ci kogos, kto bedzie mogl zostac ochotnikiem...", "Pod przymusem, lub nie."}, cid)
     npcHandler:releaseFocus(cid)
     return false
   else
