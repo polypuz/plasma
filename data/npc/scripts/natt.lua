@@ -104,6 +104,13 @@ local function creatureSayCallback(cid, type, msg)
   return true
 end
 
+-- callbacks
+local function onAddFocus(cid)
+end
+
+local function onReleaseFocus(cid)
+end
+
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
