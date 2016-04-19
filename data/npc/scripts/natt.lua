@@ -36,7 +36,7 @@ local function creatureSayCallback(cid, type, msg)
     return false
   end
   local player = Player(cid)
-  local questStep = p:getStorageValue(38150)
+  local questStep = player:getStorageValue(38150)
   if questStep == -1 then
     if msgcontains(msg, "badania") then
       npcHandler:say("W starozytnych ksiegach wyczytalem o Mirkach ktorzy poslugiwali sie mocami zywiolow za pomoca many. Prowadze eksperymenty na ludziach by moc naladowac ich energia zywiolow potrzebna do uzywania takowych zaklec... Sluchasz Ty mnie w ogole?", cid)
