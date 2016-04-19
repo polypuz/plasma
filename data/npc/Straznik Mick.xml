@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Straznik Nick" script="cebulahar_nick.lua" walkinterval="2000" floorchange="0" speechbubble="1">
+<npc name="Straznik Mick" script="cebulahar_mick.lua" walkinterval="2000" floorchange="0" speechbubble="1">
     <health now="100" max="100"/>
-    <look type="131" head="57" body="76" legs="76" feet="95" addons="3" mount="437" />
+    <look type="131" head="75" body="76" legs="76" feet="95" addons="3" mount="437" />
     <parameters>
         <parameter key="message_greet" value="Czolem! {Przejscie} zamkniete, prosze sie odsunac!" /> -->
         <parameter key="message_walkaway" value="Slawa Cebulahar!" />
