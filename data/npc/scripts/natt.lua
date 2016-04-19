@@ -64,8 +64,10 @@ local function creatureSayCallback(cid, type, msg)
       if msgcontains(msg, "yes") or msgcontains(msg, "tak") then
         npcHandler:say({ "Wspaniale. Bierz sie do roboty, dostarcz mi nastepujace skladniki. Wszystko jest na notatce.", "No, juz, idz!" }, cid)
         player:setStorageValue(38150, 1)
+        --[[
         npcHandler:releaseFocus(cid)
         return false
+        ]]
       elseif msgcontains(msg, "no") or msgcontains(msg, "nie") then
         npcHandler:say("To wroc, gdy zdecydujesz sie na cos przydac.", cid)
         npcHandler:releaseFocus(cid)
