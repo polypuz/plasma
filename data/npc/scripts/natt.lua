@@ -99,7 +99,7 @@ local function creatureSayCallback(cid, type, msg)
     end
   elseif questStep == 2 then
     if msgcontains(msg, "ochotnika") then
-      npcHandler:say({"Chcesz poddac sie moim eksperymentom...?", "Wiesz co? Lubie Cie. Nie bede na Tobie eksperymentowal. Idz do Dzielnicy Magicznej i odszukaj mojego ucznia. On na pewno znajdzie kogos, kto podejmie sie tego za garsc grzybkow."}, cid)
+      npcHandler:say({"Chcesz poddac sie moim eksperymentom...? Wiesz co? Lubie Cie. Nie bede na Tobie eksperymentowal. Idz do Dzielnicy Magicznej i odszukaj mojego ucznia. On na pewno znajdzie kogos, kto podejmie sie tego za garsc grzybkow."}, cid)
       player:setStorageValue(38150, 3)
     else
       npcHandler:say("He...? Mowilem przed chwila, ze potrzebuje {ochotnika}!", cid)
