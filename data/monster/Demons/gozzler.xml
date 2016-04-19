@@ -48,7 +48,7 @@
 		<item id="2148" countmax="70" chance="52500" /><!-- gold coin -->
 		<item id="2378" chance="3100" /><!-- battle axe -->
 		<item id="2015" chance="8750" /><!-- brown flask -->
-		<item id="2423" chance="900" /><!-- clerical mace -->
+		<item id="2423" chance="780" /><!-- clerical mace -->
 		<item id="2394" chance="5000" /><!-- morning star -->
 		<item id="2510" chance="10000" /><!-- plate shield -->
 		<item id="2385" chance="8250" /><!-- sabre -->

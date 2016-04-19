@@ -77,7 +77,7 @@
 		<item id="5898" chance="3380" /><!-- beholder eye -->
 		<item id="7407" chance="1500" /><!-- haunted blade -->
 		<item id="2518" chance="750" /><!-- beholder shield -->
-		<item id="7452" chance="950" /><!-- spiked squelcher-->
+		<item id="7452" chance="180" /><!-- spiked squelcher-->
 		<item id="3972" chance="180" /><!-- beholder helmet -->
 		<item id="10580" chance="4725" /><!-- piece of dead brain -->
 	</loot>

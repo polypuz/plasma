@@ -41,7 +41,7 @@
 		<item id="2385" chance="23000" /><!-- sabre -->
 		<item id="12399" chance="10000" /><!-- Girlish Hair Decoration -->
 		<item id="2050" chance="1005" /><!-- torch -->
-		<item id="2125" chance="287" /><!-- crystal necklace -->
-		<item id="2147" chance="161" /><!-- small ruby -->
+		<item id="2125" chance="260" /><!-- crystal necklace -->
+		<item id="2147" chance="150" /><!-- small ruby -->
 	</loot>
 </monster>

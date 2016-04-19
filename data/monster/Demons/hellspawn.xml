@@ -66,10 +66,10 @@
 		<item id="9809" chance="3125" /><!-- rusty armor -->
 		<item id="2477" chance="3030" /><!-- knight legs -->
 		<item id="2475" chance="1886" /><!-- warrior helmet -->
-		<item id="7452" chance="970" /><!-- spiked squelcher -->
+		<item id="7452" chance="900" /><!-- spiked squelcher -->
 		<item id="7439" chance="934" /><!-- berserk potion -->
 		<item id="9969" chance="151" /><!-- black skull -->
-		<item id="9948" chance="140" /><!-- dracoyle statue -->
+		<item id="9948" chance="120" /><!-- dracoyle statue -->
 		<item id="7421" chance="103" /><!-- onyx fail -->
 	</loot>
 </monster>

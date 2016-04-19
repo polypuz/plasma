@@ -68,7 +68,7 @@
 		<item id="2392" chance="3280" /><!-- fire sword -->
 		<item id="2432" chance="2150" /><!-- fire axe -->
 		<item id="7894" chance="790" /><!-- magma legs -->
-		<item id="7899" chance="790" /><!-- magma coat -->
+		<item id="7899" chance="730" /><!-- magma coat -->
 		<item id="13757" chance="1320" /><!-- coal -->
 	</loot>
 </monster>

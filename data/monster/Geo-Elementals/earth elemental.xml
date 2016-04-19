@@ -67,6 +67,6 @@
 		<item id="13757" chance="470" /><!-- coal -->
 		<item id="9808" chance="350" /><!-- rusty armor -->
 		<item id="1294" countmax="10" chance="10000" /><!-- small stone -->
-		<item id="9970" chance="620" /><!-- small topaz -->
+		<item id="9970" chance="470" /><!-- small topaz -->
 	</loot>
 </monster>

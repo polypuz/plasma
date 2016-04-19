@@ -81,7 +81,7 @@
 		<item id="7900" chance="2000" /><!-- magma monocle -->
 		<item id="7891" chance="2000" /><!-- magma boots -->
 		<item id="6500" countmax="1" chance="7777" /><!-- demonic essence -->
-		<item id="2150" countmax="1" chance="8888" /><!-- small amethyst -->
+		<item id="2150" countmax="4" chance="8888" /><!-- small amethyst -->
 		<item id="2165" chance="4555" /><!-- stealth ring -->
 	</loot>
 </monster>

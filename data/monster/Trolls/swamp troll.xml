@@ -39,7 +39,7 @@
 		<item id="10603" chance="3100" />				<!-- swamp grass -->
 		<item id="13506" chance="2160" />				<!-- medicine pouch -->
 		<item id="5901" chance="2140" />					<!-- wood -->
-		<item id="2805" chance="1200" />					<!-- troll green -->
+		<item id="2805" chance="1120" />					<!-- troll green -->
 		<item id="2580" chance="60" />					<!-- fishing rod -->
 	</loot>
 </monster>

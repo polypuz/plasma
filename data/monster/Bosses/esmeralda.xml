@@ -57,7 +57,7 @@
 		<item id="10585" chance="100000" /><!-- mutated rat tail -->
 		<item id="2438" chance="14150" /><!-- epee -->
 		<item id="2476" chance="45950" /><!-- knight armor -->
-		<item id="2799" chance="9600" /><!-- stone herb -->
+		<item id="2799" chance="5710" /><!-- stone herb -->
 		<item id="7884" chance="2775" /><!-- terra mantle -->
 	</loot>
 </monster>

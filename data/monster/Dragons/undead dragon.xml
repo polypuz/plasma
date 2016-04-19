@@ -74,15 +74,15 @@
 		<item id="2152" countmax="5" chance="52000" /><!-- platinum coin -->
 		<item id="6300" chance="1150" /><!-- death ring -->
 		<item id="7591" chance="21200" /><!-- great health potion -->
-		<item id="2033" chance="6002" /><!-- golden mug -->
-		<item id="2547" countmax="15" chance="15190" /><!-- power bolt -->
-		<item id="7430" chance="4000" /><!-- dragonbone staff -->
-		<item id="2476" chance="5500" /><!-- knight armor -->
-		<item id="2177" chance="2500" /><!-- life crystal -->
+		<item id="2033" chance="4920" /><!-- golden mug -->
+		<item id="2547" countmax="15" chance="14070" /><!-- power bolt -->
+		<item id="7430" chance="3470" /><!-- dragonbone staff -->
+		<item id="2476" chance="5060" /><!-- knight armor -->
+		<item id="2177" chance="1940" /><!-- life crystal -->
 		<item id="5925" chance="14180" /><!-- hardened bone -->
 		<item id="9971" chance="570" /><!-- gold ingot -->
 		<item id="2498" chance="1720" /><!-- royal helmet -->
-		<item id="2454" chance="1290" /><!-- war axe -->
+		<item id="2454" chance="970" /><!-- war axe -->
 		<item id="8885" chance="430" /><!-- divine plate -->
 		<item id="11233" chance="33380" /><!-- unholy bone -->
 		<item id="2146" countmax="2" chance="28370" /><!-- small sapphires -->
@@ -90,8 +90,8 @@
 		<item id="7402" chance="860" /><!-- dragon slayer -->
 		<item id="2144" countmax="2" chance="22780" /><!-- black pearls -->
 		<item id="7590" chance="21490" /><!-- great mana potion -->
-		<item id="11355" chance="860" /><!-- spellweaver's robe -->
-		<item id="2466" chance="860" /><!-- golden armor -->
-		<item id="8889" chance="290" /><!-- skullcracker armor -->
+		<item id="11355" chance="620" /><!-- spellweaver's robe -->
+		<item id="2466" chance="620" /><!-- golden armor -->
+		<item id="8889" chance="140" /><!-- skullcracker armor -->
 	</loot>
 </monster>

@@ -57,6 +57,6 @@
 		<item id="2559" chance="9800" /><!-- small axe -->
 		<item id="1294" countmax="3" chance="9900" /><!-- small stone -->
 		<item id="2235" chance="6610" /><!-- mouldy cheese -->
-		<item id="2461" chance="13000" /><!-- leather helmet -->
+		<item id="2461" chance="10070" /><!-- leather helmet -->
 	</loot>
 </monster>

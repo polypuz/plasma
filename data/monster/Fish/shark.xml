@@ -41,7 +41,7 @@
 		<item id="15430" chance="9090" /><!-- deepling scales -->
 		<item id="13870" chance="1270" /><!-- eye of a deepling -->
 		<item id="2146" chance="1222" /><!-- small sapphire -->
-		<item id="7632" chance="550" /><!-- giant shimmering pearl -->
-		<item id="5895" chance="161" /><!-- fish fin -->
+		<item id="7632" chance="450" /><!-- giant shimmering pearl -->
+		<item id="5895" chance="130" /><!-- fish fin -->
 	</loot>
 </monster>

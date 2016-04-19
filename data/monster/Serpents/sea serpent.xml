@@ -59,7 +59,7 @@
 		<item id="10583" chance="10200" /><!-- Sea Serpent Scale -->
 		<item id="2647" chance="7150" /><!-- plate legs -->
 		<item id="2146" countmax="3" chance="5600" /><!-- small saphire -->
-		<item id="7588" chance="5500" /><!-- strong health potion -->
+		<item id="7588" chance="5060" /><!-- strong health potion -->
 		<item id="7589" chance="3850" /><!-- strong mana potion -->
 		<item id="2409" chance="4200" /><!-- serpent sword -->
 		<item id="7590" chance="920" /><!-- great mana potion -->

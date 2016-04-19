@@ -62,7 +62,7 @@
 		<item id="2148" countmax="100" chance="33000" /><!-- gold coin -->
 		<item id="2148" countmax="97" chance="33000" /><!-- gold coin -->
 		<item id="2260" countmax="2" chance="30310" /><!-- blank rune -->
-		<item id="2152" countmax="7" chance="3850" /><!-- platinum coin -->
+		<item id="2152" countmax="7" chance="3580" /><!-- platinum coin -->
 		<item id="5944" chance="6005" /><!-- soul orb -->
 		<item id="2165" chance="190" /><!-- stealth ring -->
 		<item id="2189" chance="9800" /><!-- wand of cosmic energy -->

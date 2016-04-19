@@ -34,7 +34,7 @@
 	</immunities>
 	<loot>
 		<item id="2148" countmax="40" chance="90000" /><!-- gold coin -->
-		<item id="1294" countmax="4" chance="13890" /><!-- small stone -->
+		<item id="1294" countmax="4" chance="12880" /><!-- small stone -->
 		<item id="11232" chance="10370" /><!-- sulphurus stone -->
 		<item id="10549" chance="1020" /><!-- ancient stone -->
 		<item id="11227" chance="760" /><!-- shiny stone -->
