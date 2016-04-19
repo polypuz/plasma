@@ -50,6 +50,6 @@
 	</quest>
 	<quest name="Kaliber 2137" startstorageid="38150" startstoragevalue="1">
 		<mission name="Probki zywiolu" storageid="38150" startvalue="1" endvalue="2" description="Mag Natt poprosil Cie o zdobycie probek dla swoich magicznych eksperymentow. Dostarcz mu 20 Lump of Dirt." />
-		<mission name="Plus i minus" storageid="38150" startvalue="3" endvalue="4" description="Mag Natt poprosil Cie o odszukanie swojego ucznia w Dzielnicy Magicznej." />
+		<mission name="Plus i minus" storageid="38150" startvalue="3" endvalue="4" description="Mag Natt poprosil Cie o odszukanie swojego ucznia w Zniszczonej Dzielnicy." />
 	</quest>
 </quests>
