@@ -27,7 +27,7 @@ enum BugReportType_t : uint8_t {
 	BUG_CATEGORY_OTHER = 3
 };
 
-enum ThreadState {
+enum ThreadState : uint8_t {
 	THREAD_STATE_RUNNING,
 	THREAD_STATE_CLOSING,
 	THREAD_STATE_TERMINATED,
