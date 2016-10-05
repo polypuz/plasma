@@ -3,5 +3,5 @@
 	<config enabled="1" />
 	<stage minlevel="1" maxlevel="30" multiplier="4" />
 	<stage minlevel="31" maxlevel="100" multiplier="3" />
-	<stage minlevel="100" maxlevel="999999" multiplier="2" />
+	<stage minlevel="101" maxlevel="999999" multiplier="2" />
 </stages>
