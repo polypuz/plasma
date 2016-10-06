@@ -53,30 +53,9 @@ Raids::~Raids()
 		delete raid;
 	}
 }
-<<<<<<< Updated upstream
-/* TODO:
- *
-	/* check if the raid exists in the database */
-/* result != dbResult */
-/* result is the XML result
- * however dbResult is the result of our query, as the name suggests
- * Database* db = Database::getInstance();
- * std::ostringstream query;
- * query << "SELECT `id` FROM `raids` WHERE `name`=" << db->escapeString( _filename ) << " LIMIT 1";
- * DBResult_ptr dbResult = db->storeQuery(query.str());
- * if(!dbResult){
- * std::cout << "[Error] mirkots_raidsystem: could not receive any results from DB (raid: " <<
- * _filename.c_str() << ")" << std::endl;
- * return false;
- * } */
 
-int64_t lastExecution = dbResult->getNumber<int64_t>("last_exec");
-std::cout << "[Debug] last_execution for raid " << _filename.c_str() << " was (TIMESTAMP) " << lastExecution << std::endl;
-bool Raids::loadFromXml()
-=======
 
 bool Raids::loadFromDatabase()
->>>>>>> Stashed changes
 {
 	std::ostringstream query;
 	query << "SELECT *,UNIX_TIMESTAMP(lastExecuted) AS lastExec FROM `raids` WHERE active != 0;";
