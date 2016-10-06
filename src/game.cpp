@@ -144,7 +144,7 @@ void Game::setGameState(GameState_t newState)
 
 			map.spawns.startup();
 
-			raids.loadFromXml();
+			raids.loadFromDatabase();
 			raids.startup();
 
 			quests.loadFromXml();
