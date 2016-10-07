@@ -97,6 +97,7 @@
 	<monster name="Strange Slime" file="Bio-Elementals/strange slime.xml" />
 	<monster name="Swampling" file="Bio-Elementals/swampling.xml" />
 	<monster name="Wilting Leaf Golem" file="Bio-Elementals/wilting leaf golem.xml" />
+  	<monster name="Rot Elemental" file="Bio-elementals/rot elemental.xml"/>
 
 	<!-- Birds -->
 	<monster name="Berserker Chicken" file="Birds/berserker chicken.xml" />
@@ -118,6 +119,7 @@
 	<monster name="Floor Blob" file="Blobs/floor blob.xml" />
 	<monster name="Mercury Blob" file="Blobs/mercury blob.xml" />
 	<monster name="Midnight Spawn" file="Blobs/midnight spawn.xml" />
+  	<monster name="Glooth Blob" file="Blobs/glooth blob.xml"/>
 
 	<!-- Bonelords -->
 	<monster name="Bonelord" file="Bonelords/bonelord.xml" />
@@ -562,6 +564,12 @@
 	<monster name="Lizard Templar" file="Lizards/lizard templar.xml" />
 	<monster name="Lizard Zaogun" file="Lizards/lizard zaogun.xml" />
 	<monster name="Wyvern" file="Lizards/wyvern.xml" />
+  
+  	<!-- machines -->
+	<monster name="Glooth Golem" file="machines/glooth golem.xml"/>
+	<monster name="Metal Gargoyle" file="machines/metal gargoyle.xml"/>
+	<monster name="Rustheap Golem" file="machines/rustheap golem.xml"/>
+	<monster name="Walker" file="machines/walker.xml"/>
 
 	<!-- Minotaurs -->
 	<monster name="Minotaur Archer" file="Minotaurs/minotaur archer.xml" />
@@ -652,6 +660,8 @@
 	<monster name="Wild Warrior" file="Outlaws/wild warrior.xml" />
 	<monster name="Feverish Citizen" file="Outlaws/feverish citizen.xml" />
 	<monster name="Crypt Defiler" file="Outlaws/crypt defiler.xml" />
+  	<monster name="Glooth Bandit" file="Outlaws/glooth bandit.xml"/>
+	<monster name="Glooth Brigand" file="Outlaws/glooth brigand.xml"/>
 
 	<!-- Pharaohs -->
 	<monster name="Ashmunrah" file="Pharaohs/ashmunrah.xml" />
