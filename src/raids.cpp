@@ -273,7 +273,11 @@ void Raid::resetRaid()
 	uint64_t now = OTSYS_TIME();
 	g_game.raids.setLastRaidEnd(now);
 	std::ostringstream updateQuery;
-	updateQuery << "UPDATE `raids` SET lastExecuted=now() WHERE raidId="<< getId();
+
+	//would be nice to deactivate raid if repeatable = 0
+	std::string deactivate = repeat?"":", active=0";
+	updateQuery << "UPDATE `raids` SET lastExecuted=now()"<< deactivate <<" WHERE raidId="<< getId();
+
 	Database::getInstance()->executeQuery(updateQuery.str());
 	lastExecDate = now/1000;//just to be up-to-date with format (10^3 difference with database timestamp	
 }
