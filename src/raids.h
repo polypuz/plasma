@@ -56,6 +56,7 @@ class Raids
 		Raids& operator=(const Raids&) = delete;
 
 		bool loadFromXml();
+		bool loadFromDatabase();
 		bool startup();
 
 		void clear();
@@ -105,6 +106,10 @@ class Raid
 	public:
 		Raid(std::string name, uint32_t interval, uint32_t marginTime, bool repeat)
 			: name(name), interval(interval), nextEvent(0), margin(marginTime), state(RAIDSTATE_IDLE), nextEventEvent(0), loaded(false), repeat(repeat) {}
+		
+		Raid(uint16_t raidId, std::string name, uint64_t lastExecDate ,uint32_t interval, uint32_t marginTime, bool repeat)
+		:raidId(raidId), name(name), lastExecDate(lastExecDate), interval(interval), nextEvent(0), margin(marginTime), state(RAIDSTATE_IDLE), nextEventEvent(0), loaded(false), repeat(repeat) {}
+
 		~Raid();
 
 		// non-copyable
@@ -112,6 +117,8 @@ class Raid
 		Raid& operator=(const Raid&) = delete;
 
 		bool loadFromXml(const std::string& _filename);
+		bool loadFromDatabase(const uint16_t id);
+		bool load(const uint16_t id);
 
 		void startRaid();
 
@@ -121,6 +128,10 @@ class Raid
 		RaidEvent* getNextRaidEvent();
 		void setState(RaidState_t newState) {
 			state = newState;
+		}
+
+		uint16_t getId() const {
+			return raidId;
 		}
 		std::string getName() const {
 			return name;
@@ -135,6 +146,9 @@ class Raid
 		uint32_t getInterval() const {
 			return interval;
 		}
+		uint64_t getLastExecDate() const {
+			return lastExecDate;
+		}
 		bool canBeRepeated() const {
 			return repeat;
 		}
@@ -143,7 +157,9 @@ class Raid
 
 	private:
 		std::vector<RaidEvent*> raidEvents;
+		uint16_t raidId;
 		std::string name;
+		uint64_t lastExecDate;
 		uint32_t interval;
 		uint32_t nextEvent;
 		uint64_t margin;
@@ -158,7 +174,7 @@ class RaidEvent
 	public:
 		virtual ~RaidEvent() = default;
 
-		virtual bool configureRaidEvent(const pugi::xml_node& eventNode);
+		virtual bool configureRaidEvent(DBResult_ptr result);
 
 		virtual bool executeEvent() = 0;
 		uint32_t getDelay() const {
@@ -181,7 +197,7 @@ class AnnounceEvent final : public RaidEvent
 	public:
 		AnnounceEvent() : messageType(MESSAGE_EVENT_ADVANCE) {}
 
-		bool configureRaidEvent(const pugi::xml_node& eventNode) final;
+		bool configureRaidEvent(DBResult_ptr result) final;
 
 		bool executeEvent() final;
 
@@ -193,7 +209,7 @@ class AnnounceEvent final : public RaidEvent
 class SingleSpawnEvent final : public RaidEvent
 {
 	public:
-		bool configureRaidEvent(const pugi::xml_node& eventNode) final;
+		bool configureRaidEvent(DBResult_ptr result) final;
 
 		bool executeEvent() final;
 
@@ -205,7 +221,7 @@ class SingleSpawnEvent final : public RaidEvent
 class AreaSpawnEvent final : public RaidEvent
 {
 	public:
-		bool configureRaidEvent(const pugi::xml_node& eventNode) final;
+		bool configureRaidEvent(DBResult_ptr result) final;
 
 		void addMonster(const std::string& monsterName, uint32_t minAmount, uint32_t maxAmount);
 
@@ -222,7 +238,7 @@ class ScriptEvent final : public RaidEvent, public Event
 		explicit ScriptEvent(LuaScriptInterface* _interface);
 		explicit ScriptEvent(const ScriptEvent* copy);
 
-		bool configureRaidEvent(const pugi::xml_node& eventNode) final;
+		bool configureRaidEvent(DBResult_ptr result) final;
 		bool configureEvent(const pugi::xml_node&) final {
 			return false;
 		}
