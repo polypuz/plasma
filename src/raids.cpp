@@ -28,6 +28,10 @@
 #include "scheduler.h"
 #include "monster.h"
 
+#include "database.h"
+#include "databasetasks.h"
+
+
 extern Game g_game;
 extern ConfigManager g_config;
 
@@ -50,72 +54,38 @@ Raids::~Raids()
 	}
 }
 
-bool Raids::loadFromXml()
-{
-	if (isLoaded()) {
-		return true;
-	}
 
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("data/raids/raids.xml");
+bool Raids::loadFromDatabase()
+{
+	std::ostringstream query;
+	query << "SELECT *,UNIX_TIMESTAMP(lastExecuted) AS lastExec FROM `raids` WHERE active != 0;";
+	DBResult_ptr result = Database::getInstance()->storeQuery(query.str());
 	if (!result) {
-		printXMLError("Error - Raids::loadFromXml", "data/raids/raids.xml", result);
+		std::cout << "Raids :: There are no raids in database!";
 		return false;
 	}
-
-	for (auto raidNode : doc.child("raids").children()) {
-		std::string name, file;
-		uint32_t interval, margin;
-
-		pugi::xml_attribute attr;
-		if ((attr = raidNode.attribute("name"))) {
-			name = attr.as_string();
-		} else {
-			std::cout << "[Error - Raids::loadFromXml] Name tag missing for raid" << std::endl;
-			continue;
-		}
-
-		if ((attr = raidNode.attribute("file"))) {
-			file = attr.as_string();
-		} else {
-			std::ostringstream ss;
-			ss << "raids/" << name << ".xml";
-			file = ss.str();
-			std::cout << "[Warning - Raids::loadFromXml] File tag missing for raid " << name << ". Using default: " << file << std::endl;
-		}
-
-		interval = pugi::cast<uint32_t>(raidNode.attribute("interval2").value()) * 60;
-		if (interval == 0) {
-			std::cout << "[Error - Raids::loadFromXml] interval2 tag missing or zero (would divide by 0) for raid: " << name << std::endl;
-			continue;
-		}
-
-		if ((attr = raidNode.attribute("margin"))) {
-			margin = pugi::cast<uint32_t>(attr.value()) * 60 * 1000;
-		} else {
-			std::cout << "[Warning - Raids::loadFromXml] margin tag missing for raid: " << name << std::endl;
-			margin = 0;
-		}
-
-		bool repeat;
-		if ((attr = raidNode.attribute("repeat"))) {
-			repeat = booleanString(attr.as_string());
-		} else {
-			repeat = false;
-		}
-
-		Raid* newRaid = new Raid(name, interval, margin, repeat);
-		if (newRaid->loadFromXml("data/raids/" + file)) {
+	do
+	{
+		uint16_t id = result->getNumber<uint16_t>("raidId");
+		std::string name = result->getString("name");
+		uint32_t interval = result->getNumber<uint32_t>("timeinterval");
+		uint32_t margin = result->getNumber<uint32_t>("timeMargin");
+		uint64_t lastExecDate = result->getNumber<uint64_t>("lastExec");
+		bool repeat = result->getNumber<int>("repeatable") != 0;
+		Raid* newRaid = new Raid(id, name, lastExecDate, interval, margin, repeat);
+		if (newRaid->loadFromDatabase(id)) {
 			raidList.push_back(newRaid);
 		} else {
-			std::cout << "[Error - Raids::loadFromXml] Failed to load raid: " << name << std::endl;
+			std::cout << "[Error - Raids::loadFromDatabase] Failed to load raid: " << name << std::endl;
 			delete newRaid;
 		}
-	}
 
+
+	} while (result->next());
 	loaded = true;
 	return true;
 }
+
 
 #define MAX_RAND_RANGE 10000000
 
@@ -136,20 +106,18 @@ bool Raids::startup()
 void Raids::checkRaids()
 {
 	if (!getRunning()) {
-		uint64_t now = OTSYS_TIME();
-
+		uint64_t now = OTSYS_TIME()/1000; // to hide difference between nextRaidStart (10^3)
+		uint32_t nextRaidStart; 
 		for (auto it = raidList.begin(), end = raidList.end(); it != end; ++it) {
 			Raid* raid = *it;
-			if (now >= (getLastRaidEnd() + raid->getMargin())) {
-				if (((MAX_RAND_RANGE * CHECK_RAIDS_INTERVAL) / raid->getInterval()) >= static_cast<uint32_t>(uniform_random(0, MAX_RAND_RANGE))) {
-					setRunning(raid);
-					raid->startRaid();
-
-					if (!raid->canBeRepeated()) {
-						raidList.erase(it);
-					}
-					break;
+			nextRaidStart = raid->getLastExecDate() + raid->getInterval()*60 + static_cast<uint32_t>(uniform_random(0, raid->getMargin()*60));
+			if (now >= nextRaidStart) {
+				setRunning(raid);
+				raid->startRaid();
+				if (!raid->canBeRepeated()) {
+					raidList.erase(it);
 				}
+				break;
 			}
 		}
 	}
@@ -179,7 +147,7 @@ void Raids::clear()
 bool Raids::reload()
 {
 	clear();
-	return loadFromXml();
+	return loadFromDatabase();
 }
 
 Raid* Raids::getRaidByName(const std::string& name)
@@ -199,41 +167,71 @@ Raid::~Raid()
 	}
 }
 
-bool Raid::loadFromXml(const std::string& _filename)
+bool Raid::loadFromDatabase(const uint16_t id)
 {
 	if (isLoaded()) {
 		return true;
 	}
-
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(_filename.c_str());
-	if (!result) {
-		printXMLError("Error - Raid::loadFromXml", _filename, result);
-		return false;
-	}
-
-	for (auto eventNode : doc.child("raid").children()) {
-		RaidEvent* event;
-		if (strcasecmp(eventNode.name(), "announce") == 0) {
+	std::ostringstream eventsQuery, spawnsQuery, scriptsQuery;
+	eventsQuery << "SELECT * FROM `raids_announce`  a INNER JOIN `raids` e ON a.raidId = e.raidId WHERE a.raidId ="<< id;
+	DBResult_ptr result = Database::getInstance()->storeQuery(eventsQuery.str());
+	RaidEvent* event;	
+	if(result!=nullptr)
+	{	
+		//at first add announcements
+		do
+		{
 			event = new AnnounceEvent();
-		} else if (strcasecmp(eventNode.name(), "singlespawn") == 0) {
-			event = new SingleSpawnEvent();
-		} else if (strcasecmp(eventNode.name(), "areaspawn") == 0) {
-			event = new AreaSpawnEvent();
-		} else if (strcasecmp(eventNode.name(), "script") == 0) {
-			event = new ScriptEvent(&g_game.raids.getScriptInterface());
-		} else {
-			continue;
-		}
-
-		if (event->configureRaidEvent(eventNode)) {
-			raidEvents.push_back(event);
-		} else {
-			std::cout << "[Error - Raid::loadFromXml] In file (" << _filename << "), eventNode: " << eventNode.name() << std::endl;
-			delete event;
-		}
+			if (event->configureRaidEvent(result)) {
+				raidEvents.push_back(event);
+			} else {
+				delete event;
+			}
+		} while (result->next());
 	}
+	//then take care of spawns actions
+	spawnsQuery << "SELECT * FROM `raids_spawn` a" 
+		<< " INNER JOIN `raids` e ON a.raidId = e.raidId"
+		<< " INNER JOIN `raids_spawntype` f ON a.spawnTypeId = f.spawnTypeId"
+		<<" WHERE a.raidId = " <<id;
 
+	result = Database::getInstance()->storeQuery(spawnsQuery.str());
+	if(result != nullptr)
+	{
+		do
+		{
+			std::string tmpName = result->getString("name");
+			if (strcasecmp(tmpName.c_str(), "single") == 0) {
+				event = new SingleSpawnEvent();
+			} else if (strcasecmp(tmpName.c_str(), "radius") == 0 || strcasecmp(tmpName.c_str(), "fromto") == 0) {
+				event = new AreaSpawnEvent();
+			} else if (strcasecmp(tmpName.c_str(), "script") == 0) {
+				event = new ScriptEvent(&g_game.raids.getScriptInterface());
+			} else {
+				continue;
+			}
+			if(event->configureRaidEvent(result))
+			{
+				raidEvents.push_back(event);
+			}	
+		} while (result->next());
+	}
+	scriptsQuery << "SELECT * FROM `raids_script`  a INNER JOIN `raids` e ON a.raidId = e.raidId WHERE a.raidId ="<< id;
+	
+	result = Database::getInstance()->storeQuery(scriptsQuery.str());
+	//at last add scripts
+	if(result != nullptr)
+	{
+		do
+		{
+			event = new ScriptEvent(&g_game.raids.getScriptInterface());
+			if (event->configureRaidEvent(result)) {
+				raidEvents.push_back(event);
+			} else {
+				delete event;
+			}
+		} while (result->next());
+	}
 	//sort by delay time
 	std::sort(raidEvents.begin(), raidEvents.end(), RaidEvent::compareEvents);
 
@@ -272,7 +270,12 @@ void Raid::resetRaid()
 	nextEvent = 0;
 	state = RAIDSTATE_IDLE;
 	g_game.raids.setRunning(nullptr);
-	g_game.raids.setLastRaidEnd(OTSYS_TIME());
+	uint64_t now = OTSYS_TIME();
+	g_game.raids.setLastRaidEnd(now);
+	std::ostringstream updateQuery;
+	updateQuery << "UPDATE `raids` SET lastExecuted=now() WHERE raidId="<< getId();
+	Database::getInstance()->executeQuery(updateQuery.str());
+	lastExecDate = now/1000;//just to be up-to-date with format (10^3 difference with database timestamp	
 }
 
 void Raid::stopEvents()
@@ -292,54 +295,37 @@ RaidEvent* Raid::getNextRaidEvent()
 	}
 }
 
-bool RaidEvent::configureRaidEvent(const pugi::xml_node& eventNode)
+bool RaidEvent::configureRaidEvent(DBResult_ptr result)
 {
-	pugi::xml_attribute delayAttribute = eventNode.attribute("delay");
-	if (!delayAttribute) {
-		std::cout << "[Error] Raid: delay tag missing." << std::endl;
-		return false;
-	}
-
-	delay = std::max<uint32_t>(RAID_MINTICKS, pugi::cast<uint32_t>(delayAttribute.value()));
+	uint32_t resultDelay = result->getNumber<uint32_t>("delay");
+	delay = std::max<uint32_t>(RAID_MINTICKS, resultDelay);
 	return true;
 }
 
-bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode)
+bool AnnounceEvent::configureRaidEvent(DBResult_ptr result) 
 {
-	if (!RaidEvent::configureRaidEvent(eventNode)) {
+	if (!RaidEvent::configureRaidEvent(result)) {
 		return false;
 	}
+	message = result->getString("message");
 
-	pugi::xml_attribute messageAttribute = eventNode.attribute("message");
-	if (!messageAttribute) {
-		std::cout << "[Error] Raid: message tag missing for announce event." << std::endl;
-		return false;
-	}
-	message = messageAttribute.as_string();
-
-	pugi::xml_attribute typeAttribute = eventNode.attribute("type");
-	if (typeAttribute) {
-		std::string tmpStrValue = asLowerCaseString(typeAttribute.as_string());
-		if (tmpStrValue == "warning") {
-			messageType = MESSAGE_STATUS_WARNING;
-		} else if (tmpStrValue == "event") {
-			messageType = MESSAGE_EVENT_ADVANCE;
-		} else if (tmpStrValue == "default") {
-			messageType = MESSAGE_EVENT_DEFAULT;
-		} else if (tmpStrValue == "description") {
-			messageType = MESSAGE_INFO_DESCR;
-		} else if (tmpStrValue == "smallstatus") {
-			messageType = MESSAGE_STATUS_SMALL;
-		} else if (tmpStrValue == "blueconsole") {
-			messageType = MESSAGE_STATUS_CONSOLE_BLUE;
-		} else if (tmpStrValue == "redconsole") {
-			messageType = MESSAGE_STATUS_CONSOLE_RED;
-		} else {
-			std::cout << "[Notice] Raid: Unknown type tag missing for announce event. Using default: " << static_cast<uint32_t>(messageType) << std::endl;
-		}
-	} else {
+	std::string tmpStrValue = asLowerCaseString(result->getString("type"));
+	if (tmpStrValue == "warning") {
+		messageType = MESSAGE_STATUS_WARNING;
+	} else if (tmpStrValue == "event") {
 		messageType = MESSAGE_EVENT_ADVANCE;
-		std::cout << "[Notice] Raid: type tag missing for announce event. Using default: " << static_cast<uint32_t>(messageType) << std::endl;
+	} else if (tmpStrValue == "default") {
+		messageType = MESSAGE_EVENT_DEFAULT;
+	} else if (tmpStrValue == "description") {
+		messageType = MESSAGE_INFO_DESCR;
+	} else if (tmpStrValue == "smallstatus") {
+		messageType = MESSAGE_STATUS_SMALL;
+	} else if (tmpStrValue == "blueconsole") {
+		messageType = MESSAGE_STATUS_CONSOLE_BLUE;
+	} else if (tmpStrValue == "redconsole") {
+		messageType = MESSAGE_STATUS_CONSOLE_RED;
+	} else {
+		std::cout << "[Notice] Raid: Unknown type tag missing for announce event. Using default: " << static_cast<uint32_t>(messageType) << std::endl;
 	}
 	return true;
 }
@@ -350,40 +336,17 @@ bool AnnounceEvent::executeEvent()
 	return true;
 }
 
-bool SingleSpawnEvent::configureRaidEvent(const pugi::xml_node& eventNode)
+bool SingleSpawnEvent::configureRaidEvent(DBResult_ptr result)
 {
-	if (!RaidEvent::configureRaidEvent(eventNode)) {
+	if (!RaidEvent::configureRaidEvent(result)) {
 		return false;
 	}
 
-	pugi::xml_attribute attr;
-	if ((attr = eventNode.attribute("name"))) {
-		monsterName = attr.as_string();
-	} else {
-		std::cout << "[Error] Raid: name tag missing for singlespawn event." << std::endl;
-		return false;
-	}
+	monsterName = result->getString("monsterName");
+	position.x = result->getNumber<uint16_t>("x");
+	position.y = result->getNumber<uint16_t>("y");
+	position.z = result->getNumber<uint16_t>("z");
 
-	if ((attr = eventNode.attribute("x"))) {
-		position.x = pugi::cast<uint16_t>(attr.value());
-	} else {
-		std::cout << "[Error] Raid: x tag missing for singlespawn event." << std::endl;
-		return false;
-	}
-
-	if ((attr = eventNode.attribute("y"))) {
-		position.y = pugi::cast<uint16_t>(attr.value());
-	} else {
-		std::cout << "[Error] Raid: y tag missing for singlespawn event." << std::endl;
-		return false;
-	}
-
-	if ((attr = eventNode.attribute("z"))) {
-		position.z = pugi::cast<uint16_t>(attr.value());
-	} else {
-		std::cout << "[Error] Raid: z tag missing for singlespawn event." << std::endl;
-		return false;
-	}
 	return true;
 }
 
@@ -403,125 +366,49 @@ bool SingleSpawnEvent::executeEvent()
 	return true;
 }
 
-bool AreaSpawnEvent::configureRaidEvent(const pugi::xml_node& eventNode)
+bool AreaSpawnEvent::configureRaidEvent(DBResult_ptr result)
 {
-	if (!RaidEvent::configureRaidEvent(eventNode)) {
+	if (!RaidEvent::configureRaidEvent(result)) {
 		return false;
 	}
-
-	pugi::xml_attribute attr;
-	if ((attr = eventNode.attribute("radius"))) {
-		int32_t radius = pugi::cast<int32_t>(attr.value());
-		Position centerPos;
-
-		if ((attr = eventNode.attribute("centerx"))) {
-			centerPos.x = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: centerx tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("centery"))) {
-			centerPos.y = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: centery tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("centerz"))) {
-			centerPos.z = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: centerz tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
+	int32_t radius;
+	Position centerPos;		 
+	int spawnTypeId;
+	spawnTypeId = result->getNumber<int>("spawnTypeId");
+	if(spawnTypeId == 2)
+	{	 //in reference to db - radius
+		radius = result->getNumber<uint32_t>("radius");
+		centerPos.x = result->getNumber<uint32_t>("x");
+		centerPos.y = result->getNumber<uint32_t>("y");
+		centerPos.z = result->getNumber<uint32_t>("z");
 		fromPos.x = std::max<int32_t>(0, centerPos.getX() - radius);
 		fromPos.y = std::max<int32_t>(0, centerPos.getY() - radius);
 		fromPos.z = centerPos.z;
-
 		toPos.x = std::min<int32_t>(0xFFFF, centerPos.getX() + radius);
 		toPos.y = std::min<int32_t>(0xFFFF, centerPos.getY() + radius);
 		toPos.z = centerPos.z;
-	} else {
-		if ((attr = eventNode.attribute("fromx"))) {
-			fromPos.x = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: fromx tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("fromy"))) {
-			fromPos.y = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: fromy tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("fromz"))) {
-			fromPos.z = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: fromz tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("tox"))) {
-			toPos.x = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: tox tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("toy"))) {
-			toPos.y = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: toy tag missing for areaspawn event." << std::endl;
-			return false;
-		}
-
-		if ((attr = eventNode.attribute("toz"))) {
-			toPos.z = pugi::cast<uint16_t>(attr.value());
-		} else {
-			std::cout << "[Error] Raid: toz tag missing for areaspawn event." << std::endl;
-			return false;
-		}
+	}else{
+		 //if not 2 then it must be 3 :) (fromto)
+		fromPos.x = result->getNumber<uint32_t>("x");
+		fromPos.y = result->getNumber<uint32_t>("y");
+		fromPos.z = result->getNumber<uint32_t>("z");
+		toPos.x = result->getNumber<uint32_t>("tox");
+		toPos.y = result->getNumber<uint32_t>("toy");
+		toPos.z = result->getNumber<uint32_t>("toz");
 	}
-
-	for (auto monsterNode : eventNode.children()) {
-		const char* name;
-
-		if ((attr = monsterNode.attribute("name"))) {
-			name = attr.value();
-		} else {
-			std::cout << "[Error] Raid: name tag missing for monster node." << std::endl;
-			return false;
-		}
-
-		uint32_t minAmount;
-		if ((attr = monsterNode.attribute("minamount"))) {
-			minAmount = pugi::cast<uint32_t>(attr.value());
-		} else {
-			minAmount = 0;
-		}
-
-		uint32_t maxAmount;
-		if ((attr = monsterNode.attribute("maxamount"))) {
-			maxAmount = pugi::cast<uint32_t>(attr.value());
-		} else {
-			maxAmount = 0;
-		}
-
-		if (maxAmount == 0 && minAmount == 0) {
-			if ((attr = monsterNode.attribute("amount"))) {
-				minAmount = pugi::cast<uint32_t>(attr.value());
-				maxAmount = minAmount;
-			} else {
-				std::cout << "[Error] Raid: amount tag missing for monster node." << std::endl;
-				return false;
-			}
-		}
-
-		spawnList.emplace_back(name, minAmount, maxAmount);
+	uint32_t amount = result->getNumber<uint32_t>("amount");
+	uint32_t minAmount;
+	uint32_t maxAmount;
+	if(amount>0)
+	{
+		minAmount = maxAmount = amount;
+	}else
+	{
+		minAmount = result->getNumber<uint32_t>("minamount");
+		maxAmount = result->getNumber<uint32_t>("maxamount");
 	}
+	const char* name = result->getString("monsterName").c_str();
+	spawnList.emplace_back(name, minAmount, maxAmount);
 	return true;
 }
 
@@ -530,6 +417,7 @@ bool AreaSpawnEvent::executeEvent()
 	for (const MonsterSpawn& spawn : spawnList) {
 		uint32_t amount = uniform_random(spawn.minAmount, spawn.maxAmount);
 		for (uint32_t i = 0; i < amount; ++i) {
+		
 			Monster* monster = Monster::createMonster(spawn.name);
 			if (!monster) {
 				std::cout << "[Error - AreaSpawnEvent::executeEvent] Can't create monster " << spawn.name << std::endl;
@@ -558,19 +446,15 @@ ScriptEvent::ScriptEvent(LuaScriptInterface* _interface) :
 {
 }
 
-bool ScriptEvent::configureRaidEvent(const pugi::xml_node& eventNode)
+bool ScriptEvent::configureRaidEvent(DBResult_ptr result)
 {
-	if (!RaidEvent::configureRaidEvent(eventNode)) {
+	if (!RaidEvent::configureRaidEvent(result)) {
 		return false;
 	}
 
-	pugi::xml_attribute scriptAttribute = eventNode.attribute("script");
-	if (!scriptAttribute) {
-		std::cout << "Error: [ScriptEvent::configureRaidEvent] No script file found for raid" << std::endl;
-		return false;
-	}
+	std::string scriptAttribute = result->getString("name");
 
-	if (!loadScript("data/raids/scripts/" + std::string(scriptAttribute.as_string()))) {
+	if (!loadScript("data/raids/scripts/" + scriptAttribute)) {
 		std::cout << "Error: [ScriptEvent::configureRaidEvent] Can not load raid script." << std::endl;
 		return false;
 	}
