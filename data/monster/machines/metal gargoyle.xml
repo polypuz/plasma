@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Metal Gargoyle" nameDescription="a metal gargoyle" race="energy" experience="1400" speed="300" manacost="0">
+	<health now="2100" max="2100" />
+	<look type="601" corpse="23340" />
+	<targetchange interval="4000" chance="10" />	<!-- Chuj go wie czy git -->
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="250" /> <!-- chuj go wie jak to przelicza atak ze skillem -->
+	</attacks>
+	<defenses armor="60" defense="60">
+	</defenses>
+	<elements>
+		<element firePercent="10" />
+		<element physicalPercent="15" />
+		<element energyPercent="-10" />
+		<element deathPercent="80" />	
+		<element earthPercent="100" />
+		<element icePercent="-5" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="klonk klonk klonk" />
+		<voice sentence="tratatatata" />
+		<voice sentence="fru fru fru" />
+		<voice sentence="szust szust szust" />
+	</voices>
+	<loot> <!--Nie wiem czy dobrze, troche na oko wg wiki-->
+		<item id="2148" countmax="100" chance="50000" /><!-- gold coin -->
+		<item id="2148" countmax="100" chance="50000" /><!-- gold coin -->
+		<item id="2148" countmax="33" chance="50000" /><!-- gold coin -->
+		<item id="5880" chance="500" /><!-- iron ore -->
+		<item id="23557" chance="18000" /><!-- metal jaw -->
+		<item id="7589" chance="9120" /><!-- strong mana potion -->
+		<item id="7588" chance="8860" /><!-- strong health potion -->
+		<item id="11215" chance="3000" /><!-- metal spats -->
+		<item id="9810" chance="2690" /><!-- rusty armor/rare -->
+		<item id="9690" chance="2650" /><!-- gear wheel -->
+		<item id="11227" chance="1430" /><!-- shiny stone -->
+		<item id="23532" chance="980" /><!-- alloy legs -->
+		<item id="23535" chance="970" /><!-- metal bat -->
+		<item id="8910" chance="870" /><!-- underworld rod -->
+		<item id="2168" chance="550" /><!-- life ring -->
+		<item id="2167" chance="520" /><!-- energy ring -->		
+	</loot>
+</monster>

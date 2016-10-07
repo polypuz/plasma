@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Golem" nameDescription="a glooth golem" race="energy" experience="2200" speed="380" manacost="0">
+	<health now="2700" max="2700" />
+	<look type="600" corpse="23336" />	<!-- Jako baze bralem worker golem kkk -->
+	<targetchange interval="4000" chance="10" />	<!-- Chuj go wie czy git -->
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks> <!-- Jeszcze ma Skill Reducer Beam ale nie wiem od kogo to kopiowac -->
+		<attack name="melee" interval="2000" skill="50" attack="125" /> <!-- chuj go wie jak to przelicza atak ze skillem -->
+		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-125">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" min="-1" max="-245">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="massive energy elemental electrify" interval="2000" chance="20">
+			<attribute key="areaEffect" value="yellowspark" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="10" min="100" max="250"> <!-- interval i chance na oko -->
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-5" />
+		<element physicalPercent="5" />
+		<element energyPercent="5" />
+		<element holyPercent="15" />
+		<element deathPercent="30" />	
+		<element earthPercent="100" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="klonk klonk klonk" />
+		<voice sentence="tratatatata" />
+		<voice sentence="Czekam na rozkazy." />
+		<voice sentence="Uciekajcie male kurwie!" />
+	</voices>
+	<loot> <!--Nie wiem czy dobrze, troche na oko wg wiki-->
+		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
+		<item id="2148" countmax="99" chance="100000" /><!-- gold coin -->
+		<item id="2152" countmax="3" chance="60000" /><!-- platinum coin -->
+		<item id="9970" countmax="2" chance="1000" /><!-- small topaz -->
+		<item id="5880" chance="1001" /><!-- iron ore -->
+		<item id="9690" chance="1007" /><!-- gear wheel -->
+		<item id="7590" chance="1470" /><!-- great mana potion -->
+		<item id="23507" chance="10000" /><!-- glooth sanwich -->
+		<item id="23467" chance="15000" /><!-- glooth injection tube -->
+		<item id="2149" countmax="2" chance="8007" /><!-- small emerald -->
+		<item id="8473" chance="5003" /><!-- ultimate health potion -->
+		<item id="23522" chance="1560" /><!-- glooth spear -->
+		<item id="23544" chance="1510" /><!-- glooth axe -->
+		<item id="23547" chance="1500" /><!-- glooth amulet -->
+		<item id="23531" chance="1500" /><!-- heat core -->
+		<item id="23543" chance="1500" /><!-- glooth blade -->
+		<item id="23534" chance="1000" /><!-- gearwheel chain -->
+		<item id="23529" chance="990" /><!-- rubber cap -->
+		<item id="23542" chance="940" /><!-- glooth club -->
+		<item id="2154" chance="820" /><!-- yellow gem -->											
+	</loot>
+</monster>
